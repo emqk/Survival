@@ -18,9 +18,13 @@ public:
 	// Sets default values for this actor's properties
 	UItemManager();
 
-public:
 	UFUNCTION(BlueprintCallable)
 	UItemDataAsset* GetItemData(const FName& id) const;
+
+private:
+
+	UFUNCTION()
+	bool CheckItemDuplicates();
 
 	UPROPERTY()
 	UAssetManager* assetManager = nullptr;
@@ -28,5 +32,6 @@ public:
 	UPROPERTY()
 	FName itemsAssetName = "Items";
 
-	TArray<FAssetData> assetDataList;
+	TArray<UItemDataAsset*> items;
+	TArray<FAssetData> itemsAssets;
 };
