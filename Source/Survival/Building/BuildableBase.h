@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "../Inventory/ItemAssetAmountData.h"
 #include "BuildableBase.generated.h"
 
 UCLASS()
@@ -27,6 +28,9 @@ public:
 	bool CanBePlaced();
 
 protected:
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TArray<FItemAssetAmountData> buildRequirements;
 
 	UPROPERTY(BlueprintReadWrite)
 	bool isOverlapping = false;
