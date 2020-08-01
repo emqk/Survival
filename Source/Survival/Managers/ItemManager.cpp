@@ -2,20 +2,30 @@
 
 
 #include "ItemManager.h"
-#include "Engine/AssetManager.h"
 
 // Sets default values
 UItemManager::UItemManager()
 {
+	assetDataList.Empty();
+	assetManager = UAssetManager::GetIfValid();
+
+	if (assetManager == nullptr)
+	{
+		UE_LOG(LogTemp, Error, TEXT("AssetManger is nullptr!"))
+		return;
+	}
+
+	FPrimaryAssetType assetType = FPrimaryAssetType(itemsAssetName);
+	bool assetsLoaded = assetManager->GetPrimaryAssetDataList(assetType, assetDataList);
+	if (!assetsLoaded)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Can't load assets data of name: %s"), *itemsAssetName.ToString())
+		return;
+	}
 }
 
 UItemDataAsset* UItemManager::GetItemData(const FName& id) const
 {
-	FPrimaryAssetType assetType = FPrimaryAssetType("Items");
-
-	TArray<FAssetData> assetDataList;
-	UAssetManager& assetMan = UAssetManager::Get();
-	bool b = assetMan.GetPrimaryAssetDataList(assetType, assetDataList);
 	for (FAssetData asset : assetDataList)
 	{
 		UItemDataAsset* castedAsset = Cast<UItemDataAsset>(asset.GetAsset());

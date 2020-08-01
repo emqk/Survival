@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "../Inventory/ItemDataAsset.h"
+#include "AssetData.h"
+#include "Engine/AssetManager.h"
 #include "ItemManager.generated.h"
 
 UCLASS(Blueprintable)
@@ -19,4 +21,12 @@ public:
 public:
 	UFUNCTION(BlueprintCallable)
 	UItemDataAsset* GetItemData(const FName& id) const;
+
+	UPROPERTY()
+	UAssetManager* assetManager = nullptr;
+
+	UPROPERTY()
+	FName itemsAssetName = "Items";
+
+	TArray<FAssetData> assetDataList;
 };
