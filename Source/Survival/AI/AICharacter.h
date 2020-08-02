@@ -35,13 +35,7 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UFUNCTION(BlueprintCallable)
-	void LookAtTargetActor();
-
-	UFUNCTION(BlueprintCallable)
-	void SetTargetActor(AInteractableBase* newTargetActor);
-
-	UFUNCTION(BlueprintCallable)
-	void SetTargetLocation(const FVector& location);
+	void LookAtActor(AActor* actor);
 
 	UFUNCTION(BlueprintCallable)
 	void SetIsInteracting(const bool& newValue);
@@ -49,12 +43,6 @@ public:
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UInventoryComponent* inventoryComponent;
-
-	UPROPERTY(BlueprintReadOnly)
-	AInteractableBase* targetActor;
-
-	UPROPERTY(BlueprintReadOnly)
-	FVector targetLocation;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float destructionSpeed = 1;

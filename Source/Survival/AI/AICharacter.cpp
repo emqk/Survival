@@ -12,14 +12,13 @@ AAICharacter::AAICharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	data = NewObject<UNPCData>();
 	inventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("InventoryComponent"));
 }
 
 // Called when the game starts or when spawned
 void AAICharacter::BeginPlay()
 {
-	data = NewObject<UNPCData>();
-
 	Super::BeginPlay();
 }
 
@@ -41,24 +40,13 @@ void AAICharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 }
 
-void AAICharacter::LookAtTargetActor()
+void AAICharacter::LookAtActor(AActor* actor)
 {
-	if (IsValid(targetActor) && isInteracting)
+	if (IsValid(actor))
 	{
-		FRotator lookRotation = FRotator(0, UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), targetActor->GetActorLocation()).Yaw, 0);
+		FRotator lookRotation = FRotator(0, UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), actor->GetActorLocation()).Yaw, 0);
 		SetActorRotation(lookRotation);
 	}
-}
-
-void AAICharacter::SetTargetActor(AInteractableBase* newTargetActor)
-{
-	targetActor = newTargetActor;
-}
-
-void AAICharacter::SetTargetLocation(const FVector& location)
-{
-	targetLocation = location;
-	targetActor = nullptr;
 }
 
 void AAICharacter::SetIsInteracting(const bool& newValue)

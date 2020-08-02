@@ -5,6 +5,7 @@
 
 UNPCData::UNPCData()
 {
+	UE_LOG(LogTemp, Warning, TEXT("NPCData ctor"))
 	myNeeds = NewObject<UNPCNeeds>();
 }
 
