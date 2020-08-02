@@ -35,5 +35,6 @@ void ADestructibleBase::Tick(float DeltaTime)
 bool ADestructibleBase::InteractionTick_Implementation(const float& deltaSeconds, const float& destructionSpeed, const float& buildSpeed)
 {
 	hp -= destructionSpeed * deltaSeconds;
+	UE_LOG(LogTemp, Warning, TEXT("HP: %f"), hp)
 	return hp <= 0;
 }
