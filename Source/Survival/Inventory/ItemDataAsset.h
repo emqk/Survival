@@ -10,12 +10,15 @@
 /**
  * 
  */
-UCLASS(Blueprintable)
-class SURVIVAL_API UItemDataAsset : public UDataAsset
+UCLASS(BlueprintType)
+class SURVIVAL_API UItemDataAsset : public UPrimaryDataAsset
 {
     GENERATED_BODY()
-
+        
 public:
+
+    virtual FPrimaryAssetId GetPrimaryAssetId() const override;
+
     UPROPERTY(EditAnywhere, BlueprintReadOnly)
     FName itemID;
     UPROPERTY(EditAnywhere, BlueprintReadOnly)

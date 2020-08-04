@@ -2,9 +2,15 @@
 
 
 #include "ItemManager.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 // Sets default values
 UItemManager::UItemManager()
+{
+
+}
+
+void UItemManager::Init()
 {
 	items.Empty();
 	itemsAssets.Empty();
@@ -12,30 +18,28 @@ UItemManager::UItemManager()
 
 	if (assetManager == nullptr)
 	{
-		UE_LOG(LogTemp, Error, TEXT("AssetManger is nullptr!"))
+		UE_LOG(LogTemp, Warning, TEXT("AssetManger is nullptr!"))
 		return;
 	}
-
 	FPrimaryAssetType assetType = FPrimaryAssetType(itemsAssetName);
-	bool assetsLoaded = assetManager->GetPrimaryAssetDataList(assetType, itemsAssets);
+	bool assetsLoaded = assetManager->GetPrimaryAssetIdList(assetType, itemsAssets);
 	if (assetsLoaded)
 	{
 		items.Reserve(itemsAssets.Num());
-		for (FAssetData asset : itemsAssets)
+		for (const FPrimaryAssetId& asset : itemsAssets)
 		{
-			UItemDataAsset* castedAsset = Cast<UItemDataAsset>(asset.GetAsset());
-			if (castedAsset)
+			UItemDataAsset* dataA = Cast<UItemDataAsset>(UKismetSystemLibrary::GetObjectFromPrimaryAssetId(asset));
+			if (dataA)
 			{
-				items.Add(castedAsset);
+				items.Add(dataA);
 			}
 		}
 	}
 	else
 	{
-		UE_LOG(LogTemp, Error, TEXT("Can't load assets data of name: %s"), *itemsAssetName.ToString())
+		UE_LOG(LogTemp, Warning, TEXT("Can't load assets data of name: %s"), *itemsAssetName.ToString())
 		return;
 	}
-
 
 	if (CheckItemDuplicates())
 	{
@@ -78,7 +82,7 @@ bool UItemManager::CheckItemDuplicates()
 		}
 		else
 		{
-			UE_LOG(LogTemp, Error, TEXT("%i. NOT UNIQUE ID: %s | Asset name: %s"), i, *item->itemID.ToString(), *itemsAssets[i].AssetName.ToString())
+			UE_LOG(LogTemp, Error, TEXT("%i. NOT UNIQUE ID: %s | Asset name: %s"), i, *item->itemID.ToString(), *itemsAssets[i].PrimaryAssetName.ToString())
 			haveDuplicates = true;
 		}
 		++i;

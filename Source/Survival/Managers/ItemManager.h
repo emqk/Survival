@@ -19,6 +19,9 @@ public:
 	UItemManager();
 
 	UFUNCTION(BlueprintCallable)
+	void Init();
+
+	UFUNCTION(BlueprintCallable)
 	UItemDataAsset* GetItemData(const FName& id) const;
 
 private:
@@ -27,11 +30,10 @@ private:
 	bool CheckItemDuplicates();
 
 	UPROPERTY()
-	UAssetManager* assetManager = nullptr;
-
-	UPROPERTY()
 	FName itemsAssetName = "Items";
 
 	TArray<UItemDataAsset*> items;
-	TArray<FAssetData> itemsAssets;
+	TArray<FPrimaryAssetId> itemsAssets;
+
+	UAssetManager* assetManager = nullptr;
 };

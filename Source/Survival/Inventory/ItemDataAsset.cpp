@@ -3,3 +3,7 @@
 
 #include "ItemDataAsset.h"
 
+FPrimaryAssetId UItemDataAsset::GetPrimaryAssetId() const
+{
+	return FPrimaryAssetId(FPrimaryAssetType("Items"), GetFName());
+}

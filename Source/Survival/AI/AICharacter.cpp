@@ -12,13 +12,13 @@ AAICharacter::AAICharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	data = NewObject<UNPCData>();
 	inventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("InventoryComponent"));
 }
 
 // Called when the game starts or when spawned
 void AAICharacter::BeginPlay()
 {
+	data = NewObject<UNPCData>();
 	Super::BeginPlay();
 }
 
