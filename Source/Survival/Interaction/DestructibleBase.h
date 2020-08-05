@@ -14,6 +14,7 @@
 UCLASS()
 class SURVIVAL_API ADestructibleBase : public AInteractableBase
 {
+
 	GENERATED_BODY()
 
 	ADestructibleBase();

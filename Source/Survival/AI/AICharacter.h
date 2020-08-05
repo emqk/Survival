@@ -40,10 +40,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetIsInteracting(const bool& newValue);
 
-protected:
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	UInventoryComponent* inventoryComponent;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UInventoryComponent* inventoryComp;
+
+protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float destructionSpeed = 1;
 

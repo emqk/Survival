@@ -10,7 +10,7 @@
 #include "InventoryComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(BlueprintType, Blueprintable, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class SURVIVAL_API UInventoryComponent : public UActorComponent
 {
 	GENERATED_BODY()
@@ -28,16 +28,21 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable)
+	void MoveItem(const FName& itemID, UInventoryComponent* targetInventory);
+
+	UFUNCTION(BlueprintCallable)
 	void AddItemsFromAsset(const TArray<FItemAssetAmountData>& itemsToAdd);
 	UFUNCTION(BlueprintCallable)
 	void AddItem(const FItemInstance& item);
 	UFUNCTION(BlueprintCallable)
 	bool RemoveItemOfID(const FName& itemID, const int& amount);
+	UFUNCTION(BlueprintCallable)
+	bool RemoveItemOfIDMax(const FName& itemID);
 
 	UFUNCTION(BlueprintCallable)
 	bool HaveAmountOfItem(const FName& itemID, const int& amount) const;
 	UFUNCTION(BlueprintCallable)
-	bool HaveAmountOfItems(const TArray<FItemAmountData>& neededItems) const;
+	bool HaveAmountOfItems(const TArray<FItemAssetAmountData>& neededItems) const;
 	UFUNCTION(BlueprintCallable)
 	int GetItemIndex(const FName& itemID) const;
 	UFUNCTION(BlueprintCallable)

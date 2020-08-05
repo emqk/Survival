@@ -22,17 +22,21 @@ public:
 	ABuildablePrototype();
 
 
+
 protected:
 
 	UFUNCTION(BlueprintCallable)
-	void SetupCPP(UStaticMesh* staticMesh, UMaterialInterface* material, TSubclassOf<ABuildableBase> toBuildClass);
+	void SetupVisuals(UStaticMesh* staticMesh, UMaterialInterface* material, TSubclassOf<ABuildableBase> toBuildClass);
+
+	UFUNCTION(BlueprintCallable)
+	void GiveNeededItems(UInventoryComponent* inventory);
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UWidgetComponent* myWidget;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UStaticMeshComponent* meshComp;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	UInventoryComponent* inventoryComponent;
+	UInventoryComponent* inventoryComp;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TArray<FItemAssetAmountData> buildRequirements;

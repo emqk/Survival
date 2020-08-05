@@ -34,6 +34,16 @@ void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 	// ...
 }
 
+void UInventoryComponent::MoveItem(const FName& itemID, UInventoryComponent* targetInventory)
+{
+	int index = GetItemIndex(itemID);
+	if (index >= 0)
+	{
+		targetInventory->AddItem(items[index]);
+		RemoveItemOfIDMax(itemID);
+	}
+}
+
 void UInventoryComponent::AddItemsFromAsset(const TArray<FItemAssetAmountData>& itemsToAdd)
 {
 	UPlayerGameInstance* gameInstance = Cast<UPlayerGameInstance>(UGameplayStatics::GetGameInstance(this));
@@ -71,7 +81,23 @@ bool UInventoryComponent::RemoveItemOfID(const FName& itemID, const int& amount)
 	}
 	else
 	{
-		UE_LOG(LogTemp, Error, TEXT("Can't remove item-No item of type %s in Inventory"), *itemID.ToString())
+		UE_LOG(LogTemp, Error, TEXT("Can't remove item-No item of id %s in Inventory"), *itemID.ToString())
+	}
+
+	return false;
+}
+
+bool UInventoryComponent::RemoveItemOfIDMax(const FName& itemID)
+{
+	int itemIndex = GetItemIndex(itemID);
+	if (itemIndex >= 0)
+	{
+		items.RemoveAt(itemIndex);
+		return true;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Can't remove item-No item of id %s in Inventory"), *itemID.ToString())
 	}
 
 	return false;
@@ -90,11 +116,11 @@ bool UInventoryComponent::HaveAmountOfItem(const FName& itemID, const int& amoun
 	return false;
 }
 
-bool UInventoryComponent::HaveAmountOfItems(const TArray<FItemAmountData>& neededItems) const
+bool UInventoryComponent::HaveAmountOfItems(const TArray<FItemAssetAmountData>& neededItems) const
 {
-	for (const FItemAmountData& currItem : neededItems)
+	for (const FItemAssetAmountData& currItem : neededItems)
 	{
-		if (!HaveAmountOfItem(currItem.itemID, currItem.amount))
+		if (!HaveAmountOfItem(currItem.itemAsset->itemID, currItem.amount))
 		{
 			return false;
 		}
