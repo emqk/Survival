@@ -25,6 +25,16 @@ void ABuildableBase::Tick(float DeltaTime)
 
 }
 
+float ABuildableBase::GetWorkAmountToBuild() const
+{
+	return workAmountToBuild;
+}
+
+const TArray<FItemAssetAmountData>& ABuildableBase::GetBuildRequirements() const
+{
+	return buildRequirements;
+}
+
 bool ABuildableBase::CanBePlaced()
 {
 	return !isOverlapping;

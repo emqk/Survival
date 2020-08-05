@@ -25,13 +25,20 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintPure)
+	float GetWorkAmountToBuild() const;
+	UFUNCTION(BlueprintPure)
+	const TArray<FItemAssetAmountData>& GetBuildRequirements() const;
+
+	UFUNCTION(BlueprintPure)
 	bool CanBePlaced();
 
 protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TArray<FItemAssetAmountData> buildRequirements;
-
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	float workAmountToBuild;
+	
 	UPROPERTY(BlueprintReadWrite)
 	bool isOverlapping = false;
 };

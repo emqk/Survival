@@ -43,21 +43,6 @@ void UInventoryComponent::AddItemsFromAsset(const TArray<FItemAssetAmountData>& 
 	}
 }
 
-void UInventoryComponent::AddItems(const TArray<FItemAmountData>& itemsToAdd)
-{
-	UPlayerGameInstance* gameInstance = Cast<UPlayerGameInstance>(UGameplayStatics::GetGameInstance(this));
-	for (const FItemAmountData& item : itemsToAdd)
-	{
-		AddItem({ gameInstance->itemManager->GetItemData(item.itemID), item.amount });
-	}
-}
-
-void UInventoryComponent::AddItemAmountData(const FItemAmountData& item)
-{
-	UPlayerGameInstance* gameInstance = Cast<UPlayerGameInstance>(UGameplayStatics::GetGameInstance(this));
-	AddItem({ gameInstance->itemManager->GetItemData(item.itemID), item.amount });
-}
-
 void UInventoryComponent::AddItem(const FItemInstance& item)
 {
 	int itemIndex = GetItemIndex(item.data->itemID);

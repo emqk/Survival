@@ -3,8 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "../Interaction/InteractableBase.h"
 #include "Components/WidgetComponent.h"
+#include "../Interaction/InteractableBase.h"
+#include "../Inventory/InventoryComponent.h"
+#include "../Inventory/ItemAssetAmountData.h"
+#include "BuildableBase.h"
 #include "BuildablePrototype.generated.h"
 
 /**
@@ -18,11 +21,23 @@ class SURVIVAL_API ABuildablePrototype : public AInteractableBase
 public:
 	ABuildablePrototype();
 
+
+protected:
+
+	UFUNCTION(BlueprintCallable)
+	void SetupCPP(UStaticMesh* staticMesh, UMaterialInterface* material, TSubclassOf<ABuildableBase> toBuildClass);
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UWidgetComponent* myWidget;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UStaticMeshComponent* meshComp;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UInventoryComponent* inventoryComponent;
 
-protected:
-
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	TArray<FItemAssetAmountData> buildRequirements;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	float workAmountToBuild;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TSubclassOf<ABuildableBase> toBuild;
 };

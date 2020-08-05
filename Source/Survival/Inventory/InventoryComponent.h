@@ -30,10 +30,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AddItemsFromAsset(const TArray<FItemAssetAmountData>& itemsToAdd);
 	UFUNCTION(BlueprintCallable)
-	void AddItems(const TArray<FItemAmountData>& itemsToAdd);
-	UFUNCTION(BlueprintCallable)
-	void AddItemAmountData(const FItemAmountData& item);
-	UFUNCTION(BlueprintCallable)
 	void AddItem(const FItemInstance& item);
 	UFUNCTION(BlueprintCallable)
 	bool RemoveItemOfID(const FName& itemID, const int& amount);
@@ -47,6 +43,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	const TArray<FItemInstance>& GetItems() const;
 
-private:
+protected:
+	UPROPERTY(VisibleAnywhere)
 	TArray<FItemInstance> items;
 };
