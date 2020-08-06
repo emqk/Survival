@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "InteractableBase.h"
 #include "../Inventory/ItemAmountData.h"
-#include "../Inventory/ItemAssetAmountData.h"
+#include "../Inventory/ItemInstance.h"
 #include "DestructibleBase.generated.h"
 
 /**
@@ -44,5 +44,5 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float hp = 0;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TArray<FItemAssetAmountData> afterDestroyItems;
+	TArray<FItemInstance> afterDestroyItems;
 };

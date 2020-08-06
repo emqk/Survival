@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "../Inventory/ItemAssetAmountData.h"
+#include "../Inventory/ItemInstance.h"
 #include "BuildableBase.generated.h"
 
 UCLASS()
@@ -27,7 +27,7 @@ public:
 	UFUNCTION(BlueprintPure)
 	float GetWorkAmountToBuild() const;
 	UFUNCTION(BlueprintPure)
-	const TArray<FItemAssetAmountData>& GetBuildRequirements() const;
+	const TArray<FItemInstance>& GetBuildRequirements() const;
 
 	UFUNCTION(BlueprintPure)
 	bool CanBePlaced();
@@ -35,7 +35,7 @@ public:
 protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TArray<FItemAssetAmountData> buildRequirements;
+	TArray<FItemInstance> buildRequirements;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float workAmountToBuild;
 	

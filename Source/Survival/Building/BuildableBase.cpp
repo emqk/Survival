@@ -30,7 +30,7 @@ float ABuildableBase::GetWorkAmountToBuild() const
 	return workAmountToBuild;
 }
 
-const TArray<FItemAssetAmountData>& ABuildableBase::GetBuildRequirements() const
+const TArray<FItemInstance>& ABuildableBase::GetBuildRequirements() const
 {
 	return buildRequirements;
 }

@@ -34,22 +34,26 @@ void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 	// ...
 }
 
-void UInventoryComponent::MoveItem(const FName& itemID, UInventoryComponent* targetInventory)
+bool UInventoryComponent::MoveItem(const FName& itemID, const int& amount, UInventoryComponent* targetInventory)
 {
 	int index = GetItemIndex(itemID);
 	if (index >= 0)
 	{
-		targetInventory->AddItem(items[index]);
-		RemoveItemOfIDMax(itemID);
+		int availableMoveAmount = FMath::Min(items[index].amount, amount);
+		targetInventory->AddItem({ items[index].data, availableMoveAmount });
+		RemoveItemOfID(itemID, availableMoveAmount);
+		return true;
 	}
+
+	return false;
 }
 
-void UInventoryComponent::AddItemsFromAsset(const TArray<FItemAssetAmountData>& itemsToAdd)
+void UInventoryComponent::AddItemsFromAsset(const TArray<FItemInstance>& itemsToAdd)
 {
 	UPlayerGameInstance* gameInstance = Cast<UPlayerGameInstance>(UGameplayStatics::GetGameInstance(this));
-	for (const FItemAssetAmountData& itemAssetAmount : itemsToAdd)
+	for (const FItemInstance& itemAssetAmount : itemsToAdd)
 	{
-		AddItem({ gameInstance->itemManager->GetItemData(itemAssetAmount.itemAsset->itemID), itemAssetAmount.amount });
+		AddItem({ gameInstance->itemManager->GetItemData(itemAssetAmount.data->itemID), itemAssetAmount.amount });
 	}
 }
 
@@ -116,11 +120,11 @@ bool UInventoryComponent::HaveAmountOfItem(const FName& itemID, const int& amoun
 	return false;
 }
 
-bool UInventoryComponent::HaveAmountOfItems(const TArray<FItemAssetAmountData>& neededItems) const
+bool UInventoryComponent::HaveAmountOfItems(const TArray<FItemInstance>& neededItems) const
 {
-	for (const FItemAssetAmountData& currItem : neededItems)
+	for (const FItemInstance& currItem : neededItems)
 	{
-		if (!HaveAmountOfItem(currItem.itemAsset->itemID, currItem.amount))
+		if (!HaveAmountOfItem(currItem.data->itemID, currItem.amount))
 		{
 			return false;
 		}

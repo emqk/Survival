@@ -25,10 +25,14 @@ void ABuildablePrototype::SetupVisuals(UStaticMesh* staticMesh, UMaterialInterfa
 
 void ABuildablePrototype::GiveNeededItems(UInventoryComponent* inventory)
 {
-	size_t count = inventory->GetItems().Num();
-	for (int i = count - 1; i >= 0; --i)
+	for (const FItemInstance& item : buildRequirements)
 	{
-		FName id = inventory->GetItems()[i].data->itemID;
-		inventory->MoveItem(id, inventoryComp);
+		int currAmount = 0;
+		int itemIndex = inventoryComp->GetItemIndex(item.data->itemID);
+		if (itemIndex >= 0)
+			currAmount = inventoryComp->GetItems()[itemIndex].amount;
+		int needAmount = FMath::Max(item.amount - currAmount, 0);
+
+		inventory->MoveItem(item.data->itemID, needAmount, inventoryComp);
 	}
 }

@@ -6,7 +6,6 @@
 #include "Components/WidgetComponent.h"
 #include "../Interaction/InteractableBase.h"
 #include "../Inventory/InventoryComponent.h"
-#include "../Inventory/ItemAssetAmountData.h"
 #include "BuildableBase.h"
 #include "BuildablePrototype.generated.h"
 
@@ -39,7 +38,7 @@ protected:
 	UInventoryComponent* inventoryComp;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	TArray<FItemAssetAmountData> buildRequirements;
+	TArray<FItemInstance> buildRequirements;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	float workAmountToBuild;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
