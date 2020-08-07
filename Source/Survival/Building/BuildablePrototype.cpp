@@ -35,4 +35,6 @@ void ABuildablePrototype::GiveNeededItems(UInventoryComponent* inventory)
 
 		inventory->MoveItem(item.data->itemID, needAmount, inventoryComp);
 	}
+
+	RefreshText();
 }

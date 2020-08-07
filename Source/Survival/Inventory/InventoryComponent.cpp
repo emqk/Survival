@@ -133,6 +133,17 @@ bool UInventoryComponent::HaveAmountOfItems(const TArray<FItemInstance>& neededI
 	return true;
 }
 
+int UInventoryComponent::GetAmountOfItem(const FName& itemID) const
+{
+	int index = GetItemIndex(itemID);
+	if (index >= 0)
+	{
+		return items[index].amount;
+	}
+
+	return 0;
+}
+
 int UInventoryComponent::GetItemIndex(const FName& itemID) const
 {
 	int currIndex = 0;

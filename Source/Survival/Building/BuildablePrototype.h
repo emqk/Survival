@@ -24,6 +24,9 @@ public:
 
 protected:
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void RefreshText();
+
 	UFUNCTION(BlueprintCallable)
 	void SetupVisuals(UStaticMesh* staticMesh, UMaterialInterface* material, TSubclassOf<ABuildableBase> toBuildClass);
 

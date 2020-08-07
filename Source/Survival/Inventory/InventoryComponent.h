@@ -42,6 +42,8 @@ public:
 	bool HaveAmountOfItem(const FName& itemID, const int& amount) const;
 	UFUNCTION(BlueprintCallable)
 	bool HaveAmountOfItems(const TArray<FItemInstance>& neededItems) const;
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	int GetAmountOfItem(const FName& itemID) const;
 	UFUNCTION(BlueprintCallable)
 	int GetItemIndex(const FName& itemID) const;
 	UFUNCTION(BlueprintCallable)
