@@ -16,6 +16,8 @@ public:
 	// Sets default values for this actor's properties
 	AProceduralTerrain();
 
+	void Generate();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -34,10 +36,37 @@ protected:
 	UPROPERTY()
 		TArray<FVector2D> uvs;
 	UPROPERTY()
-		TArray<FLinearColor> vertexColors;
+		TArray<FColor> vertexColors;
 	UPROPERTY()
 		TArray<FProcMeshTangent> tangents;
 
 	UPROPERTY(VisibleAnywhere)
 	UProceduralMeshComponent* mesh;
+	UPROPERTY(EditAnywhere)
+	UMaterialInstance* material;
+
+	UPROPERTY(EditAnywhere)
+	int numberOfEachVegetation = 10;
+	UPROPERTY(EditAnywhere)
+	TArray<TSubclassOf<AActor>> vegetationToSpawn;
+
+	const float gridSize = 100.0f;
+
+	UPROPERTY(EditAnywhere)
+	float heightMultiplier = 100;
+	UPROPERTY(EditAnywhere)
+	float scale = 100;
+	UPROPERTY(EditAnywhere)
+	int width = 1;
+	UPROPERTY(EditAnywhere)
+	int height = 1;
+
+private:
+	void GenerateVegetation();
+
+	void GenerateVertices();
+	//void CalculateNormals();
+	void FillMesh();
+	//void AddTriangle(const FVector& location_0, const FVector& location_1, const FVector& location_2);
+	void ClearMeshData();
 };
