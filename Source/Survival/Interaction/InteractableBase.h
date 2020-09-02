@@ -29,5 +29,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float interactionDistance = 0.0f;
 
-private:
+protected:
+	UPROPERTY(EditAnywhere)
+	USceneComponent* sceneComp;
 };

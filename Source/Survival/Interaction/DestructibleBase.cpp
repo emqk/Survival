@@ -10,7 +10,7 @@ ADestructibleBase::ADestructibleBase()
 	PrimaryActorTick.bCanEverTick = true;
 
 	staticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
-
+	staticMeshComponent->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
 // Called when the game starts or when spawned
