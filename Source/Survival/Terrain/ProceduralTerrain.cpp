@@ -3,6 +3,8 @@
 
 #include "ProceduralTerrain.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "Kismet/KismetSystemLibrary.h"
+#include "NavigationSystem.h"
 #include <SimplexNoise\Public\SimplexNoiseBPLibrary.h>
 
 // Sets default values
@@ -47,6 +49,8 @@ void AProceduralTerrain::Generate()
 	
 	GenerateVegetation();
 
+	AlignNavMeshToTerrain();
+
 	double end = FPlatformTime::Seconds();
 	UE_LOG(LogTemp, Warning, TEXT("Terrain generated in: %f s. | Tris: %u"), end - start, triangles.Num()/3);
 }
@@ -74,10 +78,28 @@ void AProceduralTerrain::GenerateVegetation()
 	}
 }
 
+void AProceduralTerrain::AlignNavMeshToTerrain()
+{
+	if (navMesh)
+	{
+		FVector newLocation = GetActorLocation() + FVector((height * gridSize) / 2.0f, (width*gridSize) / 2.0f, 0);
+		FVector newSize = FVector(height * (gridSize / 100.0f) / 2.0f, width * (gridSize / 100.0f) / 2.0f, 30);
+		navMesh->SetActorLocation(newLocation);
+		navMesh->SetActorScale3D(newSize);
+
+		//Refresh navMesh by adding this actor to it's data and then rebuilding navMesh
+		FNavigationSystem::UpdateActorAndComponentData(*this);
+		UKismetSystemLibrary::ExecuteConsoleCommand(GetWorld(), "RebuildNavigation");
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Please assign navMeshBoundsVolume in editor!"))
+	}
+}
+
 void AProceduralTerrain::GenerateVertices()
 {
 	vertices.Reserve(height * width);
-	FRandomStream(123456789);
 	FVector2D offset = FVector2D(UKismetMathLibrary::RandomFloatInRange(-99999999.9f, 99999999.9f), UKismetMathLibrary::RandomFloatInRange(-99999999.9f, 99999999.9f));
 	for (size_t x = 0, i = 0; x <= height; x++, i++)
 	{

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "ProceduralMeshComponent.h"
+#include "NavMesh/NavMeshBoundsVolume.h"
 #include "ProceduralTerrain.generated.h"
 
 UCLASS()
@@ -44,13 +45,16 @@ protected:
 	UProceduralMeshComponent* mesh;
 	UPROPERTY(EditAnywhere)
 	UMaterialInstance* material;
+	UPROPERTY(EditAnywhere)
+	ANavMeshBoundsVolume* navMesh;
 
 	UPROPERTY(EditAnywhere)
 	int numberOfEachVegetation = 10;
 	UPROPERTY(EditAnywhere)
 	TArray<TSubclassOf<AActor>> vegetationToSpawn;
 
-	const float gridSize = 100.0f;
+	UPROPERTY(EditAnywhere)
+	float gridSize = 100.0f;
 
 	UPROPERTY(EditAnywhere)
 	float heightMultiplier = 100;
@@ -63,6 +67,8 @@ protected:
 
 private:
 	void GenerateVegetation();
+
+	void AlignNavMeshToTerrain();
 
 	void GenerateVertices();
 	//void CalculateNormals();
