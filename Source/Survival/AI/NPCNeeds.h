@@ -27,5 +27,6 @@ public:
     UFUNCTION(BlueprintCallable)
     UStatistic* GetNeedByType(NeedType type) const;
 
+private:
     TArray<std::pair<NeedType, UStatistic*>> needs;
 };

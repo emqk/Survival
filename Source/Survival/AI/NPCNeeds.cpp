@@ -10,7 +10,6 @@ UNPCNeeds::UNPCNeeds()
 	needs.Add(std::make_pair(NeedType::Happyness, NewObject<UStatistic>()));
 }
 
-
 UNPCNeeds::~UNPCNeeds()
 {
 }

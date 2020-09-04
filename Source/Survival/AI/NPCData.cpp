@@ -17,6 +17,14 @@ UNPCNeeds* UNPCData::GetNeeds() const
 	return myNeeds;
 }
 
+FName UNPCData::GetFullName() const
+{
+	FString str = name.ToString();
+	str.Append(" ");
+	str.Append(surname.ToString());
+	return FName(str);
+}
+
 void UNPCData::SetFullName(const FName& newName, const FName& newSurname)
 {
 	name = newName;

@@ -11,12 +11,17 @@ UStatistic::~UStatistic()
 {
 }
 
-void UStatistic::ChangeByAmount(const int& _amount)
+void UStatistic::ChangeByAmount(const float& _amount)
 {
 	amount = FMath::Clamp(amount + _amount, minAmount, maxAmount);
 }
 
-int UStatistic::GetAmount() const
+float UStatistic::GetAmountNormalized() const
+{
+	return GetAmount() / maxAmount;
+}
+
+float UStatistic::GetAmount() const
 {
 	return amount;
 }

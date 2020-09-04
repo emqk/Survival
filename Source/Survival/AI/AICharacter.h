@@ -34,6 +34,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	void TickNeeds(const float& deltaTime);
+
 	UFUNCTION(BlueprintCallable)
 	void LookAtActor(AActor* actor);
 
@@ -59,4 +61,9 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 	UNPCData* data;
+
+private:
+	const float hungerDecreasePerSec = 0.7f;
+	const float thirstDecreasePerSec = 1.1f;
+	const float energyDecreasePerSec = 0.3f;
 };

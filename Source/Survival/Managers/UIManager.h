@@ -36,6 +36,8 @@ public:
 
 	//Crew
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void RefreshNPCInfo(const UNPCData* npcData);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void RefreshCrew(const TArray<AAICharacter*>& crewMembers);
 
 protected:

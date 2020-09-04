@@ -20,10 +20,11 @@ public:
 	UNPCNeeds* GetNeeds() const;
 
 	UFUNCTION(BlueprintCallable)
+	FName GetFullName() const;
+	UFUNCTION(BlueprintCallable)
 	void SetFullName(const FName& newName, const FName& newSurname);
-
+	
 protected:
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		FName name = "None";
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

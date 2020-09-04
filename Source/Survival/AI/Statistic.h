@@ -17,13 +17,15 @@ public:
     ~UStatistic();
 
     UFUNCTION(BlueprintCallable)
-    void ChangeByAmount(const int& _amount);
+    void ChangeByAmount(const float& _amount);
 
     UFUNCTION(BlueprintCallable)
-    int GetAmount() const;
+    float GetAmountNormalized() const;
+    UFUNCTION(BlueprintCallable)
+    float GetAmount() const;
 
 private:
-    const int minAmount = 0;
-    const int maxAmount = 100;
-    int amount = 0;
+    const float minAmount = 0;
+    const float maxAmount = 100;
+    float amount = 0;
 };

@@ -31,13 +31,20 @@ UNPCData* AAICharacter::GetNPCData() const
 void AAICharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	TickNeeds(DeltaTime);
 }
 
 // Called to bind functionality to input
 void AAICharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+}
 
+void AAICharacter::TickNeeds(const float& deltaTime)
+{
+	GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Hunger)->ChangeByAmount(hungerDecreasePerSec * deltaTime);
+	GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Thirst)->ChangeByAmount(thirstDecreasePerSec * deltaTime);
+	GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Energy)->ChangeByAmount(energyDecreasePerSec * deltaTime);
 }
 
 void AAICharacter::LookAtActor(AActor* actor)
