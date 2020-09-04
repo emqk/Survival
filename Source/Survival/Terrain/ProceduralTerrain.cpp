@@ -67,7 +67,7 @@ void AProceduralTerrain::GenerateVegetation()
 			FVector start = terrainLocation + FVector(UKismetMathLibrary::RandomFloatInRange(0, height * gridSize), UKismetMathLibrary::RandomFloatInRange(0, width * gridSize), 1000);
 			FVector end = start - FVector(0, 0, 2500);
 			world->LineTraceSingleByChannel(hit, start, end, ECC_Visibility);
-			while ((hit.Actor != nullptr && hit.ImpactPoint.Z >= terrainLocation.Z) == false)
+			while ((hit.Actor != nullptr && hit.ImpactPoint.Z >= terrainLocation.Z && Cast<AProceduralTerrain>(hit.Actor)) == false)
 			{
 				start = terrainLocation + FVector(UKismetMathLibrary::RandomFloatInRange(0, height * gridSize), UKismetMathLibrary::RandomFloatInRange(0, width * gridSize), 1000);
 				end = start - FVector(0, 0, 2500);
