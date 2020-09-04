@@ -4,10 +4,10 @@
 
 UNPCNeeds::UNPCNeeds()
 {
-	needs.Add(std::make_pair(NeedType::Hunger, NewObject<UStatistic>()));
-	needs.Add(std::make_pair(NeedType::Thirst, NewObject<UStatistic>()));
-	needs.Add(std::make_pair(NeedType::Energy, NewObject<UStatistic>()));
-	needs.Add(std::make_pair(NeedType::Happyness, NewObject<UStatistic>()));
+	needs.Add(NeedType::Hunger, NewObject<UStatistic>());
+	needs.Add(NeedType::Thirst, NewObject<UStatistic>());
+	needs.Add(NeedType::Energy, NewObject<UStatistic>());
+	needs.Add(NeedType::Happyness, NewObject<UStatistic>());
 }
 
 UNPCNeeds::~UNPCNeeds()
@@ -16,5 +16,5 @@ UNPCNeeds::~UNPCNeeds()
 
 UStatistic* UNPCNeeds::GetNeedByType(NeedType type) const
 {
-	return needs[(int)type].second;
+	return needs[type];
 }

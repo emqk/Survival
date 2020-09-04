@@ -28,5 +28,7 @@ public:
     UStatistic* GetNeedByType(NeedType type) const;
 
 private:
-    TArray<std::pair<NeedType, UStatistic*>> needs;
+
+    UPROPERTY()
+    TMap<NeedType, UStatistic*> needs;
 };
