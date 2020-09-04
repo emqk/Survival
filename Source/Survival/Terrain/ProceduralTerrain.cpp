@@ -73,7 +73,9 @@ void AProceduralTerrain::GenerateVegetation()
 				end = start - FVector(0, 0, 2500);
 				world->LineTraceSingleByChannel(hit, start, end, ECC_Visibility);
 			}
-			world->SpawnActor<AActor>(vegetationToSpawn[i], hit.ImpactPoint, FRotator(0, 0, 0));
+
+			FRotator rotation(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0);
+			world->SpawnActor<AActor>(vegetationToSpawn[i], hit.ImpactPoint, rotation);
 		}
 	}
 }
