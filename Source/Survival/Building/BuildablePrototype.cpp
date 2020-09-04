@@ -6,7 +6,7 @@
 ABuildablePrototype::ABuildablePrototype()
 {
 	meshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
-	SetRootComponent(meshComp);
+	meshComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 
 	myWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("Widget"));
 	myWidget->AttachToComponent(meshComp, FAttachmentTransformRules::KeepRelativeTransform);
