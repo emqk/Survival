@@ -187,3 +187,13 @@ void UInventoryComponent::CalculateWeight()
 		currentWeight += currItem.data->weight * currItem.amount;
 	}
 }
+
+float UInventoryComponent::GetCurrentWeight() const
+{
+	return currentWeight;
+}
+
+float UInventoryComponent::GetMaxWeight() const
+{
+	return maxWeight;
+}

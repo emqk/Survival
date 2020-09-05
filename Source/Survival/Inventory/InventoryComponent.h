@@ -53,6 +53,10 @@ public:
 
 	UFUNCTION()
 	void CalculateWeight();
+	UFUNCTION(BlueprintPure)
+	float GetCurrentWeight() const;
+	UFUNCTION(BlueprintPure)
+	float GetMaxWeight() const;
 
 protected:
 	UPROPERTY(VisibleAnywhere)
