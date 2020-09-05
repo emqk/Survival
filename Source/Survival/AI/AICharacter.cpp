@@ -13,6 +13,7 @@ AAICharacter::AAICharacter()
 	PrimaryActorTick.bCanEverTick = true;
 
 	inventoryComp = CreateDefaultSubobject<UInventoryComponent>(TEXT("Inventory"));
+	AddOwnedComponent(inventoryComp);
 }
 
 // Called when the game starts or when spawned

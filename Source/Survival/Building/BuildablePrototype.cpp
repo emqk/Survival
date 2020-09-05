@@ -12,6 +12,7 @@ ABuildablePrototype::ABuildablePrototype()
 	myWidget->AttachToComponent(meshComp, FAttachmentTransformRules::KeepRelativeTransform);
 
 	inventoryComp = CreateDefaultSubobject<UInventoryComponent>(TEXT("Collected"));
+	AddOwnedComponent(inventoryComp);
 }
 
 void ABuildablePrototype::SetupVisuals(UStaticMesh* staticMesh, UMaterialInterface* material, TSubclassOf<ABuildableBase> toBuildClass)

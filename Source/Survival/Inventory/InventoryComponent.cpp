@@ -68,6 +68,20 @@ void UInventoryComponent::AddItem(const FItemInstance& item)
 	{
 		items.Add(item);
 	}
+
+	CalculateWeight();
+}
+
+bool UInventoryComponent::RemoveItem(const int32& index)
+{
+	if (items.IsValidIndex(index))
+	{
+		items.RemoveAt(index);
+		CalculateWeight();
+		return true;
+	}
+	
+	return false;
 }
 
 bool UInventoryComponent::RemoveItemOfID(const FName& itemID, const int& amount)
@@ -76,9 +90,10 @@ bool UInventoryComponent::RemoveItemOfID(const FName& itemID, const int& amount)
 	if (itemIndex >= 0)
 	{
 		items[itemIndex].amount -= amount;
+		CalculateWeight(); //Refresh weight after changing amount
 		if (items[itemIndex].amount <= 0)
 		{
-			items.RemoveAt(itemIndex);
+			RemoveItem(itemIndex);
 		}
 
 		return true;
@@ -96,7 +111,7 @@ bool UInventoryComponent::RemoveItemOfIDMax(const FName& itemID)
 	int itemIndex = GetItemIndex(itemID);
 	if (itemIndex >= 0)
 	{
-		items.RemoveAt(itemIndex);
+		RemoveItem(itemIndex);
 		return true;
 	}
 	else
@@ -162,4 +177,13 @@ int UInventoryComponent::GetItemIndex(const FName& itemID) const
 const TArray<FItemInstance>& UInventoryComponent::GetItems() const
 {
 	return items;
+}
+
+void UInventoryComponent::CalculateWeight()
+{
+	currentWeight = 0;
+	for (const FItemInstance& currItem : items)
+	{
+		currentWeight += currItem.data->weight * currItem.amount;
+	}
 }

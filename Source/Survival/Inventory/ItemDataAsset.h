@@ -23,4 +23,7 @@ public:
     FName itemID;
     UPROPERTY(EditAnywhere, BlueprintReadOnly)
     FText name;
+    
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    float weight;
 };

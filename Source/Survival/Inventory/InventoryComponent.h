@@ -34,6 +34,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AddItem(const FItemInstance& item);
 	UFUNCTION(BlueprintCallable)
+	bool RemoveItem(const int32& index);
+	UFUNCTION(BlueprintCallable)
 	bool RemoveItemOfID(const FName& itemID, const int& amount);
 	UFUNCTION(BlueprintCallable)
 	bool RemoveItemOfIDMax(const FName& itemID);
@@ -49,7 +51,15 @@ public:
 	UFUNCTION(BlueprintCallable)
 	const TArray<FItemInstance>& GetItems() const;
 
+	UFUNCTION()
+	void CalculateWeight();
+
 protected:
 	UPROPERTY(VisibleAnywhere)
 	TArray<FItemInstance> items;
+	
+	UPROPERTY(VisibleAnywhere)
+	float maxWeight = 10;
+	UPROPERTY(VisibleAnywhere)
+	float currentWeight = 0;
 };
