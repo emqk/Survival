@@ -3,8 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "../AI/AICharacter.h"
 #include "GameFramework/Actor.h"
 #include "InteractableBase.generated.h"
+
 
 UCLASS()
 class SURVIVAL_API AInteractableBase : public AActor
@@ -24,7 +26,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	bool InteractionTick(const float& deltaSeconds, const float& destructionSpeed, const float& buildSpeed);
+	bool InteractionTick(const float& deltaSeconds, const AAICharacter* character);
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float interactionDistance = 0.0f;

@@ -31,7 +31,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	
-	virtual bool InteractionTick_Implementation(const float& deltaSeconds, const float& destructionSpeed, const float& buildSpeed) override;
+	virtual bool InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character) override;
 
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Components")

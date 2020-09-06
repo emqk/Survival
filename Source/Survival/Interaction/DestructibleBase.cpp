@@ -2,8 +2,10 @@
 
 
 #include "DestructibleBase.h"
+
 #include "Kismet/KismetMathLibrary.h" 
 #include "Kismet/GameplayStatics.h" 
+
 
 ADestructibleBase::ADestructibleBase()
 {
@@ -39,8 +41,13 @@ void ADestructibleBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-bool ADestructibleBase::InteractionTick_Implementation(const float& deltaSeconds, const float& destructionSpeed, const float& buildSpeed)
+bool ADestructibleBase::InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character)
 {
-	hp -= destructionSpeed * deltaSeconds;
-	return hp <= 0;
+	hp -= character->GetDestructionSpeed() * deltaSeconds;
+	bool isFinished = hp <= 0;
+	if (isFinished)
+	{
+		Destroy();
+	}
+	return isFinished;
 }

@@ -20,6 +20,8 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
+	virtual bool InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character) override;
+
 protected:
 	virtual void BeginPlay() override;
 

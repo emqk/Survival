@@ -61,3 +61,13 @@ void AAICharacter::SetIsInteracting(const bool& newValue)
 {
 	isInteracting = newValue;
 }
+
+float AAICharacter::GetDestructionSpeed() const
+{
+	return destructionSpeed;
+}
+
+float AAICharacter::GetBuildSpeed() const
+{
+	return buildSpeed;
+}

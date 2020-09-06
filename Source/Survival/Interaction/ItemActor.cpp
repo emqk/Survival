@@ -2,6 +2,7 @@
 
 
 #include "ItemActor.h"
+#include "../Inventory/InventoryComponent.h"
 
 AItemActor::AItemActor()
 {
@@ -19,4 +20,13 @@ void AItemActor::BeginPlay()
 void AItemActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
+
+bool AItemActor::InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character)
+{
+	UInventoryComponent* inventory = Cast<UInventoryComponent>(character->GetComponentByClass(UInventoryComponent::StaticClass()));
+	inventory->AddItemsFromAsset(afterDestroyItems);
+
+	Destroy();
+	return true;
 }

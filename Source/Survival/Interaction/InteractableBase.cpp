@@ -27,7 +27,7 @@ void AInteractableBase::Tick(float DeltaTime)
 
 }
 
-bool AInteractableBase::InteractionTick_Implementation(const float& deltaSeconds, const float& destructionSpeed, const float& buildSpeed)
+bool AInteractableBase::InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character)
 {
 	UE_LOG(LogTemp, Warning, TEXT("BASE"));
 

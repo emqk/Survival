@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "../Inventory/InventoryComponent.h"
-#include "../Interaction/DestructibleBase.h"
 #include "NPCData.h"
 #include "AICharacter.generated.h"
 
@@ -42,15 +41,21 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetIsInteracting(const bool& newValue);
 
+	UFUNCTION(BlueprintCallable)
+	float GetDestructionSpeed() const;
+
+	UFUNCTION(BlueprintCallable)
+	float GetBuildSpeed() const;
+
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UInventoryComponent* inventoryComp;
 
 protected:
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UPROPERTY(EditDefaultsOnly)
 	float destructionSpeed = 1;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UPROPERTY(EditDefaultsOnly)
 	float buildSpeed = 1;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
