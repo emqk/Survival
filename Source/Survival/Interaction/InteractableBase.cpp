@@ -10,7 +10,7 @@ AInteractableBase::AInteractableBase()
 	PrimaryActorTick.bCanEverTick = true;
 
 	sceneComp = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
-	RootComponent = sceneComp;
+	SetRootComponent(sceneComp);
 }
 
 // Called when the game starts or when spawned

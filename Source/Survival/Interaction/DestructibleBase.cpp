@@ -2,6 +2,7 @@
 
 
 #include "DestructibleBase.h"
+#include "Kismet/KismetMathLibrary.h" 
 #include "Kismet/GameplayStatics.h" 
 
 ADestructibleBase::ADestructibleBase()
@@ -22,6 +23,12 @@ void ADestructibleBase::BeginPlay()
 
 void ADestructibleBase::WhenDestroyed(AActor* Act)
 {
+	UWorld* world = GetWorld();
+	for (TSubclassOf<AActor> actor : afterDestroyActors)
+	{
+		world->SpawnActor<AActor>(actor, GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
+	}
+
 	UGameplayStatics::PlaySoundAtLocation(GetWorld(), onDestroySound, GetActorLocation());
 	UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), onDestroyParticle, GetActorLocation());
 }

@@ -17,6 +17,7 @@ class SURVIVAL_API ADestructibleBase : public AInteractableBase
 
 	GENERATED_BODY()
 
+public:
 	ADestructibleBase();
 	
 protected:
@@ -44,5 +45,5 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float hp = 0;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TArray<FItemInstance> afterDestroyItems;
+	TArray<TSubclassOf<AActor>> afterDestroyActors;
 };
