@@ -7,6 +7,7 @@
 AItemActor::AItemActor()
 {
 	PrimaryActorTick.bCanEverTick = true;
+	destroyOnSuccessfulInteraction = true;
 
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	mesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
@@ -24,9 +25,8 @@ void AItemActor::Tick(float DeltaTime)
 
 bool AItemActor::InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character)
 {
-	UInventoryComponent* inventory = Cast<UInventoryComponent>(character->GetComponentByClass(UInventoryComponent::StaticClass()));
+	UInventoryComponent* inventory = character->FindComponentByClass<UInventoryComponent>();
 	inventory->AddItemsFromAsset(afterDestroyItems);
 
-	Destroy();
 	return true;
 }

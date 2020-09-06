@@ -21,7 +21,6 @@ public:
 	ABuildablePrototype();
 
 
-
 protected:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)

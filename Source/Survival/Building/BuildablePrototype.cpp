@@ -5,6 +5,9 @@
 
 ABuildablePrototype::ABuildablePrototype()
 {
+	PrimaryActorTick.bCanEverTick = true;
+	destroyOnSuccessfulInteraction = true;
+
 	meshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 	meshComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 

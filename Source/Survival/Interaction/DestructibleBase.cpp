@@ -11,6 +11,7 @@ ADestructibleBase::ADestructibleBase()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	destroyOnSuccessfulInteraction = true;
 
 	staticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 	staticMeshComponent->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
@@ -44,10 +45,5 @@ void ADestructibleBase::Tick(float DeltaTime)
 bool ADestructibleBase::InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character)
 {
 	hp -= character->GetDestructionSpeed() * deltaSeconds;
-	bool isFinished = hp <= 0;
-	if (isFinished)
-	{
-		Destroy();
-	}
-	return isFinished;
+	return hp <= 0;
 }

@@ -31,6 +31,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float interactionDistance = 0.0f;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	bool destroyOnSuccessfulInteraction = false;
+
 protected:
 	UPROPERTY(EditAnywhere)
 	USceneComponent* sceneComp;
