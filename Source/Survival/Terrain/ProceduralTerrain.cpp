@@ -109,7 +109,7 @@ void AProceduralTerrain::GenerateVertices()
 		{
 			float _x = x * gridSize;
 			float _y = y * gridSize;
-			float _z = USimplexNoiseBPLibrary::SimplexNoise2D(_x + offset.X, _y + offset.Y, 1.0f/scale) * heightMultiplier;
+			float _z = (USimplexNoiseBPLibrary::SimplexNoise2D(_x + offset.X, _y + offset.Y, 1.0f/scale) + noiseOffset_01) * heightMultiplier;
 			vertices.Add(FVector(_x, _y, _z));
 		}
 	}

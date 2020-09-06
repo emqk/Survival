@@ -69,7 +69,7 @@ void UInventoryComponent::AddItem(const FItemInstance& item)
 		items.Add(item);
 	}
 
-	CalculateWeight();
+	CalculateWeightAndSpace();
 }
 
 bool UInventoryComponent::RemoveItem(const int32& index)
@@ -77,7 +77,7 @@ bool UInventoryComponent::RemoveItem(const int32& index)
 	if (items.IsValidIndex(index))
 	{
 		items.RemoveAt(index);
-		CalculateWeight();
+		CalculateWeightAndSpace();
 		return true;
 	}
 	
@@ -90,7 +90,7 @@ bool UInventoryComponent::RemoveItemOfID(const FName& itemID, const int& amount)
 	if (itemIndex >= 0)
 	{
 		items[itemIndex].amount -= amount;
-		CalculateWeight(); //Refresh weight after changing amount
+		CalculateWeightAndSpace();
 		if (items[itemIndex].amount <= 0)
 		{
 			RemoveItem(itemIndex);
@@ -179,12 +179,14 @@ const TArray<FItemInstance>& UInventoryComponent::GetItems() const
 	return items;
 }
 
-void UInventoryComponent::CalculateWeight()
+void UInventoryComponent::CalculateWeightAndSpace()
 {
 	currentWeight = 0;
+	currentSpace = 0;
 	for (const FItemInstance& currItem : items)
 	{
 		currentWeight += currItem.data->weight * currItem.amount;
+		currentSpace += currItem.data->space * currItem.amount;
 	}
 }
 
@@ -196,4 +198,14 @@ float UInventoryComponent::GetCurrentWeight() const
 float UInventoryComponent::GetMaxWeight() const
 {
 	return maxWeight;
+}
+
+float UInventoryComponent::GetCurrentSpace() const
+{
+	return currentSpace;
+}
+
+float UInventoryComponent::GetMaxSpace() const
+{
+	return maxSpace;
 }

@@ -57,6 +57,8 @@ protected:
 	float gridSize = 100.0f;
 
 	UPROPERTY(EditAnywhere)
+	float noiseOffset_01 = 0;
+	UPROPERTY(EditAnywhere)
 	float heightMultiplier = 100;
 	UPROPERTY(EditAnywhere)
 	float scale = 100;

@@ -51,12 +51,21 @@ public:
 	UFUNCTION(BlueprintCallable)
 	const TArray<FItemInstance>& GetItems() const;
 
+
 	UFUNCTION()
-	void CalculateWeight();
+	void CalculateWeightAndSpace();
+
+	//Weight
 	UFUNCTION(BlueprintPure)
 	float GetCurrentWeight() const;
 	UFUNCTION(BlueprintPure)
 	float GetMaxWeight() const;
+
+	//Space
+	UFUNCTION(BlueprintPure)
+	float GetCurrentSpace() const;
+	UFUNCTION(BlueprintPure)
+	float GetMaxSpace() const;
 
 protected:
 	UPROPERTY(VisibleAnywhere)
@@ -66,4 +75,9 @@ protected:
 	float maxWeight = 10;
 	UPROPERTY(VisibleAnywhere)
 	float currentWeight = 0;
+
+	UPROPERTY(VisibleAnywhere)
+	float maxSpace = 10;
+	UPROPERTY(VisibleAnywhere)
+	float currentSpace = 0;
 };

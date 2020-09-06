@@ -26,4 +26,6 @@ public:
     
     UPROPERTY(EditAnywhere, BlueprintReadOnly)
     float weight;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    float space;
 };
