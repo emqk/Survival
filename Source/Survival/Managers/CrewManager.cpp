@@ -18,6 +18,20 @@ void ACrewManager::BeginPlay()
 	Super::BeginPlay();
 }
 
+AAICharacter* ACrewManager::GetMemeber(const int& id) const
+{
+	for (AAICharacter* character : members)
+	{
+		uint32 currCharID = character->GetUniqueID();
+		if (currCharID == id)
+		{
+			return character;
+		}
+	}
+
+	return nullptr;
+}
+
 FName ACrewManager::GetRandomName(const TArray<FName>& names)
 {
 	FRandomStream stream(UKismetMathLibrary::RandomInteger(9999999));

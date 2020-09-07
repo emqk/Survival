@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "NPCNeeds.h"
+#include "NPCRelations.h"
 #include "NPCData.generated.h"
 
 UCLASS(BlueprintType)
@@ -20,6 +21,9 @@ public:
 	UNPCNeeds* GetNeeds() const;
 
 	UFUNCTION(BlueprintCallable)
+	UNPCRelations* GetRelations() const;
+
+	UFUNCTION(BlueprintCallable)
 	FName GetFullName() const;
 	UFUNCTION(BlueprintCallable)
 	void SetFullName(const FName& newName, const FName& newSurname);
@@ -32,4 +36,7 @@ protected:
 
 	UPROPERTY()
 	UNPCNeeds* myNeeds = nullptr;
+
+	UPROPERTY()
+	UNPCRelations* myRelations = nullptr;
 };
