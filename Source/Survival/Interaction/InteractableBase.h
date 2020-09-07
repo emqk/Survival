@@ -4,12 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "../AI/AICharacter.h"
+#include "Interactable.h"
 #include "GameFramework/Actor.h"
 #include "InteractableBase.generated.h"
 
 
 UCLASS()
-class SURVIVAL_API AInteractableBase : public AActor
+class SURVIVAL_API AInteractableBase : public AActor, public IInteractable
 {
 	GENERATED_BODY()
 	
@@ -25,14 +26,15 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	bool InteractionTick(const float& deltaSeconds, const AAICharacter* character);
+	//UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	//bool InteractionTick(const float& deltaSeconds, const AAICharacter* character);
+	virtual bool InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character) override;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	float interactionDistance = 0.0f;
+	float interactionDistance = 50.0f;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	bool destroyOnSuccessfulInteraction = false;
+	bool destroyOnSuccessfulInteraction = true;
 
 protected:
 	UPROPERTY(EditAnywhere)

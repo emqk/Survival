@@ -4,7 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "../Inventory/ItemInstance.h"
-#include "InteractableBase.h"
+#include "../Interaction/InteractableBase.h"
+#include "../AI/AICharacter.h"
+#include "GameFramework/Actor.h"
 #include "ItemActor.generated.h"
 
 /**

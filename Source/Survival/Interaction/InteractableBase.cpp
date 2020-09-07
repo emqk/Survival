@@ -11,13 +11,14 @@ AInteractableBase::AInteractableBase()
 
 	sceneComp = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
 	SetRootComponent(sceneComp);
+
 }
 
 // Called when the game starts or when spawned
 void AInteractableBase::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	Init(interactionDistance, destroyOnSuccessfulInteraction);
 }
 
 // Called every frame

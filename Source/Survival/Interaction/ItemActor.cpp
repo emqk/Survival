@@ -7,7 +7,6 @@
 AItemActor::AItemActor()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	destroyOnSuccessfulInteraction = true;
 
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	mesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);

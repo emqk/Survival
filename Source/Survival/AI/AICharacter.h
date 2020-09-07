@@ -45,6 +45,9 @@ public:
 	void SetIsInteracting(const bool& newValue);
 
 	UFUNCTION(BlueprintCallable)
+	void SetIsTalking(const bool& newValue);
+
+	UFUNCTION(BlueprintCallable)
 	float GetDestructionSpeed() const;
 
 	UFUNCTION(BlueprintCallable)
@@ -63,9 +66,12 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	bool isInteracting = false;
-	
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float lookAtInteractActorDist = 50;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	bool isTalking = false;
 
 	UPROPERTY(EditAnywhere)
 	UNPCData* data;
