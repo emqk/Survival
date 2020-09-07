@@ -6,6 +6,7 @@
 UNPCData::UNPCData()
 {
 	myNeeds = NewObject<UNPCNeeds>();
+	myRelations = NewObject<UNPCRelations>();
 }
 
 UNPCData::~UNPCData()
@@ -15,6 +16,11 @@ UNPCData::~UNPCData()
 UNPCNeeds* UNPCData::GetNeeds() const
 {
 	return myNeeds;
+}
+
+UNPCRelations* UNPCData::GetRelations() const
+{
+	return myRelations;
 }
 
 FName UNPCData::GetFullName() const
