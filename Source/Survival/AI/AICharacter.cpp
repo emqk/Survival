@@ -23,11 +23,6 @@ void AAICharacter::BeginPlay()
 	Super::BeginPlay();
 }
 
-int AAICharacter::GetID() const
-{
-	return GetUniqueID();
-}
-
 UNPCData* AAICharacter::GetNPCData() const
 {
 	return data;

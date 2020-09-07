@@ -26,9 +26,6 @@ protected:
 	void RemoveMember(AAICharacter* member);
 
 	UFUNCTION(BlueprintCallable)
-	AAICharacter* GetMemeber(const int& id) const;
-
-	UFUNCTION(BlueprintCallable)
 	FName GetRandomName(const TArray<FName>& names);
 
 public:	

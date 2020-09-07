@@ -24,9 +24,6 @@ protected:
 	virtual void BeginPlay() override;
 
 	UFUNCTION(BlueprintCallable)
-	int GetID() const;
-
-	UFUNCTION(BlueprintCallable)
 	UNPCData* GetNPCData() const;
 
 public:	
