@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "Managers/ConversationManager.h"
 #include "Managers/CrewManager.h"
 #include "Managers/UIManager.h"
 #include "PlayerGameMode.generated.h"
@@ -17,6 +18,8 @@ class SURVIVAL_API APlayerGameMode : public AGameModeBase
 	GENERATED_BODY()
 
 protected:
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    AConversationManager* conversationManager = nullptr;
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     ACrewManager* crewManager = nullptr;
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
