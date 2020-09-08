@@ -34,7 +34,6 @@ public:
 	bool GetDestroyOnSuccessInteraction() const;
 	bool GetDestroyOnSuccessInteraction_Implementation() const;
 
-
 	float interactionDistance = 50.0f;
 	bool destroyOnSuccessfulInteraction = true;
 };

@@ -23,7 +23,7 @@ public:
 	TMap<int, UStatistic*> GetRelations() const;
 
 	UFUNCTION(BlueprintCallable)
-	void ChangeRelationsWith(const int& characterID);
+	void ChangeRelationWith(const int& characterID, const float& amount);
 
 private:
 	UPROPERTY()

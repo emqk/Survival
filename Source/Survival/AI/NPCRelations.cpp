@@ -13,7 +13,14 @@ TMap<int, UStatistic*> UNPCRelations::GetRelations() const
 	return relations;
 }
 
-void UNPCRelations::ChangeRelationsWith(const int& characterID)
+void UNPCRelations::ChangeRelationWith(const int& characterID, const float& amount)
 {
-	relations.Add(characterID, NewObject<UStatistic>());
+	if (relations.Contains(characterID))
+	{
+		relations[characterID]->ChangeByAmount(amount);
+	}
+	else
+	{
+		relations.Add(characterID, NewObject<UStatistic>())->ChangeByAmount(amount);
+	}
 }
