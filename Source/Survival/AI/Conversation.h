@@ -20,6 +20,9 @@ public:
 	void Init(const FVector& _location, AAICharacter* starting, AAICharacter* target);
 
 	UFUNCTION(BlueprintCallable)
+	void TickConversation(const float& deltaTime);
+
+	UFUNCTION(BlueprintCallable)
 	void AddCharacter(AAICharacter* character);
 	UFUNCTION(BlueprintCallable)
 	void RemoveCharacter(AAICharacter* character);
@@ -31,5 +34,8 @@ protected:
 	UPROPERTY(VisibleAnywhere)
 	TArray<AAICharacter*> characters;
 
+private:
 	FVector location;
+
+	const float socialNeedPerSec = 4.0f;
 };

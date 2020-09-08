@@ -24,13 +24,13 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+public:	
 	UFUNCTION(BlueprintCallable)
 	int GetID() const;
 
 	UFUNCTION(BlueprintCallable)
 	UNPCData* GetNPCData() const;
 
-public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

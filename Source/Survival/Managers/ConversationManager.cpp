@@ -18,19 +18,11 @@ void AConversationManager::BeginPlay()
 	Super::BeginPlay();
 }
 
-void AConversationManager::DebugDraw() const
-{
-	for (const UConversation* currConversation : conversations)
-	{
-		FVector convLocation = currConversation->GetLocation();
-		DrawDebugSphere(GetWorld(), convLocation, 50, 10, FColor(255, 0, 0), false, 0.1f, 0, 1);
-	}
-}
-
 // Called every frame
 void AConversationManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	TickConversations(DeltaTime);
 	DebugDraw();
 }
 
@@ -40,4 +32,21 @@ void AConversationManager::StartConversation(AAICharacter* starting, AAICharacte
 	FVector conversationLocation = (starting->GetActorLocation() + target->GetActorLocation()) / 2.0f;
 	newConversation->Init(conversationLocation, starting, target);
 	conversations.Add(newConversation);
+}
+
+void AConversationManager::TickConversations(const float& deltaTime)
+{
+	for (UConversation* currConversation : conversations)
+	{
+		currConversation->TickConversation(deltaTime);
+	}
+}
+
+void AConversationManager::DebugDraw() const
+{
+	for (const UConversation* currConversation : conversations)
+	{
+		FVector convLocation = currConversation->GetLocation();
+		DrawDebugSphere(GetWorld(), convLocation, 50, 10, FColor(255, 0, 0), false, 0.1f, 0, 1);
+	}
 }
