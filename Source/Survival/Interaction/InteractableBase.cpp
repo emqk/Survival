@@ -11,7 +11,6 @@ AInteractableBase::AInteractableBase()
 
 	sceneComp = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
 	SetRootComponent(sceneComp);
-
 }
 
 // Called when the game starts or when spawned

@@ -30,7 +30,7 @@ public:
 
 	//Interaction
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void SetInteractionWorldActor(const AInteractableBase* actor);
+	void SetInteractionWorldActor(const AActor* actor);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SetInteractionWidgetLocation(const FVector& worldLocation);
 

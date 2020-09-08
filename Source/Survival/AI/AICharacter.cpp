@@ -21,6 +21,9 @@ void AAICharacter::BeginPlay()
 {
 	data = NewObject<UNPCData>();
 	Super::BeginPlay();
+
+	bool destrAfterInteract = false;
+	Init(100, destrAfterInteract);
 }
 
 int AAICharacter::GetID() const

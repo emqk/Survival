@@ -4,13 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "../Interaction/Interactable.h"
 #include "../Inventory/InventoryComponent.h"
 #include "NPCData.h"
 #include "AICharacter.generated.h"
 
 
 UCLASS()
-class SURVIVAL_API AAICharacter : public ACharacter
+class SURVIVAL_API AAICharacter : public ACharacter, public IInteractable
 {
 	GENERATED_BODY()
 
