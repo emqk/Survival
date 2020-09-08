@@ -36,9 +36,13 @@ void AConversationManager::StartConversation(AAICharacter* starting, AAICharacte
 
 void AConversationManager::TickConversations(const float& deltaTime)
 {
-	for (UConversation* currConversation : conversations)
+	for (int i = conversations.Num()-1; i >= 0; i--)
 	{
-		currConversation->TickConversation(deltaTime);
+		if (!conversations[i]->TickConversation(deltaTime))
+		{
+			conversations[i]->Cleanup();
+			conversations.RemoveAt(i);
+		}
 	}
 }
 

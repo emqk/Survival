@@ -19,8 +19,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void Init(const FVector& _location, AAICharacter* starting, AAICharacter* target);
 
+	UFUNCTION()
+	void Cleanup();
+
 	UFUNCTION(BlueprintCallable)
-	void TickConversation(const float& deltaTime);
+	bool TickConversation(const float& deltaTime);
 
 	UFUNCTION(BlueprintCallable)
 	void AddCharacter(AAICharacter* character);
@@ -37,5 +40,6 @@ protected:
 private:
 	FVector location;
 
+	const float endConversationThreshold = 20;
 	const float socialNeedPerSec = 4.0f;
 };

@@ -10,24 +10,45 @@ void UConversation::Init(const FVector& _location, AAICharacter* starting, AAICh
 	AddCharacter(target);
 }
 
-void UConversation::TickConversation(const float& deltaTime)
+void UConversation::Cleanup()
 {
-	for (AAICharacter* ch : characters)
+	UE_LOG(LogTemp, Warning, TEXT("Conversation cleaned up(and is waiting for GC)!"))
+	for (int i = characters.Num() - 1; i >= 0; i--)
 	{
-		ch->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Social)->ChangeByAmount(socialNeedPerSec * deltaTime);
+		RemoveCharacter(characters[i]);
 	}
+}
+
+bool UConversation::TickConversation(const float& deltaTime)
+{
+	for (int i = characters.Num()-1; i >= 0; i--)
+	{
+		UStatistic* characterSocialNeed = characters[i]->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Social);
+		if (characterSocialNeed->GetAmount() >= endConversationThreshold)
+		{
+			RemoveCharacter(characters[i]);
+		}
+		else
+		{
+			characterSocialNeed->ChangeByAmount(socialNeedPerSec * deltaTime);
+		}
+	}
+
+	return characters.Num() >= 2;
 }
 
 void UConversation::AddCharacter(AAICharacter* character)
 {
 	characters.Add(character);
 	character->SetIsTalking(true);
+	UE_LOG(LogTemp, Warning, TEXT("Added to conversation: %s"), *character->GetNPCData()->GetFullName().ToString())
 }
 
 void UConversation::RemoveCharacter(AAICharacter* character)
 {
 	characters.Remove(character);
 	character->SetIsTalking(false);
+	UE_LOG(LogTemp, Warning, TEXT("Removed from conversation: %s"), *character->GetNPCData()->GetFullName().ToString())
 }
 
 FVector UConversation::GetLocation() const

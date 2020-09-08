@@ -35,6 +35,6 @@ private:
 	void DebugDraw() const;
 
 protected:
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere)
 	TArray<UConversation*> conversations;
 };
