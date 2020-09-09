@@ -27,6 +27,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void StartConversation(AAICharacter* starting, AAICharacter* target);
 
+	UFUNCTION(BlueprintCallable)
+	UConversation* GetConversation(const AAICharacter* character) const;
+
 private:
 	UFUNCTION()
 	void TickConversations(const float& deltaTime);

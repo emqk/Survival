@@ -31,6 +31,9 @@ public:
 	void RemoveCharacter(AAICharacter* character);
 
 	UFUNCTION(BlueprintCallable)
+	bool Contains(const AAICharacter* character);
+
+	UFUNCTION(BlueprintCallable)
 	FVector GetLocation() const;
 
 private:
@@ -47,5 +50,5 @@ private:
 	const float radiusSq = radius * radius;
 
 	const float endConversationThreshold = 20;
-	const float socialNeedPerSec = 4.0f;
+	const float socialNeedPerSec = 2.0f;
 };

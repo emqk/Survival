@@ -26,10 +26,40 @@ void AConversationManager::Tick(float DeltaTime)
 
 void AConversationManager::StartConversation(AAICharacter* starting, AAICharacter* target)
 {
+	if (starting->GetIsTalking())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Starting is currently talking [RETURN]"))
+		return;
+	}
+	if (target->GetIsTalking())
+	{
+		UConversation* targetConversation = GetConversation(target);
+		if (targetConversation)
+		{
+			targetConversation->AddCharacter(starting);
+			UE_LOG(LogTemp, Warning, TEXT("Target is currently talking (Joining)"))
+		}
+		UE_LOG(LogTemp, Warning, TEXT("Target is currently talking (Can't join)"))
+		return;
+	}
+
 	UConversation* newConversation = NewObject<UConversation>(this);
 	FVector conversationLocation = (starting->GetActorLocation() + target->GetActorLocation()) / 2.0f;
 	newConversation->Init(conversationLocation, starting, target);
 	conversations.Add(newConversation);
+}
+
+UConversation* AConversationManager::GetConversation(const AAICharacter* character) const
+{
+	for (UConversation* conv : conversations)
+	{
+		if (conv->Contains(character))
+		{
+			return conv;
+		}
+	}
+
+	return nullptr;
 }
 
 void AConversationManager::TickConversations(const float& deltaTime)

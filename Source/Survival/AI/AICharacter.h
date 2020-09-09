@@ -37,6 +37,10 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void SetInteraction(const FVector& Location, const AActor* Actor);
+
+	UFUNCTION()
 	void TickNeeds(const float& deltaTime);
 
 	UFUNCTION(BlueprintCallable)
@@ -47,6 +51,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void SetIsTalking(const bool& newValue);
+	UFUNCTION(BlueprintCallable)
+	bool GetIsTalking() const;
 
 	UFUNCTION(BlueprintCallable)
 	float GetDestructionSpeed() const;

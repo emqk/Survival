@@ -76,6 +76,11 @@ void AAICharacter::SetIsTalking(const bool& newValue)
 	isTalking = newValue;
 }
 
+bool AAICharacter::GetIsTalking() const
+{
+	return isTalking;
+}
+
 float AAICharacter::GetDestructionSpeed() const
 {
 	return destructionSpeed;
