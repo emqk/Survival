@@ -36,6 +36,14 @@ bool UConversation::TickConversation(const float& deltaTime)
 		else
 		{
 			characterSocialNeed->ChangeByAmount(socialNeedPerSec * deltaTime);
+			//Change relations with other NPC in this conversation
+			for (int j = characters.Num() - 1; j >= 0; j--)
+			{
+				if (i != j)
+				{
+					characters[i]->GetNPCData()->GetRelations()->ChangeRelationWith(characters[j]->GetUniqueID(), changeRelationPerSec * deltaTime);
+				}
+			}
 		}
 	}
 

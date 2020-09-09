@@ -51,4 +51,5 @@ private:
 
 	const float endConversationThreshold = 20;
 	const float socialNeedPerSec = 2.0f;
+	const float changeRelationPerSec = 5.0f;
 };
