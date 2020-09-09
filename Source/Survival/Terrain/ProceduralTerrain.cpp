@@ -88,10 +88,9 @@ void AProceduralTerrain::AlignNavMeshToTerrain()
 		FVector newSize = FVector(height * (gridSize / 100.0f) / 2.0f, width * (gridSize / 100.0f) / 2.0f, 30);
 		navMesh->SetActorLocation(newLocation);
 		navMesh->SetActorScale3D(newSize);
-
-		//Refresh navMesh by adding this actor to it's data and then rebuilding navMesh
+		//Refresh navMesh by adding this actor to it's data and then rebuild every navMesh bounds
 		FNavigationSystem::UpdateActorAndComponentData(*this);
-		UKismetSystemLibrary::ExecuteConsoleCommand(GetWorld(), "RebuildNavigation");
+		FNavigationSystem::Build(*GetWorld());
 	}
 	else
 	{
