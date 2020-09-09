@@ -43,7 +43,8 @@ protected:
 
 private:
 	FVector location;
-	float radius = 300;
+	const float radius = 300;
+	const float radiusSq = radius * radius;
 
 	const float endConversationThreshold = 20;
 	const float socialNeedPerSec = 4.0f;

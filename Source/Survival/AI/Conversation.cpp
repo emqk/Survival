@@ -13,11 +13,12 @@ void UConversation::Init(const FVector& _location, AAICharacter* starting, AAICh
 
 void UConversation::Cleanup()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Conversation cleaned up(and now is waiting for GC)!"))
 	for (int i = characters.Num() - 1; i >= 0; i--)
 	{
 		RemoveCharacter(characters[i]);
 	}
+
+	UE_LOG(LogTemp, Warning, TEXT("Conversation cleaned up(and now is waiting for GC)!"))
 }
 
 bool UConversation::TickConversation(const float& deltaTime)
@@ -26,8 +27,9 @@ bool UConversation::TickConversation(const float& deltaTime)
 
 	for (int i = characters.Num()-1; i >= 0; i--)
 	{
+		float distToCharacterSq = (location - characters[i]->GetActorLocation()).SizeSquared();
 		UStatistic* characterSocialNeed = characters[i]->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Social);
-		if (characterSocialNeed->GetAmount() >= endConversationThreshold)
+		if (characterSocialNeed->GetAmount() >= endConversationThreshold || distToCharacterSq > radiusSq)
 		{
 			RemoveCharacter(characters[i]);
 		}
