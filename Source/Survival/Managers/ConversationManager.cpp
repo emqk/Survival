@@ -2,7 +2,6 @@
 
 
 #include "ConversationManager.h"
-#include "DrawDebugHelpers.h"
 
 // Sets default values
 AConversationManager::AConversationManager()
@@ -23,12 +22,11 @@ void AConversationManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	TickConversations(DeltaTime);
-	DebugDraw();
 }
 
 void AConversationManager::StartConversation(AAICharacter* starting, AAICharacter* target)
 {
-	UConversation* newConversation = NewObject<UConversation>();
+	UConversation* newConversation = NewObject<UConversation>(this);
 	FVector conversationLocation = (starting->GetActorLocation() + target->GetActorLocation()) / 2.0f;
 	newConversation->Init(conversationLocation, starting, target);
 	conversations.Add(newConversation);
@@ -43,14 +41,5 @@ void AConversationManager::TickConversations(const float& deltaTime)
 			conversations[i]->Cleanup();
 			conversations.RemoveAt(i);
 		}
-	}
-}
-
-void AConversationManager::DebugDraw() const
-{
-	for (const UConversation* currConversation : conversations)
-	{
-		FVector convLocation = currConversation->GetLocation();
-		DrawDebugSphere(GetWorld(), convLocation, 50, 10, FColor(255, 0, 0), false, 0.1f, 0, 1);
 	}
 }

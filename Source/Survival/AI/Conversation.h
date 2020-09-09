@@ -33,12 +33,17 @@ public:
 	UFUNCTION(BlueprintCallable)
 	FVector GetLocation() const;
 
+private:
+	UFUNCTION()
+	void DrawDebug() const;
+
 protected:
 	UPROPERTY(VisibleAnywhere)
 	TArray<AAICharacter*> characters;
 
 private:
 	FVector location;
+	float radius = 300;
 
 	const float endConversationThreshold = 20;
 	const float socialNeedPerSec = 4.0f;

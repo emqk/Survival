@@ -2,6 +2,7 @@
 
 
 #include "Conversation.h"
+#include "DrawDebugHelpers.h"
 
 void UConversation::Init(const FVector& _location, AAICharacter* starting, AAICharacter* target)
 {
@@ -12,7 +13,7 @@ void UConversation::Init(const FVector& _location, AAICharacter* starting, AAICh
 
 void UConversation::Cleanup()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Conversation cleaned up(and is waiting for GC)!"))
+	UE_LOG(LogTemp, Warning, TEXT("Conversation cleaned up(and now is waiting for GC)!"))
 	for (int i = characters.Num() - 1; i >= 0; i--)
 	{
 		RemoveCharacter(characters[i]);
@@ -21,6 +22,8 @@ void UConversation::Cleanup()
 
 bool UConversation::TickConversation(const float& deltaTime)
 {
+	DrawDebug();
+
 	for (int i = characters.Num()-1; i >= 0; i--)
 	{
 		UStatistic* characterSocialNeed = characters[i]->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Social);
@@ -54,4 +57,10 @@ void UConversation::RemoveCharacter(AAICharacter* character)
 FVector UConversation::GetLocation() const
 {
 	return location;
+}
+
+void UConversation::DrawDebug() const
+{
+	DrawDebugSphere(GetWorld(), location, 15, 10, FColor(200, 200, 200), false, 0.1f, 0, 1); //Visualize center
+	DrawDebugSphere(GetWorld(), location, radius, 10, FColor(160, 160, 160), false, 0.1f, 0, 1); //Visualize radius
 }

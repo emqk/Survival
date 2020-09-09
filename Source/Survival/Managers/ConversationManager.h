@@ -31,9 +31,6 @@ private:
 	UFUNCTION()
 	void TickConversations(const float& deltaTime);
 
-	UFUNCTION()
-	void DebugDraw() const;
-
 protected:
 	UPROPERTY(VisibleAnywhere)
 	TArray<UConversation*> conversations;
