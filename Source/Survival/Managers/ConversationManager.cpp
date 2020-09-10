@@ -49,6 +49,19 @@ void AConversationManager::StartConversation(AAICharacter* starting, AAICharacte
 	conversations.Add(newConversation);
 }
 
+UConversation* AConversationManager::FindExistingConversationForLocation(const FVector& location) const
+{
+	for (UConversation* conv : conversations)
+	{
+		if (conv->IsInRange(location))
+		{
+			return conv;
+		}
+	}
+
+	return nullptr;
+}
+
 UConversation* AConversationManager::GetConversation(const AAICharacter* character) const
 {
 	for (UConversation* conv : conversations)

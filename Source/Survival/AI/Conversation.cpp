@@ -27,9 +27,8 @@ bool UConversation::TickConversation(const float& deltaTime)
 
 	for (int i = characters.Num()-1; i >= 0; i--)
 	{
-		float distToCharacterSq = (location - characters[i]->GetActorLocation()).SizeSquared();
 		UStatistic* characterSocialNeed = characters[i]->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Social);
-		if (characterSocialNeed->GetAmount() >= endConversationThreshold || distToCharacterSq > radiusSq)
+		if (characterSocialNeed->GetAmount() >= endConversationThreshold || !IsInRange(characters[i]->GetActorLocation()))
 		{
 			RemoveCharacter(characters[i]);
 		}
@@ -67,6 +66,11 @@ void UConversation::RemoveCharacter(AAICharacter* character)
 bool UConversation::Contains(const AAICharacter* character)
 {
 	return characters.Contains(character);
+}
+
+bool UConversation::IsInRange(const FVector& otherLocation)
+{
+	return (location - otherLocation).SizeSquared() <= radiusSq;
 }
 
 FVector UConversation::GetLocation() const

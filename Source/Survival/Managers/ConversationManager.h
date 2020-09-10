@@ -28,6 +28,9 @@ public:
 	void StartConversation(AAICharacter* starting, AAICharacter* target);
 
 	UFUNCTION(BlueprintCallable)
+	UConversation* FindExistingConversationForLocation(const FVector& location) const;
+
+	UFUNCTION(BlueprintCallable)
 	UConversation* GetConversation(const AAICharacter* character) const;
 
 private:

@@ -27,6 +27,9 @@ public:
     UFUNCTION(BlueprintCallable)
     UStatistic* GetNeedByType(NeedType type) const;
 
+public:
+   static const float socialNeedThresholdToAutoJoin;
+
 private:
 
     UPROPERTY()

@@ -2,6 +2,9 @@
 
 #include "NPCNeeds.h"
 
+const float UNPCNeeds::socialNeedThresholdToAutoJoin = 10;
+
+
 UNPCNeeds::UNPCNeeds()
 {
 	needs.Add(NeedType::Hunger, NewObject<UStatistic>());

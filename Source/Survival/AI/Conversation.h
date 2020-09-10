@@ -32,6 +32,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	bool Contains(const AAICharacter* character);
+	UFUNCTION(BlueprintCallable)
+	bool IsInRange(const FVector& otherLocation);
 
 	UFUNCTION(BlueprintCallable)
 	FVector GetLocation() const;

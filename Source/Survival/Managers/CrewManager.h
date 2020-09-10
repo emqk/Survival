@@ -25,6 +25,10 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void RemoveMember(AAICharacter* member);
 
+	UFUNCTION()
+	void ControlNPCSocialNeeds();
+
+
 	UFUNCTION(BlueprintCallable)
 	AAICharacter* GetMemeber(const int& id) const;
 

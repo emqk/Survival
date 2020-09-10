@@ -17,6 +17,10 @@ class SURVIVAL_API APlayerGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 
+public:
+    UFUNCTION(BlueprintCallable)
+    AConversationManager* GetConversationManager() const;
+
 protected:
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     AConversationManager* conversationManager = nullptr;

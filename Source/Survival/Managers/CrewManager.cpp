@@ -2,6 +2,9 @@
 
 
 #include "CrewManager.h"
+#include "../AI/Conversation.h"
+#include "../PlayerGameMode.h"
+#include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
@@ -16,6 +19,42 @@ ACrewManager::ACrewManager()
 void ACrewManager::BeginPlay()
 {
 	Super::BeginPlay();
+}
+
+void ACrewManager::ControlNPCSocialNeeds()
+{
+	APlayerGameMode* gameMode = Cast<APlayerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+	AConversationManager* conversationManager = nullptr;
+	if (gameMode)
+	{
+		conversationManager = gameMode->GetConversationManager();
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Can't get gameMode!"))
+		return;
+	}
+	if (!conversationManager)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Can't get Conversation Manager!"))
+		return;
+	}
+
+	for (AAICharacter* ch : members)
+	{
+		if (ch->GetIsTalking())
+			continue;
+
+		UStatistic* socialNeed = ch->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Social);
+		if (socialNeed->GetAmount() <= UNPCNeeds::socialNeedThresholdToAutoJoin)
+		{
+			UConversation* foundConversation = conversationManager->FindExistingConversationForLocation(ch->GetActorLocation());
+			if (foundConversation)
+			{
+				foundConversation->AddCharacter(ch);
+			}
+		}
+	}
 }
 
 AAICharacter* ACrewManager::GetMemeber(const int& id) const
@@ -43,6 +82,6 @@ FName ACrewManager::GetRandomName(const TArray<FName>& names)
 void ACrewManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	ControlNPCSocialNeeds();
 }
 

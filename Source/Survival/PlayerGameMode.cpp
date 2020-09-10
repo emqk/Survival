@@ -3,3 +3,7 @@
 
 #include "PlayerGameMode.h"
 
+AConversationManager* APlayerGameMode::GetConversationManager() const
+{
+	return conversationManager;
+}
