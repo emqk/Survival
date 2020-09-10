@@ -42,14 +42,16 @@ private:
 	UFUNCTION()
 	void DrawDebug() const;
 
+public:
+	static const float radius;
+	static const float radiusSq;
+
 protected:
 	UPROPERTY(VisibleAnywhere)
 	TArray<AAICharacter*> characters;
 
 private:
 	FVector location;
-	const float radius = 300;
-	const float radiusSq = radius * radius;
 
 	const float endConversationThreshold = 20;
 	const float socialNeedPerSec = 2.0f;

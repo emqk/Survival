@@ -4,6 +4,10 @@
 #include "Conversation.h"
 #include "DrawDebugHelpers.h"
 
+const float UConversation::radius = 300;
+const float UConversation::radiusSq = radius * radius;
+
+
 void UConversation::Init(const FVector& _location, AAICharacter* starting, AAICharacter* target)
 {
 	location = _location;
@@ -81,8 +85,9 @@ FVector UConversation::GetLocation() const
 void UConversation::DrawDebug() const
 {
 	DrawDebugSphere(GetWorld(), location, 15, 10, FColor(200, 200, 200), false, 0.1f, 0, 1); //Visualize center
-	DrawDebugSphere(GetWorld(), location, radius, 10, FColor(160, 160, 160), false, 0.1f, 0, 1); //Visualize radius
+	DrawDebugSphere(GetWorld(), location, radius, 20, FColor(160, 160, 160), false, 0.1f, 0, 1); //Visualize radius
 
+	//Visualize NPCs connection to Conversation
 	for (const AAICharacter* character : characters)
 	{
 		FVector characterLocation = character->GetActorLocation() + FVector(0, 0, 110);

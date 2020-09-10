@@ -34,12 +34,7 @@ void AConversationManager::StartConversation(AAICharacter* starting, AAICharacte
 	if (target->GetIsTalking())
 	{
 		UConversation* targetConversation = GetConversation(target);
-		if (targetConversation)
-		{
-			targetConversation->AddCharacter(starting);
-			UE_LOG(LogTemp, Warning, TEXT("Target is currently talking (Joining)"))
-		}
-		UE_LOG(LogTemp, Warning, TEXT("Target is currently talking (Can't join)"))
+		UE_LOG(LogTemp, Warning, TEXT("Target is currently talking (Can't start conversation!)"))
 		return;
 	}
 

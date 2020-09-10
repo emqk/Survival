@@ -52,20 +52,16 @@ void ACrewManager::ControlNPCSocialNeeds()
 			if (foundConversation)
 			{
 				foundConversation->AddCharacter(ch);
+				continue;
 			}
 		}
 		if (socialNeedAmount <= UNPCNeeds::socialNeedThresholdToAutoStart)
 		{
-			float radius = 300.0f * 300.0f;
-			AAICharacter* lowSocialNPC = GetFirstNPCOtherThanWithLowSocialInRadius(ch, radius);
+			AAICharacter* lowSocialNPC = GetFirstNPCOtherThanWithLowSocialInRadius(ch, UConversation::radiusSq);
 			if (lowSocialNPC)
 			{
-				//UE_LOG(LogTemp, Warning, TEXT("FOUND"))
 				conversationManager->StartConversation(ch, lowSocialNPC);
-			}
-			else
-			{
-				//UE_LOG(LogTemp, Warning, TEXT("NOT_FOUND"))
+				continue;
 			}
 		}
 	}
