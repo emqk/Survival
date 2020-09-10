@@ -27,7 +27,8 @@ protected:
 
 	UFUNCTION()
 	void ControlNPCSocialNeeds();
-
+	UFUNCTION(BlueprintCallable)
+	AAICharacter* GetFirstNPCOtherThanWithLowSocialInRadius(const AAICharacter* otherThan, const float& radiusSq) const;
 
 	UFUNCTION(BlueprintCallable)
 	AAICharacter* GetMemeber(const int& id) const;

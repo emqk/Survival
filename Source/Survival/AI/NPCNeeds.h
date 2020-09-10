@@ -29,7 +29,8 @@ public:
 
 public:
    static const float socialNeedThresholdToAutoJoin;
-
+   static const float socialNeedThresholdToAutoStart;
+   
 private:
 
     UPROPERTY()

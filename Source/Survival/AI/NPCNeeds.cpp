@@ -2,7 +2,8 @@
 
 #include "NPCNeeds.h"
 
-const float UNPCNeeds::socialNeedThresholdToAutoJoin = 10;
+const float UNPCNeeds::socialNeedThresholdToAutoJoin = 10.0f;
+const float UNPCNeeds::socialNeedThresholdToAutoStart = 1.0f;
 
 
 UNPCNeeds::UNPCNeeds()

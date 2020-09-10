@@ -45,8 +45,8 @@ void ACrewManager::ControlNPCSocialNeeds()
 		if (ch->GetIsTalking())
 			continue;
 
-		UStatistic* socialNeed = ch->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Social);
-		if (socialNeed->GetAmount() <= UNPCNeeds::socialNeedThresholdToAutoJoin)
+		float socialNeedAmount = ch->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Social)->GetAmount();
+		if (socialNeedAmount <= UNPCNeeds::socialNeedThresholdToAutoJoin)
 		{
 			UConversation* foundConversation = conversationManager->FindExistingConversationForLocation(ch->GetActorLocation());
 			if (foundConversation)
@@ -54,7 +54,38 @@ void ACrewManager::ControlNPCSocialNeeds()
 				foundConversation->AddCharacter(ch);
 			}
 		}
+		if (socialNeedAmount <= UNPCNeeds::socialNeedThresholdToAutoStart)
+		{
+			float radius = 300.0f * 300.0f;
+			AAICharacter* lowSocialNPC = GetFirstNPCOtherThanWithLowSocialInRadius(ch, radius);
+			if (lowSocialNPC)
+			{
+				//UE_LOG(LogTemp, Warning, TEXT("FOUND"))
+				conversationManager->StartConversation(ch, lowSocialNPC);
+			}
+			else
+			{
+				//UE_LOG(LogTemp, Warning, TEXT("NOT_FOUND"))
+			}
+		}
 	}
+}
+
+AAICharacter* ACrewManager::GetFirstNPCOtherThanWithLowSocialInRadius(const AAICharacter* otherThan, const float& radiusSq) const
+{
+	for (AAICharacter* ch : members)
+	{
+		if (ch != otherThan)
+		{
+			float distSq = (ch->GetActorLocation() - otherThan->GetActorLocation()).SizeSquared();
+			if (distSq <= radiusSq)
+			{
+				return ch;
+			}
+		}
+	}
+
+	return nullptr;
 }
 
 AAICharacter* ACrewManager::GetMemeber(const int& id) const
