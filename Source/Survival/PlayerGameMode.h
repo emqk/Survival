@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "Managers/BuildingManager.h"
 #include "Managers/ConversationManager.h"
 #include "Managers/CrewManager.h"
 #include "Managers/UIManager.h"
@@ -22,6 +23,8 @@ public:
     AConversationManager* GetConversationManager() const;
 
 protected:
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    ABuildingManager* buildingManager = nullptr;
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     AConversationManager* conversationManager = nullptr;
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
