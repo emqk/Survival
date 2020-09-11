@@ -54,6 +54,11 @@ protected:
 	TArray<TSubclassOf<AActor>> vegetationToSpawn;
 
 	UPROPERTY(EditAnywhere)
+	int numberOfGrass = 10;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> grassToSpawn;
+
+	UPROPERTY(EditAnywhere)
 	float gridSize = 100.0f;
 
 	UPROPERTY(EditAnywhere)

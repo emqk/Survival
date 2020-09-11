@@ -59,6 +59,25 @@ void AProceduralTerrain::GenerateVegetation()
 {
 	FVector terrainLocation = GetActorLocation();
 	UWorld* world = GetWorld();
+
+	//Grass
+	for (size_t j = 0; j < numberOfGrass; j++)
+	{
+		FHitResult hit;
+		FVector start = terrainLocation + FVector(UKismetMathLibrary::RandomFloatInRange(0, height * gridSize), UKismetMathLibrary::RandomFloatInRange(0, width * gridSize), 1000);
+		FVector end = start - FVector(0, 0, 2500);
+		world->LineTraceSingleByChannel(hit, start, end, ECC_Visibility);
+		while ((hit.Actor != nullptr && hit.ImpactPoint.Z >= terrainLocation.Z && Cast<AProceduralTerrain>(hit.Actor)) == false)
+		{
+			start = terrainLocation + FVector(UKismetMathLibrary::RandomFloatInRange(0, height * gridSize), UKismetMathLibrary::RandomFloatInRange(0, width * gridSize), 1000);
+			end = start - FVector(0, 0, 2500);
+			world->LineTraceSingleByChannel(hit, start, end, ECC_Visibility);
+		}
+
+		FRotator rotation(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0);
+		world->SpawnActor<AActor>(grassToSpawn, hit.ImpactPoint, rotation);
+	}
+	//Vegetation
 	for (size_t i = 0; i < vegetationToSpawn.Num(); i++)
 	{
 		for (size_t j = 0; j < numberOfEachVegetation; j++)
