@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "../Building/Architecture/Floor.h"
+#include "../Building/Architecture/Wall.h"
 #include "GameFramework/Actor.h"
 #include "BuildingManager.generated.h"
 
@@ -25,7 +26,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-	void BeginBuilding();
+	void BeginBuilding(const int& type);
 
 	UFUNCTION(BlueprintCallable)
 	void TickBuilding(const FVector& mouseHit);
@@ -42,14 +43,29 @@ private:
 	bool SetFloorAt(AFloor* floor, const FIntVector& vectorIndex);
 
 	UFUNCTION(BlueprintCallable)
+	bool SetWallAt(AWall* wall, const FIntVector& vectorIndex);
+
+	UFUNCTION(BlueprintCallable)
 	bool IsVectorIndexValid(const FIntVector& vectorIndex) const;
 
+	UFUNCTION(BlueprintCallable)
+	bool IsWallVectorIndexValid(const FIntVector& vectorIndex) const;
+
 protected:
+	//Floor
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<AFloor> floorToBuild;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	AFloor* currentFloor;
+
+	//Wall
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSubclassOf<AWall> wallToBuild;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	AWall* currentWall;
+
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	USoundWave* buildSound;
@@ -62,6 +78,8 @@ protected:
 
 	UPROPERTY(VisibleAnywhere)
 	TArray<AFloor*> floors;
+	UPROPERTY(VisibleAnywhere)
+	TArray<AWall*> walls;
 
 	float snapSize = 100;
 };
