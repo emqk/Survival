@@ -33,7 +33,7 @@ void ABuildingManager::BeginBuilding(const int& type)
 	{
 		if (!currentFloor)
 		{
-			currentFloor = GetWorld()->SpawnActor<AFloor>(floorToBuild, FVector(0, 0, 0), FRotator(0, 0, 0));
+			currentFloor = GetWorld()->SpawnActor<AFloor>(floorToBuild, FVector(0, 0, 0), FRotator(0, currentRotationY, 0));
 		}
 		else
 		{
@@ -44,7 +44,7 @@ void ABuildingManager::BeginBuilding(const int& type)
 	{
 		if (!currentWall)
 		{
-			currentWall = GetWorld()->SpawnActor<AWall>(wallToBuild, FVector(0, 0, 0), FRotator(0, 0, 0));
+			currentWall = GetWorld()->SpawnActor<AWall>(wallToBuild, FVector(0, 0, 0), FRotator(0, currentRotationY, 0));
 		}
 		else
 		{
@@ -60,12 +60,14 @@ void ABuildingManager::TickBuilding(const FVector& mouseHit)
 		FIntVector index = TransformLocationToVectorIndex(mouseHit);
 		FVector snapLocation = FVector(index.X, index.Y, 0) * snapSize;
 		currentFloor->SetActorLocation(snapLocation);
+		currentFloor->SetActorRotation(FRotator(0, currentRotationY, 0));
 	}
 	else if (currentWall)
 	{
 		FIntVector index = TransformLocationToVectorIndex(mouseHit);
 		FVector snapLocation = FVector(index.X, index.Y, 0) * snapSize;
 		currentWall->SetActorLocation(snapLocation);
+		currentWall->SetActorRotation(FRotator(0, currentRotationY, 0));
 	}
 }
 
@@ -93,6 +95,11 @@ void ABuildingManager::EndBuilding(const FVector& mouseHit)
 	{
 		UE_LOG(LogTemp, Error, TEXT("Can't EndBuilding - currentFloor and currentWall is null!"))
 	}
+}
+
+void ABuildingManager::ChangeRotationY(const float& amount)
+{
+	currentRotationY += amount;
 }
 
 FIntVector ABuildingManager::TransformLocationToVectorIndex(const FVector& mouseHit) const

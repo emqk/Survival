@@ -34,6 +34,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void EndBuilding(const FVector& mouseHit);
 
+	UFUNCTION(BlueprintCallable)
+	void ChangeRotationY(const float& amount);
+
 protected:
 	UFUNCTION(BlueprintCallable)
 	FIntVector TransformLocationToVectorIndex(const FVector& mouseHit) const;
@@ -77,9 +80,13 @@ protected:
 	int height;
 
 	UPROPERTY(VisibleAnywhere)
+	float currentRotationY = 0;
+
+
+	UPROPERTY(VisibleAnywhere)
 	TArray<AFloor*> floors;
 	UPROPERTY(VisibleAnywhere)
 	TArray<AWall*> walls;
 
-	float snapSize = 100;
+	const float snapSize = 100;
 };
