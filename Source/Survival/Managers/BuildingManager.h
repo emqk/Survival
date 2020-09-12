@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "../Building/Architecture/Floor.h"
 #include "GameFramework/Actor.h"
 #include "BuildingManager.generated.h"
 
@@ -30,14 +31,33 @@ public:
 	void TickBuilding(const FVector& mouseHit);
 
 	UFUNCTION(BlueprintCallable)
-	void EndBuilding();
+	void EndBuilding(const FVector& mouseHit);
+
+protected:
+	UFUNCTION(BlueprintCallable)
+	FIntVector TransformLocationToVectorIndex(const FVector& mouseHit) const;
+
+private:
+	UFUNCTION(BlueprintCallable)
+	bool SetFloorAt(AFloor* floor, const FIntVector& vectorIndex);
+
+	UFUNCTION(BlueprintCallable)
+	bool IsVectorIndexValid(const FIntVector& vectorIndex) const;
 
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TSubclassOf<AActor> floorToBuild;
+	TSubclassOf<AFloor> floorToBuild;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	AActor* currentFloor;
+	AFloor* currentFloor;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	int width;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	int height;
+
+	UPROPERTY(VisibleAnywhere)
+	TArray<AFloor*> floors;
 
 	float snapSize = 100;
 };
