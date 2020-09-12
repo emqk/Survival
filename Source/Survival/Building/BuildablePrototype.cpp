@@ -18,10 +18,8 @@ ABuildablePrototype::ABuildablePrototype()
 	AddOwnedComponent(inventoryComp);
 }
 
-void ABuildablePrototype::SetupVisuals(UStaticMesh* staticMesh, UMaterialInterface* material, TSubclassOf<ABuildableBase> toBuildClass)
+void ABuildablePrototype::SetupVisuals(TSubclassOf<ABuildableBase> toBuildClass)
 {
-	meshComp->SetStaticMesh(staticMesh);
-	meshComp->SetMaterial(0, material);
 	toBuild = toBuildClass;
 	workAmountToBuild = toBuild.GetDefaultObject()->GetWorkAmountToBuild();
 	buildRequirements = toBuild.GetDefaultObject()->GetBuildRequirements();

@@ -27,7 +27,7 @@ protected:
 	void RefreshText();
 
 	UFUNCTION(BlueprintCallable)
-	void SetupVisuals(UStaticMesh* staticMesh, UMaterialInterface* material, TSubclassOf<ABuildableBase> toBuildClass);
+	void SetupVisuals(TSubclassOf<ABuildableBase> toBuildClass);
 
 	UFUNCTION(BlueprintCallable)
 	void GiveNeededItems(UInventoryComponent* inventory);

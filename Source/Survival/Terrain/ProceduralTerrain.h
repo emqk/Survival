@@ -43,6 +43,7 @@ protected:
 
 	UPROPERTY(VisibleAnywhere)
 	UProceduralMeshComponent* mesh;
+
 	UPROPERTY(EditAnywhere)
 	UMaterialInstance* material;
 	UPROPERTY(EditAnywhere)

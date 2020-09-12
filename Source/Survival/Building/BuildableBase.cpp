@@ -34,9 +34,3 @@ const TArray<FItemInstance>& ABuildableBase::GetBuildRequirements() const
 {
 	return buildRequirements;
 }
-
-bool ABuildableBase::CanBePlaced()
-{
-	return !isOverlapping;
-}
-

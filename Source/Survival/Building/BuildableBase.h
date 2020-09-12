@@ -29,16 +29,10 @@ public:
 	UFUNCTION(BlueprintPure)
 	const TArray<FItemInstance>& GetBuildRequirements() const;
 
-	UFUNCTION(BlueprintPure)
-	bool CanBePlaced();
-
 protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TArray<FItemInstance> buildRequirements;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float workAmountToBuild;
-	
-	UPROPERTY(BlueprintReadWrite)
-	bool isOverlapping = false;
 };
