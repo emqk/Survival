@@ -52,6 +52,10 @@ protected:
 	AFloor* currentFloor;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	USoundWave* buildSound;
+
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	int width;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	int height;

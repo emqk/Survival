@@ -2,6 +2,7 @@
 
 
 #include "BuildingManager.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ABuildingManager::ABuildingManager()
@@ -55,6 +56,7 @@ void ABuildingManager::EndBuilding(const FVector& mouseHit)
 		if (SetFloorAt(currentFloor, floorIndex))
 		{
 			currentFloor = nullptr;
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), buildSound, mouseHit);
 		}
 	}
 	else
