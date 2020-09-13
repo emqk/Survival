@@ -197,6 +197,16 @@ FIntVector ABuildingManager::TransformLocationToVectorIndex(const FVector& mouse
 	return index;
 }
 
+UMaterialInterface* ABuildingManager::GetGoodMaterial() const
+{
+	return goodMaterial;
+}
+
+UMaterialInterface* ABuildingManager::GetBadMaterial() const
+{
+	return badMaterial;
+}
+
 bool ABuildingManager::IsVectorIndexValid(const FIntVector& vectorIndex) const
 {
 	return (vectorIndex.X >= 0 && vectorIndex.X < width), (vectorIndex.Y >= 0 && vectorIndex.Y < height);

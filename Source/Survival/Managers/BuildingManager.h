@@ -57,6 +57,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 	FIntVector TransformLocationToVectorIndex(const FVector& mouseHit) const;
 
+	UFUNCTION(BlueprintCallable)
+	UMaterialInterface* GetGoodMaterial() const;
+	UFUNCTION(BlueprintCallable)
+	UMaterialInterface* GetBadMaterial() const;
+
 
 private:
 	UFUNCTION(BlueprintCallable)
@@ -87,6 +92,10 @@ protected:
 	//Build control
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	ABuildablePrototype* currentPrototype;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UMaterialInterface* goodMaterial;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UMaterialInterface* badMaterial;
 
 	//Sounds
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)

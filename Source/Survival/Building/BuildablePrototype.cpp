@@ -2,6 +2,8 @@
 
 
 #include "BuildablePrototype.h"
+#include "../PlayerGameMode.h"
+#include "Kismet/GameplayStatics.h"
 
 ABuildablePrototype::ABuildablePrototype()
 {
@@ -49,11 +51,19 @@ void ABuildablePrototype::GiveNeededItems(UInventoryComponent* inventory)
 
 void ABuildablePrototype::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
+	APlayerGameMode* gameMode = Cast<APlayerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+	ABuildingManager* buildingManager = gameMode->GetBuildingManager();
+	meshComp->SetMaterial(0, buildingManager->GetBadMaterial());
+
 	isOverlapping = true;
 }
 
 void ABuildablePrototype::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
+	APlayerGameMode* gameMode = Cast<APlayerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+	ABuildingManager* buildingManager = gameMode->GetBuildingManager();
+	meshComp->SetMaterial(0, buildingManager->GetGoodMaterial());
+
 	isOverlapping = false;
 }
 

@@ -48,6 +48,7 @@ protected:
 	UWidgetComponent* myWidget;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UBoxComponent* box;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UInventoryComponent* inventoryComp;
 
