@@ -21,7 +21,7 @@ ABuildablePrototype::ABuildablePrototype()
 	box->SetGenerateOverlapEvents(true);
 	box->OnComponentBeginOverlap.AddDynamic(this, &ABuildablePrototype::OnOverlapBegin);
 	box->OnComponentEndOverlap.AddDynamic(this, &ABuildablePrototype::OnOverlapEnd);
-
+	
 	inventoryComp = CreateDefaultSubobject<UInventoryComponent>(TEXT("Collected"));
 	AddOwnedComponent(inventoryComp);
 }
@@ -51,20 +51,30 @@ void ABuildablePrototype::GiveNeededItems(UInventoryComponent* inventory)
 
 void ABuildablePrototype::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	APlayerGameMode* gameMode = Cast<APlayerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
-	ABuildingManager* buildingManager = gameMode->GetBuildingManager();
-	meshComp->SetMaterial(0, buildingManager->GetBadMaterial());
-
-	isOverlapping = true;
+	OnOverlap();
 }
 
 void ABuildablePrototype::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
+	OnOverlap();
+}
+
+void ABuildablePrototype::OnOverlap()
+{
+	TSet<AActor*> overlappingActors;
+	box->GetOverlappingActors(overlappingActors);
+	if (overlappingActors.Num() > 0)
+		isOverlapping = true;
+	else
+		isOverlapping = false;
+
 	APlayerGameMode* gameMode = Cast<APlayerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
 	ABuildingManager* buildingManager = gameMode->GetBuildingManager();
-	meshComp->SetMaterial(0, buildingManager->GetGoodMaterial());
 
-	isOverlapping = false;
+	if (isOverlapping)
+		meshComp->SetMaterial(0, buildingManager->GetBadMaterial());
+	else
+		meshComp->SetMaterial(0, buildingManager->GetGoodMaterial());
 }
 
 bool ABuildablePrototype::CanBePlaced() const
