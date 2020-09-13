@@ -21,6 +21,8 @@ class SURVIVAL_API APlayerGameMode : public AGameModeBase
 public:
     UFUNCTION(BlueprintCallable)
     AConversationManager* GetConversationManager() const;
+    UFUNCTION(BlueprintCallable)
+    ABuildingManager* GetBuildingManager() const;
 
 protected:
     UPROPERTY(EditAnywhere, BlueprintReadWrite)

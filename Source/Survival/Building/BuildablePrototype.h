@@ -59,5 +59,5 @@ protected:
 	TSubclassOf<ABuildableBase> toBuild;
 
 	UPROPERTY(VisibleAnywhere)
-	bool isOverlapping;
+	bool isOverlapping = false;
 };

@@ -140,6 +140,39 @@ void ABuildingManager::CancelBuilding()
 	}
 }
 
+bool ABuildingManager::SetFloorAt(AFloor* floor, const FIntVector& vectorIndex)
+{
+	int index = vectorIndex.Y + (vectorIndex.X * width);
+	if (floors.IsValidIndex(index) && IsVectorIndexValid(vectorIndex))
+	{
+		floors[index] = floor;
+		UE_LOG(LogTemp, Warning, TEXT("Floor set on %ix, %iy, %iz  index: %i"), vectorIndex.X, vectorIndex.Y, vectorIndex.Z, index)
+			return true;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Can't set floor at %ix, %iy, %iz  index: %i"), vectorIndex.X, vectorIndex.Y, vectorIndex.Z, index)
+			return false;
+	}
+}
+
+bool ABuildingManager::SetWallAt(AWall* wall, const FIntVector& vectorIndex)
+{
+	int index = vectorIndex.Y + (vectorIndex.X * (width + 1));
+	if (walls.IsValidIndex(index) && IsWallVectorIndexValid(vectorIndex))
+	{
+		walls[index] = wall;
+		UE_LOG(LogTemp, Warning, TEXT("Wall set on %ix, %iy, %iz  index: %i"), vectorIndex.X, vectorIndex.Y, vectorIndex.Z, index)
+			return true;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Can't set wall at %ix, %iy, %iz  index: %i"), vectorIndex.X, vectorIndex.Y, vectorIndex.Z, index)
+			return false;
+	}
+}
+
+
 FVector ABuildingManager::TransformToSnap(const FVector& mouseHit) const
 {
 	FIntVector index = TransformLocationToVectorIndex(mouseHit);
@@ -162,38 +195,6 @@ FIntVector ABuildingManager::TransformLocationToVectorIndex(const FVector& mouse
 	FVector mouseHitReduced = mouseHit / snapSize;
 	FIntVector index = FIntVector(FMath::RoundToInt(mouseHitReduced.X), FMath::RoundToInt(mouseHitReduced.Y), FMath::RoundToInt(mouseHitReduced.Z));
 	return index;
-}
-
-bool ABuildingManager::SetFloorAt(AFloor* floor, const FIntVector& vectorIndex)
-{
-	int index = vectorIndex.Y + (vectorIndex.X * width);
-	if (floors.IsValidIndex(index) && IsVectorIndexValid(vectorIndex))
-	{
-		floors[index] = floor;
-		UE_LOG(LogTemp, Warning, TEXT("Floor set on %ix, %iy, %iz  index: %i"), vectorIndex.X, vectorIndex.Y, vectorIndex.Z, index)
-		return true;
-	}
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("Can't set floor at %ix, %iy, %iz  index: %i"), vectorIndex.X, vectorIndex.Y, vectorIndex.Z, index)
-		return false;
-	}
-}
-
-bool ABuildingManager::SetWallAt(AWall* wall, const FIntVector& vectorIndex)
-{
-	int index = vectorIndex.Y + (vectorIndex.X * (width + 1));
-	if (walls.IsValidIndex(index) && IsWallVectorIndexValid(vectorIndex))
-	{
-		walls[index] = wall;
-		UE_LOG(LogTemp, Warning, TEXT("Wall set on %ix, %iy, %iz  index: %i"), vectorIndex.X, vectorIndex.Y, vectorIndex.Z, index)
-		return true;
-	}
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("Can't set wall at %ix, %iy, %iz  index: %i"), vectorIndex.X, vectorIndex.Y, vectorIndex.Z, index)
-		return false;
-	}
 }
 
 bool ABuildingManager::IsVectorIndexValid(const FIntVector& vectorIndex) const

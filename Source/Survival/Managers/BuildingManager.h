@@ -40,6 +40,12 @@ public:
 	void CancelBuilding();
 
 	UFUNCTION(BlueprintCallable)
+	bool SetFloorAt(AFloor* floor, const FIntVector& vectorIndex);
+
+	UFUNCTION(BlueprintCallable)
+	bool SetWallAt(AWall* wall, const FIntVector& vectorIndex);
+
+	UFUNCTION(BlueprintCallable)
 	FVector TransformToSnap(const FVector& mouseHit) const;
 
 	UFUNCTION(BlueprintCallable)
@@ -48,17 +54,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool IsBuilding() const;
 
-protected:
 	UFUNCTION(BlueprintCallable)
 	FIntVector TransformLocationToVectorIndex(const FVector& mouseHit) const;
 
+
 private:
-	UFUNCTION(BlueprintCallable)
-	bool SetFloorAt(AFloor* floor, const FIntVector& vectorIndex);
-
-	UFUNCTION(BlueprintCallable)
-	bool SetWallAt(AWall* wall, const FIntVector& vectorIndex);
-
 	UFUNCTION(BlueprintCallable)
 	bool IsVectorIndexValid(const FIntVector& vectorIndex) const;
 

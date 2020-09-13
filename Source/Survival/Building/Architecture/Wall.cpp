@@ -2,6 +2,8 @@
 
 
 #include "Wall.h"
+#include "../../PlayerGameMode.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 AWall::AWall()
@@ -16,6 +18,11 @@ void AWall::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	//Send data about this floor to building manager's array data
+	APlayerGameMode* gameMode = Cast<APlayerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+	ABuildingManager* buildingManager = gameMode->GetBuildingManager();
+	FIntVector vectorIndex = buildingManager->TransformLocationToVectorIndex(GetActorLocation());
+	buildingManager->SetWallAt(this, vectorIndex);
 }
 
 // Called every frame

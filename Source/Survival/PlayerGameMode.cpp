@@ -7,3 +7,8 @@ AConversationManager* APlayerGameMode::GetConversationManager() const
 {
 	return conversationManager;
 }
+
+ABuildingManager* APlayerGameMode::GetBuildingManager() const
+{
+	return buildingManager;
+}

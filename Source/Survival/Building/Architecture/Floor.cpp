@@ -2,6 +2,8 @@
 
 
 #include "Floor.h"
+#include "../../PlayerGameMode.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 AFloor::AFloor()
@@ -16,6 +18,11 @@ void AFloor::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	//Send data about this floor to building manager's array data
+	APlayerGameMode* gameMode = Cast<APlayerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+	ABuildingManager* buildingManager = gameMode->GetBuildingManager();
+	FIntVector vectorIndex = buildingManager->TransformLocationToVectorIndex(GetActorLocation());
+	buildingManager->SetFloorAt(this, vectorIndex);
 }
 
 // Called every frame
