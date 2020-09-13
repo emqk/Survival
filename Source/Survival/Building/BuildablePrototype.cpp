@@ -12,7 +12,13 @@ ABuildablePrototype::ABuildablePrototype()
 	meshComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 
 	myWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("Widget"));
-	myWidget->AttachToComponent(meshComp, FAttachmentTransformRules::KeepRelativeTransform);
+	myWidget->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+
+	box = CreateDefaultSubobject<UBoxComponent>(TEXT("Box"));
+	box->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	box->SetGenerateOverlapEvents(true);
+	box->OnComponentBeginOverlap.AddDynamic(this, &ABuildablePrototype::OnOverlapBegin);
+	box->OnComponentEndOverlap.AddDynamic(this, &ABuildablePrototype::OnOverlapEnd);
 
 	inventoryComp = CreateDefaultSubobject<UInventoryComponent>(TEXT("Collected"));
 	AddOwnedComponent(inventoryComp);
@@ -39,4 +45,19 @@ void ABuildablePrototype::GiveNeededItems(UInventoryComponent* inventory)
 	}
 
 	RefreshText();
+}
+
+void ABuildablePrototype::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	isOverlapping = true;
+}
+
+void ABuildablePrototype::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	isOverlapping = false;
+}
+
+bool ABuildablePrototype::CanBePlaced() const
+{
+	return !isOverlapping;
 }

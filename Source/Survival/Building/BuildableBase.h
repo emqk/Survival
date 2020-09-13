@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/BoxComponent.h"
 #include "../Inventory/ItemInstance.h"
 #include "BuildableBase.generated.h"
 
@@ -30,6 +31,16 @@ public:
 	const TArray<FItemInstance>& GetBuildRequirements() const;
 
 protected:
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	USceneComponent* root;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UStaticMeshComponent* mesh;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UBoxComponent* box;
+
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TArray<FItemInstance> buildRequirements;

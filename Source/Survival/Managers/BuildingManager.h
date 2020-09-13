@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "../Building/Architecture/Floor.h"
 #include "../Building/Architecture/Wall.h"
+#include "../Building/BuildableBase.h"
+#include "../Building/BuildablePrototype.h"
 #include "GameFramework/Actor.h"
 #include "BuildingManager.generated.h"
 
@@ -26,16 +28,25 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-	void BeginBuilding(const int& type);
+	void BeginBuilding(TSubclassOf<ABuildableBase> buildable, ABuildablePrototype* prototype);
 
 	UFUNCTION(BlueprintCallable)
 	void TickBuilding(const FVector& mouseHit);
 
 	UFUNCTION(BlueprintCallable)
-	void EndBuilding(const FVector& mouseHit);
+	void EndBuilding();
+
+	UFUNCTION(BlueprintCallable)
+	void CancelBuilding();
+
+	UFUNCTION(BlueprintCallable)
+	FVector TransformToSnap(const FVector& mouseHit) const;
 
 	UFUNCTION(BlueprintCallable)
 	void ChangeRotationY(const float& amount);
+
+	UFUNCTION(BlueprintCallable)
+	bool IsBuilding() const;
 
 protected:
 	UFUNCTION(BlueprintCallable)
@@ -60,19 +71,32 @@ protected:
 	TSubclassOf<AFloor> floorToBuild;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	AFloor* currentFloor;
+	TSubclassOf<AFloor> currentFloor;
 
 	//Wall
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<AWall> wallToBuild;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	AWall* currentWall;
+	TSubclassOf<AWall> currentWall;
 
+	//Buildable
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TSubclassOf<ABuildableBase> currentBuildable;
 
+	//Build control
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	ABuildablePrototype* currentPrototype;
+
+	//Sounds
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	USoundWave* buildSound;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	USoundWave* cancelBuildingSound;
 
+	//Other
+	UPROPERTY(EditDefaultsOnly)
+	FName afterPlacingProtCollisionProfile = "OverlapAll";
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	int width;

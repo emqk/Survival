@@ -27,79 +27,134 @@ void ABuildingManager::Tick(float DeltaTime)
 
 }
 
-void ABuildingManager::BeginBuilding(const int& type)
+void ABuildingManager::BeginBuilding(TSubclassOf<ABuildableBase> buildable, ABuildablePrototype* prototype)
 {
-	if (type == 0)
+	if (currentPrototype)
 	{
-		if (!currentFloor)
-		{
-			currentFloor = GetWorld()->SpawnActor<AFloor>(floorToBuild, FVector(0, 0, 0), FRotator(0, currentRotationY, 0));
-		}
-		else
-		{
-			UE_LOG(LogTemp, Error, TEXT("Can't BeginBuilding - currentFloor is not null!"))
-		}
+		currentPrototype->Destroy();
+	}
+
+	if (buildable->IsChildOf(AFloor::StaticClass()))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("It's floor!"))
+		currentFloor = buildable;
+		currentWall = nullptr;
+		currentBuildable = nullptr;
+		//currentFloor = GetWorld()->SpawnActor<AFloor>(floorToBuild, FVector(0, 0, 0), FRotator(0, currentRotationY, 0));
+	}
+	else if(buildable->IsChildOf(AWall::StaticClass()))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("It's wall!"))
+		currentFloor = nullptr;
+		currentWall = buildable;
+		currentBuildable = nullptr;
+		//currentWall = GetWorld()->SpawnActor<AWall>(wallToBuild, FVector(0, 0, 0), FRotator(0, currentRotationY, 0));
+	}
+	else if(buildable->IsChildOf(ABuildableBase::StaticClass()))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("It's buildable!"))
+		currentFloor = nullptr;
+		currentWall = nullptr;
+		currentBuildable = buildable;
+		//currentWall = GetWorld()->SpawnActor<AWall>(wallToBuild, FVector(0, 0, 0), FRotator(0, currentRotationY, 0));
 	}
 	else
 	{
-		if (!currentWall)
-		{
-			currentWall = GetWorld()->SpawnActor<AWall>(wallToBuild, FVector(0, 0, 0), FRotator(0, currentRotationY, 0));
-		}
-		else
-		{
-			UE_LOG(LogTemp, Error, TEXT("Can't BeginBuilding - currentWall is not null!"))
-		}
+		UE_LOG(LogTemp, Warning, TEXT("It's other!"))
 	}
+
+	currentPrototype = prototype;
 }
 
 void ABuildingManager::TickBuilding(const FVector& mouseHit)
 {
-	if (currentFloor)
+	if (currentPrototype)
 	{
-		FIntVector index = TransformLocationToVectorIndex(mouseHit);
-		FVector snapLocation = FVector(index.X, index.Y, 0) * snapSize;
-		currentFloor->SetActorLocation(snapLocation);
-		currentFloor->SetActorRotation(FRotator(0, currentRotationY, 0));
-	}
-	else if (currentWall)
-	{
-		FIntVector index = TransformLocationToVectorIndex(mouseHit);
-		FVector snapLocation = FVector(index.X, index.Y, 0) * snapSize;
-		currentWall->SetActorLocation(snapLocation);
-		currentWall->SetActorRotation(FRotator(0, currentRotationY, 0));
+		if (currentFloor || currentWall)
+		{
+			FVector snapLocation = TransformToSnap(mouseHit);
+			currentPrototype->SetActorLocation(snapLocation);
+			currentPrototype->SetActorRotation(FRotator(0, currentRotationY, 0));
+		}
+		else
+		{
+			currentPrototype->SetActorLocation(mouseHit);
+			currentPrototype->SetActorRotation(FRotator(0, currentRotationY, 0));
+		}
 	}
 }
 
-void ABuildingManager::EndBuilding(const FVector& mouseHit)
+void ABuildingManager::EndBuilding()
 {
-	if (currentFloor)
+	if (!currentPrototype)
 	{
-		FIntVector floorIndex = TransformLocationToVectorIndex(mouseHit);
-		if (SetFloorAt(currentFloor, floorIndex))
-		{
-			currentFloor = nullptr;
-			UGameplayStatics::PlaySoundAtLocation(GetWorld(), buildSound, mouseHit);
-		}
+		UE_LOG(LogTemp, Error, TEXT("Can't EndBuilding - currentPrototype is null!"))
+		return;
 	}
-	else if (currentWall)
+	if (!currentPrototype->CanBePlaced())
 	{
-		FIntVector wallIndex = TransformLocationToVectorIndex(mouseHit);
-		if (SetWallAt(currentWall, wallIndex))
-		{
-			currentWall = nullptr;
-			UGameplayStatics::PlaySoundAtLocation(GetWorld(), buildSound, mouseHit);
-		}
+		UE_LOG(LogTemp, Error, TEXT("Can't EndBuilding - Can not be placed!"))
+		return;
+	}
+
+	UGameplayStatics::PlaySoundAtLocation(GetWorld(), buildSound, currentPrototype->GetActorLocation());
+	UBoxComponent* boxCollider = Cast<UBoxComponent>(currentPrototype->GetComponentByClass(UBoxComponent::StaticClass()));
+	boxCollider->SetCollisionProfileName(afterPlacingProtCollisionProfile);
+	currentPrototype = nullptr;
+
+	//FVector prototypeLocation = currentPrototype->GetActorLocation();
+	//if (currentFloor)
+	//{
+	//	FIntVector floorIndex = TransformLocationToVectorIndex(prototypeLocation);
+	//	if (SetFloorAt(currentFloor, floorIndex))
+	//	{
+	//		currentFloor = nullptr;
+	//		UGameplayStatics::PlaySoundAtLocation(GetWorld(), buildSound, mouseHit);
+	//	}
+	//}
+	//else if (currentWall)
+	//{
+	//	FIntVector wallIndex = TransformLocationToVectorIndex(prototypeLocation);
+	//	if (SetWallAt(currentWall, wallIndex))
+	//	{
+	//		currentWall = nullptr;
+	//		UGameplayStatics::PlaySoundAtLocation(GetWorld(), buildSound, mouseHit);
+	//	}
+	//}
+	//else
+	//{
+	//	UE_LOG(LogTemp, Error, TEXT("Can't EndBuilding - currentFloor and currentWall are null!"))
+	//}
+}
+
+void ABuildingManager::CancelBuilding()
+{
+	if (currentPrototype)
+	{
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), cancelBuildingSound, currentPrototype->GetActorLocation());
+		currentPrototype->Destroy();
 	}
 	else
 	{
-		UE_LOG(LogTemp, Error, TEXT("Can't EndBuilding - currentFloor and currentWall is null!"))
+		UE_LOG(LogTemp, Error, TEXT("Can't CancelBuilding - Current Prototype is nullptr!"))
 	}
+}
+
+FVector ABuildingManager::TransformToSnap(const FVector& mouseHit) const
+{
+	FIntVector index = TransformLocationToVectorIndex(mouseHit);
+	FVector snapLocation = FVector(index.X, index.Y, 0) * snapSize;
+	return snapLocation;
 }
 
 void ABuildingManager::ChangeRotationY(const float& amount)
 {
 	currentRotationY += amount;
+}
+
+bool ABuildingManager::IsBuilding() const
+{
+	return IsValid(currentPrototype);
 }
 
 FIntVector ABuildingManager::TransformLocationToVectorIndex(const FVector& mouseHit) const

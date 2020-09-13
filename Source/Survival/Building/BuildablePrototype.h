@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/WidgetComponent.h"
+#include "Components/BoxComponent.h"
 #include "../Interaction/InteractableBase.h"
 #include "../Inventory/InventoryComponent.h"
 #include "BuildableBase.h"
@@ -20,6 +21,8 @@ class SURVIVAL_API ABuildablePrototype : public AInteractableBase
 public:
 	ABuildablePrototype();
 
+	UFUNCTION(BlueprintCallable)
+	bool CanBePlaced() const;
 
 protected:
 
@@ -32,10 +35,19 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void GiveNeededItems(UInventoryComponent* inventory);
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	UWidgetComponent* myWidget;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UFUNCTION()
+	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+	UFUNCTION()
+	void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UStaticMeshComponent* meshComp;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UWidgetComponent* myWidget;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UBoxComponent* box;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UInventoryComponent* inventoryComp;
 
@@ -45,4 +57,7 @@ protected:
 	float workAmountToBuild;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TSubclassOf<ABuildableBase> toBuild;
+
+	UPROPERTY(VisibleAnywhere)
+	bool isOverlapping;
 };

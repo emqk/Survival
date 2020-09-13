@@ -3,11 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "../BuildableBase.h"
 #include "GameFramework/Actor.h"
 #include "Wall.generated.h"
 
 UCLASS()
-class SURVIVAL_API AWall : public AActor
+class SURVIVAL_API AWall : public ABuildableBase
 {
 	GENERATED_BODY()
 	
