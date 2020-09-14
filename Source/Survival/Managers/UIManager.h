@@ -40,6 +40,15 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void RefreshCrew(const TArray<AAICharacter*>& crewMembers);
 
+	//Scavenge
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void ToggleScavengePanel();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void OpenScavengePanel();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void CloseScavengePanel();
+
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

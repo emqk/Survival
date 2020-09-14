@@ -3,6 +3,11 @@
 
 #include "PlayerGameMode.h"
 
+AScavengeManager* APlayerGameMode::GetScavengeManager() const
+{
+	return scavengeManager;
+}
+
 AConversationManager* APlayerGameMode::GetConversationManager() const
 {
 	return conversationManager;

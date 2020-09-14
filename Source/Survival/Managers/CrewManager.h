@@ -31,7 +31,7 @@ protected:
 	AAICharacter* GetFirstNPCOtherThanWithLowSocialInRadius(const AAICharacter* otherThan, const float& radiusSq) const;
 
 	UFUNCTION(BlueprintCallable)
-	AAICharacter* GetMemeber(const int& id) const;
+	AAICharacter* GetMemeber(const int& uniqueID) const;
 
 	UFUNCTION(BlueprintCallable)
 	FName GetRandomName(const TArray<FName>& names);
@@ -41,7 +41,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 protected:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TArray <AAICharacter*> members;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	TArray<FName> availableNames;

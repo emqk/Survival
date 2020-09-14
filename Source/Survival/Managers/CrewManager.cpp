@@ -84,12 +84,12 @@ AAICharacter* ACrewManager::GetFirstNPCOtherThanWithLowSocialInRadius(const AAIC
 	return nullptr;
 }
 
-AAICharacter* ACrewManager::GetMemeber(const int& id) const
+AAICharacter* ACrewManager::GetMemeber(const int& uniqueID) const
 {
 	for (AAICharacter* character : members)
 	{
 		uint32 currCharID = character->GetUniqueID();
-		if (currCharID == id)
+		if (currCharID == uniqueID)
 		{
 			return character;
 		}

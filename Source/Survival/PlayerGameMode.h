@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "Managers/ScavengeManager.h"
 #include "Managers/BuildingManager.h"
 #include "Managers/ConversationManager.h"
 #include "Managers/CrewManager.h"
@@ -20,6 +21,8 @@ class SURVIVAL_API APlayerGameMode : public AGameModeBase
 
 public:
     UFUNCTION(BlueprintCallable)
+    AScavengeManager* GetScavengeManager() const;
+    UFUNCTION(BlueprintCallable)
     AConversationManager* GetConversationManager() const;
     UFUNCTION(BlueprintCallable)
     ABuildingManager* GetBuildingManager() const;
@@ -27,6 +30,8 @@ public:
 protected:
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     ABuildingManager* buildingManager = nullptr;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    AScavengeManager* scavengeManager = nullptr;
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     AConversationManager* conversationManager = nullptr;
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
