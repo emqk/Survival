@@ -25,11 +25,6 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UFUNCTION(BlueprintPure)
-	float GetWorkAmountToBuild() const;
-	UFUNCTION(BlueprintPure)
-	const TArray<FItemInstance>& GetBuildRequirements() const;
-
 protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
@@ -40,10 +35,4 @@ protected:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UBoxComponent* box;
-
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TArray<FItemInstance> buildRequirements;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	float workAmountToBuild;
 };

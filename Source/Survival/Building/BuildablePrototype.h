@@ -21,7 +21,20 @@ class SURVIVAL_API ABuildablePrototype : public AInteractableBase
 public:
 	ABuildablePrototype();
 
+	virtual bool InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character) override;
+
 	UFUNCTION(BlueprintCallable)
+	void Build();
+
+	UFUNCTION(BlueprintPure)
+	float GetWorkAmountToBuild() const;
+	UFUNCTION(BlueprintPure)
+	const TArray<FItemInstance>& GetBuildRequirements() const;
+
+	UFUNCTION(BlueprintPure)
+	bool HaveRequiredItems() const;
+
+	UFUNCTION(BlueprintPure)
 	bool CanBePlaced() const;
 
 protected:
@@ -31,6 +44,9 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void SetupVisuals(TSubclassOf<ABuildableBase> toBuildClass);
+
+	UFUNCTION(BlueprintCallable)
+	bool ConstructTick(const float& deltaTime, const float& buildSpeed, const float& destructionSpeed);
 
 	UFUNCTION(BlueprintCallable)
 	void GiveNeededItems(UInventoryComponent* inventory);
@@ -55,12 +71,17 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UInventoryComponent* inventoryComp;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	TArray<FItemInstance> buildRequirements;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float workAmountToBuild;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TSubclassOf<ABuildableBase> toBuild;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	USoundWave* finishBuildSound;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	float currentWorkAmount;
 
 	UPROPERTY(VisibleAnywhere)
 	bool isOverlapping = false;

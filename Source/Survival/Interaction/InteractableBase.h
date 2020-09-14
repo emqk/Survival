@@ -26,8 +26,6 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	//UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	//bool InteractionTick(const float& deltaSeconds, const AAICharacter* character);
 	virtual bool InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character) override;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)

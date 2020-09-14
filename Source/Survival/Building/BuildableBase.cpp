@@ -32,13 +32,3 @@ void ABuildableBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-
-float ABuildableBase::GetWorkAmountToBuild() const
-{
-	return workAmountToBuild;
-}
-
-const TArray<FItemInstance>& ABuildableBase::GetBuildRequirements() const
-{
-	return buildRequirements;
-}

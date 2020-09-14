@@ -29,8 +29,29 @@ ABuildablePrototype::ABuildablePrototype()
 void ABuildablePrototype::SetupVisuals(TSubclassOf<ABuildableBase> toBuildClass)
 {
 	toBuild = toBuildClass;
-	workAmountToBuild = toBuild.GetDefaultObject()->GetWorkAmountToBuild();
-	buildRequirements = toBuild.GetDefaultObject()->GetBuildRequirements();
+}
+
+bool ABuildablePrototype::InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character)
+{
+	if (HaveRequiredItems())
+	{
+		return ConstructTick(deltaSeconds, character->GetBuildSpeed(), character->GetDestructionSpeed());
+	}
+
+	return false;
+}
+
+
+bool ABuildablePrototype::ConstructTick(const float& deltaTime, const float& buildSpeed, const float& destructionSpeed)
+{
+	currentWorkAmount += buildSpeed * deltaTime;
+	if (currentWorkAmount >= workAmountToBuild)
+	{
+		Build();
+		return true;
+	}
+
+	return false;
 }
 
 void ABuildablePrototype::GiveNeededItems(UInventoryComponent* inventory)
@@ -64,7 +85,14 @@ void ABuildablePrototype::OnOverlap()
 	TSet<AActor*> overlappingActors;
 	box->GetOverlappingActors(overlappingActors);
 	if (overlappingActors.Num() > 0)
-		isOverlapping = true;
+	{
+		//Ignore AICharacters
+		for (AActor* a : overlappingActors)
+		{
+			if (!Cast<AAICharacter>(a))
+				isOverlapping = true;
+		}
+	}
 	else
 		isOverlapping = false;
 
@@ -75,6 +103,27 @@ void ABuildablePrototype::OnOverlap()
 		meshComp->SetMaterial(0, buildingManager->GetBadMaterial());
 	else
 		meshComp->SetMaterial(0, buildingManager->GetGoodMaterial());
+}
+
+void ABuildablePrototype::Build()
+{
+	GetWorld()->SpawnActor<ABuildableBase>(toBuild, GetActorTransform());
+	UGameplayStatics::PlaySoundAtLocation(GetWorld(), finishBuildSound, GetActorLocation());
+}
+
+float ABuildablePrototype::GetWorkAmountToBuild() const
+{
+	return workAmountToBuild;
+}
+
+const TArray<FItemInstance>& ABuildablePrototype::GetBuildRequirements() const
+{
+	return buildRequirements;
+}
+
+bool ABuildablePrototype::HaveRequiredItems() const
+{
+	return inventoryComp->HaveAmountOfItems(buildRequirements);
 }
 
 bool ABuildablePrototype::CanBePlaced() const
