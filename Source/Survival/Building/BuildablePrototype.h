@@ -24,6 +24,9 @@ public:
 	virtual bool InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character) override;
 
 	UFUNCTION(BlueprintCallable)
+	void Setup(TSubclassOf<ABuildableBase> toBuildClass);
+
+	UFUNCTION(BlueprintCallable)
 	void Build();
 
 	UFUNCTION(BlueprintPure)
@@ -39,11 +42,8 @@ public:
 
 protected:
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void RefreshText();
-
 	UFUNCTION(BlueprintCallable)
-	void SetupVisuals(TSubclassOf<ABuildableBase> toBuildClass);
+	void RefreshText();
 
 	UFUNCTION(BlueprintCallable)
 	bool ConstructTick(const float& deltaTime, const float& buildSpeed, const float& destructionSpeed);

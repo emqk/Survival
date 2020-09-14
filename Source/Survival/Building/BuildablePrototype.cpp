@@ -2,6 +2,7 @@
 
 
 #include "BuildablePrototype.h"
+#include "../UI/Building/BuildingPrototypeWidget.h"
 #include "../PlayerGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -12,9 +13,11 @@ ABuildablePrototype::ABuildablePrototype()
 
 	meshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 	meshComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	meshComp->SetCollisionProfileName("NoCollision");
 
 	myWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("Widget"));
 	myWidget->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	myWidget->SetCollisionProfileName("NoCollision");
 
 	box = CreateDefaultSubobject<UBoxComponent>(TEXT("Box"));
 	box->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
@@ -26,9 +29,23 @@ ABuildablePrototype::ABuildablePrototype()
 	AddOwnedComponent(inventoryComp);
 }
 
-void ABuildablePrototype::SetupVisuals(TSubclassOf<ABuildableBase> toBuildClass)
+void ABuildablePrototype::Setup(TSubclassOf<ABuildableBase> toBuildClass)
 {
 	toBuild = toBuildClass;
+	RefreshText();
+}
+
+void ABuildablePrototype::RefreshText()
+{
+	UBuildingPrototypeWidget* buildingWidget = Cast<UBuildingPrototypeWidget>(myWidget->GetUserWidgetObject());
+	if (buildingWidget)
+	{
+		buildingWidget->SetupTexts(buildRequirements, inventoryComp);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Can't cast to UBuildingPrototypeWidget!"))
+	}
 }
 
 bool ABuildablePrototype::InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character)
