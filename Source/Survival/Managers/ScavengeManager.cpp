@@ -30,6 +30,11 @@ void AScavengeManager::SetScavengePoints(AScavengePoint* wood)
 	woodsInteractionPoint = wood;
 }
 
+void AScavengeManager::CreateScavengeGroup(const TArray<AAICharacter*>& characters, AScavengePoint* targetScavengePoint)
+{
+	scavengeGroups.Add(FScavengeGroup{characters, targetScavengePoint});
+}
+
 void AScavengeManager::SetWoodsInteractionPoint(AScavengePoint* point)
 {
 	woodsInteractionPoint = point;

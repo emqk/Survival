@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "../Interaction/ScavengePoint.h"
+#include "../Scavenge/ScavengeGroup.h"
 #include "GameFramework/Actor.h"
 #include "ScavengeManager.generated.h"
 
@@ -23,6 +23,9 @@ public:
 	void SetScavengePoints(AScavengePoint* wood);
 
 	UFUNCTION(BlueprintCallable)
+	void CreateScavengeGroup(const TArray<AAICharacter*>& characters, AScavengePoint* targetScavengePoint);
+
+	UFUNCTION(BlueprintCallable)
 	void SetWoodsInteractionPoint(AScavengePoint* point);
 	UFUNCTION(BlueprintCallable)
 	AScavengePoint* GetWoodsInteractionPoint() const;
@@ -34,6 +37,9 @@ protected:
 
 
 protected:
+	UPROPERTY(VisibleAnywhere)
+	TArray<FScavengeGroup> scavengeGroups;
+
 	UPROPERTY(VisibleAnywhere)
 	AScavengePoint* woodsInteractionPoint;
 };
