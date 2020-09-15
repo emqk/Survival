@@ -3,22 +3,20 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "InteractableBase.h"
+#include "PointOfInterest.h"
 #include "ScavengePoint.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class SURVIVAL_API AScavengePoint : public AInteractableBase
+class SURVIVAL_API AScavengePoint : public APointOfInterest
 {
 	GENERATED_BODY()
 	
 public:
 	AScavengePoint();
 
+	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
-	virtual bool ShouldTickIfViewportsOnly() const override;
-
-	virtual bool InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character) override;
 };

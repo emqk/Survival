@@ -28,7 +28,7 @@ public:
 	bool InteractionTick(const float& deltaSeconds, const AAICharacter* character);
 
 	//UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void Init(const float& dist, bool& destroyOnSuccess);
+	void Init(const float& dist, const bool& destroyOnSuccess);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	bool GetDestroyOnSuccessInteraction() const;

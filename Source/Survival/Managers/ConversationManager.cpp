@@ -33,8 +33,12 @@ void AConversationManager::StartConversation(AAICharacter* starting, AAICharacte
 	}
 	if (target->GetIsTalking())
 	{
-		UConversation* targetConversation = GetConversation(target);
 		UE_LOG(LogTemp, Warning, TEXT("Target is currently talking (Can't start conversation!)"))
+		return;
+	}
+	if (!starting->IsEnabled() || !target->IsEnabled())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Can't start conversation - starting or target has ActorTick disabled!"))
 		return;
 	}
 

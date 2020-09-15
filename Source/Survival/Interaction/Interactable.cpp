@@ -5,7 +5,7 @@
 
 // Add default functionality here for any IInteractable functions that are not pure virtual.
 
-void IInteractable::Init(const float& dist, bool& destroyOnSuccess)
+void IInteractable::Init(const float& dist, const bool& destroyOnSuccess)
 {
 	interactionDistance = dist;
 	destroyOnSuccessfulInteraction = destroyOnSuccess;

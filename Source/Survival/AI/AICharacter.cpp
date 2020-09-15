@@ -90,3 +90,26 @@ float AAICharacter::GetBuildSpeed() const
 {
 	return buildSpeed;
 }
+
+bool AAICharacter::IsEnabled() const
+{
+	return isThisActorEnabled;
+}
+
+void AAICharacter::SetMeActive(const bool& value)
+{
+	if (value)
+	{
+		SetActorHiddenInGame(false);
+		SetActorEnableCollision(true);
+		SetActorTickEnabled(true);
+	}
+	else
+	{
+		SetActorHiddenInGame(true);
+		SetActorEnableCollision(false);
+		SetActorTickEnabled(false);
+	}
+
+	isThisActorEnabled = value;
+}

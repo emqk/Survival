@@ -55,6 +55,12 @@ bool UConversation::TickConversation(const float& deltaTime)
 
 void UConversation::AddCharacter(AAICharacter* character)
 {
+	if (!character->IsEnabled())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Can't add %s to conversation - Actor ticking is disabled!"), *character->GetNPCData()->GetFullName().ToString())
+		return;
+	}
+
 	characters.Add(character);
 	character->SetIsTalking(true);
 	UE_LOG(LogTemp, Warning, TEXT("Added to conversation: %s"), *character->GetNPCData()->GetFullName().ToString())
@@ -84,8 +90,8 @@ FVector UConversation::GetLocation() const
 
 void UConversation::DrawDebug() const
 {
-	DrawDebugSphere(GetWorld(), location, 15, 10, FColor(200, 200, 200), false, 0.1f, 0, 1); //Visualize center
-	DrawDebugSphere(GetWorld(), location, radius, 20, FColor(160, 160, 160), false, 0.1f, 0, 1); //Visualize radius
+	DrawDebugSphere(GetWorld(), location, 15, 10, FColor(200, 200, 200), false, -1.0f, 0, 1); //Visualize center
+	DrawDebugSphere(GetWorld(), location, radius, 20, FColor(160, 160, 160), false, -1.0f, 0, 1); //Visualize radius
 
 	//Visualize NPCs connection to Conversation
 	for (const AAICharacter* character : characters)

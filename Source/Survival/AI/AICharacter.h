@@ -60,6 +60,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	float GetBuildSpeed() const;
 
+	UFUNCTION(BlueprintCallable)
+	bool IsEnabled() const;
+
+	UFUNCTION(BlueprintCallable)
+	void SetMeActive(const bool& value);
+
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UInventoryComponent* inventoryComp;
@@ -79,6 +85,9 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	bool isTalking = false;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	bool isThisActorEnabled = true;
 
 	UPROPERTY(EditAnywhere)
 	UNPCData* data;
