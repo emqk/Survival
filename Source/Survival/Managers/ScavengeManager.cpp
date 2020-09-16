@@ -21,8 +21,8 @@ void AScavengeManager::TickScavengeTrips(const float& deltaTime)
 {
 	for (int i = scavengeTrips.Num()-1; i >= 0; i--)
 	{
-		scavengeTrips[i].timeToGoBack -= deltaTime;
-		if (scavengeTrips[i].timeToGoBack <= 0)
+		scavengeTrips[i].timeToGoBackLeft -= deltaTime;
+		if (scavengeTrips[i].timeToGoBackLeft <= 0)
 		{
 			EndScavengeTrip(scavengeTrips[i], i);
 		}
@@ -36,6 +36,8 @@ void AScavengeManager::EndScavengeTrip(FScavengeTrip& scavengeTrip, const int& i
 		for (AAICharacter* ch : scavengeTrip.group)
 		{
 			ch->SetMeActive(true);
+			ch->inventoryComp->AddItem(scavengeTrip.scavengePoint->GetItemInstance());
+			ch->SimulateNeedsOverTime(scavengeTrip.GetTimeToGoBackStart());
 		}
 		scavengeTrips.RemoveAt(index);
 	}
@@ -74,7 +76,7 @@ bool AScavengeManager::CheckScavengePoint(AScavengePoint* scavengePoint)
 				if (scavengePoint->ContainsScavengeGroup(sg))
 				{
 					scavengePoint->RemoveAndDisableGroup(sg);
-					scavengeTrips.Add(FScavengeTrip{ sg.group, sg.scavagePoint, 10 });
+					scavengeTrips.Add(FScavengeTrip( sg.group, sg.scavagePoint, 10 ));
 					scavengeGroups.RemoveAt(i);
 				}
 			}

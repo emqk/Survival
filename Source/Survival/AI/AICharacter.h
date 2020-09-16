@@ -41,6 +41,9 @@ public:
 	void SetInteraction(const FVector& Location, const AActor* Actor);
 
 	UFUNCTION()
+	void SimulateNeedsOverTime(const float& seconds);
+
+	UFUNCTION()
 	void TickNeeds(const float& deltaTime);
 
 	UFUNCTION(BlueprintCallable)

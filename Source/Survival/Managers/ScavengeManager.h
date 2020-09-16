@@ -48,10 +48,10 @@ protected:
 
 protected:
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere)
 	TArray<FScavengeTrip> scavengeTrips;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere)
 	TArray<FScavengeGroup> scavengeGroups;
 
 	UPROPERTY(VisibleAnywhere)

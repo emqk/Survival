@@ -4,6 +4,7 @@
 #include "ScavengePoint.h"
 #include "../PlayerGameMode.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
 
 AScavengePoint::AScavengePoint()
 {
@@ -40,6 +41,11 @@ void AScavengePoint::RemoveAndDisableGroup(const FScavengeGroup& scavengeGroup)
 		scavengeGroup.group[i]->SetMeActive(false);
 		charactersIn.Remove(scavengeGroup.group[i]);
 	}
+}
+
+FItemInstance AScavengePoint::GetItemInstance() const
+{
+	return FItemInstance{ itemToGet, UKismetMathLibrary::RandomIntegerInRange(itemAmountMin, itemAmountMax)};
 }
 
 void AScavengePoint::OnBeginOverlap()

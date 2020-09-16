@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "../Scavenge/ScavengeGroup.h"
+#include "../Inventory/ItemInstance.h"
 #include "PointOfInterest.h"
 #include "ScavengePoint.generated.h"
 
@@ -22,10 +23,20 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-		bool ContainsScavengeGroup(const FScavengeGroup& scavengeGroup);
+	bool ContainsScavengeGroup(const FScavengeGroup& scavengeGroup);
 	UFUNCTION(BlueprintCallable)
-		void RemoveAndDisableGroup(const FScavengeGroup& scavengeGroup);
+	void RemoveAndDisableGroup(const FScavengeGroup& scavengeGroup);
+
+	UFUNCTION(BlueprintCallable)
+	FItemInstance GetItemInstance() const;
 
 protected:
 	virtual void OnBeginOverlap() override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UItemDataAsset* itemToGet;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int itemAmountMin;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int itemAmountMax;
 };

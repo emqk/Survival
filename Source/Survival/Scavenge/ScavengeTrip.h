@@ -15,15 +15,24 @@ static bool operator==(const FScavengeTrip& lhs, const FScavengeTrip& rhs)
 /**
  * 
  */
-USTRUCT(BlueprintType)
+USTRUCT()
 struct FScavengeTrip
 {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FScavengeTrip();
+	FScavengeTrip(const TArray<AAICharacter*>& _group, class AScavengePoint* _scavengePoint, const float& _timeToGoBack);
+
+	float GetTimeToGoBackStart() const;
+
+	UPROPERTY(EditAnywhere)
 	TArray<AAICharacter*> group;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	class AScavengePoint* scavagePoint;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	float timeToGoBack;
+	UPROPERTY(EditAnywhere)
+	class AScavengePoint* scavengePoint;
+	UPROPERTY(EditAnywhere)
+	float timeToGoBackLeft;
+
+protected:
+	UPROPERTY(VisibleAnywhere)
+	float timeToGoBackStart;
 };
