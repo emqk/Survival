@@ -25,7 +25,10 @@ public:
 	void SetScavengePoints(AScavengePoint* wood);
 
 	UFUNCTION(BlueprintCallable)
-	void CreateScavengeGroup(const TArray<AAICharacter*>& characters, AScavengePoint* targetScavengePoint);
+	bool CreateScavengeGroup(const TArray<AAICharacter*>& characters, AScavengePoint* targetScavengePoint);
+
+	UFUNCTION()
+	bool IsNPCInAnyScavengeGroup(const AAICharacter* character) const;
 
 	UFUNCTION(BlueprintCallable)
 	bool CheckScavengePoint(AScavengePoint* scavengePoint);

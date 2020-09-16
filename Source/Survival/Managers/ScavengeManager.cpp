@@ -59,9 +59,30 @@ void AScavengeManager::SetScavengePoints(AScavengePoint* wood)
 	woodsInteractionPoint = wood;
 }
 
-void AScavengeManager::CreateScavengeGroup(const TArray<AAICharacter*>& characters, AScavengePoint* targetScavengePoint)
+bool AScavengeManager::CreateScavengeGroup(const TArray<AAICharacter*>& characters, AScavengePoint* targetScavengePoint)
 {
+	for (const AAICharacter* ch : characters)
+	{
+		if (IsNPCInAnyScavengeGroup(ch))
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Can't create a ScavengeGroup - One of the NPCs are in other NPC group!"))
+			return false;
+		}
+	}
+
 	scavengeGroups.Add(FScavengeGroup{characters, targetScavengePoint});
+	return true;
+}
+
+bool AScavengeManager::IsNPCInAnyScavengeGroup(const AAICharacter* character) const
+{
+	for (const FScavengeGroup& sg : scavengeGroups)
+	{
+		if (sg.group.Contains(character))
+			return true;
+	}
+
+	return false;
 }
 
 bool AScavengeManager::CheckScavengePoint(AScavengePoint* scavengePoint)
