@@ -4,13 +4,19 @@
 
 #include "CoreMinimal.h"
 #include "../AI/AICharacter.h"
-#include "ScavengeGroup.generated.h"
+#include "ScavengeTrip.generated.h"
+
+
+static bool operator==(const FScavengeTrip& lhs, const FScavengeTrip& rhs)
+{
+	return &lhs == &rhs;
+}
 
 /**
  * 
  */
 USTRUCT(BlueprintType)
-struct FScavengeGroup
+struct FScavengeTrip
 {
 	GENERATED_BODY()
 
@@ -18,4 +24,6 @@ struct FScavengeGroup
 	TArray<AAICharacter*> group;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	class AScavengePoint* scavagePoint;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	float timeToGoBack;
 };

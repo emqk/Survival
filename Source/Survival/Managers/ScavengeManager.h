@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "../Interaction/ScavengePoint.h"
+#include "../Scavenge/ScavengeTrip.h"
 #include "../Scavenge/ScavengeGroup.h"
 #include "GameFramework/Actor.h"
 #include "ScavengeManager.generated.h"
@@ -26,6 +28,9 @@ public:
 	void CreateScavengeGroup(const TArray<AAICharacter*>& characters, AScavengePoint* targetScavengePoint);
 
 	UFUNCTION(BlueprintCallable)
+	bool CheckScavengePoint(AScavengePoint* scavengePoint);
+
+	UFUNCTION(BlueprintCallable)
 	void SetWoodsInteractionPoint(AScavengePoint* point);
 	UFUNCTION(BlueprintCallable)
 	AScavengePoint* GetWoodsInteractionPoint() const;
@@ -35,9 +40,18 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UFUNCTION()
+	void TickScavengeTrips(const float& deltaTime);
+
+	UFUNCTION()
+	void EndScavengeTrip(FScavengeTrip& scavengeTrip, const int& index);
 
 protected:
-	UPROPERTY(VisibleAnywhere)
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TArray<FScavengeTrip> scavengeTrips;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TArray<FScavengeGroup> scavengeGroups;
 
 	UPROPERTY(VisibleAnywhere)

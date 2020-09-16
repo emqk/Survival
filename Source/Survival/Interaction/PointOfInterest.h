@@ -31,6 +31,11 @@ public:
 
 protected:
 	UFUNCTION()
+	virtual void OnBeginOverlap();
+	UFUNCTION()
+	virtual void OnEndOverlap();
+
+	UFUNCTION()
 	void BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	UFUNCTION()
 	void EndOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);

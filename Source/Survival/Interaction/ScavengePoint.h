@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "../Scavenge/ScavengeGroup.h"
 #include "PointOfInterest.h"
 #include "ScavengePoint.generated.h"
 
@@ -19,4 +20,12 @@ public:
 
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION(BlueprintCallable)
+		bool ContainsScavengeGroup(const FScavengeGroup& scavengeGroup);
+	UFUNCTION(BlueprintCallable)
+		void RemoveAndDisableGroup(const FScavengeGroup& scavengeGroup);
+
+protected:
+	virtual void OnBeginOverlap() override;
 };
