@@ -32,7 +32,7 @@ bool UConversation::TickConversation(const float& deltaTime)
 	for (int i = characters.Num()-1; i >= 0; i--)
 	{
 		UStatistic* characterSocialNeed = characters[i]->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Social);
-		if (characterSocialNeed->GetAmount() >= endConversationThreshold || !IsInRange(characters[i]->GetActorLocation()))
+		if (characterSocialNeed->GetAmount() >= endConversationThreshold || !IsInRange(characters[i]->GetActorLocation()) || !characters[i]->IsEnabled())
 		{
 			RemoveCharacter(characters[i]);
 		}
