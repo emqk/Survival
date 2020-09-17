@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "../AI/AICharacter.h"
+#include "ScavengeType.h"
 #include "ScavengeTrip.generated.h"
 
 
@@ -21,9 +22,12 @@ struct FScavengeTrip
 	GENERATED_BODY()
 
 	FScavengeTrip();
-	FScavengeTrip(const TArray<AAICharacter*>& _group, class AScavengePoint* _scavengePoint, const float& _timeToGoBack);
+	FScavengeTrip(const TArray<AAICharacter*>& _group, class AScavengePoint* _scavengePoint, const float& _timeToGoBack, const ScavengeType& _scavengeType);
 
 	float GetTimeToGoBackStart() const;
+
+	UPROPERTY(EditAnywhere)
+	ScavengeType scavengeType;
 
 	UPROPERTY(EditAnywhere)
 	TArray<AAICharacter*> group;

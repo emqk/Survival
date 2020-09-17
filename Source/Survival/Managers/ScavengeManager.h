@@ -9,6 +9,29 @@
 #include "GameFramework/Actor.h"
 #include "ScavengeManager.generated.h"
 
+
+USTRUCT(BlueprintType)
+struct FItemsRandomizeData
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UItemDataAsset* itemToGet;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int itemAmountMin;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int itemAmountMax;
+};
+
+USTRUCT(BlueprintType)
+struct FScavengeItems
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TArray<FItemsRandomizeData> items;
+};
+
 UCLASS()
 class SURVIVAL_API AScavengeManager : public AActor
 {
@@ -22,10 +45,10 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-	void SetScavengePoints(AScavengePoint* wood);
+	void SetScavengePoints();
 
 	UFUNCTION(BlueprintCallable)
-	bool CreateScavengeGroup(const TArray<AAICharacter*>& characters, AScavengePoint* targetScavengePoint);
+	bool CreateScavengeGroup(const TArray<AAICharacter*>& characters, AScavengePoint* targetScavengePoint, const ScavengeType& scavengeType);
 
 	UFUNCTION()
 	bool IsNPCInAnyScavengeGroup(const AAICharacter* character) const;
@@ -40,10 +63,10 @@ public:
 	bool CheckScavengePoint(AScavengePoint* scavengePoint);
 
 	UFUNCTION(BlueprintCallable)
-	void SetWoodsInteractionPoint(AScavengePoint* point);
-	UFUNCTION(BlueprintCallable)
-	AScavengePoint* GetWoodsInteractionPoint() const;
+	AScavengePoint* GetRandomScavengePoint() const;
 
+	UFUNCTION(BlueprintCallable)
+	AScavengePoint* GetScavengePoint(const int& index) const;
 
 protected:
 	// Called when the game starts or when spawned
@@ -55,6 +78,9 @@ protected:
 	UFUNCTION()
 	void EndScavengeTrip(FScavengeTrip& scavengeTrip, const int& index);
 
+	UFUNCTION()
+	TArray<FItemInstance> GenerateItemsFromScavenge(const ScavengeType& scavengeType) const;
+
 protected:
 
 	UPROPERTY(VisibleAnywhere)
@@ -64,5 +90,8 @@ protected:
 	TArray<FScavengeGroup> scavengeGroups;
 
 	UPROPERTY(VisibleAnywhere)
-	AScavengePoint* woodsInteractionPoint;
+	TArray<AScavengePoint*> scavengePoints;
+
+	UPROPERTY(EditDefaultsOnly)
+	TMap<ScavengeType, FScavengeItems> itemsFromScavenge;
 };

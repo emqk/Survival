@@ -8,8 +8,8 @@ FScavengeTrip::FScavengeTrip()
 {
 }
 
-FScavengeTrip::FScavengeTrip(const TArray<AAICharacter*>& _group, AScavengePoint* _scavengePoint, const float& _timeToGoBack)
-	: group(_group), scavengePoint(_scavengePoint), timeToGoBackStart(_timeToGoBack), timeToGoBackLeft(_timeToGoBack)
+FScavengeTrip::FScavengeTrip(const TArray<AAICharacter*>& _group, AScavengePoint* _scavengePoint, const float& _timeToGoBack, const ScavengeType& _scavengeType)
+	: group(_group), scavengePoint(_scavengePoint), timeToGoBackStart(_timeToGoBack), timeToGoBackLeft(_timeToGoBack), scavengeType(_scavengeType)
 {
 }
 

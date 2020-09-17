@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "../AI/AICharacter.h"
+#include "ScavengeType.h"
 #include "ScavengeGroup.generated.h"
 
 /**
@@ -14,6 +15,8 @@ struct FScavengeGroup
 {
 	GENERATED_BODY()
 
+	UPROPERTY(EditAnywhere)
+	ScavengeType scavengeType;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TArray<AAICharacter*> group;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)

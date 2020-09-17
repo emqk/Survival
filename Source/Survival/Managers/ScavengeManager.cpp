@@ -2,6 +2,8 @@
 
 
 #include "ScavengeManager.h"
+#include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
 AScavengeManager::AScavengeManager()
@@ -36,7 +38,9 @@ void AScavengeManager::EndScavengeTrip(FScavengeTrip& scavengeTrip, const int& i
 		for (AAICharacter* ch : scavengeTrip.group)
 		{
 			ch->SetMeActive(true);
-			ch->inventoryComp->AddItem(scavengeTrip.scavengePoint->GetItemInstance());
+			//Add items from scavenge
+			//ch->inventoryComp->AddItem(scavengeTrip.scavengePoint->GetItemInstance());
+			ch->inventoryComp->AddItemsFromAsset(GenerateItemsFromScavenge(scavengeTrip.scavengeType));
 			ch->SimulateNeedsOverTime(scavengeTrip.GetTimeToGoBackStart());
 		}
 		scavengeTrips.RemoveAt(index);
@@ -47,6 +51,19 @@ void AScavengeManager::EndScavengeTrip(FScavengeTrip& scavengeTrip, const int& i
 	}
 }
 
+TArray<FItemInstance> AScavengeManager::GenerateItemsFromScavenge(const ScavengeType& scavengeType) const
+{
+	TArray<FItemInstance> result;
+	const FScavengeItems items = itemsFromScavenge[scavengeType];
+	result.Reserve(items.items.Num());
+	for (const FItemsRandomizeData& i : items.items)
+	{
+		result.Add(FItemInstance{ i.itemToGet, UKismetMathLibrary::RandomIntegerInRange(i.itemAmountMin, i.itemAmountMax) } );
+	}
+
+	return result;
+}
+
 // Called every frame
 void AScavengeManager::Tick(float DeltaTime)
 {
@@ -54,12 +71,24 @@ void AScavengeManager::Tick(float DeltaTime)
 	TickScavengeTrips(DeltaTime);
 }
 
-void AScavengeManager::SetScavengePoints(AScavengePoint* wood)
+void AScavengeManager::SetScavengePoints()
 {
-	woodsInteractionPoint = wood;
+	TArray<AActor*> foundActors;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AScavengePoint::StaticClass(), foundActors);
+
+	scavengePoints.Empty();
+	scavengePoints.Reserve(foundActors.Num());
+	for (AActor* a : foundActors)
+	{
+		AScavengePoint* castedActor = Cast<AScavengePoint>(a);
+		if (a)
+		{
+			scavengePoints.Add(castedActor);
+		}
+	}
 }
 
-bool AScavengeManager::CreateScavengeGroup(const TArray<AAICharacter*>& characters, AScavengePoint* targetScavengePoint)
+bool AScavengeManager::CreateScavengeGroup(const TArray<AAICharacter*>& characters, AScavengePoint* targetScavengePoint, const ScavengeType& scavengeType)
 {
 	for (const AAICharacter* ch : characters)
 	{
@@ -75,7 +104,7 @@ bool AScavengeManager::CreateScavengeGroup(const TArray<AAICharacter*>& characte
 		}
 	}
 
-	scavengeGroups.Add(FScavengeGroup{characters, targetScavengePoint});
+	scavengeGroups.Add(FScavengeGroup{scavengeType, characters, targetScavengePoint});
 	CheckAllScavengePoints();
 	return true;
 }
@@ -104,7 +133,10 @@ bool AScavengeManager::IsNPCInAnyScavengeTrip(const AAICharacter* character) con
 
 void AScavengeManager::CheckAllScavengePoints()
 {
-	CheckScavengePoint(woodsInteractionPoint);
+	for (AScavengePoint* sp : scavengePoints)
+	{
+		CheckScavengePoint(sp);
+	}
 }
 
 bool AScavengeManager::CheckScavengePoint(AScavengePoint* scavengePoint)
@@ -119,7 +151,7 @@ bool AScavengeManager::CheckScavengePoint(AScavengePoint* scavengePoint)
 				if (scavengePoint->ContainsScavengeGroup(sg))
 				{
 					scavengePoint->RemoveAndDisableGroup(sg);
-					scavengeTrips.Add(FScavengeTrip( sg.group, sg.scavagePoint, 10 ));
+					scavengeTrips.Add(FScavengeTrip( sg.group, sg.scavagePoint, 10, sg.scavengeType ));
 					scavengeGroups.RemoveAt(i);
 					return true;
 				}
@@ -130,13 +162,16 @@ bool AScavengeManager::CheckScavengePoint(AScavengePoint* scavengePoint)
 	return false;
 }
 
-void AScavengeManager::SetWoodsInteractionPoint(AScavengePoint* point)
+AScavengePoint* AScavengeManager::GetRandomScavengePoint() const
 {
-	woodsInteractionPoint = point;
+	return GetScavengePoint(UKismetMathLibrary::RandomIntegerInRange(0, scavengePoints.Num()-1));
 }
 
-AScavengePoint* AScavengeManager::GetWoodsInteractionPoint() const
+AScavengePoint* AScavengeManager::GetScavengePoint(const int& index) const
 {
-	return woodsInteractionPoint;
+	if (scavengePoints.IsValidIndex(index))
+	{
+		return scavengePoints[index];
+	}
+	return nullptr;
 }
-

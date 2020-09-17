@@ -27,16 +27,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void RemoveAndDisableGroup(const FScavengeGroup& scavengeGroup);
 
-	UFUNCTION(BlueprintCallable)
-	FItemInstance GetItemInstance() const;
-
 protected:
 	virtual void OnBeginOverlap() override;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	UItemDataAsset* itemToGet;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	int itemAmountMin;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	int itemAmountMax;
 };
