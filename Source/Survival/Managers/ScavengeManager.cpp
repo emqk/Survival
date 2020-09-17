@@ -68,9 +68,15 @@ bool AScavengeManager::CreateScavengeGroup(const TArray<AAICharacter*>& characte
 			UE_LOG(LogTemp, Warning, TEXT("Can't create a ScavengeGroup - One of the NPCs are in other NPC group!"))
 			return false;
 		}
+		if (IsNPCInAnyScavengeTrip(ch))
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Can't create a ScavengeGroup - One of the NPCs are in other NPC trip!"))
+			return false;
+		}
 	}
 
 	scavengeGroups.Add(FScavengeGroup{characters, targetScavengePoint});
+	CheckAllScavengePoints();
 	return true;
 }
 
@@ -83,6 +89,22 @@ bool AScavengeManager::IsNPCInAnyScavengeGroup(const AAICharacter* character) co
 	}
 
 	return false;
+}
+
+bool AScavengeManager::IsNPCInAnyScavengeTrip(const AAICharacter* character) const
+{
+	for (const FScavengeTrip& st : scavengeTrips)
+	{
+		if (st.group.Contains(character))
+			return true;
+	}
+
+	return false;
+}
+
+void AScavengeManager::CheckAllScavengePoints()
+{
+	CheckScavengePoint(woodsInteractionPoint);
 }
 
 bool AScavengeManager::CheckScavengePoint(AScavengePoint* scavengePoint)
@@ -99,6 +121,7 @@ bool AScavengeManager::CheckScavengePoint(AScavengePoint* scavengePoint)
 					scavengePoint->RemoveAndDisableGroup(sg);
 					scavengeTrips.Add(FScavengeTrip( sg.group, sg.scavagePoint, 10 ));
 					scavengeGroups.RemoveAt(i);
+					return true;
 				}
 			}
 		}

@@ -30,6 +30,12 @@ public:
 	UFUNCTION()
 	bool IsNPCInAnyScavengeGroup(const AAICharacter* character) const;
 
+	UFUNCTION()
+	bool IsNPCInAnyScavengeTrip(const AAICharacter* character) const;
+
+	UFUNCTION()
+	void CheckAllScavengePoints();
+
 	UFUNCTION(BlueprintCallable)
 	bool CheckScavengePoint(AScavengePoint* scavengePoint);
 
