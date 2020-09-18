@@ -64,7 +64,7 @@ void UInventoryComponent::AddItem(const FItemInstance& item)
 	{
 		items[itemIndex].amount += item.amount;
 	}
-	else
+	else if(item.amount > 0)
 	{
 		items.Add(item);
 	}
