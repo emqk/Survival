@@ -3,6 +3,7 @@
 
 #include "InventoryComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "../AI/AICharacter.h"
 #include "../PlayerGameInstance.h"
 
 // Sets default values for this component's properties
@@ -119,6 +120,27 @@ bool UInventoryComponent::RemoveItemOfIDMax(const FName& itemID)
 		UE_LOG(LogTemp, Error, TEXT("Can't remove item-No item of id %s in Inventory"), *itemID.ToString())
 	}
 
+	return false;
+}
+
+bool UInventoryComponent::UseItemOfIndex(const int& index)
+{
+	if (items.IsValidIndex(index))
+	{
+		FItemInstance& itemToUse = items[index];
+		if (itemToUse.data->isEatable)
+		{
+			AAICharacter* myOwner = Cast<AAICharacter>(GetOwner());
+			if (myOwner)
+			{
+				myOwner->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Hunger)->ChangeByAmount(-itemToUse.data->foodReduce);
+				myOwner->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Thirst)->ChangeByAmount(-itemToUse.data->thirstReduce);
+				RemoveItemOfID(itemToUse.data->itemID, 1);
+			}
+		}
+	}
+	
+	UE_LOG(LogTemp, Error, TEXT("Can't use item - invalid index!"))
 	return false;
 }
 

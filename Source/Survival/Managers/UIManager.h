@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "../Inventory/ItemInstance.h"
+#include "../Inventory/InventoryComponent.h"
 #include "../Interaction/InteractableBase.h"
 #include "../AI/AICharacter.h"
 #include "UIManager.generated.h"
@@ -20,13 +20,13 @@ public:
 
 	//Inventory
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void ToggleInventory(const TArray<FItemInstance>& items);
+	void ToggleInventory(UInventoryComponent* inventory);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void OpenInventory(const TArray<FItemInstance>& items);
+	void OpenInventory(UInventoryComponent* inventory);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void CloseInventory();
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void ShowInventoryItems(const TArray<FItemInstance>& items);
+	void ShowInventoryItems(UInventoryComponent* inventory);
 
 	//Interaction
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)

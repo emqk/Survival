@@ -19,13 +19,22 @@ public:
 
     virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    //Geberal
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="General")
     FName itemID;
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "General")
     FText name;
     
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "General")
     float weight;
-    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "General")
     float space;
+
+    //Consume
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Consume")
+    bool isEatable = false;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Consume")
+    float foodReduce = 0;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Consume")
+    float thirstReduce = 0;
 };

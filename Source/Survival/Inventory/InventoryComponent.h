@@ -41,6 +41,9 @@ public:
 	bool RemoveItemOfIDMax(const FName& itemID);
 
 	UFUNCTION(BlueprintCallable)
+	bool UseItemOfIndex(const int& index);
+
+	UFUNCTION(BlueprintCallable)
 	bool HaveAmountOfItem(const FName& itemID, const int& amount) const;
 	UFUNCTION(BlueprintCallable)
 	bool HaveAmountOfItems(const TArray<FItemInstance>& neededItems) const;
