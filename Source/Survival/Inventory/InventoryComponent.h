@@ -42,6 +42,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	bool UseItemOfIndex(const int& index);
+	UFUNCTION(BlueprintCallable)
+	bool DropItemOfIndex(const int& index);
 
 	UFUNCTION(BlueprintCallable)
 	bool HaveAmountOfItem(const FName& itemID, const int& amount) const;

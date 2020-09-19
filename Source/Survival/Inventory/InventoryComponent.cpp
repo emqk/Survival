@@ -3,7 +3,9 @@
 
 #include "InventoryComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "../AI/AICharacter.h"
+#include "../Interaction/ItemActor.h"
 #include "../PlayerGameInstance.h"
 
 // Sets default values for this component's properties
@@ -144,6 +146,21 @@ bool UInventoryComponent::UseItemOfIndex(const int& index)
 	}
 	
 	UE_LOG(LogTemp, Error, TEXT("Can't use item - invalid index! Trying to get %i from array of size %i"), index, items.Num())
+	return false;
+}
+
+bool UInventoryComponent::DropItemOfIndex(const int& index)
+{
+	if (items.IsValidIndex(index))
+	{
+		FItemInstance& itemToDrop = items[index];
+		TSubclassOf<AItemActor> itemToSpawn = itemToDrop.data->prefab;
+		GetWorld()->SpawnActor<AItemActor>(itemToSpawn, GetOwner()->GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
+		RemoveItemOfID(itemToDrop.data->itemID, 1);
+		return true;
+	}
+
+	UE_LOG(LogTemp, Error, TEXT("Can't drop item - invalid index! Trying to get %i from array of size %i"), index, items.Num())
 	return false;
 }
 
