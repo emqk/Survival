@@ -30,6 +30,9 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "General")
     float space;
 
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "General")
+    TSubclassOf<class AItemActor> prefab;
+
     //Consume
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Consume")
     bool isEatable = false;
