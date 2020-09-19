@@ -24,6 +24,7 @@ void AItemActor::Tick(float DeltaTime)
 
 bool AItemActor::InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character)
 {
+	//Add item to inventory
 	UInventoryComponent* inventory = character->FindComponentByClass<UInventoryComponent>();
 	inventory->AddItemsFromAsset(afterDestroyItems);
 

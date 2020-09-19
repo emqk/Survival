@@ -26,6 +26,8 @@ public:
     AConversationManager* GetConversationManager() const;
     UFUNCTION(BlueprintCallable)
     ABuildingManager* GetBuildingManager() const;
+    UFUNCTION(BlueprintCallable)
+    AUIManager* GetUIManager() const;
 
 protected:
     UPROPERTY(EditAnywhere, BlueprintReadWrite)

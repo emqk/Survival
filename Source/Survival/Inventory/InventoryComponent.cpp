@@ -135,12 +135,15 @@ bool UInventoryComponent::UseItemOfIndex(const int& index)
 			{
 				myOwner->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Hunger)->ChangeByAmount(-itemToUse.data->foodReduce);
 				myOwner->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Thirst)->ChangeByAmount(-itemToUse.data->thirstReduce);
+				myOwner->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Energy)->ChangeByAmount(itemToUse.data->energyBoost);
+				myOwner->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Happyness)->ChangeByAmount(itemToUse.data->happynessBoost);
 				RemoveItemOfID(itemToUse.data->itemID, 1);
+				return true;
 			}
 		}
 	}
 	
-	UE_LOG(LogTemp, Error, TEXT("Can't use item - invalid index!"))
+	UE_LOG(LogTemp, Error, TEXT("Can't use item - invalid index! Trying to get %i from array of size %i"), index, items.Num())
 	return false;
 }
 

@@ -37,4 +37,8 @@ public:
     float foodReduce = 0;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Consume")
     float thirstReduce = 0;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Consume")
+    float energyBoost = 0;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Consume")
+    float happynessBoost = 0;
 };
