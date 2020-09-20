@@ -6,6 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "ItemInstance.h"
 #include "ItemAmountData.h"
+#include "EquipType.h"
 #include "InventoryComponent.generated.h"
 
 
@@ -46,6 +47,9 @@ public:
 	bool DropItemOfIndex(const int& index);
 
 	UFUNCTION(BlueprintCallable)
+	bool UnequipItem(const EquipType& equipType);
+
+	UFUNCTION(BlueprintCallable)
 	bool HaveAmountOfItem(const FName& itemID, const int& amount) const;
 	UFUNCTION(BlueprintCallable)
 	bool HaveAmountOfItems(const TArray<FItemInstance>& neededItems) const;
@@ -75,6 +79,10 @@ public:
 protected:
 	UPROPERTY(VisibleAnywhere)
 	TArray<FItemInstance> items;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UItemDataAsset* rightHandEquip;
+
 	
 	UPROPERTY(VisibleAnywhere)
 	float maxWeight = 10;

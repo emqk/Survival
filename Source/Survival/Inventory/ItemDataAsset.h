@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
+#include "EquipType.h"
 #include "ItemDataAsset.generated.h"
 
 
@@ -48,5 +49,6 @@ public:
     //Equippable
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equippable")
     bool isEquippable = false;
-
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equippable")
+    EquipType equiptType;
 };

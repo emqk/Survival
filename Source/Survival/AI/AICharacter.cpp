@@ -12,11 +12,11 @@ AAICharacter::AAICharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	rightHandHandleMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("RHandHandle"));
-	rightHandHandleMesh->SetGenerateOverlapEvents(false);
-	rightHandHandleMesh->SetCollisionProfileName("NoCollision");
-	rightHandHandleMesh->SetRelativeScale3D(FVector(0.01f, 0.01f, 0.01f));
-	rightHandHandleMesh->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, FName("hand_rSocket"));
+	rightHandHandleMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("RHandHandle"));
+	rightHandHandleMeshComponent->SetGenerateOverlapEvents(false);
+	rightHandHandleMeshComponent->SetCollisionProfileName("NoCollision");
+	rightHandHandleMeshComponent->SetRelativeScale3D(FVector(0.01f, 0.01f, 0.01f));
+	rightHandHandleMeshComponent->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, FName("hand_rSocket"));
 
 	inventoryComp = CreateDefaultSubobject<UInventoryComponent>(TEXT("Inventory"));
 	AddOwnedComponent(inventoryComp);
@@ -125,7 +125,26 @@ void AAICharacter::SetMeActive(const bool& value)
 	isThisActorEnabled = value;
 }
 
-void AAICharacter::Equip(UStaticMesh* newMesh)
+void AAICharacter::EquipVisuals(UStaticMesh* newMesh, const EquipType& equipType)
 {
-	rightHandHandleMesh->SetStaticMesh(newMesh);
+	if (equipType == EquipType::RightHand)
+	{
+		rightHandHandleMeshComponent->SetStaticMesh(newMesh);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Can't equip - i don't know that EquipType"))
+	}
+}
+
+void AAICharacter::UnequipVisuals(const EquipType& equipType)
+{
+	if (equipType == EquipType::RightHand)
+	{
+		rightHandHandleMeshComponent->SetStaticMesh(nullptr);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Can't equip - i don't know that EquipType"))
+	}
 }

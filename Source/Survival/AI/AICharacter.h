@@ -70,14 +70,18 @@ public:
 	void SetMeActive(const bool& value);
 
 	UFUNCTION(BlueprintCallable)
-	void Equip(UStaticMesh* newMesh);
+	void EquipVisuals(UStaticMesh* newMesh, const EquipType& equipType);
+
+	UFUNCTION(BlueprintCallable)
+	void UnequipVisuals(const EquipType& equipType);
+
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UInventoryComponent* inventoryComp;
 
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	UStaticMeshComponent* rightHandHandleMesh;
+	UStaticMeshComponent* rightHandHandleMeshComponent;
 
 	UPROPERTY(EditDefaultsOnly)
 	float destructionSpeed = 1;

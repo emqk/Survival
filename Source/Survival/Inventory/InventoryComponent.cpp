@@ -144,8 +144,24 @@ bool UInventoryComponent::UseItemOfIndex(const int& index)
 			}
 			else if (itemToUse.data->isEquippable)
 			{
-				myOwner->Equip(itemToUse.data->prefab.GetDefaultObject()->GetMesh());
-				return true;
+				if (itemToUse.data->equiptType == EquipType::RightHand)
+				{
+					if (rightHandEquip)
+					{
+						UE_LOG(LogTemp, Warning, TEXT("Can't equip - Right hand is currently equiped!"))
+						return false;
+					}
+
+					rightHandEquip = itemToUse.data;
+					myOwner->EquipVisuals(itemToUse.data->prefab.GetDefaultObject()->GetMesh(), itemToUse.data->equiptType);
+					RemoveItemOfID(itemToUse.data->itemID, 1);
+					return true;
+				}
+				else
+				{
+					UE_LOG(LogTemp, Warning, TEXT("Can't equip - i don't know that EquipType"))
+					return false;
+				}
 			}
 		}
 	}
@@ -166,6 +182,24 @@ bool UInventoryComponent::DropItemOfIndex(const int& index)
 	}
 
 	UE_LOG(LogTemp, Error, TEXT("Can't drop item - invalid index! Trying to get %i from array of size %i"), index, items.Num())
+	return false;
+}
+
+bool UInventoryComponent::UnequipItem(const EquipType& equipType)
+{
+	if (equipType == EquipType::RightHand)
+	{
+		AAICharacter* myOwner = Cast<AAICharacter>(GetOwner());
+		AddItem(FItemInstance{rightHandEquip, 1});
+		myOwner->UnequipVisuals(equipType);
+		rightHandEquip = nullptr;
+		return true;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Can't equip - i don't know that EquipType"))
+	}
+
 	return false;
 }
 
