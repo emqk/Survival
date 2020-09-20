@@ -129,17 +129,22 @@ bool UInventoryComponent::UseItemOfIndex(const int& index)
 {
 	if (items.IsValidIndex(index))
 	{
+		AAICharacter* myOwner = Cast<AAICharacter>(GetOwner());
 		FItemInstance& itemToUse = items[index];
-		if (itemToUse.data->isEatable)
+		if (myOwner)
 		{
-			AAICharacter* myOwner = Cast<AAICharacter>(GetOwner());
-			if (myOwner)
+			if (itemToUse.data->isEatable)
 			{
 				myOwner->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Hunger)->ChangeByAmount(-itemToUse.data->foodReduce);
 				myOwner->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Thirst)->ChangeByAmount(-itemToUse.data->thirstReduce);
 				myOwner->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Energy)->ChangeByAmount(itemToUse.data->energyBoost);
 				myOwner->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Happyness)->ChangeByAmount(itemToUse.data->happynessBoost);
 				RemoveItemOfID(itemToUse.data->itemID, 1);
+				return true;
+			}
+			else if (itemToUse.data->isEquippable)
+			{
+				myOwner->Equip(itemToUse.data->prefab.GetDefaultObject()->GetMesh());
 				return true;
 			}
 		}

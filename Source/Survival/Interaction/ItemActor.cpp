@@ -30,3 +30,8 @@ bool AItemActor::InteractionTick_Implementation(const float& deltaSeconds, const
 
 	return true;
 }
+
+UStaticMesh* AItemActor::GetMesh() const
+{
+	return mesh->GetStaticMesh();
+}

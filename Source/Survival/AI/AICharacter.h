@@ -69,11 +69,16 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetMeActive(const bool& value);
 
+	UFUNCTION(BlueprintCallable)
+	void Equip(UStaticMesh* newMesh);
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UInventoryComponent* inventoryComp;
 
 protected:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UStaticMeshComponent* rightHandHandleMesh;
+
 	UPROPERTY(EditDefaultsOnly)
 	float destructionSpeed = 1;
 

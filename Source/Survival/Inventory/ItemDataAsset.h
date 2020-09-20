@@ -44,4 +44,9 @@ public:
     float energyBoost = 0;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Consume")
     float happynessBoost = 0;
+
+    //Equippable
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equippable")
+    bool isEquippable = false;
+
 };

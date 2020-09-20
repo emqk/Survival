@@ -24,6 +24,9 @@ public:
 
 	virtual bool InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character) override;
 
+	UStaticMesh* GetMesh() const;
+
+
 protected:
 	virtual void BeginPlay() override;
 

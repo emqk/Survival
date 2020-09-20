@@ -12,6 +12,12 @@ AAICharacter::AAICharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	rightHandHandleMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("RHandHandle"));
+	rightHandHandleMesh->SetGenerateOverlapEvents(false);
+	rightHandHandleMesh->SetCollisionProfileName("NoCollision");
+	rightHandHandleMesh->SetRelativeScale3D(FVector(0.01f, 0.01f, 0.01f));
+	rightHandHandleMesh->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, FName("hand_rSocket"));
+
 	inventoryComp = CreateDefaultSubobject<UInventoryComponent>(TEXT("Inventory"));
 	AddOwnedComponent(inventoryComp);
 }
@@ -117,4 +123,9 @@ void AAICharacter::SetMeActive(const bool& value)
 	}
 
 	isThisActorEnabled = value;
+}
+
+void AAICharacter::Equip(UStaticMesh* newMesh)
+{
+	rightHandHandleMesh->SetStaticMesh(newMesh);
 }
