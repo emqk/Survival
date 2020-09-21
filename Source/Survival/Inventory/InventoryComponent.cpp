@@ -156,20 +156,18 @@ bool UInventoryComponent::UseItemOfIndex(const int& index)
 				}
 
 				UItemDataAsset*& targetEquipSlot = equipment[itemToUse.data->equipType];
-				if (!targetEquipSlot)
+				//If target slot is currently equiped - unequip it
+				if (targetEquipSlot && targetEquipSlot->equipType == itemToUse.data->equipType)
 				{
-					targetEquipSlot = itemToUse.data;
-					myOwner->EquipVisuals(itemToUse.data->prefab.GetDefaultObject()->GetMesh(), itemToUse.data->equipType);
-					RemoveItemOfID(itemToUse.data->itemID, 1);
-					UE_LOG(LogTemp, Warning, TEXT("Successfully equiped!"))
-					CalculateWeightAndSpace();
-					return true;
+					UnequipItem(targetEquipSlot->equipType);
 				}
-				else
-				{
-					UE_LOG(LogTemp, Warning, TEXT("Can't equip - Slot is currently equiped!"))
-					return false;
-				}
+				//Equip item
+				targetEquipSlot = itemToUse.data;
+				myOwner->EquipVisuals(itemToUse.data->prefab.GetDefaultObject()->GetMesh(), itemToUse.data->equipType);
+				RemoveItemOfID(itemToUse.data->itemID, 1);
+				UE_LOG(LogTemp, Warning, TEXT("Successfully equiped!"))
+				CalculateWeightAndSpace();
+				return true;
 			}
 		}
 	}
@@ -209,6 +207,7 @@ bool UInventoryComponent::UnequipItem(const EquipType& equipType)
 		myOwner->UnequipVisuals(equipType);
 		equipment[equipType] = nullptr;
 		CalculateWeightAndSpace();
+		UE_LOG(LogTemp, Warning, TEXT("Successfully unequiped!"))
 		return true;
 	}
 	else
