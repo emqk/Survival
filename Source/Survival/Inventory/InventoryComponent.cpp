@@ -162,7 +162,8 @@ bool UInventoryComponent::UseItemOfIndex(const int& index)
 					myOwner->EquipVisuals(itemToUse.data->prefab.GetDefaultObject()->GetMesh(), itemToUse.data->equipType);
 					RemoveItemOfID(itemToUse.data->itemID, 1);
 					UE_LOG(LogTemp, Warning, TEXT("Successfully equiped!"))
-						return true;
+					CalculateWeightAndSpace();
+					return true;
 				}
 				else
 				{
@@ -201,17 +202,18 @@ bool UInventoryComponent::UnequipItem(const EquipType& equipType)
 		return false;
 	}
 
-	UItemDataAsset*& targetEquipSlot = equipment[equipType];
+	UItemDataAsset* targetEquipSlot = equipment[equipType];
 	if (targetEquipSlot)
 	{
 		AddItem(FItemInstance{targetEquipSlot, 1});
 		myOwner->UnequipVisuals(equipType);
-		targetEquipSlot = nullptr;
+		equipment[equipType] = nullptr;
+		CalculateWeightAndSpace();
 		return true;
 	}
 	else
 	{
-		UE_LOG(LogTemp, Error, TEXT("Can't equip - i don't know that EquipType"))
+		UE_LOG(LogTemp, Error, TEXT("Can't equip - Given equipType slot is null!"))
 	}
 
 	return false;
@@ -278,10 +280,20 @@ void UInventoryComponent::CalculateWeightAndSpace()
 {
 	currentWeight = 0;
 	currentSpace = 0;
+	//Inventory
 	for (const FItemInstance& currItem : items)
 	{
 		currentWeight += currItem.data->weight * currItem.amount;
 		currentSpace += currItem.data->space * currItem.amount;
+	}
+	//Equipment
+	for (const TPair<EquipType, UItemDataAsset*>& currItem : equipment)
+	{
+		if (IsValid(currItem.Value))
+		{
+			currentWeight += currItem.Value->weight;
+			currentSpace += currItem.Value->space;
+		}
 	}
 }
 
