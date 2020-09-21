@@ -81,7 +81,7 @@ protected:
 	TArray<FItemInstance> items;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	UItemDataAsset* rightHandEquip;
+	TMap<EquipType, UItemDataAsset*> equipment;
 
 	
 	UPROPERTY(VisibleAnywhere)

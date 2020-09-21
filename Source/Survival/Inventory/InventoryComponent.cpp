@@ -24,8 +24,13 @@ void UInventoryComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
-	
+	//Setup equipment slots
+	const UEnum* equipTypeEnum = FindObject<UEnum>(ANY_PACKAGE, TEXT("EquipType"), true);
+	uint8 enumNum = equipTypeEnum->GetMaxEnumValue();
+	for (uint8 i = 0; i < enumNum; i++)
+	{
+		equipment.Add((EquipType)i, nullptr);
+	}
 }
 
 
@@ -144,22 +149,24 @@ bool UInventoryComponent::UseItemOfIndex(const int& index)
 			}
 			else if (itemToUse.data->isEquippable)
 			{
-				if (itemToUse.data->equiptType == EquipType::RightHand)
+				if (!equipment.Find(itemToUse.data->equipType))
 				{
-					if (rightHandEquip)
-					{
-						UE_LOG(LogTemp, Warning, TEXT("Can't equip - Right hand is currently equiped!"))
-						return false;
-					}
+					UE_LOG(LogTemp, Error, TEXT("Can't equip - Can't find given equipType!"))
+					return false;
+				}
 
-					rightHandEquip = itemToUse.data;
-					myOwner->EquipVisuals(itemToUse.data->prefab.GetDefaultObject()->GetMesh(), itemToUse.data->equiptType);
+				UItemDataAsset*& targetEquipSlot = equipment[itemToUse.data->equipType];
+				if (!targetEquipSlot)
+				{
+					targetEquipSlot = itemToUse.data;
+					myOwner->EquipVisuals(itemToUse.data->prefab.GetDefaultObject()->GetMesh(), itemToUse.data->equipType);
 					RemoveItemOfID(itemToUse.data->itemID, 1);
-					return true;
+					UE_LOG(LogTemp, Warning, TEXT("Successfully equiped!"))
+						return true;
 				}
 				else
 				{
-					UE_LOG(LogTemp, Warning, TEXT("Can't equip - i don't know that EquipType"))
+					UE_LOG(LogTemp, Warning, TEXT("Can't equip - Slot is currently equiped!"))
 					return false;
 				}
 			}
@@ -187,12 +194,19 @@ bool UInventoryComponent::DropItemOfIndex(const int& index)
 
 bool UInventoryComponent::UnequipItem(const EquipType& equipType)
 {
-	if (equipType == EquipType::RightHand)
+	AAICharacter* myOwner = Cast<AAICharacter>(GetOwner());
+	if (!equipment.Find(equipType))
 	{
-		AAICharacter* myOwner = Cast<AAICharacter>(GetOwner());
-		AddItem(FItemInstance{rightHandEquip, 1});
+		UE_LOG(LogTemp, Error, TEXT("Can't unequip - Given equipType is null!"))
+		return false;
+	}
+
+	UItemDataAsset*& targetEquipSlot = equipment[equipType];
+	if (targetEquipSlot)
+	{
+		AddItem(FItemInstance{targetEquipSlot, 1});
 		myOwner->UnequipVisuals(equipType);
-		rightHandEquip = nullptr;
+		targetEquipSlot = nullptr;
 		return true;
 	}
 	else

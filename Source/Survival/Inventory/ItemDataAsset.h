@@ -50,5 +50,5 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equippable")
     bool isEquippable = false;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equippable")
-    EquipType equiptType;
+    EquipType equipType;
 };
