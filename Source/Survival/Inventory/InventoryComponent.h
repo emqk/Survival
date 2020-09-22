@@ -77,6 +77,9 @@ public:
 	float GetMaxSpace() const;
 
 protected:
+	UFUNCTION()
+	void RefreshUI();
+
 	UPROPERTY(VisibleAnywhere)
 	TArray<FItemInstance> items;
 

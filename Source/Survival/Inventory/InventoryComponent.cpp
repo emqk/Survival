@@ -7,6 +7,7 @@
 #include "../AI/AICharacter.h"
 #include "../Interaction/ItemActor.h"
 #include "../PlayerGameInstance.h"
+#include "../PlayerGameMode.h"
 
 // Sets default values for this component's properties
 UInventoryComponent::UInventoryComponent()
@@ -78,6 +79,7 @@ void UInventoryComponent::AddItem(const FItemInstance& item)
 	}
 
 	CalculateWeightAndSpace();
+	RefreshUI();
 }
 
 bool UInventoryComponent::RemoveItem(const int32& index)
@@ -86,6 +88,7 @@ bool UInventoryComponent::RemoveItem(const int32& index)
 	{
 		items.RemoveAt(index);
 		CalculateWeightAndSpace();
+		RefreshUI();
 		return true;
 	}
 	
@@ -99,6 +102,7 @@ bool UInventoryComponent::RemoveItemOfID(const FName& itemID, const int& amount)
 	{
 		items[itemIndex].amount -= amount;
 		CalculateWeightAndSpace();
+		RefreshUI();
 		if (items[itemIndex].amount <= 0)
 		{
 			RemoveItem(itemIndex);
@@ -203,10 +207,9 @@ bool UInventoryComponent::UnequipItem(const EquipType& equipType)
 	UItemDataAsset* targetEquipSlot = equipment[equipType];
 	if (targetEquipSlot)
 	{
-		AddItem(FItemInstance{targetEquipSlot, 1});
 		myOwner->UnequipVisuals(equipType);
 		equipment[equipType] = nullptr;
-		CalculateWeightAndSpace();
+		AddItem(FItemInstance{ targetEquipSlot, 1 });
 		UE_LOG(LogTemp, Warning, TEXT("Successfully unequiped!"))
 		return true;
 	}
@@ -314,4 +317,10 @@ float UInventoryComponent::GetCurrentSpace() const
 float UInventoryComponent::GetMaxSpace() const
 {
 	return maxSpace;
+}
+
+void UInventoryComponent::RefreshUI()
+{
+	APlayerGameMode* gameMode = Cast<APlayerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+	gameMode->GetUIManager()->ShowInventoryItems(this);
 }

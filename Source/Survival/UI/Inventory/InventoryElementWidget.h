@@ -14,7 +14,7 @@ UCLASS()
 class SURVIVAL_API UInventoryElementWidget : public UUserWidget
 {
 	GENERATED_BODY()
-	
+
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UInventoryComponent* myInventory;
