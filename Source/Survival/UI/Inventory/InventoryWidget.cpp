@@ -7,3 +7,8 @@ void UInventoryWidget::SelectIndex(const int& index)
 {
 	currentlySelectedItemIndex = index;
 }
+
+void UInventoryWidget::SelectInventory(UInventoryComponent* inventory)
+{
+	currentInventory = inventory;
+}

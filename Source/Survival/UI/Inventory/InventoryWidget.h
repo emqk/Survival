@@ -25,6 +25,11 @@ public:
 	void SelectIndex(const int& index);
 
 protected:
+	UFUNCTION(BlueprintCallable)
+	void SelectInventory(UInventoryComponent* inventory);
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int currentlySelectedItemIndex;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UInventoryComponent* currentInventory;
 };
