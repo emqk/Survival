@@ -48,6 +48,13 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void CloseScavengePanel();
 
+	//Settings
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void ToggleSettingsPanel();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void OpenSettingsPanel();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void CloseSettingsPanel();
 
 protected:
 	// Called when the game starts or when spawned
