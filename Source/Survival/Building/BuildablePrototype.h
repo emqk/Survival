@@ -40,12 +40,11 @@ public:
 	UFUNCTION(BlueprintPure)
 	bool CanBePlaced() const;
 
-protected:
-
-	virtual void BeginPlay() override;
 
 	UFUNCTION(BlueprintCallable)
-	void WhenDestroyed(AActor* Act);
+	void CancelBuilding();
+
+protected:
 
 	UFUNCTION(BlueprintCallable)
 	void RefreshText();

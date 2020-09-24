@@ -37,21 +37,16 @@ void ABuildablePrototype::Setup(TSubclassOf<ABuildableBase> toBuildClass)
 	RefreshText();
 }
 
-void ABuildablePrototype::BeginPlay()
+void ABuildablePrototype::CancelBuilding()
 {
-	Super::BeginPlay();
-	OnDestroyed.AddDynamic(this, &ABuildablePrototype::WhenDestroyed);
-}
-
-void ABuildablePrototype::WhenDestroyed(AActor* Act)
-{
-	UE_LOG(LogTemp, Warning, TEXT("WhenDestroyed"))
 	UWorld* world = GetWorld();
 	for (const FItemInstance& item : inventoryComp->GetItems())
 	{
 		TSubclassOf<AItemActor> actor = item.data->prefab;
 		world->SpawnActor<AItemActor>(actor, GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
 	}
+
+	Destroy();
 }
 
 void ABuildablePrototype::RefreshText()
