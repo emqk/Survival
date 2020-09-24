@@ -4,7 +4,9 @@
 #include "BuildablePrototype.h"
 #include "../UI/Building/BuildingPrototypeWidget.h"
 #include "../PlayerGameMode.h"
+#include "../Interaction/ItemActor.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
 
 ABuildablePrototype::ABuildablePrototype()
 {
@@ -33,6 +35,23 @@ void ABuildablePrototype::Setup(TSubclassOf<ABuildableBase> toBuildClass)
 {
 	toBuild = toBuildClass;
 	RefreshText();
+}
+
+void ABuildablePrototype::BeginPlay()
+{
+	Super::BeginPlay();
+	OnDestroyed.AddDynamic(this, &ABuildablePrototype::WhenDestroyed);
+}
+
+void ABuildablePrototype::WhenDestroyed(AActor* Act)
+{
+	UE_LOG(LogTemp, Warning, TEXT("WhenDestroyed"))
+	UWorld* world = GetWorld();
+	for (const FItemInstance& item : inventoryComp->GetItems())
+	{
+		TSubclassOf<AItemActor> actor = item.data->prefab;
+		world->SpawnActor<AItemActor>(actor, GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
+	}
 }
 
 void ABuildablePrototype::RefreshText()

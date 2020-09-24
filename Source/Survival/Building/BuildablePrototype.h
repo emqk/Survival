@@ -42,6 +42,11 @@ public:
 
 protected:
 
+	virtual void BeginPlay() override;
+
+	UFUNCTION(BlueprintCallable)
+	void WhenDestroyed(AActor* Act);
+
 	UFUNCTION(BlueprintCallable)
 	void RefreshText();
 
