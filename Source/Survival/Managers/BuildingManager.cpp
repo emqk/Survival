@@ -3,6 +3,7 @@
 
 #include "BuildingManager.h"
 #include "Kismet/GameplayStatics.h"
+#include "DrawDebugHelpers.h"
 
 // Sets default values
 ABuildingManager::ABuildingManager()
@@ -25,6 +26,11 @@ void ABuildingManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	//Debug draw marked to destroy actors
+	for (const AActor* actor : markedToDestroy)
+	{
+		DrawDebugSphere(GetWorld(), actor->GetActorLocation(), 50, 20, FColor(255, 0, 0), false, -1.0f, 0, 1);
+	}
 }
 
 void ABuildingManager::BeginBuilding(TSubclassOf<ABuildableBase> buildable, ABuildablePrototype* prototype)
@@ -40,7 +46,6 @@ void ABuildingManager::BeginBuilding(TSubclassOf<ABuildableBase> buildable, ABui
 		currentFloor = buildable;
 		currentWall = nullptr;
 		currentBuildable = nullptr;
-		//currentFloor = GetWorld()->SpawnActor<AFloor>(floorToBuild, FVector(0, 0, 0), FRotator(0, currentRotationY, 0));
 	}
 	else if(buildable->IsChildOf(AWall::StaticClass()))
 	{
@@ -48,7 +53,6 @@ void ABuildingManager::BeginBuilding(TSubclassOf<ABuildableBase> buildable, ABui
 		currentFloor = nullptr;
 		currentWall = buildable;
 		currentBuildable = nullptr;
-		//currentWall = GetWorld()->SpawnActor<AWall>(wallToBuild, FVector(0, 0, 0), FRotator(0, currentRotationY, 0));
 	}
 	else if(buildable->IsChildOf(ABuildableBase::StaticClass()))
 	{
@@ -56,7 +60,6 @@ void ABuildingManager::BeginBuilding(TSubclassOf<ABuildableBase> buildable, ABui
 		currentFloor = nullptr;
 		currentWall = nullptr;
 		currentBuildable = buildable;
-		//currentWall = GetWorld()->SpawnActor<AWall>(wallToBuild, FVector(0, 0, 0), FRotator(0, currentRotationY, 0));
 	}
 	else
 	{
@@ -101,30 +104,6 @@ void ABuildingManager::EndBuilding()
 	UBoxComponent* boxCollider = Cast<UBoxComponent>(currentPrototype->GetComponentByClass(UBoxComponent::StaticClass()));
 	boxCollider->SetCollisionProfileName(afterPlacingProtCollisionProfile);
 	currentPrototype = nullptr;
-
-	//FVector prototypeLocation = currentPrototype->GetActorLocation();
-	//if (currentFloor)
-	//{
-	//	FIntVector floorIndex = TransformLocationToVectorIndex(prototypeLocation);
-	//	if (SetFloorAt(currentFloor, floorIndex))
-	//	{
-	//		currentFloor = nullptr;
-	//		UGameplayStatics::PlaySoundAtLocation(GetWorld(), buildSound, mouseHit);
-	//	}
-	//}
-	//else if (currentWall)
-	//{
-	//	FIntVector wallIndex = TransformLocationToVectorIndex(prototypeLocation);
-	//	if (SetWallAt(currentWall, wallIndex))
-	//	{
-	//		currentWall = nullptr;
-	//		UGameplayStatics::PlaySoundAtLocation(GetWorld(), buildSound, mouseHit);
-	//	}
-	//}
-	//else
-	//{
-	//	UE_LOG(LogTemp, Error, TEXT("Can't EndBuilding - currentFloor and currentWall are null!"))
-	//}
 }
 
 void ABuildingManager::CancelBuilding()
@@ -205,6 +184,12 @@ UMaterialInterface* ABuildingManager::GetGoodMaterial() const
 UMaterialInterface* ABuildingManager::GetBadMaterial() const
 {
 	return badMaterial;
+}
+
+void ABuildingManager::MarkToDestroy(AActor* toDestroy)
+{
+	markedToDestroy.Add(toDestroy);
+	UE_LOG(LogTemp, Warning, TEXT("Marked to destroy!"))
 }
 
 bool ABuildingManager::IsVectorIndexValid(const FIntVector& vectorIndex) const

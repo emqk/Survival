@@ -17,6 +17,7 @@ ABuildableBase::ABuildableBase()
 
 	box = CreateDefaultSubobject<UBoxComponent>(TEXT("OverlapBox"));
 	box->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	box->SetCollisionProfileName("BlockAll");
 }
 
 // Called when the game starts or when spawned

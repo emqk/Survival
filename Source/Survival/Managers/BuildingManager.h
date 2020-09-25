@@ -62,6 +62,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	UMaterialInterface* GetBadMaterial() const;
 
+	UFUNCTION(BlueprintCallable)
+	void MarkToDestroy(AActor* toDestroy);
 
 private:
 	UFUNCTION(BlueprintCallable)
@@ -71,6 +73,11 @@ private:
 	bool IsWallVectorIndexValid(const FIntVector& vectorIndex) const;
 
 protected:
+
+	//To destroy
+	UPROPERTY(VisibleAnywhere)
+	TSet<AActor*> markedToDestroy;
+
 	//Floor
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<AFloor> floorToBuild;
