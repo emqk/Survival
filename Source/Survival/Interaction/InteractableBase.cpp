@@ -18,6 +18,9 @@ void AInteractableBase::BeginPlay()
 {
 	Super::BeginPlay();
 	Init(interactionDistance, destroyOnSuccessfulInteraction);
+	UActorComponent* actorComp = GetComponentByClass(UDestructibleComponent::StaticClass());
+	if (actorComp)
+		destructibleComp = Cast<UDestructibleComponent>(actorComp);
 }
 
 // Called every frame
@@ -30,6 +33,11 @@ void AInteractableBase::Tick(float DeltaTime)
 bool AInteractableBase::InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character)
 {
 	UE_LOG(LogTemp, Warning, TEXT("BASE"));
+
+	if (destructibleComp)
+	{
+		return IInteractable::Execute_InteractionTick(destructibleComp, deltaSeconds, character);
+	}
 
 	return false;
 }

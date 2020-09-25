@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "../AI/AICharacter.h"
 #include "Interactable.h"
+#include "DestructibleComponent.h"
 #include "GameFramework/Actor.h"
 #include "InteractableBase.generated.h"
 
@@ -37,4 +38,7 @@ public:
 protected:
 	UPROPERTY(EditAnywhere)
 	USceneComponent* sceneComp;
+
+	UPROPERTY(VisibleAnywhere)
+	UDestructibleComponent* destructibleComp = nullptr;
 };
