@@ -5,11 +5,12 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Components/BoxComponent.h"
+#include "../Interaction/InteractableBase.h"
 #include "../Inventory/ItemInstance.h"
 #include "BuildableBase.generated.h"
 
 UCLASS()
-class SURVIVAL_API ABuildableBase : public AActor
+class SURVIVAL_API ABuildableBase : public AInteractableBase
 {
 	GENERATED_BODY()
 	
@@ -26,9 +27,6 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 protected:
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	USceneComponent* root;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UStaticMeshComponent* mesh;
