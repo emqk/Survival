@@ -31,6 +31,7 @@ ABuildablePrototype::ABuildablePrototype()
 
 	destructibleComp = CreateDefaultSubobject<UDestructibleComponent>(TEXT("DestructibleComponent"));
 	AddOwnedComponent(destructibleComp);
+	destructibleComp->OnDestructed.AddDynamic(this, &ABuildablePrototype::CancelBuilding);
 }
 
 void ABuildablePrototype::Setup(TSubclassOf<ABuildableBase> toBuildClass)

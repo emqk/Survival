@@ -35,6 +35,7 @@ bool UDestructibleComponent::InteractionTick_Implementation(const float& deltaSe
 	bool finished = hp <= 0;
 	if (finished)
 	{
+		OnDestructed.Broadcast();
 		GetOwner()->Destroy();
 	}
 	return finished;

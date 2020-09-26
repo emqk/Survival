@@ -8,6 +8,8 @@
 #include "../AI/AICharacter.h"
 #include "DestructibleComponent.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDestructed);
+
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class SURVIVAL_API UDestructibleComponent : public UActorComponent, public IInteractable
 {
@@ -28,6 +30,8 @@ public:
 	virtual bool InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character) override;
 
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+
+	FOnDestructed OnDestructed;
 
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
