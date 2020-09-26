@@ -27,7 +27,7 @@ bool AItemActor::InteractionTick_Implementation(const float& deltaSeconds, const
 	//Add item to inventory
 	UInventoryComponent* inventory = character->FindComponentByClass<UInventoryComponent>();
 	inventory->AddItemsFromAsset(afterDestroyItems);
-
+	Destroy();
 	return true;
 }
 

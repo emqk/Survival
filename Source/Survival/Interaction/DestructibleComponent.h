@@ -8,7 +8,6 @@
 #include "../AI/AICharacter.h"
 #include "DestructibleComponent.generated.h"
 
-
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class SURVIVAL_API UDestructibleComponent : public UActorComponent, public IInteractable
 {

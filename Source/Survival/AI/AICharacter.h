@@ -9,6 +9,11 @@
 #include "NPCData.h"
 #include "AICharacter.generated.h"
 
+UENUM(BlueprintType)
+enum class EInteractionType : uint8
+{
+	Default, Destruction
+};
 
 UCLASS()
 class SURVIVAL_API AAICharacter : public ACharacter, public IInteractable
@@ -75,6 +80,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void UnequipVisuals(const EquipType& equipType);
 
+	UFUNCTION(BlueprintCallable)
+	void SetInteractionType(EInteractionType newInteractionType);
+
+	UFUNCTION(BlueprintCallable)
+	EInteractionType GetInteractionType() const;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UInventoryComponent* inventoryComp;
@@ -82,6 +92,9 @@ public:
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UStaticMeshComponent* rightHandHandleMeshComponent;
+
+	UPROPERTY(VisibleAnywhere)
+	EInteractionType interactionType;
 
 	UPROPERTY(EditDefaultsOnly)
 	float destructionSpeed = 1;

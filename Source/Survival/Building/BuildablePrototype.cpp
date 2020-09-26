@@ -11,7 +11,6 @@
 ABuildablePrototype::ABuildablePrototype()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	destroyOnSuccessfulInteraction = true;
 
 	meshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 	meshComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
@@ -29,6 +28,9 @@ ABuildablePrototype::ABuildablePrototype()
 	
 	inventoryComp = CreateDefaultSubobject<UInventoryComponent>(TEXT("Collected"));
 	AddOwnedComponent(inventoryComp);
+
+	destructibleComp = CreateDefaultSubobject<UDestructibleComponent>(TEXT("DestructibleComponent"));
+	AddOwnedComponent(destructibleComp);
 }
 
 void ABuildablePrototype::Setup(TSubclassOf<ABuildableBase> toBuildClass)
@@ -66,12 +68,19 @@ bool ABuildablePrototype::InteractionTick_Implementation(const float& deltaSecon
 {
 	if (HaveRequiredItems())
 	{
-		return ConstructTick(deltaSeconds, character->GetBuildSpeed(), character->GetDestructionSpeed());
+		if (ConstructTick(deltaSeconds, character->GetBuildSpeed(), character->GetDestructionSpeed()))
+		{
+			Destroy();
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	return false;
 }
-
 
 bool ABuildablePrototype::ConstructTick(const float& deltaTime, const float& buildSpeed, const float& destructionSpeed)
 {

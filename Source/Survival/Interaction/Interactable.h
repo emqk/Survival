@@ -27,13 +27,7 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	bool InteractionTick(const float& deltaSeconds, const AAICharacter* character);
 
-	//UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void Init(const float& dist, const bool& destroyOnSuccess);
-
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	bool GetDestroyOnSuccessInteraction() const;
-	bool GetDestroyOnSuccessInteraction_Implementation() const;
+	void Init(const float& dist);
 
 	float interactionDistance = 50.0f;
-	bool destroyOnSuccessfulInteraction = true;
 };

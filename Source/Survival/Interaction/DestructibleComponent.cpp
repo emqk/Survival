@@ -30,8 +30,14 @@ void UDestructibleComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 
 bool UDestructibleComponent::InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character)
 {
+	UE_LOG(LogTemp, Warning, TEXT("Destructible component interaction"));
 	hp -= character->GetDestructionSpeed() * deltaSeconds;
-	return hp <= 0;
+	bool finished = hp <= 0;
+	if (finished)
+	{
+		GetOwner()->Destroy();
+	}
+	return finished;
 }
 
 void UDestructibleComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)

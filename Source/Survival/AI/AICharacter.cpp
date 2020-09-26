@@ -28,8 +28,7 @@ void AAICharacter::BeginPlay()
 	data = NewObject<UNPCData>();
 	Super::BeginPlay();
 
-	bool destrAfterInteract = false;
-	Init(100, destrAfterInteract);
+	Init(100);
 }
 
 int AAICharacter::GetID() const
@@ -147,4 +146,14 @@ void AAICharacter::UnequipVisuals(const EquipType& equipType)
 	{
 		UE_LOG(LogTemp, Error, TEXT("Can't equip - i don't know that EquipType"))
 	}
+}
+
+void AAICharacter::SetInteractionType(EInteractionType newInteractionType)
+{
+	interactionType = newInteractionType;
+}
+
+EInteractionType AAICharacter::GetInteractionType() const
+{
+	return interactionType;
 }

@@ -49,7 +49,7 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void RefreshText();
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
 	bool ConstructTick(const float& deltaTime, const float& buildSpeed, const float& destructionSpeed);
 
 	UFUNCTION(BlueprintCallable)

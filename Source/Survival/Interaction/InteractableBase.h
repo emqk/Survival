@@ -23,6 +23,9 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UFUNCTION(BlueprintCallable)
+	bool DestructionInteraction(const float& deltaSeconds, const AAICharacter* character);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -32,13 +35,10 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float interactionDistance = 50.0f;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	bool destroyOnSuccessfulInteraction = true;
-
 protected:
 	UPROPERTY(EditAnywhere)
 	USceneComponent* sceneComp;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere)
 	UDestructibleComponent* destructibleComp = nullptr;
 };

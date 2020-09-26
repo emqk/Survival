@@ -17,10 +17,22 @@ AInteractableBase::AInteractableBase()
 void AInteractableBase::BeginPlay()
 {
 	Super::BeginPlay();
-	Init(interactionDistance, destroyOnSuccessfulInteraction);
+	Init(interactionDistance);
 	UActorComponent* actorComp = GetComponentByClass(UDestructibleComponent::StaticClass());
 	if (actorComp)
 		destructibleComp = Cast<UDestructibleComponent>(actorComp);
+}
+
+bool AInteractableBase::DestructionInteraction(const float& deltaSeconds, const AAICharacter* character)
+{
+	UE_LOG(LogTemp, Warning, TEXT("DestructionInteraction"));
+
+	if (destructibleComp)
+	{
+		return IInteractable::Execute_InteractionTick(destructibleComp, deltaSeconds, character);
+	}
+	
+	return false;
 }
 
 // Called every frame
@@ -32,12 +44,6 @@ void AInteractableBase::Tick(float DeltaTime)
 
 bool AInteractableBase::InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character)
 {
-	UE_LOG(LogTemp, Warning, TEXT("BASE"));
-
-	if (destructibleComp)
-	{
-		return IInteractable::Execute_InteractionTick(destructibleComp, deltaSeconds, character);
-	}
-
-	return false;
+	UE_LOG(LogTemp, Warning, TEXT("BASE_INTERACTION"));
+	return true;
 }
