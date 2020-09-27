@@ -24,10 +24,15 @@ class SURVIVAL_API IInteractable
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 
+	void Init(const float& dist, const bool& canBeInteracted);
+
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	bool InteractionTick(const float& deltaSeconds, const AAICharacter* character);
 
-	void Init(const float& dist);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	bool GetCanBeInteracted() const;
+	bool GetCanBeInteracted_Implementation() const;
 
-	float interactionDistance = 50.0f;
+	float interactionDistanceBase = 50.0f;
+	bool canBeInteractedBase = true;
 };

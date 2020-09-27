@@ -5,7 +5,13 @@
 
 // Add default functionality here for any IInteractable functions that are not pure virtual.
 
-void IInteractable::Init(const float& dist)
+void IInteractable::Init(const float& dist, const bool& canBeInteracted)
 {
-	interactionDistance = dist;
+	interactionDistanceBase = dist;
+	canBeInteractedBase = canBeInteracted;
+}
+
+bool IInteractable::GetCanBeInteracted_Implementation() const
+{
+	return canBeInteractedBase;
 }

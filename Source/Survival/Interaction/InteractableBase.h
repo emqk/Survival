@@ -27,13 +27,14 @@ protected:
 	bool DestructionInteraction(const float& deltaSeconds, const AAICharacter* character);
 
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
 	virtual bool InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character) override;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float interactionDistance = 50.0f;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	bool canBeInteracted = true;
 
 protected:
 	UPROPERTY(EditAnywhere)
