@@ -13,7 +13,8 @@
 				"CoreUObject",
 				"AIModule",
 				"ProceduralMeshComponent",
-				"UMG"
+				"UMG",
+				"SlateCore"
 			]
 		}
 	]
