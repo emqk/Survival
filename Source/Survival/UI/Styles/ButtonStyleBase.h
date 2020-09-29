@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
 #include "Styling/SlateTypes.h"
+#include "Components/Button.h"
 #include "ButtonStyleBase.generated.h"
 
 /**
@@ -19,5 +20,11 @@ public:
 	virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FButtonStyle ButtonStyle;
+	FButtonStyle buttonStyle;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FTextBlockStyle buttonTextStyle;
+
+	UFUNCTION(BlueprintCallable)
+	void SetStyleToButton(UButton* button);
 };
