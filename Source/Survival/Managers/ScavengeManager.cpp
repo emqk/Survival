@@ -75,7 +75,7 @@ void AScavengeManager::SetScavengePoints()
 {
 	TArray<AActor*> foundActors;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AScavengePoint::StaticClass(), foundActors);
-
+	
 	scavengePoints.Empty();
 	scavengePoints.Reserve(foundActors.Num());
 	for (AActor* a : foundActors)

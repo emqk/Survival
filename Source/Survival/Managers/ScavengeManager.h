@@ -86,7 +86,7 @@ protected:
 	UPROPERTY(VisibleAnywhere)
 	TArray<FScavengeTrip> scavengeTrips;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TArray<FScavengeGroup> scavengeGroups;
 
 	UPROPERTY(VisibleAnywhere)
