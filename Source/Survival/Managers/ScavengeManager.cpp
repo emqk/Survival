@@ -175,3 +175,19 @@ AScavengePoint* AScavengeManager::GetScavengePoint(const int& index) const
 	}
 	return nullptr;
 }
+
+bool AScavengeManager::RemoveScavengeGroupAtIndex(const int& index)
+{
+	if (scavengeGroups.IsValidIndex(index))
+	{
+		//Stop all AI in given scavenge group from going to target scavenge point
+		for (AAICharacter* ai : scavengeGroups[index].group)
+		{
+			ai->CancelCurrentInteraction();
+		}
+		scavengeGroups.RemoveAt(index);
+		return true;
+	}
+
+	return false;
+}

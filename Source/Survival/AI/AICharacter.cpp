@@ -54,6 +54,12 @@ void AAICharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 }
 
+void AAICharacter::CancelCurrentInteraction()
+{
+	SetInteractionType(EInteractionType::Default);
+	SetInteraction(GetActorLocation(), nullptr);
+}
+
 void AAICharacter::SimulateNeedsOverTime(const float& seconds)
 {
 	GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Hunger)->ChangeByAmount(hungerDecreasePerSec * seconds);

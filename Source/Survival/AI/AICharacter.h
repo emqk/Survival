@@ -45,6 +45,9 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SetInteraction(const FVector& Location, const AActor* Actor);
 
+	UFUNCTION(BlueprintCallable)
+	void CancelCurrentInteraction();
+
 	UFUNCTION()
 	void SimulateNeedsOverTime(const float& seconds);
 

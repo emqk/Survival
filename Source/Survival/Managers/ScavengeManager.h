@@ -68,6 +68,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	AScavengePoint* GetScavengePoint(const int& index) const;
 
+	UFUNCTION(BlueprintCallable)
+	bool RemoveScavengeGroupAtIndex(const int& index);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
