@@ -4,6 +4,8 @@
 #include "AICharacter.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/GameplayStatics.h" 
+#include "Blueprint/AIBlueprintHelperLibrary.h" 
+#include "BehaviorTree/BlackboardComponent.h" 
 #include "../PlayerGameInstance.h"
 
 // Sets default values
@@ -54,10 +56,17 @@ void AAICharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 }
 
+void AAICharacter::SetInteraction(const FVector& location, AActor* actor, const EInteractionType& newInteractionType)
+{
+	UBlackboardComponent* blackboard = UAIBlueprintHelperLibrary::GetBlackboard(this);
+	blackboard->SetValueAsVector("TargetLocation", location);
+	blackboard->SetValueAsObject("TargetActor", actor);
+	interactionType = newInteractionType;
+}
+
 void AAICharacter::CancelCurrentInteraction()
 {
-	SetInteractionType(EInteractionType::Default);
-	SetInteraction(GetActorLocation(), nullptr);
+	SetInteraction(GetActorLocation(), nullptr, EInteractionType::Default);
 }
 
 void AAICharacter::SimulateNeedsOverTime(const float& seconds)
@@ -152,11 +161,6 @@ void AAICharacter::UnequipVisuals(const EquipType& equipType)
 	{
 		UE_LOG(LogTemp, Error, TEXT("Can't equip - i don't know that EquipType"))
 	}
-}
-
-void AAICharacter::SetInteractionType(EInteractionType newInteractionType)
-{
-	interactionType = newInteractionType;
 }
 
 EInteractionType AAICharacter::GetInteractionType() const

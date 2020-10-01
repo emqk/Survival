@@ -42,8 +42,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void SetInteraction(const FVector& Location, const AActor* Actor);
+	UFUNCTION(BlueprintCallable)
+	void SetInteraction(const FVector& Location, AActor* Actor, const EInteractionType& newInteractionType);
 
 	UFUNCTION(BlueprintCallable)
 	void CancelCurrentInteraction();
@@ -82,9 +82,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void UnequipVisuals(const EquipType& equipType);
-
-	UFUNCTION(BlueprintCallable)
-	void SetInteractionType(EInteractionType newInteractionType);
 
 	UFUNCTION(BlueprintCallable)
 	EInteractionType GetInteractionType() const;
