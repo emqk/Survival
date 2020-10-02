@@ -26,6 +26,15 @@ void ADialogManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	if (isDialogStarted)
+	{
+		currentTimeToEnd -= DeltaTime;
+
+		if (currentTimeToEnd <= 0)
+		{
+			EndDialog();
+		}
+	}
 }
 
 void ADialogManager::StartDialog(UDialogInvokerComponent* invoker)
@@ -39,9 +48,27 @@ void ADialogManager::StartDialog(UDialogInvokerComponent* invoker)
 	if (gameMode)
 	{
 		gameMode->GetUIManager()->OpenDialogPanel(invoker->GetAnswers());
+		isDialogStarted = true;
+		maxTimeToEnd = 5;
+		currentTimeToEnd = maxTimeToEnd;
 	}
 	else
 	{
 		UE_LOG(LogTemp, Error, TEXT("Can't start dialog! - Can't cast gameMode!"))
 	}
+}
+
+void ADialogManager::EndDialog()
+{
+	APlayerGameMode* gameMode = GetWorld()->GetAuthGameMode<APlayerGameMode>();
+	if (gameMode)
+	{
+		gameMode->GetUIManager()->CloseDialogPanel();
+		isDialogStarted = false;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Can't end dialog! - Can't cast gameMode!"))
+	}
+
 }

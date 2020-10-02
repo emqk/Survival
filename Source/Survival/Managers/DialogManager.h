@@ -26,4 +26,13 @@ public:
 
 	UFUNCTION()
 	void StartDialog(UDialogInvokerComponent* invoker);
+	UFUNCTION(BlueprintCallable)
+	void EndDialog();
+
+protected:
+	bool isDialogStarted = false;
+	UPROPERTY(BlueprintReadOnly)
+	float currentTimeToEnd = 0;
+	UPROPERTY(BlueprintReadOnly)
+	float maxTimeToEnd = 0;
 };
