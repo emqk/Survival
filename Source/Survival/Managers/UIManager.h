@@ -48,6 +48,12 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void CloseScavengePanel();
 
+	//Dialog
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void OpenDialogPanel(const TArray<FText>& answers);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void CloseDialogPanel();
+
 	//Settings
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void ToggleSettingsPanel();
@@ -59,9 +65,4 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
 };

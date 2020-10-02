@@ -13,6 +13,11 @@ AConversationManager* APlayerGameMode::GetConversationManager() const
 	return conversationManager;
 }
 
+ADialogManager* APlayerGameMode::GetDialogManager() const
+{
+	return dialogManager;
+}
+
 ABuildingManager* APlayerGameMode::GetBuildingManager() const
 {
 	return buildingManager;

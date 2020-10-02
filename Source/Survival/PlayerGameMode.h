@@ -7,6 +7,7 @@
 #include "Managers/ScavengeManager.h"
 #include "Managers/BuildingManager.h"
 #include "Managers/ConversationManager.h"
+#include "Managers/DialogManager.h"
 #include "Managers/CrewManager.h"
 #include "Managers/UIManager.h"
 #include "PlayerGameMode.generated.h"
@@ -25,6 +26,8 @@ public:
     UFUNCTION(BlueprintCallable)
     AConversationManager* GetConversationManager() const;
     UFUNCTION(BlueprintCallable)
+    ADialogManager* GetDialogManager() const;
+    UFUNCTION(BlueprintCallable)
     ABuildingManager* GetBuildingManager() const;
     UFUNCTION(BlueprintCallable)
     AUIManager* GetUIManager() const;
@@ -36,6 +39,8 @@ protected:
     AScavengeManager* scavengeManager = nullptr;
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     AConversationManager* conversationManager = nullptr;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    ADialogManager* dialogManager = nullptr;
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     ACrewManager* crewManager = nullptr;
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
