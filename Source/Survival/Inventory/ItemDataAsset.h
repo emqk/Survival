@@ -7,7 +7,6 @@
 #include "EquipType.h"
 #include "ItemDataAsset.generated.h"
 
-
 /**
  * 
  */

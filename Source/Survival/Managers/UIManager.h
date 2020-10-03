@@ -7,6 +7,7 @@
 #include "../Inventory/InventoryComponent.h"
 #include "../Interaction/InteractableBase.h"
 #include "../AI/AICharacter.h"
+#include "../Dialogs/DialogData.h"
 #include "UIManager.generated.h"
 
 UCLASS()
@@ -50,7 +51,7 @@ public:
 
 	//Dialog
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void OpenDialogPanel(const TArray<FText>& answers);
+	void OpenDialogPanel(const FDialogData& dialogData);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void CloseDialogPanel();
 

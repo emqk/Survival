@@ -43,7 +43,7 @@ void UDialogInvokerComponent::StartDialog()
 	}
 }
 
-const TArray<FText>& UDialogInvokerComponent::GetAnswers() const
+const FDialogData& UDialogInvokerComponent::GetAnswers() const
 {
 	return answers;
 }

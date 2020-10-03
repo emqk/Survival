@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "DialogData.h"
 #include "DialogInvokerComponent.generated.h"
 
 
@@ -27,9 +28,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void StartDialog();
 
-	const TArray<FText>& GetAnswers() const;
+	const FDialogData& GetAnswers() const;
 
 protected:
 	UPROPERTY(EditAnywhere)
-	TArray<FText> answers;
+	FDialogData answers;
 };
