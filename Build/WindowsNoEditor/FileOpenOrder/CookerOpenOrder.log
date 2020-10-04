@@ -257,41 +257,79 @@
 "../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Grass/GrassBP.uasset" 256
 "../../../../../../Projekty/Unreal Engine/Survival/Content/Levels/MainLevel_BuiltData.uasset" 257
 "../../../Engine/Content/BasicShapes/BasicShapeMaterial.uasset" 258
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Materials/OutlineMaterial.uasset" 259
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components.uasset" 260
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/LocalPosition.uasset" 261
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Materials/Water.uasset" 262
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/GrassGroundMat.uasset" 263
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/GrassGroundMat_Inst.uasset" 264
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Ambience__Birds__Singing_Birds__Early_Morning_SND11282_2.uasset" 265
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/BushMat.uasset" 266
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Bush.uasset" 267
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Trees/Tree.uasset" 268
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Water/Water.uasset" 269
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Shading/FuzzyShading.uasset" 270
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Vectors/RotateVector.uasset" 271
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/Wind.uasset" 272
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/base_flat_n.uasset" 273
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/base_gray_d.uasset" 274
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/gradient_D.uasset" 275
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/BaseMaterial/Flora_twoSides.uasset" 276
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/Conifer2_D.uasset" 277
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/Conifer2_N.uasset" 278
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/conifer_4.uasset" 279
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Math/MultiplyAdd.uasset" 280
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BlendAngleCorrectedNormals.uasset" 281
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/base_white_d.uasset" 282
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/Mask1.uasset" 283
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/BaseMaterial/bese_material.uasset" 284
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/ConiferBark_D.uasset" 285
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/ConiferBark_n.uasset" 286
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/ConiferBark.uasset" 287
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/BaseMaterial/Flora_back.uasset" 288
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/RConifer_D.uasset" 289
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/RConifer.uasset" 290
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/Conifer1.uasset" 291
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/Conifer3.uasset" 292
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/Conifer7.uasset" 293
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Levels/MainLevel.umap" 294
-"../../../Engine/Content/Maps/Entry_BuiltData.uasset" 295
-"../../../Engine/Content/Maps/Entry.umap" 296
+"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/Textures/T_MacroVariation.uasset" 259
+"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/Textures/T_Wood_Oak_D.uasset" 260
+"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/Textures/T_Wood_Oak_N.uasset" 261
+"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/Materials/M_Wood_Oak.uasset" 262
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Buildable/Architecture/FloorMat.uasset" 263
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Materials/OutlineMaterial.uasset" 264
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components.uasset" 265
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/LocalPosition.uasset" 266
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Materials/Water.uasset" 267
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Megascans/Surfaces/Cracked_Wooden_Planks_00/ui2leaxlw_2K_Albedo.uasset" 268
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Megascans/Surfaces/Cracked_Wooden_Planks_00/ui2leaxlw_2K_Normal.uasset" 269
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Megascans/Surfaces/Cracked_Wooden_Planks_00/WoodReal.uasset" 270
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/TerrainGrassNormalMap.uasset" 271
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/TerrainGrassTexture.uasset" 272
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/TerrainGrassMat.uasset" 273
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/TerrainGrassMatInstance.uasset" 274
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Megascans/Surfaces/Lawn_Grass_00/sbykrep_2K_Albedo.uasset" 275
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Megascans/Surfaces/Lawn_Grass_00/sbykrep_2K_Normal.uasset" 276
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Megascans/Surfaces/Lawn_Grass_00/Lawn_Grass_00_inst.uasset" 277
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Ambience__Birds__Singing_Birds__Early_Morning_SND11282_2.uasset" 278
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Buildable/Architecture/Floor.uasset" 279
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Buildable/Architecture/Wall.uasset" 280
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/BushMat.uasset" 281
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Bush.uasset" 282
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Trees/Tree.uasset" 283
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Water/Water.uasset" 284
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Shading/FuzzyShading.uasset" 285
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Vectors/RotateVector.uasset" 286
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/Wind.uasset" 287
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/base_flat_n.uasset" 288
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/base_gray_d.uasset" 289
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/gradient_D.uasset" 290
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/BaseMaterial/Flora_twoSides.uasset" 291
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/Conifer2_D.uasset" 292
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/Conifer2_N.uasset" 293
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/conifer_4.uasset" 294
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Math/MultiplyAdd.uasset" 295
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BlendAngleCorrectedNormals.uasset" 296
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/base_white_d.uasset" 297
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/Mask1.uasset" 298
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/BaseMaterial/bese_material.uasset" 299
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/ConiferBark_D.uasset" 300
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/ConiferBark_n.uasset" 301
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/ConiferBark.uasset" 302
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/BaseMaterial/Flora_back.uasset" 303
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/RConifer_D.uasset" 304
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/RConifer.uasset" 305
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/Conifer1.uasset" 306
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/Conifer3.uasset" 307
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/Conifer7.uasset" 308
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/rock_D.uasset" 309
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/rock_N.uasset" 310
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/RockDetail_D.uasset" 311
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/RockDetail_N.uasset" 312
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/Rock01.uasset" 313
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/rock1.uasset" 314
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/rock3.uasset" 315
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/rock4.uasset" 316
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/rock5.uasset" 317
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/RTrees2_D.uasset" 318
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/RTree2.uasset" 319
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/TreeBark_D.uasset" 320
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/TreeBark_N.uasset" 321
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/tree_bark.uasset" 322
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/TreeBranch_D.uasset" 323
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/TreeBranch_N.uasset" 324
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/TreeBrunch1.uasset" 325
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/TreeBranch2_D.uasset" 326
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/TreeBranch2_N.uasset" 327
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/TreeBrunch2.uasset" 328
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/Tree04_2.uasset" 329
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/Tree05.uasset" 330
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/Tree08_2.uasset" 331
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Levels/MainLevel.umap" 332
+"../../../Engine/Content/Maps/Entry_BuiltData.uasset" 333
+"../../../Engine/Content/Maps/Entry.umap" 334
