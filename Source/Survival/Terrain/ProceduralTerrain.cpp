@@ -120,6 +120,7 @@ void AProceduralTerrain::AlignNavMeshToTerrain()
 void AProceduralTerrain::GenerateVertices()
 {
 	vertices.Reserve(height * width);
+	uvs.Reserve(height * width);
 	FVector2D offset = FVector2D(UKismetMathLibrary::RandomFloatInRange(-99999999.9f, 99999999.9f), UKismetMathLibrary::RandomFloatInRange(-99999999.9f, 99999999.9f));
 	for (size_t x = 0, i = 0; x <= height; x++, i++)
 	{
@@ -129,6 +130,7 @@ void AProceduralTerrain::GenerateVertices()
 			float _y = y * gridSize;
 			float _z = (USimplexNoiseBPLibrary::SimplexNoise2D(_x + offset.X, _y + offset.Y, 1.0f/scale) + noiseOffset_01) * heightMultiplier;
 			vertices.Add(FVector(_x, _y, _z));
+			uvs.Add(FVector2D((float)y / width, (float)x / height));
 		}
 	}
 }
