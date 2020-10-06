@@ -26,7 +26,6 @@ public:
 
 	UStaticMesh* GetMesh() const;
 
-
 protected:
 	virtual void BeginPlay() override;
 

@@ -34,6 +34,11 @@ public:
 	void SetInteractionWorldActor(const AActor* actor);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SetInteractionWidgetLocation(const FVector& worldLocation);
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void OpenItemActorInfo(AItemActor* itemActor);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void CloseItemActorInfo(AItemActor* itemActor);
 
 	//Crew
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
