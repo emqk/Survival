@@ -93,7 +93,7 @@ protected:
 	TSubclassOf<AWall> currentWall;
 
 	//Buildable
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere)
 	TSubclassOf<ABuildableBase> currentBuildable;
 
 	//Build control

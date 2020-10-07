@@ -24,7 +24,7 @@ public:
 	virtual bool InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character) override;
 
 	UFUNCTION(BlueprintCallable)
-	void Setup(TSubclassOf<ABuildableBase> toBuildClass);
+	void Setup();
 
 	UFUNCTION(BlueprintCallable)
 	void Build();
@@ -79,7 +79,7 @@ protected:
 	TArray<FItemInstance> buildRequirements;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float workAmountToBuild;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<ABuildableBase> toBuild;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)

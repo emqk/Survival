@@ -34,9 +34,8 @@ ABuildablePrototype::ABuildablePrototype()
 	destructibleComp->OnDestructed.AddDynamic(this, &ABuildablePrototype::CancelBuilding);
 }
 
-void ABuildablePrototype::Setup(TSubclassOf<ABuildableBase> toBuildClass)
+void ABuildablePrototype::Setup()
 {
-	toBuild = toBuildClass;
 	RefreshText();
 }
 
