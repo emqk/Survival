@@ -90,6 +90,9 @@ public:
 	UInventoryComponent* inventoryComp;
 
 protected:
+	UPROPERTY(EditDefaultsOnly)
+	FName righthandSocketName = "hand_R_endSocket";
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UStaticMeshComponent* rightHandHandleMeshComponent;
 
