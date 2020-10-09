@@ -30,9 +30,12 @@ public:
 	
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FName name = "None";
+	FName name = "None";
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FName surname = "None";
+	FName surname = "None";
+
+	UPROPERTY(EditAnywhere)
+	UStatistic* health = nullptr;
 
 	UPROPERTY()
 	UNPCNeeds* myNeeds = nullptr;

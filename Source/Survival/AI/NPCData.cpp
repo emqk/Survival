@@ -5,6 +5,7 @@
 
 UNPCData::UNPCData()
 {
+	health = NewObject<UStatistic>();
 	myNeeds = NewObject<UNPCNeeds>();
 	myRelations = NewObject<UNPCRelations>();
 }
