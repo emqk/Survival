@@ -3,21 +3,19 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "../NPCNeeds.h"
-#include "UObject/NoExportTypes.h"
-#include "NPCStatus.generated.h"
+#include "NPCStatus.h"
+#include "SickStatus.generated.h"
 
 /**
  * 
  */
 UCLASS(BlueprintType)
-class SURVIVAL_API UNPCStatus : public UPrimaryDataAsset
+class USickStatus : public UNPCStatus
 {
 	GENERATED_BODY()
-
 public:
-	virtual FPrimaryAssetId GetPrimaryAssetId() const override;
-
-	UFUNCTION()
 	virtual void TickMe(UNPCNeeds* ownerNeeds, const float& deltaTime);
+
+	UPROPERTY(EditDefaultsOnly)
+	int someValue;
 };

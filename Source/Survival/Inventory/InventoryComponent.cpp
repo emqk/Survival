@@ -144,10 +144,10 @@ bool UInventoryComponent::UseItemOfIndex(const int& index)
 		{
 			if (itemToUse.data->isEatable)
 			{
-				myOwner->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Hunger)->ChangeByAmount(-itemToUse.data->foodReduce);
-				myOwner->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Thirst)->ChangeByAmount(-itemToUse.data->thirstReduce);
-				myOwner->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Energy)->ChangeByAmount(itemToUse.data->energyBoost);
-				myOwner->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Happyness)->ChangeByAmount(itemToUse.data->happynessBoost);
+				myOwner->GetNeeds()->GetNeedByType(NeedType::Hunger)->ChangeByAmount(-itemToUse.data->foodReduce);
+				myOwner->GetNeeds()->GetNeedByType(NeedType::Thirst)->ChangeByAmount(-itemToUse.data->thirstReduce);
+				myOwner->GetNeeds()->GetNeedByType(NeedType::Energy)->ChangeByAmount(itemToUse.data->energyBoost);
+				myOwner->GetNeeds()->GetNeedByType(NeedType::Happyness)->ChangeByAmount(itemToUse.data->happynessBoost);
 				RemoveItemOfID(itemToUse.data->itemID, 1);
 				return true;
 			}

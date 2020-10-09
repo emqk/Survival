@@ -45,7 +45,13 @@ void ACrewManager::ControlNPCSocialNeeds()
 		if (ch->GetIsTalking())
 			continue;
 
-		float socialNeedAmount = ch->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Social)->GetAmount();
+		if (!ch->GetNPCData())
+		{
+			UE_LOG(LogTemp, Error, TEXT("Can't get NPC Data!"))
+			continue;
+		}
+
+		float socialNeedAmount = ch->GetNeeds()->GetNeedByType(NeedType::Social)->GetAmount();
 		if (socialNeedAmount <= UNPCNeeds::socialNeedThresholdToAutoJoin)
 		{
 			UConversation* foundConversation = conversationManager->FindExistingConversationForLocation(ch->GetActorLocation());

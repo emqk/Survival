@@ -31,7 +31,7 @@ bool UConversation::TickConversation(const float& deltaTime)
 
 	for (int i = characters.Num()-1; i >= 0; i--)
 	{
-		UStatistic* characterSocialNeed = characters[i]->GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Social);
+		UStatistic* characterSocialNeed = characters[i]->GetNeeds()->GetNeedByType(NeedType::Social);
 		if (characterSocialNeed->GetAmount() >= endConversationThreshold || !IsInRange(characters[i]->GetActorLocation()) || !characters[i]->IsEnabled())
 		{
 			RemoveCharacter(characters[i]);
@@ -44,7 +44,7 @@ bool UConversation::TickConversation(const float& deltaTime)
 			{
 				if (i != j)
 				{
-					characters[i]->GetNPCData()->GetRelations()->ChangeRelationWith(characters[j]->GetUniqueID(), changeRelationPerSec * deltaTime);
+					characters[i]->GetRelations()->ChangeRelationWith(characters[j]->GetUniqueID(), changeRelationPerSec * deltaTime);
 				}
 			}
 		}

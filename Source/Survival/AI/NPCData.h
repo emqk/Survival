@@ -5,10 +5,12 @@
 #include "CoreMinimal.h"
 #include "NPCNeeds.h"
 #include "NPCRelations.h"
+#include "Statuses/NPCStatuses.h"
+#include "Engine/DataAsset.h"
 #include "NPCData.generated.h"
 
 UCLASS(BlueprintType)
-class UNPCData : public UObject
+class UNPCData : public UPrimaryDataAsset
 {
 	GENERATED_BODY()
 
@@ -17,11 +19,7 @@ public:
 	UNPCData();
 	~UNPCData();
 
-	UFUNCTION(BlueprintCallable)
-	UNPCNeeds* GetNeeds() const;
-
-	UFUNCTION(BlueprintCallable)
-	UNPCRelations* GetRelations() const;
+	virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 
 	UFUNCTION(BlueprintCallable)
 	FName GetFullName() const;
@@ -33,13 +31,4 @@ protected:
 	FName name = "None";
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FName surname = "None";
-
-	UPROPERTY(EditAnywhere)
-	UStatistic* health = nullptr;
-
-	UPROPERTY()
-	UNPCNeeds* myNeeds = nullptr;
-
-	UPROPERTY()
-	UNPCRelations* myRelations = nullptr;
 };

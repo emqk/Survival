@@ -27,7 +27,11 @@ AAICharacter::AAICharacter()
 // Called when the game starts or when spawned
 void AAICharacter::BeginPlay()
 {
-	data = NewObject<UNPCData>();
+	//data = NewObject<UNPCData>();
+	health = NewObject<UStatistic>();
+	myNeeds = NewObject<UNPCNeeds>();
+	myStatuses = NewObject<UNPCStatuses>();
+	myRelations = NewObject<UNPCRelations>();
 	Super::BeginPlay();
 
 	Init(100, true);
@@ -40,7 +44,30 @@ int AAICharacter::GetID() const
 
 UNPCData* AAICharacter::GetNPCData() const
 {
-	return data;
+	if (data != nullptr)
+	{
+		return data;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("NPCData Asset is null!"));
+		return nullptr;
+	}
+}
+
+UNPCNeeds* AAICharacter::GetNeeds() const
+{
+	return myNeeds;
+}
+
+UNPCStatuses* AAICharacter::GetStatuses() const
+{
+	return myStatuses;
+}
+
+UNPCRelations* AAICharacter::GetRelations() const
+{
+	return myRelations;
 }
 
 // Called every frame
@@ -48,6 +75,7 @@ void AAICharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	TickNeeds(DeltaTime);
+	TickStatuses(DeltaTime);
 }
 
 // Called to bind functionality to input
@@ -71,15 +99,34 @@ void AAICharacter::CancelCurrentInteraction()
 
 void AAICharacter::SimulateNeedsOverTime(const float& seconds)
 {
-	GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Hunger)->ChangeByAmount(hungerDecreasePerSec * seconds);
-	GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Thirst)->ChangeByAmount(thirstDecreasePerSec * seconds);
-	GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Energy)->ChangeByAmount(energyDecreasePerSec * seconds);
-	GetNPCData()->GetNeeds()->GetNeedByType(NeedType::Social)->ChangeByAmount(-socialDecreasePerSec * seconds);
+	if (GetNPCData())
+	{
+		GetNeeds()->GetNeedByType(NeedType::Hunger)->ChangeByAmount(hungerDecreasePerSec * seconds);
+		GetNeeds()->GetNeedByType(NeedType::Thirst)->ChangeByAmount(thirstDecreasePerSec * seconds);
+		GetNeeds()->GetNeedByType(NeedType::Energy)->ChangeByAmount(energyDecreasePerSec * seconds);
+		GetNeeds()->GetNeedByType(NeedType::Social)->ChangeByAmount(-socialDecreasePerSec * seconds);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Can't tick needs - Can't get NPC Data!"))
+	}
 }
 
 void AAICharacter::TickNeeds(const float& deltaTime)
 {
 	SimulateNeedsOverTime(deltaTime);
+}
+
+void AAICharacter::TickStatuses(const float& deltaTime)
+{
+	if (GetNPCData())
+	{
+		GetStatuses()->TickStatuses(GetNeeds(), deltaTime);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Can't tick statuses - Can't get NPC Data!"))
+	}
 }
 
 void AAICharacter::LookAtActor(AActor* actor)

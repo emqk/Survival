@@ -36,6 +36,15 @@ public:
 	UFUNCTION(BlueprintCallable)
 	UNPCData* GetNPCData() const;
 
+	UFUNCTION(BlueprintCallable)
+	UNPCNeeds* GetNeeds() const;
+
+	UFUNCTION(BlueprintCallable)
+	UNPCStatuses* GetStatuses() const;
+
+	UFUNCTION(BlueprintCallable)
+	UNPCRelations* GetRelations() const;
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -53,6 +62,9 @@ public:
 
 	UFUNCTION()
 	void TickNeeds(const float& deltaTime);
+
+	UFUNCTION()
+	void TickStatuses(const float& deltaTime);
 
 	UFUNCTION(BlueprintCallable)
 	void LookAtActor(AActor* actor);
@@ -119,6 +131,18 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 	UNPCData* data;
+
+	UPROPERTY()
+	UStatistic* health = nullptr;
+
+	UPROPERTY()
+	UNPCNeeds* myNeeds = nullptr;
+
+	UPROPERTY()
+	UNPCStatuses* myStatuses = nullptr;
+
+	UPROPERTY()
+	UNPCRelations* myRelations = nullptr;
 
 private:
 	const float hungerDecreasePerSec = 0.7f;

@@ -3,3 +3,15 @@
 
 #include "NPCStatuses.h"
 
+void UNPCStatuses::TickStatuses(UNPCNeeds* ownerNeeds, const float& deltaTime)
+{
+	for (UNPCStatus* status : statuses)
+	{
+		status->TickMe(ownerNeeds, deltaTime);
+	}
+}
+
+void UNPCStatuses::AddStatus(UNPCStatus* status)
+{
+	statuses.Add(status);
+}

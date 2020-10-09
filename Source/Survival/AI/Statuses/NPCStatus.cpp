@@ -8,7 +8,7 @@ FPrimaryAssetId UNPCStatus::GetPrimaryAssetId() const
 	return FPrimaryAssetId(FPrimaryAssetType("Statuses"), GetFName());
 }
 
-void UNPCStatus::TickMe()
+void UNPCStatus::TickMe(UNPCNeeds* ownerNeeds, const float& deltaTime)
 {
 	UE_LOG(LogTemp, Error, TEXT("Default status tick!"))
 }

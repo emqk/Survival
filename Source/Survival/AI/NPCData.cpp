@@ -5,23 +5,16 @@
 
 UNPCData::UNPCData()
 {
-	health = NewObject<UStatistic>();
-	myNeeds = NewObject<UNPCNeeds>();
-	myRelations = NewObject<UNPCRelations>();
+	
 }
 
 UNPCData::~UNPCData()
 {
 }
 
-UNPCNeeds* UNPCData::GetNeeds() const
+FPrimaryAssetId UNPCData::GetPrimaryAssetId() const
 {
-	return myNeeds;
-}
-
-UNPCRelations* UNPCData::GetRelations() const
-{
-	return myRelations;
+	return FPrimaryAssetId(FPrimaryAssetType("NPCData"), GetFName());
 }
 
 FName UNPCData::GetFullName() const
