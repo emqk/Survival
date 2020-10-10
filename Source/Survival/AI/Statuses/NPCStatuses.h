@@ -21,7 +21,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AddStatus(UNPCStatus* status);
 
+	UFUNCTION(BlueprintCallable)
+	void RemoveStatus(UNPCStatus* status);
+
 protected:
 	UPROPERTY(EditDefaultsOnly)
-	TArray<UNPCStatus*> statuses;
+	TSet<UNPCStatus*> statuses;
 };

@@ -15,3 +15,8 @@ void UNPCStatuses::AddStatus(UNPCStatus* status)
 {
 	statuses.Add(status);
 }
+
+void UNPCStatuses::RemoveStatus(UNPCStatus* status)
+{
+	statuses.Remove(status);
+}
