@@ -20,8 +20,12 @@ public:
 
 	UFUNCTION()
 	void TickMe(UNPCNeeds* ownerNeeds, const float& deltaTime);
+	UFUNCTION(BlueprintCallable)
+	FText GetStatusDisplayText() const;
 
 protected:
+	UPROPERTY(EditDefaultsOnly)
+	FText statusDisplayText;
 	UPROPERTY(EditDefaultsOnly)
 	float food;
 	UPROPERTY(EditDefaultsOnly)

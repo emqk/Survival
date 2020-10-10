@@ -25,6 +25,6 @@ public:
 	void RemoveStatus(UNPCStatus* status);
 
 protected:
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSet<UNPCStatus*> statuses;
 };

@@ -17,3 +17,8 @@ void UNPCStatus::TickMe(UNPCNeeds* ownerNeeds, const float& deltaTime)
 	ownerNeeds->GetNeedByType(NeedType::Social)->ChangeByAmount(social * deltaTime);
 	ownerNeeds->GetNeedByType(NeedType::Health)->ChangeByAmount(health * deltaTime);
 }
+
+FText UNPCStatus::GetStatusDisplayText() const
+{
+	return statusDisplayText;
+}
