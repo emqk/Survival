@@ -13,6 +13,7 @@ UNPCNeeds::UNPCNeeds()
 	needs.Add(NeedType::Energy, NewObject<UStatistic>());
 	needs.Add(NeedType::Happyness, NewObject<UStatistic>());
 	needs.Add(NeedType::Social, NewObject<UStatistic>());
+	needs.Add(NeedType::Health, NewObject<UStatistic>());
 }
 
 UNPCNeeds::~UNPCNeeds()

@@ -15,4 +15,5 @@ void UNPCStatus::TickMe(UNPCNeeds* ownerNeeds, const float& deltaTime)
 	ownerNeeds->GetNeedByType(NeedType::Energy)->ChangeByAmount(energy * deltaTime);
 	ownerNeeds->GetNeedByType(NeedType::Happyness)->ChangeByAmount(happyness * deltaTime);
 	ownerNeeds->GetNeedByType(NeedType::Social)->ChangeByAmount(social * deltaTime);
+	ownerNeeds->GetNeedByType(NeedType::Health)->ChangeByAmount(health * deltaTime);
 }

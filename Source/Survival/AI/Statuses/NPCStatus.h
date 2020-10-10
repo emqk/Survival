@@ -32,5 +32,6 @@ protected:
 	float happyness;
 	UPROPERTY(EditDefaultsOnly)
 	float social;
-
+	UPROPERTY(EditDefaultsOnly)
+	float health;
 };

@@ -133,9 +133,6 @@ protected:
 	UNPCData* data;
 
 	UPROPERTY()
-	UStatistic* health = nullptr;
-
-	UPROPERTY()
 	UNPCNeeds* myNeeds = nullptr;
 
 	UPROPERTY()

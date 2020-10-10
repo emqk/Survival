@@ -28,7 +28,6 @@ AAICharacter::AAICharacter()
 void AAICharacter::BeginPlay()
 {
 	//data = NewObject<UNPCData>();
-	health = NewObject<UStatistic>();
 	myNeeds = NewObject<UNPCNeeds>();
 	myStatuses = NewObject<UNPCStatuses>();
 	myRelations = NewObject<UNPCRelations>();
