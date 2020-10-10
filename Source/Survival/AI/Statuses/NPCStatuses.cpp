@@ -13,7 +13,14 @@ void UNPCStatuses::TickStatuses(UNPCNeeds* ownerNeeds, const float& deltaTime)
 
 void UNPCStatuses::AddStatus(UNPCStatus* status)
 {
-	statuses.Add(status);
+	if (status)
+	{
+		statuses.Add(status);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Can't add status - argument is null!"));
+	}
 }
 
 void UNPCStatuses::RemoveStatus(UNPCStatus* status)

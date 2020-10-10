@@ -19,5 +19,18 @@ public:
 	virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 
 	UFUNCTION()
-	virtual void TickMe(UNPCNeeds* ownerNeeds, const float& deltaTime);
+	void TickMe(UNPCNeeds* ownerNeeds, const float& deltaTime);
+
+protected:
+	UPROPERTY(EditDefaultsOnly)
+	float food;
+	UPROPERTY(EditDefaultsOnly)
+	float hydration;
+	UPROPERTY(EditDefaultsOnly)
+	float energy;
+	UPROPERTY(EditDefaultsOnly)
+	float happyness;
+	UPROPERTY(EditDefaultsOnly)
+	float social;
+
 };
