@@ -30,6 +30,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AddAnswer(const FDialogElementData& dialogAnswer);
 
+	UFUNCTION(BlueprintCallable)
+	void SetAnswerTime(const float& timeToAnswer);
+
 	const FDialogData& GetAnswers() const;
 
 protected:

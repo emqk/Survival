@@ -48,6 +48,11 @@ void UDialogInvokerComponent::AddAnswer(const FDialogElementData& dialogAnswer)
 	answers.dialogElements.Add(dialogAnswer);
 }
 
+void UDialogInvokerComponent::SetAnswerTime(const float& timeToAnswer)
+{
+	answers.timeToAnswer = timeToAnswer;
+}
+
 const FDialogData& UDialogInvokerComponent::GetAnswers() const
 {
 	return answers;

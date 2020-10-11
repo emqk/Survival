@@ -15,6 +15,9 @@ struct FDialogData
 {
 	GENERATED_BODY()
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	float timeToAnswer;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TArray<FDialogElementData> dialogElements;
 };
