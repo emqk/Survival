@@ -7,7 +7,6 @@
 #include "DialogData.h"
 #include "DialogInvokerComponent.generated.h"
 
-
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class SURVIVAL_API UDialogInvokerComponent : public UActorComponent
 {
@@ -28,9 +27,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void StartDialog();
 
+	UFUNCTION(BlueprintCallable)
+	void AddDel(FOnAnswer oa, FText te);
+
 	const FDialogData& GetAnswers() const;
 
 protected:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FDialogData answers;
 };

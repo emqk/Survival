@@ -6,6 +6,8 @@
 #include "UObject/NoExportTypes.h"
 #include "DialogElementData.generated.h"
 
+DECLARE_DYNAMIC_DELEGATE(FOnAnswer);
+
 /**
  * 
  */
@@ -14,6 +16,9 @@ struct FDialogElementData
 {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FText text;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FOnAnswer answerDelegates;
 };

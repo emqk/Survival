@@ -15,6 +15,6 @@ struct FDialogData
 {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TArray<FDialogElementData> dialogElements;
 };
