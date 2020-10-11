@@ -18,7 +18,6 @@ struct FDialogElementData
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FText text;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FOnAnswer answerDelegates;
 };

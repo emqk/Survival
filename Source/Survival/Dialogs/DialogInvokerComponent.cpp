@@ -43,12 +43,9 @@ void UDialogInvokerComponent::StartDialog()
 	}
 }
 
-void UDialogInvokerComponent::AddDel(FOnAnswer oa, FText te)
+void UDialogInvokerComponent::AddAnswer(const FDialogElementData& dialogAnswer)
 {
-	FDialogElementData de;
-	de.text = te;
-	de.answerDelegates = oa;
-	answers.dialogElements.Add(de);
+	answers.dialogElements.Add(dialogAnswer);
 }
 
 const FDialogData& UDialogInvokerComponent::GetAnswers() const

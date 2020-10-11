@@ -65,6 +65,7 @@ void ADialogManager::EndDialog()
 	{
 		gameMode->GetUIManager()->CloseDialogPanel();
 		isDialogStarted = false;
+		UE_LOG(LogTemp, Warning, TEXT("Dialog ended!"))
 	}
 	else
 	{

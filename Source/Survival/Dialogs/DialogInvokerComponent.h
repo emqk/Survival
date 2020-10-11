@@ -28,11 +28,11 @@ public:
 	void StartDialog();
 
 	UFUNCTION(BlueprintCallable)
-	void AddDel(FOnAnswer oa, FText te);
+	void AddAnswer(const FDialogElementData& dialogAnswer);
 
 	const FDialogData& GetAnswers() const;
 
 protected:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	FDialogData answers;
 };
