@@ -36,6 +36,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	bool canBeInteracted = true;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	EInteractionAnimationType interactionAnimationType;
+
 protected:
 	UPROPERTY(EditAnywhere)
 	USceneComponent* sceneComp;

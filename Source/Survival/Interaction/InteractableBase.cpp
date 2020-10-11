@@ -17,7 +17,7 @@ AInteractableBase::AInteractableBase()
 void AInteractableBase::BeginPlay()
 {
 	Super::BeginPlay();
-	Init(interactionDistance, canBeInteracted);
+	Init(interactionDistance, canBeInteracted, interactionAnimationType);
 	UActorComponent* actorComp = GetComponentByClass(UDestructibleComponent::StaticClass());
 	if (actorComp)
 		destructibleComp = Cast<UDestructibleComponent>(actorComp);

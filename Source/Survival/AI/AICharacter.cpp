@@ -33,7 +33,7 @@ void AAICharacter::BeginPlay()
 	myRelations = NewObject<UNPCRelations>();
 	Super::BeginPlay();
 
-	Init(100, true);
+	Init(100, true, EInteractionAnimationType::Default);
 }
 
 int AAICharacter::GetID() const
@@ -83,17 +83,18 @@ void AAICharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 }
 
-void AAICharacter::SetInteraction(const FVector& location, AActor* actor, const EInteractionType& newInteractionType)
+void AAICharacter::SetInteraction(const FVector& location, AActor* actor, const EInteractionType& newInteractionType, const EInteractionAnimationType& newInteractionAnimationType)
 {
 	UBlackboardComponent* blackboard = UAIBlueprintHelperLibrary::GetBlackboard(this);
 	blackboard->SetValueAsVector("TargetLocation", location);
 	blackboard->SetValueAsObject("TargetActor", actor);
 	interactionType = newInteractionType;
+	interactionAnimationType = newInteractionAnimationType;
 }
 
 void AAICharacter::CancelCurrentInteraction()
 {
-	SetInteraction(GetActorLocation(), nullptr, EInteractionType::Default);
+	SetInteraction(GetActorLocation(), nullptr, EInteractionType::Default, EInteractionAnimationType::Default);
 }
 
 void AAICharacter::SimulateNeedsOverTime(const float& seconds)
@@ -212,4 +213,9 @@ void AAICharacter::UnequipVisuals(const EquipType& equipType)
 EInteractionType AAICharacter::GetInteractionType() const
 {
 	return interactionType;
+}
+
+EInteractionAnimationType AAICharacter::GetInteractionAnimationType() const
+{
+	return interactionAnimationType;
 }
