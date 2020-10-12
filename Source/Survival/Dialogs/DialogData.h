@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "DialogElementData.h"
+#include "Engine/DataTable.h"
 #include "DialogData.generated.h"
 
 /**
@@ -15,9 +16,17 @@ struct FDialogData
 {
 	GENERATED_BODY()
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	float timeToAnswer;
+	FDialogData() : timeToAnswer(0), dialogTable(nullptr)
+	{
+	}
+
+	FDialogData(float _time, UDataTable* _table) : timeToAnswer(_time), dialogTable(_table)
+	{
+	}
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TArray<FDialogElementData> dialogElements;
+	float timeToAnswer = 0;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UDataTable* dialogTable = nullptr;
 };

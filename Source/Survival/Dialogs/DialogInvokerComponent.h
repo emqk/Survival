@@ -28,14 +28,11 @@ public:
 	void StartDialog();
 
 	UFUNCTION(BlueprintCallable)
-	void AddAnswer(const FDialogElementData& dialogAnswer);
-
-	UFUNCTION(BlueprintCallable)
 	void SetAnswerTime(const float& timeToAnswer);
 
 	const FDialogData& GetAnswers() const;
 
 protected:
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	FDialogData answers;
 };
