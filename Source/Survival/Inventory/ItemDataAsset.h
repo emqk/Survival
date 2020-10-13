@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
 #include "EquipType.h"
+#include "../Interaction/DestructibleMaterialType.h"
 #include "ItemDataAsset.generated.h"
 
 /**
@@ -46,6 +47,8 @@ public:
     float happynessBoost = 0;
 
     //Equippable
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equippable")
+    EDestructibleMaterialType destructMaterialType;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equippable")
     bool isEquippable = false;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equippable")

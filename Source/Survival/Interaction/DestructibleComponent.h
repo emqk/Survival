@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Interactable.h"
+#include "DestructibleMaterialType.h"
 #include "../AI/AICharacter.h"
 #include "DestructibleComponent.generated.h"
 
@@ -34,6 +35,8 @@ public:
 	FOnDestructed OnDestructed;
 
 protected:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	EDestructibleMaterialType materialType;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	USoundWave* onDestroySound;					 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
