@@ -50,7 +50,7 @@ protected:
 	void RefreshText();
 
 	UFUNCTION()
-	bool ConstructTick(const float& deltaTime, const float& buildSpeed, const float& destructionSpeed);
+	bool ConstructTick(const float& deltaTime, const float& buildSpeed);
 
 	UFUNCTION(BlueprintCallable)
 	void GiveNeededItems(UInventoryComponent* inventory);

@@ -153,8 +153,17 @@ bool AAICharacter::GetIsTalking() const
 	return isTalking;
 }
 
-float AAICharacter::GetDestructionSpeed() const
+float AAICharacter::GetDestructionSpeedForMaterialType(const EDestructibleMaterialType& materialType) const
 {
+	if (inventoryComp)
+	{
+		UItemDataAsset* equipedItem = inventoryComp->GetEquipedItem(EquipType::RightHand);
+		if (equipedItem && equipedItem->destructMaterialType == materialType)
+		{
+			return destructionSpeed * equipedItem->destructionSpeedMultiplier;
+		}
+	}
+
 	return destructionSpeed;
 }
 

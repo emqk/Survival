@@ -48,6 +48,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	bool UnequipItem(const EquipType& equipType);
+	UFUNCTION(BlueprintCallable)
+	UItemDataAsset* GetEquipedItem(const EquipType& equipType) const;
 
 	UFUNCTION(BlueprintCallable)
 	bool HaveAmountOfItem(const FName& itemID, const int& amount) const;

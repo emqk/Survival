@@ -68,7 +68,7 @@ bool ABuildablePrototype::InteractionTick_Implementation(const float& deltaSecon
 {
 	if (HaveRequiredItems())
 	{
-		if (ConstructTick(deltaSeconds, character->GetBuildSpeed(), character->GetDestructionSpeed()))
+		if (ConstructTick(deltaSeconds, character->GetBuildSpeed()))
 		{
 			Destroy();
 			return true;
@@ -82,7 +82,7 @@ bool ABuildablePrototype::InteractionTick_Implementation(const float& deltaSecon
 	return false;
 }
 
-bool ABuildablePrototype::ConstructTick(const float& deltaTime, const float& buildSpeed, const float& destructionSpeed)
+bool ABuildablePrototype::ConstructTick(const float& deltaTime, const float& buildSpeed)
 {
 	currentWorkAmount += buildSpeed * deltaTime;
 	if (currentWorkAmount >= workAmountToBuild)

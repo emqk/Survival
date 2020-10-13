@@ -50,6 +50,8 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equippable")
     EDestructibleMaterialType destructMaterialType;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equippable")
+    float destructionSpeedMultiplier = 2.0f;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equippable")
     bool isEquippable = false;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equippable")
     EquipType equipType;

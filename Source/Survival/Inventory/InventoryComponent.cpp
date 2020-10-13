@@ -221,6 +221,11 @@ bool UInventoryComponent::UnequipItem(const EquipType& equipType)
 	return false;
 }
 
+UItemDataAsset* UInventoryComponent::GetEquipedItem(const EquipType& equipType) const
+{
+	return *equipment.Find(equipType);
+}
+
 bool UInventoryComponent::HaveAmountOfItem(const FName& itemID, const int& amount) const
 {
 	for (const FItemInstance& currItem : items)

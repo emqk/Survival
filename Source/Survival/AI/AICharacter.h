@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "../Interaction/Interactable.h"
 #include "../Inventory/InventoryComponent.h"
+#include "../Interaction/DestructibleMaterialType.h"
 #include "NPCData.h"
 #include "AICharacter.generated.h"
 
@@ -72,7 +73,7 @@ public:
 	bool GetIsTalking() const;
 
 	UFUNCTION(BlueprintCallable)
-	float GetDestructionSpeed() const;
+	float GetDestructionSpeedForMaterialType(const EDestructibleMaterialType& materialType) const;
 
 	UFUNCTION(BlueprintCallable)
 	float GetBuildSpeed() const;
