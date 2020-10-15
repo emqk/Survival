@@ -20,7 +20,9 @@ public:
 
     virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 
-    //Geberal
+    //General
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "General")
+    UTexture2D* icon;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="General")
     FName itemID;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "General")
