@@ -327,5 +327,5 @@ float UInventoryComponent::GetMaxSpace() const
 void UInventoryComponent::RefreshUI()
 {
 	APlayerGameMode* gameMode = Cast<APlayerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
-	gameMode->GetUIManager()->ShowInventoryItems(this);
+	gameMode->GetUIManager()->ShowInventoryItems(this, EInventoryOpenType::Single);
 }

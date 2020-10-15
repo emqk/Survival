@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "../Inventory/InventoryComponent.h"
+#include "../UI/Inventory/InventoryOpenType.h"
 #include "../Interaction/InteractableBase.h"
 #include "../AI/AICharacter.h"
 #include "../Dialogs/DialogData.h"
@@ -23,11 +24,11 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void ToggleInventory(UInventoryComponent* inventory);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void OpenInventory(UInventoryComponent* inventory);
+	void OpenInventory(UInventoryComponent* inventory, const EInventoryOpenType& openType);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void CloseInventory();
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void ShowInventoryItems(UInventoryComponent* inventory);
+	void ShowInventoryItems(UInventoryComponent* inventory, const EInventoryOpenType& openType);
 
 	//Interaction
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)

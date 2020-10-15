@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "../../Inventory/InventoryComponent.h"
+#include "InventoryOpenType.h"
 #include "InventoryWidget.generated.h"
 
 /**
@@ -17,19 +18,34 @@ class SURVIVAL_API UInventoryWidget : public UUserWidget
 	
 public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void OpenInventoryWidget(UInventoryComponent* inventory, const EInventoryOpenType& _openType);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void RefreshMyEquipment(UInventoryComponent* inventory);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void RefreshItemInfo(UInventoryComponent* inventory);
 
 	UFUNCTION(BlueprintCallable)
 	void SelectIndex(const int& index);
+	UFUNCTION(BlueprintCallable)
+	void SelectSecondaryIndex(const int& index);
 
 protected:
 	UFUNCTION(BlueprintCallable)
 	void SelectInventory(UInventoryComponent* inventory);
+	UFUNCTION(BlueprintCallable)
+	void SelectSecondaryInventory(UInventoryComponent* inventory);
 
+	//Primary
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int currentlySelectedItemIndex;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UInventoryComponent* currentInventory;
+	//Secondary
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UInventoryComponent* secondaryInventory;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	int secondaryCurrentlySelectedItemIndex;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	EInventoryOpenType openType;
 };
