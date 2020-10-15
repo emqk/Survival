@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "../../Inventory/InventoryComponent.h"
+#include "InventoryOpenType.h"
 #include "Blueprint/UserWidget.h"
 #include "InventoryElementWidget.generated.h"
 
@@ -20,4 +21,6 @@ protected:
 	UInventoryComponent* myInventory;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int myItemIndex = -1;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	EInventoryOpenType openType;
 };

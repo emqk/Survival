@@ -25,9 +25,10 @@ public:
 	void RefreshItemInfo(UInventoryComponent* inventory);
 
 	UFUNCTION(BlueprintCallable)
-	void SelectIndex(const int& index);
+	void SelectIndex(const int& index, const EInventoryOpenType& _openType);
+
 	UFUNCTION(BlueprintCallable)
-	void SelectSecondaryIndex(const int& index);
+		UInventoryComponent* GetInventoryByType(const EInventoryOpenType& _openType) const;
 
 protected:
 	UFUNCTION(BlueprintCallable)

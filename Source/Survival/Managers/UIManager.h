@@ -29,6 +29,7 @@ public:
 	void CloseInventory();
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void ShowInventoryItems(UInventoryComponent* inventory, const EInventoryOpenType& openType);
+	
 
 	//Interaction
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)

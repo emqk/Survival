@@ -3,14 +3,20 @@
 
 #include "InventoryWidget.h"
 
-void UInventoryWidget::SelectIndex(const int& index)
+void UInventoryWidget::SelectIndex(const int& index, const EInventoryOpenType& _openType)
 {
-	currentlySelectedItemIndex = index;
+	if (_openType == EInventoryOpenType::Single)
+		currentlySelectedItemIndex = index;
+	else
+		secondaryCurrentlySelectedItemIndex = index;
 }
 
-void UInventoryWidget::SelectSecondaryIndex(const int& index)
+UInventoryComponent* UInventoryWidget::GetInventoryByType(const EInventoryOpenType& _openType) const
 {
-	secondaryCurrentlySelectedItemIndex = index;
+	if (_openType == EInventoryOpenType::Single)
+		return currentInventory;
+	else
+		return secondaryInventory;
 }
 
 void UInventoryWidget::SelectInventory(UInventoryComponent* inventory)
