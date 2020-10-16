@@ -19,6 +19,24 @@ UInventoryComponent* UInventoryWidget::GetInventoryByType(const EInventoryOpenTy
 		return secondaryInventory;
 }
 
+void UInventoryWidget::CloseInventoryByType(const EInventoryOpenType& _openType)
+{
+	if (_openType == EInventoryOpenType::Single)
+	{
+		currentInventory = nullptr;
+		secondaryInventory = nullptr;
+	}
+	else
+	{
+		secondaryInventory = nullptr;
+	}
+}
+
+EInventoryOpenType UInventoryWidget::GetInventoryOpenType() const
+{
+	return openType;
+}
+
 void UInventoryWidget::SelectInventory(UInventoryComponent* inventory)
 {
 	currentInventory = inventory;

@@ -327,5 +327,12 @@ float UInventoryComponent::GetMaxSpace() const
 void UInventoryComponent::RefreshUI()
 {
 	APlayerGameMode* gameMode = Cast<APlayerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
-	gameMode->GetUIManager()->ShowInventoryItems(this, EInventoryOpenType::Single);
+	if (gameMode)
+	{
+		gameMode->GetUIManager()->RefreshOpenedInventoryPanels();
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Can't refresh inventory UI - GameMode is null!"))
+	}
 }

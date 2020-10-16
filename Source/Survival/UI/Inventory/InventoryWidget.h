@@ -28,7 +28,11 @@ public:
 	void SelectIndex(const int& index, const EInventoryOpenType& _openType);
 
 	UFUNCTION(BlueprintCallable)
-		UInventoryComponent* GetInventoryByType(const EInventoryOpenType& _openType) const;
+	UInventoryComponent* GetInventoryByType(const EInventoryOpenType& _openType) const;
+	UFUNCTION(BlueprintCallable)
+	void CloseInventoryByType(const EInventoryOpenType& _openType);
+	UFUNCTION(BlueprintCallable)
+	EInventoryOpenType GetInventoryOpenType() const;
 
 protected:
 	UFUNCTION(BlueprintCallable)
