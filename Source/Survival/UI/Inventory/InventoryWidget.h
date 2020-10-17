@@ -36,9 +36,7 @@ public:
 
 protected:
 	UFUNCTION(BlueprintCallable)
-	void SelectInventory(UInventoryComponent* inventory);
-	UFUNCTION(BlueprintCallable)
-	void SelectSecondaryInventory(UInventoryComponent* inventory);
+	void SelectInventoryByType(UInventoryComponent* inventory, const EInventoryOpenType& _openType);
 
 	//Primary
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
@@ -50,6 +48,16 @@ protected:
 	UInventoryComponent* secondaryInventory;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int secondaryCurrentlySelectedItemIndex;
+	//Player sell
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UInventoryComponent* playerSellInventory;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	int playerSellCurrentlySelectedItemIndex;
+	//Player buy
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UInventoryComponent* playerBuyInventory;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	int playerBuyCurrentlySelectedItemIndex;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	EInventoryOpenType openType;

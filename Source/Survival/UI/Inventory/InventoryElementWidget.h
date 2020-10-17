@@ -17,6 +17,9 @@ class SURVIVAL_API UInventoryElementWidget : public UUserWidget
 	GENERATED_BODY()
 
 protected:
+	UFUNCTION(BlueprintCallable)
+	bool MoveItemTo(UInventoryComponent* from, UInventoryComponent* to, const int& index);
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UInventoryComponent* myInventory;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)

@@ -10,5 +10,5 @@
 UENUM(BlueprintType)
 enum class EInventoryOpenType : uint8
 {
-	Single, Exchange
+	Single, Exchange, TradePlayerSell, TradePlayerBuy
 };

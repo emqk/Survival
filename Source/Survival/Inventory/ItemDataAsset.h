@@ -27,7 +27,9 @@ public:
     FName itemID;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "General")
     FText name;
-    
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "General")
+    float cost;
+
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "General")
     float weight;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "General")
