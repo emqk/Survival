@@ -23,6 +23,8 @@ public:
 	void RefreshMyEquipment(UInventoryComponent* inventory);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void RefreshItemInfo(UInventoryComponent* inventory);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void RefreshTradeCosts();
 
 	UFUNCTION(BlueprintCallable)
 	void SelectIndex(const int& index, const EInventoryOpenType& _openType);

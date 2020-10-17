@@ -62,6 +62,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	const TArray<FItemInstance>& GetItems() const;
 
+	UFUNCTION(BlueprintCallable)
+	float CalculateItemsCost() const;
 
 	UFUNCTION()
 	void CalculateWeightAndSpace();

@@ -283,6 +283,16 @@ const TArray<FItemInstance>& UInventoryComponent::GetItems() const
 	return items;
 }
 
+float UInventoryComponent::CalculateItemsCost() const
+{
+	float result = 0.0f;
+	for (const FItemInstance& currItem : items)
+	{
+		result += currItem.data->cost * currItem.amount;
+	}
+	return result;
+}
+
 void UInventoryComponent::CalculateWeightAndSpace()
 {
 	currentWeight = 0;
