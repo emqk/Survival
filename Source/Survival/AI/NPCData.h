@@ -31,4 +31,7 @@ protected:
 	FName name = "None";
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FName surname = "None";
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UTexture2D* icon;
+
 };
