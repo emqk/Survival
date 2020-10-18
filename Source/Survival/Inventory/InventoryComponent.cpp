@@ -166,6 +166,8 @@ bool UInventoryComponent::RemoveItemOfIDMax(const FName& itemID)
 void UInventoryComponent::RemoveAllItems()
 {
 	items.Empty();
+	CalculateWeightAndSpace();
+	RefreshUI();
 }
 
 bool UInventoryComponent::UseItemOfIndex(const int& index)
