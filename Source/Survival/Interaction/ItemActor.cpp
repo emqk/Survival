@@ -17,6 +17,11 @@ void AItemActor::BeginPlay()
 	Super::BeginPlay();
 }
 
+void AItemActor::InitItemsAfterDestroy(const TArray<FItemInstance>& items)
+{
+	afterDestroyItems = items;
+}
+
 void AItemActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);

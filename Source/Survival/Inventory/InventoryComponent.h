@@ -28,18 +28,25 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable)
-	bool MoveItem(const FName& itemID, const int& amount, UInventoryComponent* targetInventory);
+	bool MoveItemByID(const FName& itemID, UInventoryComponent* targetInventory, const int& amount = -1);
+	UFUNCTION(BlueprintCallable)
+	bool MoveItemByIndex(const int& itemIndex, UInventoryComponent* targetInventory, const int& amount = -1);
+	UFUNCTION(BlueprintCallable)
+	bool MoveAllItems(UInventoryComponent* targetInventory);
 
 	UFUNCTION(BlueprintCallable)
 	void AddItemsFromAsset(const TArray<FItemInstance>& itemsToAdd);
 	UFUNCTION(BlueprintCallable)
 	void AddItem(const FItemInstance& item);
+
 	UFUNCTION(BlueprintCallable)
-	bool RemoveItem(const int32& index);
+	bool RemoveItem(const int32& index, const int32& amount = -1);
 	UFUNCTION(BlueprintCallable)
 	bool RemoveItemOfID(const FName& itemID, const int& amount);
 	UFUNCTION(BlueprintCallable)
 	bool RemoveItemOfIDMax(const FName& itemID);
+	UFUNCTION(BlueprintCallable)
+	void RemoveAllItems();
 
 	UFUNCTION(BlueprintCallable)
 	bool UseItemOfIndex(const int& index);

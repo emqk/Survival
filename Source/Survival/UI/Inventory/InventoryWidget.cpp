@@ -2,6 +2,8 @@
 
 
 #include "InventoryWidget.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "../../Interaction/ItemActor.h"
 
 void UInventoryWidget::SelectIndex(const int& index, const EInventoryOpenType& _openType)
 {
@@ -75,6 +77,23 @@ void UInventoryWidget::CloseInventoryByType(const EInventoryOpenType& _openType)
 EInventoryOpenType UInventoryWidget::GetInventoryOpenType() const
 {
 	return openType;
+}
+
+void UInventoryWidget::AgreeTrade()
+{
+	UWorld* world = GetWorld();
+	for (const FItemInstance& currItem : playerBuyInventory->GetItems())
+	{
+		AItemActor* instance = world->SpawnActor<AItemActor>(currItem.data->prefab, currentInventory->GetOwner()->GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));	
+		instance->InitItemsAfterDestroy( {currItem} );
+	} 
+	playerBuyInventory->RemoveAllItems();
+}
+
+void UInventoryWidget::CancelTrade()
+{
+	playerBuyInventory->MoveAllItems(secondaryInventory);
+	playerSellInventory->MoveAllItems(currentInventory);
 }
 
 void UInventoryWidget::SelectInventoryByType(UInventoryComponent* inventory, const EInventoryOpenType& _openType)

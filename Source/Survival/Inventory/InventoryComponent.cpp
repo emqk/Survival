@@ -43,18 +43,34 @@ void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 	// ...
 }
 
-bool UInventoryComponent::MoveItem(const FName& itemID, const int& amount, UInventoryComponent* targetInventory)
+bool UInventoryComponent::MoveItemByID(const FName& itemID, UInventoryComponent* targetInventory, const int& amount)
 {
 	int index = GetItemIndex(itemID);
-	if (index >= 0)
+	return MoveItemByIndex(index, targetInventory, amount);
+}
+
+bool UInventoryComponent::MoveItemByIndex(const int& itemIndex, UInventoryComponent* targetInventory, const int& amount)
+{
+	if (items.IsValidIndex(itemIndex))
 	{
-		int availableMoveAmount = FMath::Min(items[index].amount, amount);
-		targetInventory->AddItem({ items[index].data, availableMoveAmount });
-		RemoveItemOfID(itemID, availableMoveAmount);
+		int availableMoveAmount = amount < 0 ? items[itemIndex].amount : FMath::Min(items[itemIndex].amount, amount);
+		targetInventory->AddItem({ items[itemIndex].data, availableMoveAmount });
+		RemoveItem(itemIndex, availableMoveAmount);
 		return true;
 	}
 
 	return false;
+}
+
+bool UInventoryComponent::MoveAllItems(UInventoryComponent* targetInventory)
+{
+	for (int i = items.Num() - 1; i >= 0; i--)
+	{
+		if (!MoveItemByIndex(i, targetInventory))
+			return false;
+	}
+
+	return true;
 }
 
 void UInventoryComponent::AddItemsFromAsset(const TArray<FItemInstance>& itemsToAdd)
@@ -82,11 +98,24 @@ void UInventoryComponent::AddItem(const FItemInstance& item)
 	RefreshUI();
 }
 
-bool UInventoryComponent::RemoveItem(const int32& index)
+bool UInventoryComponent::RemoveItem(const int32& index, const int32& amount)
 {
 	if (items.IsValidIndex(index))
 	{
-		items.RemoveAt(index);
+		if (amount < 0)
+		{
+			items.RemoveAt(index);
+		}
+		else
+		{
+			items[index].amount -= amount;
+		}
+
+		if (items[index].amount <= 0)
+		{
+			items.RemoveAt(index);
+		}
+
 		CalculateWeightAndSpace();
 		RefreshUI();
 		return true;
@@ -132,6 +161,11 @@ bool UInventoryComponent::RemoveItemOfIDMax(const FName& itemID)
 	}
 
 	return false;
+}
+
+void UInventoryComponent::RemoveAllItems()
+{
+	items.Empty();
 }
 
 bool UInventoryComponent::UseItemOfIndex(const int& index)

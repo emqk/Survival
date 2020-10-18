@@ -20,6 +20,9 @@ class SURVIVAL_API AItemActor : public AInteractableBase
 public:
 	AItemActor();
 
+	UFUNCTION(BlueprintCallable)
+	void InitItemsAfterDestroy(const TArray<FItemInstance>& items);
+
 	virtual void Tick(float DeltaTime) override;
 
 	virtual bool InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character) override;

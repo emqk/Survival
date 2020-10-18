@@ -104,7 +104,7 @@ void ABuildablePrototype::GiveNeededItems(UInventoryComponent* inventory)
 			currAmount = inventoryComp->GetItems()[itemIndex].amount;
 		int needAmount = FMath::Max(item.amount - currAmount, 0);
 
-		inventory->MoveItem(item.data->itemID, needAmount, inventoryComp);
+		inventory->MoveItemByID(item.data->itemID, inventoryComp, needAmount);
 	}
 
 	RefreshText();

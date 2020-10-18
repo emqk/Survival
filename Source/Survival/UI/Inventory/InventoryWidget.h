@@ -37,6 +37,12 @@ public:
 	EInventoryOpenType GetInventoryOpenType() const;
 
 protected:
+
+	UFUNCTION(BlueprintCallable)
+	void AgreeTrade();
+	UFUNCTION(BlueprintCallable)
+	void CancelTrade();
+
 	UFUNCTION(BlueprintCallable)
 	void SelectInventoryByType(UInventoryComponent* inventory, const EInventoryOpenType& _openType);
 
