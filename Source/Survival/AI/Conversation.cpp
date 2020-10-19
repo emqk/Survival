@@ -38,8 +38,14 @@ bool UConversation::TickConversation(const float& deltaTime)
 		}
 		else
 		{
-			characterSocialNeed->ChangeByAmount(socialNeedPerSec * deltaTime);
-			//Change relations with other NPC in this conversation
+			//Change social needs amount
+			UNPCPersonality* socialPersonality = characters[i]->GetNPCData()->GetPersonalityByCategory(EPersonalityCategory::Social);
+			float changeSocialAmount = socialNeedPerSec * deltaTime;
+			if (socialPersonality)
+				changeSocialAmount = socialNeedPerSec * socialPersonality->GetSocialMultiplier() * deltaTime;
+			characterSocialNeed->ChangeByAmount(changeSocialAmount);
+
+			//Change relations with other NPCs in this conversation
 			for (int j = characters.Num() - 1; j >= 0; j--)
 			{
 				if (i != j)
