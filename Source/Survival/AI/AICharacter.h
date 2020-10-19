@@ -7,6 +7,7 @@
 #include "../Interaction/Interactable.h"
 #include "../Inventory/InventoryComponent.h"
 #include "../Interaction/DestructibleMaterialType.h"
+#include "Statuses/NPCStatuses.h"
 #include "NPCData.h"
 #include "AICharacter.generated.h"
 

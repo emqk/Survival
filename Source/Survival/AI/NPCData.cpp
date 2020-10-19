@@ -30,3 +30,16 @@ void UNPCData::SetFullName(const FName& newName, const FName& newSurname)
 	name = newName;
 	surname = newSurname;
 }
+
+UNPCPersonality* UNPCData::GetPersonalityByCategory(const EPersonalityCategory& category) const
+{
+	for (UNPCPersonality* currPersonality : personalities)
+	{
+		if (currPersonality->GetCategory() == category)
+		{
+			return currPersonality;
+		}
+	}
+
+	return nullptr;
+}

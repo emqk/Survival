@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "NPCNeeds.h"
 #include "NPCRelations.h"
-#include "Statuses/NPCStatuses.h"
+#include "Personalities/NPCPersonality.h"
 #include "Engine/DataAsset.h"
 #include "NPCData.generated.h"
 
@@ -25,6 +25,9 @@ public:
 	FName GetFullName() const;
 	UFUNCTION(BlueprintCallable)
 	void SetFullName(const FName& newName, const FName& newSurname);
+
+	UFUNCTION(BlueprintCallable)
+	UNPCPersonality* GetPersonalityByCategory(const EPersonalityCategory& category) const;
 	
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -34,4 +37,6 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UTexture2D* icon;
 
+	UPROPERTY(EditDefaultsOnly)
+	TArray<UNPCPersonality*> personalities;
 };
