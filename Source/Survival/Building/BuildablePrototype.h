@@ -75,6 +75,11 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UInventoryComponent* inventoryComp;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UTexture2D* icon;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	FText name;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	TArray<FItemInstance> buildRequirements;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
