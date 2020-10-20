@@ -17,3 +17,8 @@ float UNPCPersonality::GetSocialMultiplier() const
 {
 	return socialMultiplier;
 }
+
+float UNPCPersonality::GetHappynessMultiplier() const
+{
+	return happynessMultiplier;
+}

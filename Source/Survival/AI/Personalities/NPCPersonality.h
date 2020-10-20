@@ -10,7 +10,7 @@
 UENUM(BlueprintType)
 enum class EPersonalityCategory : uint8
 {
-	Social
+	Social, Happyness
 };
 
 /**
@@ -28,10 +28,14 @@ public:
 	EPersonalityCategory GetCategory() const;
 	UFUNCTION(BlueprintCallable)
 	float GetSocialMultiplier() const;
+	UFUNCTION(BlueprintCallable)
+	float GetHappynessMultiplier() const;
 
 protected:
 	UPROPERTY(EditDefaultsOnly)
 	EPersonalityCategory category;
 	UPROPERTY(EditDefaultsOnly)
-	float socialMultiplier = 1.0f;
+	float socialMultiplier = 0.0f;
+	UPROPERTY(EditDefaultsOnly)
+	float happynessMultiplier = 0.0f;
 };

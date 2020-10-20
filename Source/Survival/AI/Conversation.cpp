@@ -45,12 +45,21 @@ bool UConversation::TickConversation(const float& deltaTime)
 				changeSocialAmount = socialNeedPerSec * socialPersonality->GetSocialMultiplier() * deltaTime;
 			characterSocialNeed->ChangeByAmount(changeSocialAmount);
 
-			//Change relations with other NPCs in this conversation
+			//Affet other NPCs in this conversation
 			for (int j = characters.Num() - 1; j >= 0; j--)
 			{
 				if (i != j)
 				{
+					//Simply change relations
 					characters[i]->GetRelations()->ChangeRelationWith(characters[j]->GetUniqueID(), changeRelationPerSec * deltaTime);
+
+					//Change happyness if NPC has certain personality
+					UNPCPersonality* happynessPersonality = characters[i]->GetNPCData()->GetPersonalityByCategory(EPersonalityCategory::Happyness);
+					if (happynessPersonality)
+					{
+						UStatistic* characterHappyness = characters[j]->GetNeeds()->GetNeedByType(NeedType::Happyness);
+						characterHappyness->ChangeByAmount(happynessPersonality->GetHappynessMultiplier() * deltaTime);
+					}
 				}
 			}
 		}
