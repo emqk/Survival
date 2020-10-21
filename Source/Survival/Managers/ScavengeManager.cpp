@@ -29,6 +29,12 @@ void AScavengeManager::TickScavengeTrips(const float& deltaTime)
 			EndScavengeTrip(scavengeTrips[i], i);
 		}
 	}
+
+	//Refresh UI
+	if (scavengePoints.Num() > 0)
+	{
+		scavengePoints[0]->RefreshMyWidget(scavengeTrips);
+	}
 }
 
 void AScavengeManager::EndScavengeTrip(FScavengeTrip& scavengeTrip, const int& index)

@@ -8,6 +8,10 @@
 AScavengePoint::AScavengePoint()
 {
 	PrimaryActorTick.bCanEverTick = true;
+
+	widgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("WidgetComponent"));
+	widgetComponent->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	widgetComponent->SetCollisionProfileName("NoCollision");
 }
 
 void AScavengePoint::BeginPlay()

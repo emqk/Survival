@@ -16,7 +16,7 @@ static bool operator==(const FScavengeTrip& lhs, const FScavengeTrip& rhs)
 /**
  * 
  */
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FScavengeTrip
 {
 	GENERATED_BODY()

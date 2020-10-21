@@ -3,7 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Components/WidgetComponent.h"
 #include "../Scavenge/ScavengeGroup.h"
+#include "../Scavenge/ScavengeTrip.h"
 #include "../Inventory/ItemInstance.h"
 #include "PointOfInterest.h"
 #include "ScavengePoint.generated.h"
@@ -27,6 +29,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void RemoveAndDisableGroup(const FScavengeGroup& scavengeGroup);
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void RefreshMyWidget(const TArray<FScavengeTrip>& trips);
+
 protected:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UWidgetComponent* widgetComponent;
+
 	virtual void OnBeginOverlap() override;
 };
