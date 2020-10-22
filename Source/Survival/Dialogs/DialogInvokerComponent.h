@@ -30,9 +30,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetAnswerTime(const float& timeToAnswer);
 
-	const FDialogData& GetAnswers() const;
+	UDialogData* GetDialogData() const;
 
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	FDialogData answers;
+	UDialogData* dialogData;
 };

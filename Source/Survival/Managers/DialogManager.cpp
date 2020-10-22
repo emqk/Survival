@@ -47,10 +47,10 @@ void ADialogManager::StartDialog(UDialogInvokerComponent* invoker)
 	APlayerGameMode* gameMode = Cast<APlayerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
 	if (gameMode)
 	{
-		FDialogData dialogData = invoker->GetAnswers();
+		UDialogData* dialogData = invoker->GetDialogData();
 		gameMode->GetUIManager()->OpenDialogPanel(dialogData);
 		isDialogStarted = true;
-		maxTimeToEnd = dialogData.timeToAnswer;
+		maxTimeToEnd = dialogData->timeToAnswer;
 		currentTimeToEnd = maxTimeToEnd;
 	}
 	else

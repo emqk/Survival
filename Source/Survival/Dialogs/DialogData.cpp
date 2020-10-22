@@ -3,3 +3,7 @@
 
 #include "DialogData.h"
 
+FPrimaryAssetId UDialogData::GetPrimaryAssetId() const
+{
+	return FPrimaryAssetId(FPrimaryAssetType("DialogDatas"), GetFName());
+}

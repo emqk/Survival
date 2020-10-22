@@ -60,7 +60,7 @@ public:
 
 	//Dialog
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void OpenDialogPanel(const FDialogData& dialogData);
+	void OpenDialogPanel(const UDialogData* dialogData);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void CloseDialogPanel();
 

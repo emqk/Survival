@@ -45,10 +45,10 @@ void UDialogInvokerComponent::StartDialog()
 
 void UDialogInvokerComponent::SetAnswerTime(const float& timeToAnswer)
 {
-	answers.timeToAnswer = timeToAnswer;
+	dialogData->timeToAnswer = timeToAnswer;
 }
 
-const FDialogData& UDialogInvokerComponent::GetAnswers() const
+UDialogData* UDialogInvokerComponent::GetDialogData() const
 {
-	return answers;
+	return dialogData;
 }
