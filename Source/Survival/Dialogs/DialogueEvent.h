@@ -20,9 +20,9 @@ class SURVIVAL_API UDialogueEvent : public UObject
 	
 public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void Execute(AAICharacter* interactingCharacter);
+	void Execute();
 
 protected:
-	UFUNCTION(BlueprintCallable)
-	APlayerGameMode* GetMyGameMode();
+	UFUNCTION(BlueprintPure)
+	APlayerGameMode* GetMyGameMode() const;
 };

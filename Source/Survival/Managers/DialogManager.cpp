@@ -37,7 +37,7 @@ void ADialogManager::Tick(float DeltaTime)
 	}
 }
 
-void ADialogManager::StartDialog(UDialogInvokerComponent* invoker)
+void ADialogManager::StartDialog(UDialogInvokerComponent* invoker, AAICharacter* startedBy)
 {
 	if (!invoker)
 	{
@@ -47,6 +47,9 @@ void ADialogManager::StartDialog(UDialogInvokerComponent* invoker)
 	APlayerGameMode* gameMode = Cast<APlayerGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
 	if (gameMode)
 	{
+		lastDialogueStartedBy = startedBy;
+		lastDialogueInvoker = invoker;
+
 		UDialogData* dialogData = invoker->GetDialogData();
 		gameMode->GetUIManager()->OpenDialogPanel(dialogData);
 		isDialogStarted = true;

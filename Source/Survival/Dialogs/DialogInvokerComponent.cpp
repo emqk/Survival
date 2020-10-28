@@ -34,12 +34,12 @@ void UDialogInvokerComponent::TickComponent(float DeltaTime, ELevelTick TickType
 	// ...
 }
 
-void UDialogInvokerComponent::StartDialog()
+void UDialogInvokerComponent::StartDialog(AAICharacter* startedBy)
 {
 	APlayerGameMode* gameMode = GetWorld()->GetAuthGameMode<APlayerGameMode>();
 	if (gameMode)
 	{
-		gameMode->GetDialogManager()->StartDialog(this);
+		gameMode->GetDialogManager()->StartDialog(this, startedBy);
 	}
 }
 

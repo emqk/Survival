@@ -25,11 +25,17 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION()
-	void StartDialog(UDialogInvokerComponent* invoker);
+	void StartDialog(UDialogInvokerComponent* invoker, AAICharacter* startedBy);
 	UFUNCTION(BlueprintCallable)
 	void EndDialog();
 
 protected:
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	AAICharacter* lastDialogueStartedBy = nullptr;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UDialogInvokerComponent* lastDialogueInvoker = nullptr;
+
 	bool isDialogStarted = false;
 	UPROPERTY(BlueprintReadOnly)
 	float currentTimeToEnd = 0;

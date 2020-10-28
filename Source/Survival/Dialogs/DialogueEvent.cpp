@@ -4,7 +4,7 @@
 #include "DialogueEvent.h"
 #include "../PlayerGameMode.h"
 
-APlayerGameMode* UDialogueEvent::GetMyGameMode()
+APlayerGameMode* UDialogueEvent::GetMyGameMode() const
 {
 	return Cast<APlayerGameMode>(GetWorld()->GetAuthGameMode());
 }
