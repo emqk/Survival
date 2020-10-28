@@ -10,6 +10,7 @@
 #include "Managers/DialogManager.h"
 #include "Managers/CrewManager.h"
 #include "Managers/UIManager.h"
+#include "Managers/TimeManager.h"
 #include "PlayerGameMode.generated.h"
 
 /**
@@ -31,6 +32,8 @@ public:
     ABuildingManager* GetBuildingManager() const;
     UFUNCTION(BlueprintCallable)
     AUIManager* GetUIManager() const;
+    UFUNCTION(BlueprintCallable)
+    ATimeManager* GetTimeManager() const;
 
 protected:
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -45,4 +48,6 @@ protected:
     ACrewManager* crewManager = nullptr;
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     AUIManager* uiManager = nullptr;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    ATimeManager* timeManager = nullptr;
 };

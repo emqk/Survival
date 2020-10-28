@@ -27,3 +27,8 @@ AUIManager* APlayerGameMode::GetUIManager() const
 {
 	return uiManager;
 }
+
+ATimeManager* APlayerGameMode::GetTimeManager() const
+{
+	return timeManager;
+}
