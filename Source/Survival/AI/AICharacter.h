@@ -147,6 +147,6 @@ private:
 	const float hungerDecreasePerSec = 0.7f;
 	const float thirstDecreasePerSec = 1.1f;
 	const float energyDecreasePerSec = 0.3f;
-	const float socialDecreasePerSec = 0.04f;
-	const float happynessDecreasePerSec = 0.18f;
+	const float socialDecreasePerSec = 0.14f;
+	const float happynessDecreasePerSec = 0.08f;
 };
