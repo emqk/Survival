@@ -104,6 +104,11 @@ AAICharacter* ACrewManager::GetMemeber(const int& uniqueID) const
 	return nullptr;
 }
 
+int ACrewManager::GetMembersCount() const
+{
+	return members.Num();
+}
+
 FName ACrewManager::GetRandomName(const TArray<FName>& names)
 {
 	FRandomStream stream(UKismetMathLibrary::RandomInteger(9999999));

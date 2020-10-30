@@ -3,6 +3,9 @@
 
 #include "Statistic.h"
 
+const float UStatistic::maxAmount = 100;
+const float UStatistic::minAmount = 0;
+
 UStatistic::UStatistic()
 {
 }

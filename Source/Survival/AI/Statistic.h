@@ -24,8 +24,9 @@ public:
     UFUNCTION(BlueprintCallable)
     float GetAmount() const;
 
+    static const float minAmount;
+    static const float maxAmount;
 private:
-    const float minAmount = 0;
-    const float maxAmount = 100;
+   
     float amount = 0;
 };

@@ -34,6 +34,9 @@ protected:
 	AAICharacter* GetMemeber(const int& uniqueID) const;
 
 	UFUNCTION(BlueprintCallable)
+	int GetMembersCount() const;
+
+	UFUNCTION(BlueprintCallable)
 	FName GetRandomName(const TArray<FName>& names);
 
 public:	
