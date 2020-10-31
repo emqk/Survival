@@ -33,6 +33,12 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void RefreshOpenedInventoryPanels();
 
+	//Work Table
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void OpenWorkTable();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void CloseWorkTable();
+
 	//Interaction
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SetInteractionWorldActor(const AActor* actor);
