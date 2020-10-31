@@ -164,6 +164,17 @@ bool UInventoryComponent::RemoveItemOfIDMax(const FName& itemID)
 	return false;
 }
 
+bool UInventoryComponent::RemoveItems(const TArray<FItemInstance>& itemsToRemove)
+{
+	for (const FItemInstance& currItem : itemsToRemove)
+	{
+		if (!RemoveItemOfID(currItem.data->itemID, currItem.amount))
+			return false;
+	}
+
+	return true;
+}
+
 void UInventoryComponent::RemoveAllItems()
 {
 	items.Empty();

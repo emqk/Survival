@@ -46,6 +46,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool RemoveItemOfIDMax(const FName& itemID);
 	UFUNCTION(BlueprintCallable)
+	bool RemoveItems(const TArray<FItemInstance>& itemsToRemove);
+	UFUNCTION(BlueprintCallable)
 	void RemoveAllItems();
 
 	UFUNCTION(BlueprintCallable)
