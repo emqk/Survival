@@ -102,18 +102,19 @@ bool UInventoryComponent::RemoveItem(const int32& index, const int32& amount)
 {
 	if (items.IsValidIndex(index))
 	{
+		// Remove item no matter how big amount is
 		if (amount < 0)
 		{
 			items.RemoveAt(index);
 		}
+		// Decrease item amount of given amount
 		else
 		{
 			items[index].amount -= amount;
-		}
-
-		if (items[index].amount <= 0)
-		{
-			items.RemoveAt(index);
+			if (items[index].amount <= 0)
+			{
+				items.RemoveAt(index);
+			}
 		}
 
 		CalculateWeightAndSpace();
