@@ -35,7 +35,7 @@ public:
 
 	//Work Table
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void OpenWorkTable();
+	void OpenWorkTable(AAICharacter* character);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void CloseWorkTable();
 
