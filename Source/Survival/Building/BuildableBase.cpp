@@ -16,8 +16,8 @@ ABuildableBase::ABuildableBase()
 	box->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	box->SetCollisionProfileName("BlockAll");
 
-	destructibleComp = CreateDefaultSubobject<UDestructibleComponent>(TEXT("DestructibleComponent"));
-	AddOwnedComponent(destructibleComp);
+	defaultDestructibleComp = CreateDefaultSubobject<UDestructibleComponent>(TEXT("DestructibleComponent"));
+	AddOwnedComponent(defaultDestructibleComp);
 }
 
 // Called when the game starts or when spawned

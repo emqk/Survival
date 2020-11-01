@@ -43,6 +43,6 @@ protected:
 	UPROPERTY(EditAnywhere)
 	USceneComponent* sceneComp;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY()
 	UDestructibleComponent* destructibleComp = nullptr;
 };

@@ -33,4 +33,7 @@ protected:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UBoxComponent* box;
+
+	UPROPERTY(EditDefaultsOnly)
+	UDestructibleComponent* defaultDestructibleComp = nullptr;
 };
