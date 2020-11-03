@@ -31,7 +31,7 @@ public:
 
 protected:
 	UPROPERTY(VisibleAnywhere)
-	float worldTimeSpeed = 1;
+	float worldTimeSpeed = 11;
 	UPROPERTY(VisibleAnywhere)
 	float elapsedTime = 90; //Each 90sec. of elapsed time is equal 6 hours
 };
