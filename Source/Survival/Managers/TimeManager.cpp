@@ -27,7 +27,7 @@ void ATimeManager::Tick(float DeltaTime)
 
 FRotator ATimeManager::GetRotationFromTime() const
 {
-	return FRotator(-FMath::Abs(elapsedTime) + 90, 0, 0);
+	return FRotator(-FMath::Abs(elapsedTime) + 90, 25, 0);
 }
 
 FString ATimeManager::GetFormattedTime() const
