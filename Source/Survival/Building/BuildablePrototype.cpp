@@ -20,11 +20,8 @@ ABuildablePrototype::ABuildablePrototype()
 	myWidget->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	myWidget->SetCollisionProfileName("NoCollision");
 
-	box = CreateDefaultSubobject<UBoxComponent>(TEXT("Box"));
-	box->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	box->SetGenerateOverlapEvents(true);
-	box->OnComponentBeginOverlap.AddDynamic(this, &ABuildablePrototype::OnOverlapBegin);
-	box->OnComponentEndOverlap.AddDynamic(this, &ABuildablePrototype::OnOverlapEnd);
+	OnActorBeginOverlap.AddDynamic(this, &ABuildablePrototype::OnOverlapBegin);
+	OnActorEndOverlap.AddDynamic(this, &ABuildablePrototype::OnOverlapEnd);
 	
 	inventoryComp = CreateDefaultSubobject<UInventoryComponent>(TEXT("Collected"));
 	AddOwnedComponent(inventoryComp);
@@ -110,12 +107,12 @@ void ABuildablePrototype::GiveNeededItems(UInventoryComponent* inventory)
 	RefreshText();
 }
 
-void ABuildablePrototype::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+void ABuildablePrototype::OnOverlapBegin(class AActor* ThisActor, AActor* OtherActor)
 {
 	OnOverlap();
 }
 
-void ABuildablePrototype::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+void ABuildablePrototype::OnOverlapEnd(class AActor* ThisActor, AActor* OtherActor)
 {
 	OnOverlap();
 }
@@ -123,7 +120,7 @@ void ABuildablePrototype::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AAct
 void ABuildablePrototype::OnOverlap()
 {
 	TSet<AActor*> overlappingActors;
-	box->GetOverlappingActors(overlappingActors);
+	GetOverlappingActors(overlappingActors);
 	if (overlappingActors.Num() > 0)
 	{
 		//Ignore AICharacters

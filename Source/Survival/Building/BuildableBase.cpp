@@ -10,11 +10,8 @@ ABuildableBase::ABuildableBase()
 	PrimaryActorTick.bCanEverTick = true;
 
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+	mesh->SetCollisionProfileName("NoCollision");
 	mesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-
-	box = CreateDefaultSubobject<UBoxComponent>(TEXT("OverlapBox"));
-	box->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	box->SetCollisionProfileName("BlockAll");
 
 	defaultDestructibleComp = CreateDefaultSubobject<UDestructibleComponent>(TEXT("DestructibleComponent"));
 	AddOwnedComponent(defaultDestructibleComp);

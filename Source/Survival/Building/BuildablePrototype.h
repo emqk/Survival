@@ -56,10 +56,10 @@ protected:
 	void GiveNeededItems(UInventoryComponent* inventory);
 
 	UFUNCTION()
-	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	void OnOverlapBegin(class AActor* ThisActor, AActor* OtherActor);
 
 	UFUNCTION()
-	void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+	void OnOverlapEnd(class AActor* ThisActor, AActor* OtherActor);
 
 	UFUNCTION()
 	void OnOverlap();
@@ -69,8 +69,6 @@ protected:
 	UStaticMeshComponent* meshComp;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UWidgetComponent* myWidget;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	UBoxComponent* box;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UInventoryComponent* inventoryComp;

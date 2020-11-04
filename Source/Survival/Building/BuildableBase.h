@@ -30,9 +30,6 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UStaticMeshComponent* mesh;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	UBoxComponent* box;
 
 	UPROPERTY(EditDefaultsOnly)
 	UDestructibleComponent* defaultDestructibleComp = nullptr;
