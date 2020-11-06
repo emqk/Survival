@@ -54,9 +54,16 @@ bool UInventoryComponent::MoveItemByIndex(const int& itemIndex, UInventoryCompon
 	if (items.IsValidIndex(itemIndex))
 	{
 		int availableMoveAmount = amount < 0 ? items[itemIndex].amount : FMath::Min(items[itemIndex].amount, amount);
-		targetInventory->AddItem({ items[itemIndex].data, availableMoveAmount });
-		RemoveItem(itemIndex, availableMoveAmount);
-		return true;
+
+		if (targetInventory->AddItem({ items[itemIndex].data, availableMoveAmount }))
+		{
+			RemoveItem(itemIndex, availableMoveAmount);
+			return true;
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Can't move item - After move, weight or space would exceed max weight/space!"))
+		}
 	}
 
 	return false;
@@ -73,18 +80,29 @@ bool UInventoryComponent::MoveAllItems(UInventoryComponent* targetInventory)
 	return true;
 }
 
-void UInventoryComponent::AddItemsFromAsset(const TArray<FItemInstance>& itemsToAdd)
+bool UInventoryComponent::AddItemsFromAsset(const TArray<FItemInstance>& itemsToAdd)
 {
 	UPlayerGameInstance* gameInstance = Cast<UPlayerGameInstance>(UGameplayStatics::GetGameInstance(this));
 	for (const FItemInstance& itemAssetAmount : itemsToAdd)
 	{
-		AddItem({ gameInstance->itemManager->GetItemData(itemAssetAmount.data->itemID), itemAssetAmount.amount });
+		if(!AddItem( {gameInstance->itemManager->GetItemData(itemAssetAmount.data->itemID), itemAssetAmount.amount} ))
+			return false;
 	}
+
+	return true;
 }
 
-void UInventoryComponent::AddItem(const FItemInstance& item)
+bool UInventoryComponent::AddItem(const FItemInstance& item)
 {
 	int itemIndex = GetItemIndex(item.data->itemID);
+
+	if (currentWeight + (item.data->weight * item.amount) > maxWeight
+		|| currentSpace + (item.data->space * item.amount) > maxSpace)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Can't add item - After add, weight or space would exceed max weight/space!"))
+		return false;
+	}
+
 	if (itemIndex >= 0)
 	{
 		items[itemIndex].amount += item.amount;
@@ -96,6 +114,7 @@ void UInventoryComponent::AddItem(const FItemInstance& item)
 
 	CalculateWeightAndSpace();
 	RefreshUI();
+	return true;
 }
 
 bool UInventoryComponent::RemoveItem(const int32& index, const int32& amount)

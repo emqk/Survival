@@ -35,9 +35,9 @@ public:
 	bool MoveAllItems(UInventoryComponent* targetInventory);
 
 	UFUNCTION(BlueprintCallable)
-	void AddItemsFromAsset(const TArray<FItemInstance>& itemsToAdd);
+	bool AddItemsFromAsset(const TArray<FItemInstance>& itemsToAdd);
 	UFUNCTION(BlueprintCallable)
-	void AddItem(const FItemInstance& item);
+	bool AddItem(const FItemInstance& item);
 
 	UFUNCTION(BlueprintCallable)
 	bool RemoveItem(const int32& index, const int32& amount = -1);

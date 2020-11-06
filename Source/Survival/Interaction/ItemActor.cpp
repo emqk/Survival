@@ -17,9 +17,9 @@ void AItemActor::BeginPlay()
 	Super::BeginPlay();
 }
 
-void AItemActor::InitItemsAfterDestroy(const TArray<FItemInstance>& items)
+void AItemActor::InitItemsAfterCollect(const FItemInstance& item)
 {
-	afterDestroyItems = items;
+	afterCollectItem = item;
 }
 
 void AItemActor::Tick(float DeltaTime)
@@ -31,7 +31,9 @@ bool AItemActor::InteractionTick_Implementation(const float& deltaSeconds, const
 {
 	//Add item to inventory
 	UInventoryComponent* inventory = character->FindComponentByClass<UInventoryComponent>();
-	inventory->AddItemsFromAsset(afterDestroyItems);
+	if (!inventory->AddItem(afterCollectItem))
+		return true;
+
 	Destroy();
 	return true;
 }

@@ -85,7 +85,7 @@ void UInventoryWidget::AgreeTrade()
 	for (const FItemInstance& currItem : playerBuyInventory->GetItems())
 	{
 		AItemActor* instance = world->SpawnActor<AItemActor>(currItem.data->prefab, currentInventory->GetOwner()->GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));	
-		instance->InitItemsAfterDestroy( {currItem} );
+		instance->InitItemsAfterCollect(currItem);
 	} 
 
 	playerSellInventory->MoveAllItems(secondaryInventory);

@@ -21,7 +21,7 @@ public:
 	AItemActor();
 
 	UFUNCTION(BlueprintCallable)
-	void InitItemsAfterDestroy(const TArray<FItemInstance>& items);
+	void InitItemsAfterCollect(const FItemInstance& item);
 
 	virtual void Tick(float DeltaTime) override;
 
@@ -36,6 +36,6 @@ protected:
 	UStaticMeshComponent* mesh;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TArray<FItemInstance> afterDestroyItems;
+	FItemInstance afterCollectItem;
 
 };
