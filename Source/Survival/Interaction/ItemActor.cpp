@@ -32,7 +32,7 @@ bool AItemActor::InteractionTick_Implementation(const float& deltaSeconds, const
 	//Add item to inventory
 	UInventoryComponent* inventory = character->FindComponentByClass<UInventoryComponent>();
 	if (!inventory->AddItem(afterCollectItem))
-		return true;
+		return true; // If item can't be added - stop interaction and don't collect this item
 
 	Destroy();
 	return true;
