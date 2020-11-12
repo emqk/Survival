@@ -57,6 +57,10 @@ void UDestructibleComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 
 	UGameplayStatics::PlaySoundAtLocation(GetWorld(), onDestroySound, GetOwner()->GetActorLocation());
 	UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), onDestroyParticle, GetOwner()->GetActorLocation());
+
+	//Remove corresponding UI widget
+	APlayerGameMode* gameMode = GetWorld()->GetAuthGameMode<APlayerGameMode>();
+	gameMode->GetUIManager()->RemoveDestructionProgressWidget(this);
 }
 
 float UDestructibleComponent::GetHPPercentageNormalized() const

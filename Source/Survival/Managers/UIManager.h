@@ -47,6 +47,8 @@ public:
 	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SetDestructionProgressWidget(UDestructibleComponent* widgetOwner);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void RemoveDestructionProgressWidget(const UDestructibleComponent* widgetOwner);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void OpenItemActorInfo(AItemActor* itemActor);
