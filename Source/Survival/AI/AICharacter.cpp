@@ -109,21 +109,21 @@ void AAICharacter::SimulateNeedsOverTime(const float& seconds)
 
 		//Decrease health when hunger or thirst is low
 		float hungerAmountNormalized = GetNeeds()->GetNeedByType(NeedType::Hunger)->GetAmountNormalized();
-		if (hungerAmountNormalized > 0.5f)
+		if (hungerAmountNormalized > 1)
 		{
-			GetNeeds()->GetNeedByType(NeedType::Health)->ChangeByAmount(-2 * seconds);
+			GetNeeds()->GetNeedByType(NeedType::Health)->ChangeByAmount(-1.0f * seconds);
 		}
 		float thirstAmountNormalized = GetNeeds()->GetNeedByType(NeedType::Thirst)->GetAmountNormalized();
-		if (thirstAmountNormalized > 0.5f)
+		if (thirstAmountNormalized >= 1)
 		{
-			GetNeeds()->GetNeedByType(NeedType::Health)->ChangeByAmount(-2 * seconds);
+			GetNeeds()->GetNeedByType(NeedType::Health)->ChangeByAmount(-1.0f * seconds);
 		}
 
 		//Decrease happyness when social is low
 		float socialAmountNormalized = GetNeeds()->GetNeedByType(NeedType::Social)->GetAmountNormalized();
 		if (socialAmountNormalized < 0.2f)
 		{
-			GetNeeds()->GetNeedByType(NeedType::Happyness)->ChangeByAmount(-1 * seconds);
+			GetNeeds()->GetNeedByType(NeedType::Happyness)->ChangeByAmount(-1.0f * seconds);
 		}
 
 		//Die
