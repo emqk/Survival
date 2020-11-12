@@ -46,6 +46,9 @@ public:
 	void SetInteractionWidgetLocation(const FVector& worldLocation);
 	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void SetDestructionProgressWidget(UDestructibleComponent* widgetOwner);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void OpenItemActorInfo(AItemActor* itemActor);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void CloseItemActorInfo(AItemActor* itemActor);

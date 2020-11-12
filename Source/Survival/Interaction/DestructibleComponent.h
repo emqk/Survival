@@ -34,7 +34,14 @@ public:
 
 	FOnDestructed OnDestructed;
 
+	UFUNCTION(BlueprintPure)
+	float GetHPPercentageNormalized() const;
+
 protected:
+
+	UFUNCTION()
+	void InitWidget();
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	EDestructibleMaterialType materialType;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
@@ -42,6 +49,8 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	UParticleSystem* onDestroyParticle;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	float startHP = 0;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float hp = 0;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
