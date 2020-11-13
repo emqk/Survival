@@ -101,8 +101,8 @@ void ABuildingManager::EndBuilding()
 	}
 
 	UGameplayStatics::PlaySoundAtLocation(GetWorld(), buildSound, currentPrototype->GetActorLocation());
-	UBoxComponent* boxCollider = Cast<UBoxComponent>(currentPrototype->GetComponentByClass(UBoxComponent::StaticClass()));
-	boxCollider->SetCollisionProfileName(afterPlacingProtCollisionProfile);
+	UPrimitiveComponent* collider = Cast<UPrimitiveComponent>(currentPrototype->GetComponentByClass(UPrimitiveComponent::StaticClass()));
+	collider->SetCollisionProfileName(afterPlacingProtCollisionProfile);
 	currentPrototype = nullptr;
 }
 
