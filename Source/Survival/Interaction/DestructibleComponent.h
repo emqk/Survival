@@ -39,7 +39,7 @@ public:
 
 protected:
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void InitWidget();
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
