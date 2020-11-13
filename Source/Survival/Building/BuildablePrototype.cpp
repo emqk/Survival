@@ -26,9 +26,9 @@ ABuildablePrototype::ABuildablePrototype()
 	inventoryComp = CreateDefaultSubobject<UInventoryComponent>(TEXT("Collected"));
 	AddOwnedComponent(inventoryComp);
 
-	destructibleComp = CreateDefaultSubobject<UDestructibleComponent>(TEXT("DestructibleComponent"));
-	AddOwnedComponent(destructibleComp);
-	destructibleComp->OnDestructed.AddDynamic(this, &ABuildablePrototype::CancelBuilding);
+	myDestructibleComp = CreateDefaultSubobject<UDestructibleComponent>(TEXT("DestructibleComponent"));
+	AddOwnedComponent(myDestructibleComp);
+	myDestructibleComp->OnDestructed.AddDynamic(this, &ABuildablePrototype::CancelBuilding);
 }
 
 void ABuildablePrototype::Setup()
@@ -46,6 +46,11 @@ void ABuildablePrototype::CancelBuilding()
 	}
 
 	Destroy();
+}
+
+void ABuildablePrototype::BeginPlay()
+{
+	Super::BeginPlay();
 }
 
 void ABuildablePrototype::RefreshText()

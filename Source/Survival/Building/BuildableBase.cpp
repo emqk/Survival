@@ -13,8 +13,8 @@ ABuildableBase::ABuildableBase()
 	mesh->SetCollisionProfileName("NoCollision");
 	mesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 
-	defaultDestructibleComp = CreateDefaultSubobject<UDestructibleComponent>(TEXT("DestructibleComponent"));
-	AddOwnedComponent(defaultDestructibleComp);
+	myDestructibleComp = CreateDefaultSubobject<UDestructibleComponent>(TEXT("DestructibleComponent"));
+	AddOwnedComponent(myDestructibleComp);
 }
 
 // Called when the game starts or when spawned

@@ -46,6 +46,9 @@ public:
 
 protected:
 
+	virtual void BeginPlay() override;
+
+
 	UFUNCTION(BlueprintCallable)
 	void RefreshText();
 
@@ -69,6 +72,8 @@ protected:
 	UStaticMeshComponent* meshComp;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UWidgetComponent* myWidget;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UDestructibleComponent* myDestructibleComp;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UInventoryComponent* inventoryComp;
