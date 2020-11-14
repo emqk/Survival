@@ -11,5 +11,5 @@
 UENUM(BlueprintType)
 enum class ScavengeType : uint8
 {
-	None, Wood, Stone, Whatever
+	None, Wood, Stone, Consumable, Whatever
 };
