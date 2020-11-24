@@ -274,9 +274,14 @@ bool UInventoryComponent::UnequipItem(const EquipType& equipType)
 	UItemDataAsset* targetEquipSlot = equipment[equipType];
 	if (targetEquipSlot)
 	{
+		//Remove item from equiped items, refresh space and weight
 		myOwner->UnequipVisuals(equipType);
 		equipment[equipType] = nullptr;
+		CalculateWeightAndSpace();
+
+		//Add unequiped item to inventory
 		AddItem(FItemInstance{ targetEquipSlot, 1 });
+		
 		UE_LOG(LogTemp, Warning, TEXT("Successfully unequiped!"))
 		return true;
 	}
