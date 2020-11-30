@@ -19,37 +19,39 @@ void AScavengeManager::BeginPlay()
 	Super::BeginPlay();
 }
 
-void AScavengeManager::TickScavengeTrips(const float& deltaTime)
+void AScavengeManager::TickScavengeGroups(const float& deltaTime)
 {
-	for (int i = scavengeTrips.Num()-1; i >= 0; i--)
+	for (int i = scavengeGroups.Num()-1; i >= 0; i--)
 	{
-		scavengeTrips[i].timeToGoBackLeft -= deltaTime;
-		if (scavengeTrips[i].timeToGoBackLeft <= 0)
+		if (!scavengeGroups[i].IsOnTrip())
+			continue;
+
+		scavengeGroups[i].TickMe(deltaTime);
+		if (scavengeGroups[i].IsTripFinished())
 		{
-			EndScavengeTrip(scavengeTrips[i], i);
+			EndScavengeGroup(scavengeGroups[i], i);
 		}
 	}
 
 	//Refresh UI
 	if (scavengePoints.Num() > 0)
 	{
-		scavengePoints[0]->RefreshMyWidget(scavengeTrips);
+		scavengePoints[0]->RefreshMyWidget(scavengeGroups);
 	}
 }
 
-void AScavengeManager::EndScavengeTrip(FScavengeTrip& scavengeTrip, const int& index)
+void AScavengeManager::EndScavengeGroup(FScavengeGroup& scavengeGroup, const int& index)
 {
-	if (scavengeTrips.Contains(scavengeTrip))
+	if (scavengeGroups.Contains(scavengeGroup))
 	{
-		for (AAICharacter* ch : scavengeTrip.scavengeGroup.group)
+		for (AAICharacter* ch : scavengeGroup.group)
 		{
 			ch->SetMeActive(true);
 			//Add items from scavenge
-			//ch->inventoryComp->AddItem(scavengeTrip.scavengePoint->GetItemInstance());
-			ch->inventoryComp->AddItemsFromAsset(GenerateItemsFromScavenge(scavengeTrip.scavengeGroup.scavengeType));
-			ch->SimulateNeedsOverTime(scavengeTrip.GetTimeToGoBackStart());
+			ch->inventoryComp->AddItemsFromAsset(GenerateItemsFromScavenge(scavengeGroup.scavengeType));
+			ch->SimulateNeedsOverTime(scavengeGroup.GetTimeToGoBackStart());
 		}
-		scavengeTrips.RemoveAt(index);
+		scavengeGroups.RemoveAt(index);
 	}
 	else
 	{
@@ -74,7 +76,7 @@ TArray<FItemInstance> AScavengeManager::GenerateItemsFromScavenge(const Scavenge
 void AScavengeManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	TickScavengeTrips(DeltaTime);
+	TickScavengeGroups(DeltaTime);
 }
 
 void AScavengeManager::SetScavengePoints()
@@ -103,14 +105,9 @@ bool AScavengeManager::CreateScavengeGroup(const TArray<AAICharacter*>& characte
 			UE_LOG(LogTemp, Warning, TEXT("Can't create a ScavengeGroup - One of the NPCs are in other NPC group!"))
 			return false;
 		}
-		if (IsNPCInAnyScavengeTrip(ch))
-		{
-			UE_LOG(LogTemp, Warning, TEXT("Can't create a ScavengeGroup - One of the NPCs are in other NPC trip!"))
-			return false;
-		}
 	}
 
-	scavengeGroups.Add(FScavengeGroup(scavengeType, targetScavengePoint, characters));
+	scavengeGroups.Add(FScavengeGroup(scavengeType, targetScavengePoint, characters, 5));
 	CheckAllScavengePoints();
 	return true;
 }
@@ -120,17 +117,6 @@ bool AScavengeManager::IsNPCInAnyScavengeGroup(const AAICharacter* character) co
 	for (const FScavengeGroup& sg : scavengeGroups)
 	{
 		if (sg.group.Contains(character))
-			return true;
-	}
-
-	return false;
-}
-
-bool AScavengeManager::IsNPCInAnyScavengeTrip(const AAICharacter* character) const
-{
-	for (const FScavengeTrip& st : scavengeTrips)
-	{
-		if (st.scavengeGroup.group.Contains(character))
 			return true;
 	}
 
@@ -149,16 +135,15 @@ bool AScavengeManager::CheckScavengePoint(AScavengePoint* scavengePoint)
 {
 	for (int i = scavengeGroups.Num() - 1; i >= 0; i--)
 	{
-		const FScavengeGroup& sg = scavengeGroups[i];
+		FScavengeGroup& sg = scavengeGroups[i];
 		if (sg.scavagePoint == scavengePoint)
 		{
-			if (sg.scavagePoint)
+			if (sg.scavagePoint && !sg.IsOnTrip())
 			{
 				if (scavengePoint->ContainsScavengeGroup(sg))
 				{
-					scavengePoint->RemoveAndDisableGroup(sg);
-					scavengeTrips.Add(FScavengeTrip(sg.scavengeType, sg.scavagePoint, sg.group, 10));
-					scavengeGroups.RemoveAt(i);
+					scavengePoint->DisableGroupCharacters(sg);
+					sg.StartTrip();
 					return true;
 				}
 			}

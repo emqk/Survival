@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "../Interaction/ScavengePoint.h"
-#include "../Scavenge/ScavengeTrip.h"
+#include "../Scavenge/ScavengeGroup.h"
 #include "GameFramework/Actor.h"
 #include "ScavengeManager.generated.h"
 
@@ -52,8 +52,8 @@ public:
 	UFUNCTION()
 	bool IsNPCInAnyScavengeGroup(const AAICharacter* character) const;
 
-	UFUNCTION()
-	bool IsNPCInAnyScavengeTrip(const AAICharacter* character) const;
+	//UFUNCTION()
+	//bool IsNPCInAnyScavengeTrip(const AAICharacter* character) const;
 
 	UFUNCTION()
 	void CheckAllScavengePoints();
@@ -75,18 +75,19 @@ protected:
 	virtual void BeginPlay() override;
 
 	UFUNCTION()
-	void TickScavengeTrips(const float& deltaTime);
+	void TickScavengeGroups(const float& deltaTime);
 
 	UFUNCTION()
-	void EndScavengeTrip(FScavengeTrip& scavengeTrip, const int& index);
+	void EndScavengeGroup(FScavengeGroup& scavengeGroup, const int& index);
+
 
 	UFUNCTION()
 	TArray<FItemInstance> GenerateItemsFromScavenge(const ScavengeType& scavengeType) const;
 
 protected:
 
-	UPROPERTY(VisibleAnywhere)
-	TArray<FScavengeTrip> scavengeTrips;
+	//UPROPERTY(VisibleAnywhere)
+	//TArray<FScavengeTrip> scavengeTrips;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TArray<FScavengeGroup> scavengeGroups;

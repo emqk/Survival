@@ -37,7 +37,7 @@ bool AScavengePoint::ContainsScavengeGroup(const FScavengeGroup& scavengeGroup)
 	return true;
 }
 
-void AScavengePoint::RemoveAndDisableGroup(const FScavengeGroup& scavengeGroup)
+void AScavengePoint::DisableGroupCharacters(const FScavengeGroup& scavengeGroup)
 {
 	for (size_t i = 0; i < scavengeGroup.group.Num(); i++)
 	{

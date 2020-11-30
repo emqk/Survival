@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "Components/WidgetComponent.h"
 #include "../Scavenge/ScavengeGroup.h"
-#include "../Scavenge/ScavengeTrip.h"
 #include "../Inventory/ItemInstance.h"
 #include "PointOfInterest.h"
 #include "ScavengePoint.generated.h"
@@ -27,10 +26,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool ContainsScavengeGroup(const FScavengeGroup& scavengeGroup);
 	UFUNCTION(BlueprintCallable)
-	void RemoveAndDisableGroup(const FScavengeGroup& scavengeGroup);
+	void DisableGroupCharacters(const FScavengeGroup& scavengeGroup);
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void RefreshMyWidget(const TArray<FScavengeTrip>& trips);
+	void RefreshMyWidget(const TArray<FScavengeGroup>& groups);
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
