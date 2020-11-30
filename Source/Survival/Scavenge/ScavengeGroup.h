@@ -15,9 +15,13 @@ struct FScavengeGroup
 {
 	GENERATED_BODY()
 
+	FScavengeGroup();
+	FScavengeGroup(const ScavengeType& _scavengeType, class AScavengePoint* _scavengePoint, const TArray<AAICharacter*>& _group);
+
+
 	UPROPERTY(EditAnywhere)
 	ScavengeType scavengeType;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<AAICharacter*> group;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	class AScavengePoint* scavagePoint;

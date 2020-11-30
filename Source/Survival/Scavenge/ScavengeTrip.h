@@ -3,8 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "../AI/AICharacter.h"
-#include "ScavengeType.h"
+//#include "../AI/AICharacter.h"
+//#include "ScavengeType.h"
+#include "ScavengeGroup.h"
 #include "ScavengeTrip.generated.h"
 
 
@@ -22,17 +23,13 @@ struct FScavengeTrip
 	GENERATED_BODY()
 
 	FScavengeTrip();
-	FScavengeTrip(const TArray<AAICharacter*>& _group, class AScavengePoint* _scavengePoint, const float& _timeToGoBack, const ScavengeType& _scavengeType);
+	FScavengeTrip(const ScavengeType& _scavengeType, class AScavengePoint* _scavengePoint, const TArray<AAICharacter*>& _group, const float& _timeToGoBack);
 
 	float GetTimeToGoBackStart() const;
 
-	UPROPERTY(EditAnywhere)
-	ScavengeType scavengeType;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FScavengeGroup scavengeGroup;
 
-	UPROPERTY(EditAnywhere)
-	TArray<AAICharacter*> group;
-	UPROPERTY(EditAnywhere)
-	class AScavengePoint* scavengePoint;
 	UPROPERTY(EditAnywhere)
 	float timeToGoBackLeft;
 

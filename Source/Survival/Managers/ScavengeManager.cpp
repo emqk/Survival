@@ -41,12 +41,12 @@ void AScavengeManager::EndScavengeTrip(FScavengeTrip& scavengeTrip, const int& i
 {
 	if (scavengeTrips.Contains(scavengeTrip))
 	{
-		for (AAICharacter* ch : scavengeTrip.group)
+		for (AAICharacter* ch : scavengeTrip.scavengeGroup.group)
 		{
 			ch->SetMeActive(true);
 			//Add items from scavenge
 			//ch->inventoryComp->AddItem(scavengeTrip.scavengePoint->GetItemInstance());
-			ch->inventoryComp->AddItemsFromAsset(GenerateItemsFromScavenge(scavengeTrip.scavengeType));
+			ch->inventoryComp->AddItemsFromAsset(GenerateItemsFromScavenge(scavengeTrip.scavengeGroup.scavengeType));
 			ch->SimulateNeedsOverTime(scavengeTrip.GetTimeToGoBackStart());
 		}
 		scavengeTrips.RemoveAt(index);
@@ -110,7 +110,7 @@ bool AScavengeManager::CreateScavengeGroup(const TArray<AAICharacter*>& characte
 		}
 	}
 
-	scavengeGroups.Add(FScavengeGroup{scavengeType, characters, targetScavengePoint});
+	scavengeGroups.Add(FScavengeGroup(scavengeType, targetScavengePoint, characters));
 	CheckAllScavengePoints();
 	return true;
 }
@@ -130,7 +130,7 @@ bool AScavengeManager::IsNPCInAnyScavengeTrip(const AAICharacter* character) con
 {
 	for (const FScavengeTrip& st : scavengeTrips)
 	{
-		if (st.group.Contains(character))
+		if (st.scavengeGroup.group.Contains(character))
 			return true;
 	}
 
@@ -157,7 +157,7 @@ bool AScavengeManager::CheckScavengePoint(AScavengePoint* scavengePoint)
 				if (scavengePoint->ContainsScavengeGroup(sg))
 				{
 					scavengePoint->RemoveAndDisableGroup(sg);
-					scavengeTrips.Add(FScavengeTrip( sg.group, sg.scavagePoint, 10, sg.scavengeType ));
+					scavengeTrips.Add(FScavengeTrip(sg.scavengeType, sg.scavagePoint, sg.group, 10));
 					scavengeGroups.RemoveAt(i);
 					return true;
 				}

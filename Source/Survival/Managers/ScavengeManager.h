@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "../Interaction/ScavengePoint.h"
 #include "../Scavenge/ScavengeTrip.h"
-#include "../Scavenge/ScavengeGroup.h"
 #include "GameFramework/Actor.h"
 #include "ScavengeManager.generated.h"
 
