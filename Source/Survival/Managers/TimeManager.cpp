@@ -22,7 +22,23 @@ void ATimeManager::BeginPlay()
 void ATimeManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
 	elapsedTime += worldTimeSpeed * DeltaTime;
+	//Refresh hours and minutes
+	int tempElapsedTime = elapsedTime * 4;
+	hours = ((int)tempElapsedTime / 60) % 24;
+	minutes = (int)tempElapsedTime % 60;
+
+	if (!isDay && hours >= dayStartHour && hours < dayEndHour)
+	{
+		OnDayStart.Broadcast();
+		isDay = true;
+	}
+	else if (isDay && hours >= dayEndHour)
+	{
+		OnDayEnd.Broadcast();
+		isDay = false;
+	}
 }
 
 FRotator ATimeManager::GetRotationFromTime() const
@@ -32,10 +48,6 @@ FRotator ATimeManager::GetRotationFromTime() const
 
 FString ATimeManager::GetFormattedTime() const
 {
-	int tempElapsedTime = elapsedTime * 4;
-	int hours = ((int)tempElapsedTime / 60) % 24;
-	int minutes = (int)tempElapsedTime % 60;
-
 	FString result;
 	result.AppendInt(hours);
 	result.Append(":");

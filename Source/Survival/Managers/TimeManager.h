@@ -6,6 +6,9 @@
 #include "GameFramework/Actor.h"
 #include "TimeManager.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDayStart);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDayEnd);
+
 UCLASS()
 class SURVIVAL_API ATimeManager : public AActor
 {
@@ -30,8 +33,23 @@ public:
 	FString GetFormattedTime() const;
 
 protected:
+	UPROPERTY(BlueprintAssignable)
+	FOnDayStart OnDayStart;
+	UPROPERTY(BlueprintAssignable)
+	FOnDayEnd OnDayEnd;
+
 	UPROPERTY(VisibleAnywhere)
-	float worldTimeSpeed = 1;
+	float worldTimeSpeed = 10;
 	UPROPERTY(VisibleAnywhere)
 	float elapsedTime = 90; //Each 90sec. of elapsed time is equal 6 hours
+
+	UPROPERTY()
+	int hours = 0;
+	UPROPERTY()
+	int minutes = 0;
+	UPROPERTY()
+	bool isDay = false;
+
+	const int dayStartHour = 6;
+	const int dayEndHour = 18;
 };
