@@ -39,7 +39,7 @@ protected:
 	FOnDayEnd OnDayEnd;
 
 	UPROPERTY(VisibleAnywhere)
-	float worldTimeSpeed = 10;
+	float worldTimeSpeed = 1;
 	UPROPERTY(VisibleAnywhere)
 	float elapsedTime = 90; //Each 90sec. of elapsed time is equal 6 hours
 
