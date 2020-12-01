@@ -22,12 +22,7 @@ void ATimeManager::BeginPlay()
 void ATimeManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	elapsedTime += worldTimeSpeed * DeltaTime;
-	//Refresh hours and minutes
-	int tempElapsedTime = elapsedTime * 4;
-	hours = ((int)tempElapsedTime / 60) % 24;
-	minutes = (int)tempElapsedTime % 60;
+	TickTime(DeltaTime);
 
 	if (!isDay && hours >= dayStartHour && hours < dayEndHour)
 	{
@@ -54,4 +49,17 @@ FString ATimeManager::GetFormattedTime() const
 	result.AppendInt(minutes);
 
 	return MoveTemp(result);
+}
+
+void ATimeManager::TickTime(const float& deltaTime)
+{
+	elapsedTime += worldTimeSpeed * deltaTime;
+	if (elapsedTime > 360.0f)
+	{
+		elapsedTime -= 360.0f;
+	}
+	//Refresh hours and minutes
+	int tempElapsedTime = elapsedTime * 4;
+	hours = ((int)tempElapsedTime / 60) % 24;
+	minutes = (int)tempElapsedTime % 60;
 }

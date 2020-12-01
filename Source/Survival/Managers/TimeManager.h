@@ -32,6 +32,10 @@ public:
 	UFUNCTION(BlueprintPure)
 	FString GetFormattedTime() const;
 
+private:
+	UFUNCTION()
+	void TickTime(const float& deltaTime);
+
 protected:
 	UPROPERTY(BlueprintAssignable)
 	FOnDayStart OnDayStart;
