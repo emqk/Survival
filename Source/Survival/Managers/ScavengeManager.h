@@ -49,7 +49,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool CreateScavengeGroup(const TArray<AAICharacter*>& characters, AScavengePoint* targetScavengePoint, const ScavengeType& scavengeType);
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	bool IsNPCInAnyScavengeGroup(const AAICharacter* character) const;
 
 	//UFUNCTION()
