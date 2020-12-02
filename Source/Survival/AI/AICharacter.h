@@ -80,6 +80,9 @@ public:
 	float GetBuildSpeed() const;
 
 	UFUNCTION(BlueprintCallable)
+	bool CanBeSelected() const;
+
+	UFUNCTION(BlueprintCallable)
 	bool IsEnabled() const;
 
 	UFUNCTION(BlueprintCallable)

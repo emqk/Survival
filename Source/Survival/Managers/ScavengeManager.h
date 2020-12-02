@@ -52,9 +52,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool IsNPCInAnyScavengeGroup(const AAICharacter* character) const;
 
-	//UFUNCTION()
-	//bool IsNPCInAnyScavengeTrip(const AAICharacter* character) const;
-
 	UFUNCTION()
 	void CheckAllScavengePoints();
 
@@ -85,9 +82,6 @@ protected:
 	TArray<FItemInstance> GenerateItemsFromScavenge(const ScavengeType& scavengeType) const;
 
 protected:
-
-	//UPROPERTY(VisibleAnywhere)
-	//TArray<FScavengeTrip> scavengeTrips;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TArray<FScavengeGroup> scavengeGroups;

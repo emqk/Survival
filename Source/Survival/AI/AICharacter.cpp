@@ -7,6 +7,7 @@
 #include "Blueprint/AIBlueprintHelperLibrary.h" 
 #include "BehaviorTree/BlackboardComponent.h" 
 #include "../PlayerGameInstance.h"
+#include "../PlayerGameMode.h"
 
 // Sets default values
 AAICharacter::AAICharacter()
@@ -196,6 +197,16 @@ float AAICharacter::GetDestructionSpeedForMaterialType(const EDestructibleMateri
 float AAICharacter::GetBuildSpeed() const
 {
 	return buildSpeed;
+}
+
+bool AAICharacter::CanBeSelected() const
+{
+	APlayerGameMode* gameMode = GetWorld()->GetAuthGameMode<APlayerGameMode>();
+	AScavengeManager* scavengeManager = gameMode->GetScavengeManager();
+
+	bool result = !scavengeManager->IsNPCInAnyScavengeGroup(this);
+
+	return result;
 }
 
 bool AAICharacter::IsEnabled() const
