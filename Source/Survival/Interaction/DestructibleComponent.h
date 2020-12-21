@@ -7,6 +7,7 @@
 #include "Interactable.h"
 #include "DestructibleMaterialType.h"
 #include "../AI/AICharacter.h"
+#include "NiagaraFunctionLibrary.h" 
 #include "DestructibleComponent.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDestructed);
@@ -47,7 +48,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	USoundWave* onDestroySound;					 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	UParticleSystem* onDestroyParticle;
+	UNiagaraSystem* onDestroyFX;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	float startHP = 0;

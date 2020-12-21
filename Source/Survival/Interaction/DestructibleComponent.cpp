@@ -56,7 +56,7 @@ void UDestructibleComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 	}
 
 	UGameplayStatics::PlaySoundAtLocation(GetWorld(), onDestroySound, GetOwner()->GetActorLocation());
-	UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), onDestroyParticle, GetOwner()->GetActorLocation());
+	UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), onDestroyFX, GetOwner()->GetActorLocation());
 
 	//Remove corresponding UI widget
 	APlayerGameMode* gameMode = GetWorld()->GetAuthGameMode<APlayerGameMode>();
