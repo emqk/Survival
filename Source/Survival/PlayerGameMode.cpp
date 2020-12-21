@@ -32,3 +32,8 @@ ATimeManager* APlayerGameMode::GetTimeManager() const
 {
 	return timeManager;
 }
+
+UNiagaraSystem* APlayerGameMode::GetDefaultDestroyFX() const
+{
+	return defaultDestroyFX;
+}

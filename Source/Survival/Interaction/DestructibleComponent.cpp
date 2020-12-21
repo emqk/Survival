@@ -23,8 +23,10 @@ void UDestructibleComponent::BeginPlay()
 
 	startHP = hp;
 
-	//FTimerHandle UnusedHandle;
-	//GetWorld()->GetTimerManager().SetTimer(UnusedHandle, this, &UDestructibleComponent::InitWidget, 0.1f, false);
+	if (!onDestroyFX)
+	{
+		onDestroyFX = Cast<APlayerGameMode>(GetWorld()->GetAuthGameMode())->GetDefaultDestroyFX();
+	}
 }
 
 // Called every frame

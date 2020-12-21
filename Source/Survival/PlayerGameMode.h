@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "NiagaraFunctionLibrary.h" 
 #include "Managers/ScavengeManager.h"
 #include "Managers/BuildingManager.h"
 #include "Managers/ConversationManager.h"
@@ -22,6 +23,7 @@ class SURVIVAL_API APlayerGameMode : public AGameModeBase
 	GENERATED_BODY()
 
 public:
+    //Get managers
     UFUNCTION(BlueprintCallable)
     AScavengeManager* GetScavengeManager() const;
     UFUNCTION(BlueprintCallable)
@@ -35,7 +37,12 @@ public:
     UFUNCTION(BlueprintCallable)
     ATimeManager* GetTimeManager() const;
 
+    //Get defaults
+    UFUNCTION(BlueprintCallable)
+    UNiagaraSystem* GetDefaultDestroyFX() const;
+
 protected:
+    //Managers
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     ABuildingManager* buildingManager = nullptr;
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -50,4 +57,9 @@ protected:
     AUIManager* uiManager = nullptr;
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     ATimeManager* timeManager = nullptr;
+
+
+    //Defaults
+    UPROPERTY(EditDefaultsOnly)
+    UNiagaraSystem* defaultDestroyFX;
 };
