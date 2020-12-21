@@ -262,6 +262,14 @@ bool UInventoryComponent::DropItemOfIndex(const int& index)
 	return false;
 }
 
+void UInventoryComponent::DropAllItems()
+{
+	for (int i = items.Num()-1; i >= 0; i--)
+	{
+		DropItemOfIndex(i);
+	}
+}
+
 bool UInventoryComponent::UnequipItem(const EquipType& equipType)
 {
 	AAICharacter* myOwner = Cast<AAICharacter>(GetOwner());

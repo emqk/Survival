@@ -130,7 +130,7 @@ void AAICharacter::SimulateNeedsOverTime(const float& seconds)
 		//Die
 		if (GetNeeds()->GetNeedByType(NeedType::Health)->GetAmount() <= 0)
 		{
-			Destroy();
+			Die();
 		}
 	}
 	else
@@ -264,4 +264,10 @@ EInteractionType AAICharacter::GetInteractionType() const
 EInteractionAnimationType AAICharacter::GetInteractionAnimationType() const
 {
 	return interactionAnimationType;
+}
+
+void AAICharacter::Die()
+{
+	inventoryComp->DropAllItems();
+	Destroy();
 }

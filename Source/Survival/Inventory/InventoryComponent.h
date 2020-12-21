@@ -54,6 +54,8 @@ public:
 	bool UseItemOfIndex(const int& index);
 	UFUNCTION(BlueprintCallable)
 	bool DropItemOfIndex(const int& index);
+	UFUNCTION(BlueprintCallable)
+	void DropAllItems();
 
 	UFUNCTION(BlueprintCallable)
 	bool UnequipItem(const EquipType& equipType);

@@ -104,6 +104,11 @@ public:
 	UInventoryComponent* inventoryComp;
 
 protected:
+
+	UFUNCTION()
+	void Die();
+
+
 	UPROPERTY(EditDefaultsOnly)
 	FName righthandSocketName = "hand_R_endSocket";
 
