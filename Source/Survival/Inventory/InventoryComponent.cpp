@@ -247,14 +247,15 @@ bool UInventoryComponent::UseItemOfIndex(const int& index)
 	return false;
 }
 
-bool UInventoryComponent::DropItemOfIndex(const int& index)
+bool UInventoryComponent::DropItemOfIndex(const int& index, const int& amount)
 {
 	if (items.IsValidIndex(index))
 	{
 		FItemInstance& itemToDrop = items[index];
 		TSubclassOf<AItemActor> itemToSpawn = itemToDrop.data->prefab;
-		GetWorld()->SpawnActor<AItemActor>(itemToSpawn, GetOwner()->GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
-		RemoveItemOfID(itemToDrop.data->itemID, 1);
+		AItemActor* dropedItem = GetWorld()->SpawnActor<AItemActor>(itemToSpawn, GetOwner()->GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
+		dropedItem->InitItemsAfterCollect(FItemInstance{itemToDrop.data, amount < 0 ? itemToDrop.amount : amount});
+		RemoveItem(index, amount);
 		return true;
 	}
 
@@ -266,7 +267,7 @@ void UInventoryComponent::DropAllItems()
 {
 	for (int i = items.Num()-1; i >= 0; i--)
 	{
-		DropItemOfIndex(i);
+		DropItemOfIndex(i, -1);
 	}
 }
 

@@ -53,7 +53,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool UseItemOfIndex(const int& index);
 	UFUNCTION(BlueprintCallable)
-	bool DropItemOfIndex(const int& index);
+	bool DropItemOfIndex(const int& index, const int& amount = 1);
 	UFUNCTION(BlueprintCallable)
 	void DropAllItems();
 
