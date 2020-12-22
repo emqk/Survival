@@ -265,9 +265,17 @@ bool UInventoryComponent::DropItemOfIndex(const int& index, const int& amount)
 
 void UInventoryComponent::DropAllItems()
 {
+	//Drop items
 	for (int i = items.Num()-1; i >= 0; i--)
 	{
 		DropItemOfIndex(i, -1);
+	}
+
+	//Drop equiped items
+	for (auto& eqItem : equipment)
+	{
+		AItemActor* dropedItem = GetWorld()->SpawnActor<AItemActor>(eqItem.Value->prefab, GetOwner()->GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
+		UnequipItemNoCheck(eqItem.Value->equipType);
 	}
 }
 
@@ -284,9 +292,7 @@ bool UInventoryComponent::UnequipItem(const EquipType& equipType)
 	if (targetEquipSlot)
 	{
 		//Remove item from equiped items, refresh space and weight
-		myOwner->UnequipVisuals(equipType);
-		equipment[equipType] = nullptr;
-		CalculateWeightAndSpace();
+		UnequipItemNoCheck(equipType);
 
 		//Add unequiped item to inventory
 		AddItem(FItemInstance{ targetEquipSlot, 1 });
@@ -426,4 +432,13 @@ void UInventoryComponent::RefreshUI()
 	{
 		UE_LOG(LogTemp, Error, TEXT("Can't refresh inventory UI - GameMode is null!"))
 	}
+}
+
+void UInventoryComponent::UnequipItemNoCheck(const EquipType& equipType)
+{
+	AAICharacter* myOwner = Cast<AAICharacter>(GetOwner());
+	myOwner->UnequipVisuals(equipType);
+	equipment[equipType] = nullptr;
+	CalculateWeightAndSpace();
+	UE_LOG(LogTemp, Warning, TEXT("unequiped(No check)!"))
 }

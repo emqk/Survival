@@ -95,6 +95,10 @@ protected:
 	UFUNCTION()
 	void RefreshUI();
 
+	UFUNCTION()
+	void UnequipItemNoCheck(const EquipType& equipType);
+
+
 	UPROPERTY(VisibleAnywhere)
 	TArray<FItemInstance> items;
 
