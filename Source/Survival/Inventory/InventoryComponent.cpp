@@ -274,6 +274,9 @@ void UInventoryComponent::DropAllItems()
 	//Drop equiped items
 	for (auto& eqItem : equipment)
 	{
+		if (!eqItem.Value)
+			continue;
+
 		AItemActor* dropedItem = GetWorld()->SpawnActor<AItemActor>(eqItem.Value->prefab, GetOwner()->GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
 		UnequipItemNoCheck(eqItem.Value->equipType);
 	}
