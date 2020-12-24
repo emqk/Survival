@@ -211,11 +211,18 @@ bool UInventoryComponent::UseItemOfIndex(const int& index)
 		{
 			if (itemToUse.data->isEatable)
 			{
+				UItemDataAsset* itemToAddAfterUse = itemToUse.data->itemToAddAfterUse;
+
 				myOwner->GetNeeds()->GetNeedByType(NeedType::Hunger)->ChangeByAmount(-itemToUse.data->foodReduce);
 				myOwner->GetNeeds()->GetNeedByType(NeedType::Thirst)->ChangeByAmount(-itemToUse.data->thirstReduce);
 				myOwner->GetNeeds()->GetNeedByType(NeedType::Energy)->ChangeByAmount(itemToUse.data->energyBoost);
 				myOwner->GetNeeds()->GetNeedByType(NeedType::Happyness)->ChangeByAmount(itemToUse.data->happynessBoost);
 				RemoveItemOfID(itemToUse.data->itemID, 1);
+
+				//After using, add item(if not null) to the inventory
+				if (itemToAddAfterUse)
+					AddItem({ itemToAddAfterUse, 1 });
+
 				return true;
 			}
 			else if (itemToUse.data->isEquippable)
@@ -243,7 +250,7 @@ bool UInventoryComponent::UseItemOfIndex(const int& index)
 		}
 	}
 	
-	UE_LOG(LogTemp, Error, TEXT("Can't use item - invalid index! Trying to get %i from array of size %i"), index, items.Num())
+	UE_LOG(LogTemp, Error, TEXT("Can't use item - invalid index or item is not usable! Trying to get %i from array of size %i"), index, items.Num())
 	return false;
 }
 

@@ -50,6 +50,9 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Consume")
     float happynessBoost = 0;
 
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Consume")
+    UItemDataAsset* itemToAddAfterUse;
+
     //Equippable
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equippable")
     bool isEquippable = false;
