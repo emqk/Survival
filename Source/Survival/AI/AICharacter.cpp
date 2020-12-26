@@ -90,7 +90,17 @@ void AAICharacter::SetInteraction(const FVector& location, AActor* actor, const 
 	blackboard->SetValueAsVector("TargetLocation", location);
 	blackboard->SetValueAsObject("TargetActor", actor);
 	interactionType = newInteractionType;
-	interactionAnimationType = newInteractionAnimationType;
+
+	//Always use destruction animation when the target is to destroy target actor
+	if (newInteractionType == EInteractionType::Destruction)
+	{
+		interactionAnimationType = EInteractionAnimationType::Default;
+	}
+	else
+	{
+		interactionAnimationType = newInteractionAnimationType;
+	}
+
 }
 
 void AAICharacter::CancelCurrentInteraction()
