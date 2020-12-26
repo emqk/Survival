@@ -26,6 +26,9 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void RefreshTradeCosts();
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void SetItemInfoVisibility(bool visible);
+
 	UFUNCTION(BlueprintCallable)
 	void SelectIndex(const int& index, const EInventoryOpenType& _openType);
 
