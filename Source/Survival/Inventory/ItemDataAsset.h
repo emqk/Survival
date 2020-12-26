@@ -20,6 +20,10 @@ public:
 
     virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 
+    UFUNCTION(BlueprintCallable)
+    bool IsUsable() const;
+
+
     //General
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "General")
     UTexture2D* icon;

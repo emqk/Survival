@@ -7,3 +7,8 @@ FPrimaryAssetId UItemDataAsset::GetPrimaryAssetId() const
 {
 	return FPrimaryAssetId(FPrimaryAssetType("Items"), GetFName());
 }
+
+bool UItemDataAsset::IsUsable() const
+{
+	return isEatable || isEquippable;
+}
