@@ -260,7 +260,7 @@ bool UInventoryComponent::DropItemOfIndex(const int& index, const int& amount)
 	{
 		FItemInstance& itemToDrop = items[index];
 		TSubclassOf<AItemActor> itemToSpawn = itemToDrop.data->prefab;
-		AItemActor* dropedItem = GetWorld()->SpawnActor<AItemActor>(itemToSpawn, GetOwner()->GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
+		AItemActor* dropedItem = GetWorld()->SpawnActor<AItemActor>(itemToSpawn, GetOwner()->GetActorLocation() + GetOwner()->GetActorForwardVector() * 100, FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
 		dropedItem->InitItemsAfterCollect(FItemInstance{itemToDrop.data, amount < 0 ? itemToDrop.amount : amount});
 		RemoveItem(index, amount);
 		return true;

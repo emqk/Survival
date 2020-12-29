@@ -10,6 +10,7 @@ AItemActor::AItemActor()
 
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	mesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	mesh->SetSimulatePhysics(true);
 }
 
 void AItemActor::BeginPlay()

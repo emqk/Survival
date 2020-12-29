@@ -105,7 +105,7 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TMap<EquipType, UItemDataAsset*> equipment;
 
-	
+
 	UPROPERTY(VisibleAnywhere)
 	float maxWeight = 10;
 	UPROPERTY(VisibleAnywhere)
