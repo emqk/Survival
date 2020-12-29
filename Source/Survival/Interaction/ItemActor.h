@@ -27,9 +27,6 @@ public:
 
 	virtual bool InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character) override;
 
-	UFUNCTION(BlueprintCallable)
-	FVector GetMeshLocation() const;
-
 	UStaticMesh* GetMesh() const;
 
 protected:

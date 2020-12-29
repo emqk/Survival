@@ -39,11 +39,6 @@ bool AItemActor::InteractionTick_Implementation(const float& deltaSeconds, const
 	return true;
 }
 
-FVector AItemActor::GetMeshLocation() const
-{
-	return mesh->GetComponentLocation();
-}
-
 UStaticMesh* AItemActor::GetMesh() const
 {
 	return mesh->GetStaticMesh();
