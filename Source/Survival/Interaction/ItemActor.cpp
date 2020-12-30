@@ -9,8 +9,10 @@ AItemActor::AItemActor()
 	PrimaryActorTick.bCanEverTick = true;
 
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
-	mesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	//mesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	mesh->SetSimulatePhysics(true);
+	SetRootComponent(mesh);
+	sceneComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
 void AItemActor::BeginPlay()
