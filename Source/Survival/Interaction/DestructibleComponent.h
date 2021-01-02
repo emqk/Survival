@@ -10,6 +10,19 @@
 #include "NiagaraFunctionLibrary.h" 
 #include "DestructibleComponent.generated.h"
 
+class AItemActor;
+
+USTRUCT(BlueprintType)
+struct FItemActorInstance
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSubclassOf<AItemActor> itemActor;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	int amount = 1;
+};
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDestructed);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -55,5 +68,5 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	float hp = 0;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TArray<TSubclassOf<AActor>> afterDestroyActors;
+	TArray<FItemActorInstance> afterDestroyActors;
 };

@@ -4,6 +4,7 @@
 #include "DestructibleComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "ItemActor.h"
 #include "GameFramework/Actor.h"
 #include "../PlayerGameMode.h"
 
@@ -52,9 +53,12 @@ void UDestructibleComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
 	UWorld* world = GetWorld();
-	for (TSubclassOf<AActor> actor : afterDestroyActors)
+	for (const FItemActorInstance& actorInstance : afterDestroyActors)
 	{
-		world->SpawnActor<AActor>(actor, GetOwner()->GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
+		for (size_t i = 0; i < actorInstance.amount; i++)
+		{
+			world->SpawnActor<AItemActor>(actorInstance.itemActor, GetOwner()->GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
+		}
 	}
 
 	UGameplayStatics::PlaySoundAtLocation(GetWorld(), onDestroySound, GetOwner()->GetActorLocation());
