@@ -44,8 +44,13 @@ FRotator ATimeManager::GetRotationFromTime() const
 FString ATimeManager::GetFormattedTime() const
 {
 	FString result;
+
+	if (hours < 10)
+		result.Append("0");
 	result.AppendInt(hours);
 	result.Append(":");
+	if (minutes < 10)
+		result.Append("0");
 	result.AppendInt(minutes);
 
 	return MoveTemp(result);
