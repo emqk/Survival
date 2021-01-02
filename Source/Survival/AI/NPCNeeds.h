@@ -10,7 +10,7 @@
 UENUM(BlueprintType)
 enum class NeedType : uint8
 {
-    Hunger, Thirst, Energy, Happyness, Social, Health
+    Hunger, Hydration, Energy, Happyness, Social, Health
 };
 
 /**

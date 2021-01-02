@@ -11,7 +11,7 @@ FPrimaryAssetId UNPCStatus::GetPrimaryAssetId() const
 void UNPCStatus::TickMe(UNPCNeeds* ownerNeeds, const float& deltaTime)
 {
 	ownerNeeds->GetNeedByType(NeedType::Hunger)->ChangeByAmount(food * deltaTime);
-	ownerNeeds->GetNeedByType(NeedType::Thirst)->ChangeByAmount(hydration * deltaTime);
+	ownerNeeds->GetNeedByType(NeedType::Hydration)->ChangeByAmount(hydration * deltaTime);
 	ownerNeeds->GetNeedByType(NeedType::Energy)->ChangeByAmount(energy * deltaTime);
 	ownerNeeds->GetNeedByType(NeedType::Happyness)->ChangeByAmount(happyness * deltaTime);
 	ownerNeeds->GetNeedByType(NeedType::Social)->ChangeByAmount(social * deltaTime);

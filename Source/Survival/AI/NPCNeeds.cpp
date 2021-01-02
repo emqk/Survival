@@ -9,7 +9,7 @@ const float UNPCNeeds::socialNeedThresholdToAutoStart = 1.0f;
 UNPCNeeds::UNPCNeeds()
 {
 	needs.Add(NeedType::Hunger, NewObject<UStatistic>());
-	needs.Add(NeedType::Thirst, NewObject<UStatistic>());
+	needs.Add(NeedType::Hydration, NewObject<UStatistic>());
 	needs.Add(NeedType::Energy, NewObject<UStatistic>());
 	UStatistic* happynessStat = needs.Add(NeedType::Happyness, NewObject<UStatistic>());
 	UStatistic* socialStat = needs.Add(NeedType::Social, NewObject<UStatistic>());
