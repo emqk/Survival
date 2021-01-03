@@ -213,8 +213,8 @@ bool UInventoryComponent::UseItemOfIndex(const int& index)
 			{
 				UItemDataAsset* itemToAddAfterUse = itemToUse.data->itemToAddAfterUse;
 
-				myOwner->GetNeeds()->GetNeedByType(NeedType::Hunger)->ChangeByAmount(-itemToUse.data->foodReduce);
-				myOwner->GetNeeds()->GetNeedByType(NeedType::Hydration)->ChangeByAmount(-itemToUse.data->thirstReduce);
+				myOwner->GetNeeds()->GetNeedByType(NeedType::Hunger)->ChangeByAmount(itemToUse.data->foodReduce);
+				myOwner->GetNeeds()->GetNeedByType(NeedType::Hydration)->ChangeByAmount(itemToUse.data->thirstReduce);
 				myOwner->GetNeeds()->GetNeedByType(NeedType::Energy)->ChangeByAmount(itemToUse.data->energyBoost);
 				myOwner->GetNeeds()->GetNeedByType(NeedType::Happyness)->ChangeByAmount(itemToUse.data->happynessBoost);
 				RemoveItemOfID(itemToUse.data->itemID, 1);

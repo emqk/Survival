@@ -112,9 +112,9 @@ void AAICharacter::SimulateNeedsOverTime(const float& seconds)
 {
 	if (GetNPCData())
 	{
-		GetNeeds()->GetNeedByType(NeedType::Hunger)->ChangeByAmount(hungerDecreasePerSec * seconds);
-		GetNeeds()->GetNeedByType(NeedType::Hydration)->ChangeByAmount(thirstDecreasePerSec * seconds);
-		GetNeeds()->GetNeedByType(NeedType::Energy)->ChangeByAmount(energyDecreasePerSec * seconds);
+		GetNeeds()->GetNeedByType(NeedType::Hunger)->ChangeByAmount(-hungerDecreasePerSec * seconds);
+		GetNeeds()->GetNeedByType(NeedType::Hydration)->ChangeByAmount(-thirstDecreasePerSec * seconds);
+		GetNeeds()->GetNeedByType(NeedType::Energy)->ChangeByAmount(-energyDecreasePerSec * seconds);
 		GetNeeds()->GetNeedByType(NeedType::Social)->ChangeByAmount(-socialDecreasePerSec * seconds);
 		GetNeeds()->GetNeedByType(NeedType::Happyness)->ChangeByAmount(-happynessDecreasePerSec * seconds);
 

@@ -14,12 +14,12 @@ UNPCNeeds::UNPCNeeds()
 	UStatistic* happynessStat = needs.Add(NeedType::Happyness, NewObject<UStatistic>());
 	UStatistic* socialStat = needs.Add(NeedType::Social, NewObject<UStatistic>());
 	UStatistic* healthStat = needs.Add(NeedType::Health, NewObject<UStatistic>());
-	//Set default health amount
-	healthStat->ChangeByAmount(UStatistic::maxAmount);
-	//Set default happyness amount
-	happynessStat->ChangeByAmount(UStatistic::maxAmount / 4.0f);
-	//Set default social amount
-	socialStat->ChangeByAmount(UStatistic::maxAmount / 4.0f);
+
+	//Set all values to max
+	for (TPair<NeedType, UStatistic*>& need : needs)
+	{
+		need.Value->ChangeByAmount(999);
+	}
 }
 
 UNPCNeeds::~UNPCNeeds()
