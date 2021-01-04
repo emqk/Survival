@@ -15,7 +15,7 @@ AItemActor::AItemActor()
 	mesh->SetSimulatePhysics(true);
 	SetRootComponent(mesh);
 
-	sceneComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	sceneComp->DestroyComponent();
 }
 
 void AItemActor::BeginPlay()
