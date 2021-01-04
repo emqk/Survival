@@ -7,6 +7,7 @@
 #include "../Inventory/InventoryComponent.h"
 #include "../UI/Inventory/InventoryWidget.h"
 #include "../Interaction/InteractableBase.h"
+#include "../Building/BuildableBase.h"
 #include "../AI/AICharacter.h"
 #include "../Dialogs/DialogData.h"
 #include "UIManager.generated.h"
@@ -35,7 +36,7 @@ public:
 
 	//Work Table
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void OpenWorkTable(AAICharacter* character);
+	void OpenWorkTable(AAICharacter* character, ABuildableBase* workTable);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void CloseWorkTable();
 
