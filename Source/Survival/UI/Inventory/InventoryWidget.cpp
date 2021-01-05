@@ -4,6 +4,8 @@
 #include "InventoryWidget.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "../../Interaction/ItemActor.h"
+#include "../../PlayerGameInstance.h"
+#include "Kismet/GameplayStatics.h"
 
 void UInventoryWidget::SelectIndex(const int& index, const EInventoryOpenType& _openType)
 {
@@ -81,12 +83,10 @@ EInventoryOpenType UInventoryWidget::GetInventoryOpenType() const
 
 void UInventoryWidget::AgreeTrade()
 {
-	UWorld* world = GetWorld();
-	for (const FItemInstance& currItem : playerBuyInventory->GetItems())
-	{
-		AItemActor* instance = world->SpawnActor<AItemActor>(currItem.data->prefab, currentInventory->GetOwner()->GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));	
-		instance->InitItemsAfterCollect(currItem);
-	} 
+	//Spawn items
+	UPlayerGameInstance* gameInstance = Cast<UPlayerGameInstance>(UGameplayStatics::GetGameInstance(this));
+	FVector spawnLocation = currentInventory->GetOwner()->GetActorLocation() + currentInventory->GetOwner()->GetActorForwardVector() * 100;
+	gameInstance->itemManager->SpawnItems(playerBuyInventory->GetItems(), spawnLocation);
 
 	playerSellInventory->MoveAllItems(secondaryInventory);
 	playerBuyInventory->RemoveAllItems();

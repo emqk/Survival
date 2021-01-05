@@ -259,9 +259,13 @@ bool UInventoryComponent::DropItemOfIndex(const int& index, const int& amount)
 	if (items.IsValidIndex(index))
 	{
 		FItemInstance& itemToDrop = items[index];
-		TSubclassOf<AItemActor> itemToSpawn = itemToDrop.data->prefab;
-		AItemActor* dropedItem = GetWorld()->SpawnActor<AItemActor>(itemToSpawn, GetOwner()->GetActorLocation() + GetOwner()->GetActorForwardVector() * 100, FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
-		dropedItem->InitItemsAfterCollect(FItemInstance{itemToDrop.data, amount < 0 ? itemToDrop.amount : amount});
+		int dropAmount = amount < 0 ? itemToDrop.amount : amount;
+		FVector spawnLocation = GetOwner()->GetActorLocation() + GetOwner()->GetActorForwardVector() * 100;
+
+		//Spawn item
+		UPlayerGameInstance* gameInstance = Cast<UPlayerGameInstance>(UGameplayStatics::GetGameInstance(this));
+		gameInstance->itemManager->SpawnItems({ FItemInstance{ itemToDrop.data, dropAmount } }, spawnLocation);
+
 		RemoveItem(index, amount);
 		return true;
 	}

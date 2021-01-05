@@ -3,6 +3,8 @@
 
 #include "ItemManager.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "../Interaction/ItemActor.h"
 
 // Sets default values
 UItemManager::UItemManager()
@@ -63,6 +65,26 @@ UItemDataAsset* UItemManager::GetItemData(const FName& id) const
 
 	UE_LOG(LogTemp, Error, TEXT("Can't find item asset of ID: %s"), *id.ToString())
 	return nullptr;
+}
+
+void UItemManager::SpawnItems(const TArray<FItemInstance>& itemsToSpawn, const FVector& location)
+{
+	for (const FItemInstance& itemInstance : itemsToSpawn)
+	{
+		TSubclassOf<AItemActor> itemToSpawn = itemInstance.data->prefab;
+		AItemActor* dropedItem = GetWorld()->SpawnActor<AItemActor>(itemToSpawn, location, FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
+		dropedItem->InitItemsAfterCollect(itemInstance);
+	}
+}
+
+void UItemManager::SpawnItemsFromActorInstance(const TArray<FItemActorInstance>& itemsToSpawn, const FVector& location)
+{
+	UWorld* world = GetWorld();
+	for (const FItemActorInstance& actorInstance : itemsToSpawn)
+	{
+		AItemActor* spawnedItem = world->SpawnActor<AItemActor>(actorInstance.itemActor, location, FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
+		spawnedItem->InitItemsAfterCollect(FItemInstance{ Cast<AItemActor>(actorInstance.itemActor->GetDefaultObject())->GetAfterCollectItem().data, actorInstance.amount });
+	}
 }
 
 bool UItemManager::CheckItemDuplicates()

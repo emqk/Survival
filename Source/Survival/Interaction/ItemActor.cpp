@@ -48,3 +48,8 @@ UStaticMesh* AItemActor::GetMesh() const
 {
 	return mesh->GetStaticMesh();
 }
+
+FItemInstance AItemActor::GetAfterCollectItem() const
+{
+	return afterCollectItem;
+}

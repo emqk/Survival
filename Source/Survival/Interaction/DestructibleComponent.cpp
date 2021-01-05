@@ -3,6 +3,7 @@
 
 #include "DestructibleComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "../PlayerGameInstance.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "ItemActor.h"
 #include "GameFramework/Actor.h"
@@ -52,21 +53,21 @@ bool UDestructibleComponent::InteractionTick_Implementation(const float& deltaSe
 void UDestructibleComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
-	UWorld* world = GetWorld();
-	for (const FItemActorInstance& actorInstance : afterDestroyActors)
+
+	if (EndPlayReason == EEndPlayReason::Destroyed)
 	{
-		for (size_t i = 0; i < actorInstance.amount; i++)
-		{
-			world->SpawnActor<AItemActor>(actorInstance.itemActor, GetOwner()->GetActorLocation(), FRotator(0, UKismetMathLibrary::RandomFloatInRange(0, 360), 0));
-		}
+		//Spawn items
+		UPlayerGameInstance* gameInstance = Cast<UPlayerGameInstance>(UGameplayStatics::GetGameInstance(this));
+		gameInstance->itemManager->SpawnItemsFromActorInstance(afterDestroyActors, GetOwner()->GetActorLocation());
+
+		//Play destroy sound and spawn particles
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), onDestroySound, GetOwner()->GetActorLocation());
+		UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), onDestroyFX, GetOwner()->GetActorLocation());
+
+		//Remove corresponding UI widget
+		APlayerGameMode* gameMode = GetWorld()->GetAuthGameMode<APlayerGameMode>();
+		gameMode->GetUIManager()->RemoveDestructionProgressWidget(this);
 	}
-
-	UGameplayStatics::PlaySoundAtLocation(GetWorld(), onDestroySound, GetOwner()->GetActorLocation());
-	UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), onDestroyFX, GetOwner()->GetActorLocation());
-
-	//Remove corresponding UI widget
-	APlayerGameMode* gameMode = GetWorld()->GetAuthGameMode<APlayerGameMode>();
-	gameMode->GetUIManager()->RemoveDestructionProgressWidget(this);
 }
 
 float UDestructibleComponent::GetHPPercentageNormalized() const

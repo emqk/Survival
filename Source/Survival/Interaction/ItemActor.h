@@ -29,6 +29,8 @@ public:
 
 	UStaticMesh* GetMesh() const;
 
+	FItemInstance GetAfterCollectItem() const;
+
 protected:
 	virtual void BeginPlay() override;
 

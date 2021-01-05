@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "../Inventory/ItemDataAsset.h"
 #include "AssetData.h"
+#include "../Interaction/DestructibleComponent.h"
 #include "Engine/AssetManager.h"
 #include "ItemManager.generated.h"
 
@@ -23,6 +24,11 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	UItemDataAsset* GetItemData(const FName& id) const;
+
+	UFUNCTION(BlueprintCallable)
+	void SpawnItems(const TArray<FItemInstance>& itemsToSpawn, const FVector& location);
+	UFUNCTION(BlueprintCallable)
+	void SpawnItemsFromActorInstance(const TArray<FItemActorInstance>& itemsToSpawn, const FVector& location);
 
 private:
 
