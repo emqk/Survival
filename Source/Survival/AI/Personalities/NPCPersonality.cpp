@@ -22,3 +22,8 @@ float UNPCPersonality::GetHappynessMultiplier() const
 {
 	return happynessMultiplier;
 }
+
+FText UNPCPersonality::GetPersonalityDisplayText() const
+{
+	return personalityDisplayText;
+}

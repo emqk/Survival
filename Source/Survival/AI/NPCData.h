@@ -37,6 +37,6 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UTexture2D* icon;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TArray<UNPCPersonality*> personalities;
 };

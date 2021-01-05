@@ -30,8 +30,12 @@ public:
 	float GetSocialMultiplier() const;
 	UFUNCTION(BlueprintCallable)
 	float GetHappynessMultiplier() const;
+	UFUNCTION(BlueprintCallable)
+	FText GetPersonalityDisplayText() const;
 
 protected:
+	UPROPERTY(EditDefaultsOnly)
+	FText personalityDisplayText;
 	UPROPERTY(EditDefaultsOnly)
 	EPersonalityCategory category;
 	UPROPERTY(EditDefaultsOnly)
