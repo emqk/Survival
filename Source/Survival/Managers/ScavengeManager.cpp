@@ -40,16 +40,23 @@ void AScavengeManager::TickScavengeGroups(const float& deltaTime)
 	}
 }
 
-void AScavengeManager::EndScavengeGroup(FScavengeGroup& scavengeGroup, const int& index)
+void AScavengeManager::EndScavengeGroup(FScavengeGroup& scavengeGroup, const int& index, const bool& cancel)
 {
 	if (scavengeGroups.Contains(scavengeGroup))
 	{
 		for (AAICharacter* ch : scavengeGroup.group)
 		{
 			ch->SetMeActive(true);
-			//Add items from scavenge
-			ch->inventoryComp->AddItemsFromAsset(GenerateItemsFromScavenge(scavengeGroup.scavengeType));
-			ch->SimulateNeedsOverTime(scavengeGroup.GetTimeToGoBackStart());
+			if (cancel)
+			{
+				//Simulate needs for time spent on scavenge
+				ch->SimulateNeedsOverTime(scavengeGroup.GetTimeToGoBackStart() - scavengeGroup.GetTimeToGoBackLeft());
+			}
+			else
+			{
+				ch->SimulateNeedsOverTime(scavengeGroup.GetTimeToGoBackStart());
+				ch->inventoryComp->AddItemsFromAsset(GenerateItemsFromScavenge(scavengeGroup.scavengeType));
+			}
 		}
 		scavengeGroups.RemoveAt(index);
 	}
@@ -167,7 +174,7 @@ AScavengePoint* AScavengeManager::GetScavengePoint(const int& index) const
 	return nullptr;
 }
 
-bool AScavengeManager::RemoveScavengeGroupAtIndex(const int& index)
+bool AScavengeManager::CancelScavengeGroupAtIndex(const int& index)
 {
 	if (scavengeGroups.IsValidIndex(index))
 	{
@@ -176,7 +183,7 @@ bool AScavengeManager::RemoveScavengeGroupAtIndex(const int& index)
 		{
 			ai->CancelCurrentInteraction();
 		}
-		scavengeGroups.RemoveAt(index);
+		EndScavengeGroup(scavengeGroups[index], index, true);
 		return true;
 	}
 

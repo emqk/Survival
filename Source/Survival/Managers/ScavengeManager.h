@@ -65,7 +65,7 @@ public:
 	AScavengePoint* GetScavengePoint(const int& index) const;
 
 	UFUNCTION(BlueprintCallable)
-	bool RemoveScavengeGroupAtIndex(const int& index);
+	bool CancelScavengeGroupAtIndex(const int& index);
 
 protected:
 	// Called when the game starts or when spawned
@@ -75,7 +75,7 @@ protected:
 	void TickScavengeGroups(const float& deltaTime);
 
 	UFUNCTION()
-	void EndScavengeGroup(FScavengeGroup& scavengeGroup, const int& index);
+	void EndScavengeGroup(FScavengeGroup& scavengeGroup, const int& index, const bool& cancel = false);
 
 
 	UFUNCTION()

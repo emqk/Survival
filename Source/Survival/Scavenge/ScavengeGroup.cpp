@@ -23,6 +23,11 @@ float FScavengeGroup::GetTimeToGoBackStart() const
 	return timeToGoBackStart;
 }
 
+float FScavengeGroup::GetTimeToGoBackLeft() const
+{
+	return timeToGoBackLeft;
+}
+
 bool FScavengeGroup::IsTripFinished() const
 {
 	return timeToGoBackLeft <= 0;

@@ -25,6 +25,7 @@ struct FScavengeGroup
 
 	void TickMe(const float& deltaTime);
 	float GetTimeToGoBackStart() const;
+	float GetTimeToGoBackLeft() const;
 	bool IsTripFinished() const;
 	bool IsOnTrip() const;
 	void StartTrip();
