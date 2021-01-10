@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "../Inventory/ItemInstance.h"
-#include "../Interaction/InteractableBase.h"
+#include "Interactable.h"
 #include "../AI/AICharacter.h"
 #include "GameFramework/Actor.h"
 #include "ItemActor.generated.h"
@@ -13,7 +13,7 @@
  * 
  */
 UCLASS()
-class SURVIVAL_API AItemActor : public AInteractableBase
+class SURVIVAL_API AItemActor : public AActor, public IInteractable
 {
 	GENERATED_BODY()
 	

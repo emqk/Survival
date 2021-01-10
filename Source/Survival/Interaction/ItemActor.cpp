@@ -8,19 +8,16 @@ AItemActor::AItemActor()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
-	sceneComp->RemoveFromRoot();
-
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
-	//mesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	mesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	mesh->SetSimulatePhysics(true);
 	SetRootComponent(mesh);
-
-	sceneComp->DestroyComponent();
 }
 
 void AItemActor::BeginPlay()
 {
 	Super::BeginPlay();
+	Init(100, true, EInteractionAnimationType::Default);
 }
 
 void AItemActor::InitItemsAfterCollect(const FItemInstance& item)
