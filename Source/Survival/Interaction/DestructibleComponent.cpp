@@ -39,7 +39,7 @@ void UDestructibleComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 
 bool UDestructibleComponent::InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Destructible component interaction"));
+	//UE_LOG(LogTemp, Warning, TEXT("Destructible component interaction"));
 	hp -= character->GetDestructionSpeedForMaterialType(materialType) * deltaSeconds;
 	bool finished = hp <= 0;
 	if (finished)

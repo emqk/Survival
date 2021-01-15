@@ -25,7 +25,7 @@ void AInteractableBase::BeginPlay()
 
 bool AInteractableBase::DestructionInteraction(const float& deltaSeconds, const AAICharacter* character)
 {
-	UE_LOG(LogTemp, Warning, TEXT("DestructionInteraction"));
+	//UE_LOG(LogTemp, Warning, TEXT("DestructionInteraction"));
 
 	if (destructibleComp)
 	{
@@ -37,6 +37,6 @@ bool AInteractableBase::DestructionInteraction(const float& deltaSeconds, const 
 
 bool AInteractableBase::InteractionTick_Implementation(const float& deltaSeconds, const AAICharacter* character)
 {
-	UE_LOG(LogTemp, Warning, TEXT("BASE_INTERACTION"));
+	//UE_LOG(LogTemp, Warning, TEXT("BASE_INTERACTION"));
 	return true;
 }
