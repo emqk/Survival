@@ -152,9 +152,9 @@ protected:
 	UNPCRelations* myRelations = nullptr;
 
 private:
-	const float hungerDecreasePerSec = 0.7f;
-	const float thirstDecreasePerSec = 1.1f;
-	const float energyDecreasePerSec = 0.3f;
-	const float socialDecreasePerSec = 0.14f;
-	const float happynessDecreasePerSec = 0.08f;
+	const float hungerDecreasePerSec = 0.26f;
+	const float thirstDecreasePerSec = 0.31f;
+	const float energyDecreasePerSec = 0.19f;
+	const float socialDecreasePerSec = 0.1f;
+	const float happynessDecreasePerSec = 0.11f;
 };
