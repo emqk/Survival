@@ -114,7 +114,7 @@ bool AScavengeManager::CreateScavengeGroup(const TArray<AAICharacter*>& characte
 		}
 	}
 
-	scavengeGroups.Add(FScavengeGroup(scavengeType, targetScavengePoint, characters, 5));
+	scavengeGroups.Add(FScavengeGroup(scavengeType, targetScavengePoint, characters, 50));
 	CheckAllScavengePoints();
 	return true;
 }

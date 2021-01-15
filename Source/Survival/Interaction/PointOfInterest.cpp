@@ -57,7 +57,7 @@ bool APointOfInterest::ShouldTickIfViewportsOnly() const
 
 FVector APointOfInterest::GetRandomPointInRadius() const
 {
-	FVector location = FVector(FMath::FRandRange(-1, 1), FMath::FRandRange(-1, 1), 0) * radius;
+	FVector location = FVector(FMath::FRandRange(-1, 1), FMath::FRandRange(-1, 1), 0) * (radius * 0.8f);
 	return GetActorLocation() + location;
 }
 
