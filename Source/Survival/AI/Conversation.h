@@ -53,7 +53,7 @@ protected:
 private:
 	FVector location;
 
-	const float endConversationThreshold = 20;
-	const float socialNeedPerSec = 2.0f;
-	const float changeRelationPerSec = 5.0f;
+	const float endConversationThreshold = 99.0f;
+	const float socialNeedPerSec = 1.0f;
+	const float changeRelationPerSec = 2.8f;
 };
