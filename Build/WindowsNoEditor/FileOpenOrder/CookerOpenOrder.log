@@ -53,8 +53,8 @@
 "../../../Engine/Content/EngineDebugMaterials/DebugEditorMaterial.uasset" 52
 "../../../Engine/Content/EngineDebugMaterials/DebugMeshMaterial.uasset" 53
 "../../../Engine/Content/EngineDebugMaterials/M_SimpleUnlitTranslucent.uasset" 54
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/CameraDirectionVector.uasset" 55
-"../../../Engine/Content/EngineDebugMaterials/VolumeToRender.uasset" 56
+"../../../Engine/Content/EngineDebugMaterials/VolumeToRender.uasset" 55
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/CameraDirectionVector.uasset" 56
 "../../../Engine/Content/EngineDebugMaterials/M_VolumeRenderSphereTracePP.uasset" 57
 "../../../Engine/Content/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec.uasset" 58
 "../../../Engine/Content/EngineDebugMaterials/VertexColorMaterial.uasset" 59
@@ -179,27 +179,27 @@
 "../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_OpaqueColoredMaterial.uasset" 178
 "../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/PokeAHoleMaterial.uasset" 179
 "../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Ambience__Birds__Singing_Birds__Early_Morning_SND11282_2.uasset" 180
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/RConifer_D.uasset" 181
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Shading/FuzzyShading.uasset" 182
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/base_gray_d.uasset" 183
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/BaseMaterial/Flora_back.uasset" 184
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/RConifer.uasset" 185
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/Conifer2_N.uasset" 186
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/Conifer2_D.uasset" 187
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/gradient_D.uasset" 188
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/base_flat_n.uasset" 189
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/Wind.uasset" 190
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Vectors/RotateVector.uasset" 191
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/BaseMaterial/Flora_twoSides.uasset" 192
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/conifer_4.uasset" 193
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/ConiferBark_n.uasset" 194
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/ConiferBark_D.uasset" 195
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/Mask1.uasset" 196
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/base_white_d.uasset" 197
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Math/MultiplyAdd.uasset" 198
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BlendAngleCorrectedNormals.uasset" 199
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/BaseMaterial/bese_material.uasset" 200
-"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/ConiferBark.uasset" 201
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/Wind.uasset" 181
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Vectors/RotateVector.uasset" 182
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Shading/FuzzyShading.uasset" 183
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/base_gray_d.uasset" 184
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/gradient_D.uasset" 185
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/base_flat_n.uasset" 186
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/BaseMaterial/Flora_twoSides.uasset" 187
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/Conifer2_N.uasset" 188
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/Conifer2_D.uasset" 189
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/conifer_4.uasset" 190
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Math/MultiplyAdd.uasset" 191
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/Mask1.uasset" 192
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/BaseTexture/base_white_d.uasset" 193
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BlendAngleCorrectedNormals.uasset" 194
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/BaseMaterial/bese_material.uasset" 195
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/ConiferBark_n.uasset" 196
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/ConiferBark_D.uasset" 197
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/ConiferBark.uasset" 198
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/BaseMaterial/Flora_back.uasset" 199
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Textures/flora/RConifer_D.uasset" 200
+"../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Materials/flora/RConifer.uasset" 201
 "../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/Conifer7.uasset" 202
 "../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/Conifer3.uasset" 203
 "../../../../../../Projekty/Unreal Engine/Survival/Content/NaturePackage/Meshes/RescaledFlora/Conifer1.uasset" 204
@@ -249,294 +249,294 @@
 "../../../Engine/Content/Animation/DefaultAnimBoneCompressionSettings.uasset" 248
 "../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/HumanLowPoly_Anim.uasset" 249
 "../../../../../../Projekty/Unreal Engine/Survival/Content/GenericNPCAnimPack/Animations/Anim_Body_Stretch_1.uasset" 250
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Scavenge/ScavengePointWidget.uasset" 251
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Scavenge/ScavengePointBP.uasset" 252
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Tree/Wood.uasset" 253
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Tree/Tree.uasset" 254
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Rock/StoneMat.uasset" 255
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/StoneMat.uasset" 256
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Rock/FatRock.uasset" 257
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/RockIcon.uasset" 258
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/StoneItem.uasset" 259
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/StoneItemBP.uasset" 260
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Rock__Impact__Rubble_1_SND30254.uasset" 261
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Interactable/Destructible/RockBP.uasset" 262
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Trees/NormalTrees/1/NormalTree1.uasset" 263
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/WoodLog/WoodCenter.uasset" 264
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/WoodLog/Wood.uasset" 265
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/WoodLog/WoodLog.uasset" 266
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/WoodIcon.uasset" 267
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/WoodItemBP.uasset" 268
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/WoodItem.uasset" 269
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/WoodLogItemBP.uasset" 270
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Tools__Axe__Chop_Wood_6_SND29235.uasset" 271
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Interactable/Destructible/NormalTreeBP.uasset" 272
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Grass/grass3DMat.uasset" 273
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Grass/Grass.uasset" 274
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Trees/Leaves.uasset" 275
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/GrassIcon.uasset" 276
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/GrassItem.uasset" 277
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/GrassItemBP.uasset" 278
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Interactable/Destructible/GrassBP.uasset" 279
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Interactable/Destructible/TreeBP.uasset" 280
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Geometry/Meshes/CubeMaterial.uasset" 281
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Geometry/Meshes/1M_Cube.uasset" 282
-"../../Plugins/FX/Niagara/Content/Enums/ENiagaraSystemInactiveMode.uasset" 283
-"../../Plugins/FX/Niagara/Content/Enums/ENiagaraSphereDistributionMode.uasset" 284
-"../../Plugins/FX/Niagara/Content/Enums/ENiagaraScaleColorMode.uasset" 285
-"../../Plugins/FX/Niagara/Content/Enums/ENiagaraRandomnessMode.uasset" 286
-"../../Plugins/FX/Niagara/Content/Enums/ENiagaraRandomnessEvaluation.uasset" 287
-"../../Plugins/FX/Niagara/Content/Enums/ENiagaraMassByVolume.uasset" 288
-"../../Plugins/FX/Niagara/Content/Enums/ENiagaraInactiveMode.uasset" 289
-"../../Plugins/FX/Niagara/Content/Enums/ENiagaraExpansionMode.uasset" 290
-"../../Plugins/FX/Niagara/Content/Enums/ENiagaraEmitterScalabilityMode_Limited.uasset" 291
-"../../Plugins/FX/Niagara/Content/Enums/ENiagaraEmitterLifeCycleMode.uasset" 292
-"../../Plugins/FX/Niagara/Content/Enums/ENiagaraCoordinateSpace.uasset" 293
-"../../Plugins/FX/Niagara/Content/Enums/ENiagaraChannelCorrelation.uasset" 294
-"../../Plugins/FX/Niagara/Content/Enums/ENiagara_UVFlippingMode.uasset" 295
-"../../Plugins/FX/Niagara/Content/Enums/ENiagara_SpriteRotationMode.uasset" 296
-"../../Plugins/FX/Niagara/Content/Enums/ENiagara_SizeScaleMode.uasset" 297
-"../../Plugins/FX/Niagara/Content/Enums/ENiagara_PositionInitializationMode.uasset" 298
-"../../Plugins/FX/Niagara/Content/Enums/ENiagara_MassInitializationMode.uasset" 299
-"../../Plugins/FX/Niagara/Content/Enums/ENiagara_InfiniteLoopDuration.uasset" 300
-"../../Plugins/FX/Niagara/Content/Enums/ENiagara_EmitterStateOptions.uasset" 301
-"../../Plugins/FX/Niagara/Content/Enums/ENiagara_ColorInitializationMode.uasset" 302
-"../../Plugins/FX/Niagara/Content/Modules/Update/Size/ScaleSpriteSize.uasset" 303
-"../../Plugins/FX/Niagara/Content/Modules/Update/Mass/CalculateSizeAndRotationalInertiaByMass.uasset" 304
-"../../Plugins/FX/Niagara/Content/Modules/Update/Lifetime/ParticleState.uasset" 305
-"../../Plugins/FX/Niagara/Content/Functions/Localspace/TransformBase.uasset" 306
-"../../Plugins/FX/Niagara/Content/Functions/Localspace/TransformVector.uasset" 307
-"../../Plugins/FX/Niagara/Content/Modules/Update/Forces/GravityForce.uasset" 308
-"../../Plugins/FX/Niagara/Content/Modules/Update/Forces/Drag.uasset" 309
-"../../Plugins/FX/Niagara/Content/Modules/Update/Color/ScaleColor.uasset" 310
-"../../Plugins/FX/Niagara/Content/Functions/System/SystemChangeState.uasset" 311
-"../../Plugins/FX/Niagara/Content/Modules/System/SystemState.uasset" 312
-"../../Plugins/FX/Niagara/Content/Functions/GetRandomInfo.uasset" 313
-"../../Plugins/FX/Niagara/Content/Functions/RandomRangeFloat.uasset" 314
-"../../Plugins/FX/Niagara/Content/Functions/RandomUnitVector.uasset" 315
-"../../Plugins/FX/Niagara/Content/Functions/RandomVector.uasset" 316
-"../../Plugins/FX/Niagara/Content/Functions/DirectionAndLengthSafe.uasset" 317
-"../../Plugins/FX/Niagara/Content/Functions/NormalizeDistanceRange.uasset" 318
-"../../Plugins/FX/Niagara/Content/Functions/DistanceBasedFalloff.uasset" 319
-"../../Plugins/FX/Niagara/Content/Functions/Localspace/SimulationPosition.uasset" 320
-"../../Plugins/FX/Niagara/Content/Modules/Spawn/Velocity/AddVelocityFromPoint.uasset" 321
-"../../Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRange.uasset" 322
-"../../Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomPointInSphere.uasset" 323
-"../../Plugins/FX/Niagara/Content/Functions/SphericalToCartesianCoordinates.uasset" 324
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Tree/Wood.uasset" 251
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Tree/Tree.uasset" 252
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Rock/StoneMat.uasset" 253
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/StoneMat.uasset" 254
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Rock/FatRock.uasset" 255
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/RockIcon.uasset" 256
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/StoneItem.uasset" 257
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/StoneItemBP.uasset" 258
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Rock__Impact__Rubble_1_SND30254.uasset" 259
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Interactable/Destructible/RockBP.uasset" 260
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Trees/NormalTrees/1/NormalTree1.uasset" 261
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/WoodLog/WoodCenter.uasset" 262
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/WoodLog/Wood.uasset" 263
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/WoodLog/WoodLog.uasset" 264
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/WoodIcon.uasset" 265
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/WoodItemBP.uasset" 266
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/WoodItem.uasset" 267
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/WoodLogItemBP.uasset" 268
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Tools__Axe__Chop_Wood_6_SND29235.uasset" 269
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Interactable/Destructible/NormalTreeBP.uasset" 270
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Grass/grass3DMat.uasset" 271
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Grass/Grass.uasset" 272
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Trees/Leaves.uasset" 273
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/GrassIcon.uasset" 274
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/GrassItem.uasset" 275
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/GrassItemBP.uasset" 276
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Interactable/Destructible/GrassBP.uasset" 277
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Interactable/Destructible/TreeBP.uasset" 278
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Geometry/Meshes/CubeMaterial.uasset" 279
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Geometry/Meshes/1M_Cube.uasset" 280
+"../../../Engine/Content/EditorBlueprintResources/StandardMacros.uasset" 281
+"../../Plugins/FX/Niagara/Content/Enums/ENiagaraSystemInactiveMode.uasset" 282
+"../../Plugins/FX/Niagara/Content/Enums/ENiagaraSphereDistributionMode.uasset" 283
+"../../Plugins/FX/Niagara/Content/Enums/ENiagaraScaleColorMode.uasset" 284
+"../../Plugins/FX/Niagara/Content/Enums/ENiagaraRandomnessMode.uasset" 285
+"../../Plugins/FX/Niagara/Content/Enums/ENiagaraRandomnessEvaluation.uasset" 286
+"../../Plugins/FX/Niagara/Content/Enums/ENiagaraMassByVolume.uasset" 287
+"../../Plugins/FX/Niagara/Content/Enums/ENiagaraInactiveMode.uasset" 288
+"../../Plugins/FX/Niagara/Content/Enums/ENiagaraExpansionMode.uasset" 289
+"../../Plugins/FX/Niagara/Content/Enums/ENiagaraEmitterScalabilityMode_Limited.uasset" 290
+"../../Plugins/FX/Niagara/Content/Enums/ENiagaraEmitterLifeCycleMode.uasset" 291
+"../../Plugins/FX/Niagara/Content/Enums/ENiagaraCoordinateSpace.uasset" 292
+"../../Plugins/FX/Niagara/Content/Enums/ENiagaraChannelCorrelation.uasset" 293
+"../../Plugins/FX/Niagara/Content/Enums/ENiagara_UVFlippingMode.uasset" 294
+"../../Plugins/FX/Niagara/Content/Enums/ENiagara_SpriteRotationMode.uasset" 295
+"../../Plugins/FX/Niagara/Content/Enums/ENiagara_SizeScaleMode.uasset" 296
+"../../Plugins/FX/Niagara/Content/Enums/ENiagara_PositionInitializationMode.uasset" 297
+"../../Plugins/FX/Niagara/Content/Enums/ENiagara_MassInitializationMode.uasset" 298
+"../../Plugins/FX/Niagara/Content/Enums/ENiagara_InfiniteLoopDuration.uasset" 299
+"../../Plugins/FX/Niagara/Content/Enums/ENiagara_EmitterStateOptions.uasset" 300
+"../../Plugins/FX/Niagara/Content/Enums/ENiagara_ColorInitializationMode.uasset" 301
+"../../Plugins/FX/Niagara/Content/Modules/Update/Size/ScaleSpriteSize.uasset" 302
+"../../Plugins/FX/Niagara/Content/Modules/Update/Mass/CalculateSizeAndRotationalInertiaByMass.uasset" 303
+"../../Plugins/FX/Niagara/Content/Modules/Update/Lifetime/ParticleState.uasset" 304
+"../../Plugins/FX/Niagara/Content/Functions/Localspace/TransformBase.uasset" 305
+"../../Plugins/FX/Niagara/Content/Functions/Localspace/TransformVector.uasset" 306
+"../../Plugins/FX/Niagara/Content/Modules/Update/Forces/GravityForce.uasset" 307
+"../../Plugins/FX/Niagara/Content/Modules/Update/Forces/Drag.uasset" 308
+"../../Plugins/FX/Niagara/Content/Modules/Update/Color/ScaleColor.uasset" 309
+"../../Plugins/FX/Niagara/Content/Functions/System/SystemChangeState.uasset" 310
+"../../Plugins/FX/Niagara/Content/Modules/System/SystemState.uasset" 311
+"../../Plugins/FX/Niagara/Content/Functions/GetRandomInfo.uasset" 312
+"../../Plugins/FX/Niagara/Content/Functions/RandomRangeFloat.uasset" 313
+"../../Plugins/FX/Niagara/Content/Functions/RandomUnitVector.uasset" 314
+"../../Plugins/FX/Niagara/Content/Functions/RandomVector.uasset" 315
+"../../Plugins/FX/Niagara/Content/Functions/DirectionAndLengthSafe.uasset" 316
+"../../Plugins/FX/Niagara/Content/Functions/NormalizeDistanceRange.uasset" 317
+"../../Plugins/FX/Niagara/Content/Functions/DistanceBasedFalloff.uasset" 318
+"../../Plugins/FX/Niagara/Content/Functions/Localspace/SimulationPosition.uasset" 319
+"../../Plugins/FX/Niagara/Content/Modules/Spawn/Velocity/AddVelocityFromPoint.uasset" 320
+"../../Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRange.uasset" 321
+"../../Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomPointInSphere.uasset" 322
+"../../Plugins/FX/Niagara/Content/Functions/SphericalToCartesianCoordinates.uasset" 323
+"../../Plugins/FX/Niagara/Content/Functions/Rotation/MultiplyVectorWithQuaternion.uasset" 324
 "../../Plugins/FX/Niagara/Content/Functions/Rotation/FindQuatBetween.uasset" 325
-"../../Plugins/FX/Niagara/Content/Functions/Rotation/MultiplyVectorWithQuaternion.uasset" 326
-"../../Plugins/FX/Niagara/Content/Modules/Spawn/Location/V2/SphereLocation.uasset" 327
-"../../Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRangeFloat.uasset" 328
-"../../Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRangeInteger.uasset" 329
-"../../Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomBool.uasset" 330
-"../../Plugins/FX/Niagara/Content/Functions/LinearColor/HueShiftLinearColor.uasset" 331
-"../../Plugins/FX/Niagara/Content/Enums/ENiagara_LifetimeMode.uasset" 332
-"../../Plugins/FX/Niagara/Content/Modules/Spawn/Initialization/V2/InitializeParticle.uasset" 333
-"../../Plugins/FX/Niagara/Content/Modules/Solvers/SolveForcesAndVelocity.uasset" 334
-"../../Plugins/FX/Niagara/Content/Modules/Emitter/SpawnBurst_Instantaneous.uasset" 335
-"../../Plugins/FX/Niagara/Content/Functions/Emitter/EmitterChangeState.uasset" 336
-"../../Plugins/FX/Niagara/Content/Enums/ENiagaraExecutionStateManagement.uasset" 337
-"../../Plugins/FX/Niagara/Content/Modules/Emitter/EmitterState.uasset" 338
-"../../Plugins/FX/Niagara/Content/DynamicInputs/ValueFromCurve/FloatFromCurve.uasset" 339
-"../../Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/V2/RandomRangeFloat.uasset" 340
-"../../Plugins/FX/Niagara/Content/DynamicInputs/TypeConversions/Vector2DFromFloat.uasset" 341
-"../../Plugins/FX/Niagara/Content/DynamicInputs/Helpers/SimulationPosition.uasset" 342
-"../../Plugins/FX/Niagara/Content/DefaultAssets/DefaultSpriteMaterial.uasset" 343
-"../../../../../../Projekty/Unreal Engine/Survival/Content/FX/DestroyFX.uasset" 344
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/StickIcon.uasset" 345
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/Stick/StickMat.uasset" 346
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/Stick/Stick.uasset" 347
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/StickItemBP.uasset" 348
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/StickItem.uasset" 349
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/WaterBottleIcon.uasset" 350
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/WaterBottle/BottleCap.uasset" 351
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/WaterBottle/Bottle.uasset" 352
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/WaterBottle/WaterBottle.uasset" 353
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/Consumable/WaterBottleBP.uasset" 354
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/EmptyBottleIcon.uasset" 355
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/WaterBottle/BottleEmpty.uasset" 356
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/Consumable/EmptyPlasticBottleBP.uasset" 357
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/EmptyPlasticBottle.uasset" 358
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/Consumable/WaterBottleItem.uasset" 359
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/EnergyBarIcon.uasset" 360
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/EnergyBar/EnergyBarSides.uasset" 361
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/EnergyBar/EnergyBarCenter.uasset" 362
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/EnergyBar/EnergyBar.uasset" 363
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/Consumable/EnergyBarItemBP.uasset" 364
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/Consumable/EnergyBarItem.uasset" 365
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/AxeIcon.uasset" 366
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/Axe/Iron.uasset" 367
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/Axe/Handle.uasset" 368
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/Axe/Axe.uasset" 369
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/StoneAxeItemBP.uasset" 370
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/StoneAxeItem.uasset" 371
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/AppleIcon.uasset" 372
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/RedApple/AppleBranch.uasset" 373
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/RedApple/AppleBody.uasset" 374
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/RedApple/Apple.uasset" 375
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/Consumable/AppleItemBP.uasset" 376
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/Consumable/AppleItem.uasset" 377
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Scavenge/ScavengeManagerBP.uasset" 378
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Bullet__Impact__Wood__Heavy_1_SND6413.uasset" 379
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Materials/BuildPrototypeBaseMat.uasset" 380
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Materials/BuildPrototypeGoodMat_Inst.uasset" 381
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Materials/BuildPrototypeBadMat_Inst.uasset" 382
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Buildable/Architecture/Wall.uasset" 383
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Buildable/Architecture/WallMat.uasset" 384
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Architecture/Built/WallBP.uasset" 385
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Buildable/Architecture/Floor.uasset" 386
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Buildable/Architecture/FloorMat.uasset" 387
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Architecture/Built/FloorBP.uasset" 388
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Trailer_Sub__Thump__Short__Processed_04_SND36003.uasset" 389
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/BuildingManagerBP.uasset" 390
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Crew/PlayerBaseEntranceBP.uasset" 391
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Backpack/BackpackMat.uasset" 392
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Backpack/Backpack.uasset" 393
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Shirt3.uasset" 394
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Legs3.uasset" 395
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Dialogs/StartTradeTest.uasset" 396
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Dialogs/EndDialogueEvent.uasset" 397
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Dialogs/TradeDialogueData.uasset" 398
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Dialogs/TradeDialogData.uasset" 399
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter_PhysicsAsset.uasset" 400
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Shoes.uasset" 401
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Shirt.uasset" 402
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/SharedMaterials/Eyes.uasset" 403
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Legs.uasset" 404
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Hair.uasset" 405
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter_Skeleton.uasset" 406
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter.uasset" 407
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter_metarigAction_002.uasset" 408
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter_metarig_metarigAction_001.uasset" 409
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter_metarig_metarigAction.uasset" 410
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter_metarig_Action.uasset" 411
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter_Action_001.uasset" 412
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Statuses/StarvingStatus.uasset" 413
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Statuses/DehydrationStatus.uasset" 414
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Statuses/BleedingStatus.uasset" 415
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Statuses/AloneStatus.uasset" 416
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Personalities/Funny.uasset" 417
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Personalities/Extraverted.uasset" 418
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/NPC_Faces/MarkFace.uasset" 419
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/NPCData/MarkData.uasset" 420
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/AIControllerBP.uasset" 421
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/BPAICharacterBase.uasset" 422
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/BaseCharacterAnimBP.uasset" 423
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/Trader/TraderBP.uasset" 424
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Crew/CharacterExitBP.uasset" 425
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/Trader/TraderBB.uasset" 426
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/Trader/TraderBT.uasset" 427
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/CharacterVariations/MarkCharacter.uasset" 428
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/NPC_Faces/JasonFace.uasset" 429
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Personalities/Introverted.uasset" 430
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/NPCData/JasonData.uasset" 431
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Shirt2.uasset" 432
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/SharedMaterials/SkinDark.uasset" 433
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Legs2.uasset" 434
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Hair2.uasset" 435
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/CharacterVariations/JasonCharacter.uasset" 436
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/NPC_BB.uasset" 437
-"../../../Engine/Content/EditorBlueprintResources/StandardMacros.uasset" 438
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/BTTask_Interact.uasset" 439
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/BTTask_GiveRequiredItems.uasset" 440
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/BTDecorator_IsTargetBuildable.uasset" 441
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/BTDecorator_IsInteractionTypeEqual.uasset" 442
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/BTDecorator_BuildableHasRequiredItems.uasset" 443
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/NPC_BT.uasset" 444
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Human__Misc__Finger_Click_SND23076.uasset" 445
-"../../../Engine/Content/EngineFonts/Faces/RobotoRegular.uasset" 446
-"../../../Engine/Content/EngineFonts/Faces/RobotoLight.uasset" 447
-"../../../Engine/Content/EngineFonts/Faces/RobotoItalic.uasset" 448
-"../../../Engine/Content/EngineFonts/Faces/RobotoBoldItalic.uasset" 449
-"../../../Engine/Content/EngineFonts/Faces/RobotoBold.uasset" 450
-"../../../Engine/Content/EngineFonts/Faces/DroidSansFallback.uasset" 451
-"../../../Engine/Content/EngineFonts/Roboto.uasset" 452
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ClearbackgroundBigger.uasset" 453
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Styles/BorderButtonStyle.uasset" 454
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/clearBackground.uasset" 455
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Settings/SettingsWidgetElement.uasset" 456
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Settings/SettingsWidget.uasset" 457
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/Scavenge/HomeIcon.uasset" 458
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Light_Switch__Flick_11_SND24378.uasset" 459
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Styles/DefaultButtonStyle.uasset" 460
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Scavenge/ScavengeNPCElementWidget.uasset" 461
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Scavenge/ScavengeGroupElement.uasset" 462
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Freesounds/519112__trimono__approving-hm.uasset" 463
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Helpers/SelectorMat.uasset" 464
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Helpers/Selector.uasset" 465
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Selector.uasset" 466
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/BPPlayerControler.uasset" 467
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Scavenge/ScavengePanelWidget.uasset" 468
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Inventory/InventoryTradeWidgetBP.uasset" 469
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Inventory/InventoryitemInfo.uasset" 470
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Inventory/InventoryEquipmentElementWidget.uasset" 471
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Inventory/InventoryEquipmentWidget.uasset" 472
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Inventory/InventoryElementWidgetBP.uasset" 473
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Inventory/InventoryWidgetBP.uasset" 474
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Craft/StoneAxeCraft.uasset" 475
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Craft/StickCraft.uasset" 476
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Interaction/WorkTable/ItemToCreateElementWidget.uasset" 477
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/WorkTable/Wood.uasset" 478
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/WorkTable/WorkTable.uasset" 479
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Interaction/WorkTable/WorkTableWorldWidget.uasset" 480
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Built/WorkTableToBuild.uasset" 481
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Interaction/WorkTable/WorkTableWidget.uasset" 482
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Interaction/ItemActor/ItemActorInfoWidget.uasset" 483
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Interaction/InteractionElementWidget.uasset" 484
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Interaction/InteractionWidget.uasset" 485
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Interaction/Destructible/DestructProgressWidget.uasset" 486
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Dialog/DialogElementWidget.uasset" 487
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Dialog/DialogWidget.uasset" 488
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/NPCStatusElement.uasset" 489
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/StatusesPanelWidget.uasset" 490
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/NPCRelationElementWidget.uasset" 491
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/RelationsPanelWidget.uasset" 492
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/NPCPersonalityElement.uasset" 493
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/PersonalityPanelWidget.uasset" 494
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/NPCNeedElement.uasset" 495
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/NeedsPanelWidget.uasset" 496
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/NPCInfoWidget.uasset" 497
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/CrewElementWidget.uasset" 498
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/CrewWidget.uasset" 499
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/BuildingIcon.uasset" 500
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Bullet__Impact__Metal__Heavy_1_SND6400.uasset" 501
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/BuildingsIcons/WorkTable.uasset" 502
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Building/BuildingPrototypeWidgetBP.uasset" 503
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Prototypes/WorkTablePrototypeBP.uasset" 504
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/BuildingsIcons/Wall.uasset" 505
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Architecture/Prototypes/WallPrototypeBP.uasset" 506
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/BuildingsIcons/FloorIcon.uasset" 507
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Architecture/Prototypes/FloorPrototypeBP.uasset" 508
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Building/BuildingElementWidget.uasset" 509
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/BuildingsIcons/FenceIcon.uasset" 510
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Fence/FenceMat.uasset" 511
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Fence/Fence.uasset" 512
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Built/FenceToBuild.uasset" 513
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Prototypes/FencePrototypeBP.uasset" 514
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/BuildingsIcons/CampfireIcon.uasset" 515
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Campfire/Wood.uasset" 516
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Campfire/Rock.uasset" 517
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Campfire/Campfire.uasset" 518
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Built/CampfireToBuild.uasset" 519
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Prototypes/CampfirePrototypeBP.uasset" 520
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/BuildingsIcons/BedIcon.uasset" 521
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Bed/BedMat2.uasset" 522
-"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Bed/Bed.uasset" 523
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Built/BedToBuildBP.uasset" 524
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Prototypes/BedPrototypeBP.uasset" 525
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Building/BuildingWidget.uasset" 526
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/LostGameWidget.uasset" 527
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/UIManagerBP.uasset" 528
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/LostGame.uasset" 529
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Crew/CrewManagerBP.uasset" 530
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/PlayerGameModeBP.uasset" 531
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Interactable/ChestBP.uasset" 532
-"../../../Engine/Content/BasicShapes/Cube.uasset" 533
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Materials/Road.uasset" 534
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Dialogs/EventTest.uasset" 535
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Dialogs/TestDialogueData.uasset" 536
-"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Dialogs/TestDialogData.uasset" 537
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Dialogs/TestDialogActor.uasset" 538
+"../../Plugins/FX/Niagara/Content/Modules/Spawn/Location/V2/SphereLocation.uasset" 326
+"../../Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRangeInteger.uasset" 327
+"../../Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomBool.uasset" 328
+"../../Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRangeFloat.uasset" 329
+"../../Plugins/FX/Niagara/Content/Functions/LinearColor/HueShiftLinearColor.uasset" 330
+"../../Plugins/FX/Niagara/Content/Enums/ENiagara_LifetimeMode.uasset" 331
+"../../Plugins/FX/Niagara/Content/Modules/Spawn/Initialization/V2/InitializeParticle.uasset" 332
+"../../Plugins/FX/Niagara/Content/Modules/Solvers/SolveForcesAndVelocity.uasset" 333
+"../../Plugins/FX/Niagara/Content/Modules/Emitter/SpawnBurst_Instantaneous.uasset" 334
+"../../Plugins/FX/Niagara/Content/Functions/Emitter/EmitterChangeState.uasset" 335
+"../../Plugins/FX/Niagara/Content/Enums/ENiagaraExecutionStateManagement.uasset" 336
+"../../Plugins/FX/Niagara/Content/Modules/Emitter/EmitterState.uasset" 337
+"../../Plugins/FX/Niagara/Content/DynamicInputs/ValueFromCurve/FloatFromCurve.uasset" 338
+"../../Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/V2/RandomRangeFloat.uasset" 339
+"../../Plugins/FX/Niagara/Content/DynamicInputs/TypeConversions/Vector2DFromFloat.uasset" 340
+"../../Plugins/FX/Niagara/Content/DynamicInputs/Helpers/SimulationPosition.uasset" 341
+"../../Plugins/FX/Niagara/Content/DefaultAssets/DefaultSpriteMaterial.uasset" 342
+"../../../../../../Projekty/Unreal Engine/Survival/Content/FX/DestroyFX.uasset" 343
+"../../../Engine/Content/EngineFonts/Faces/RobotoRegular.uasset" 344
+"../../../Engine/Content/EngineFonts/Faces/RobotoLight.uasset" 345
+"../../../Engine/Content/EngineFonts/Faces/RobotoItalic.uasset" 346
+"../../../Engine/Content/EngineFonts/Faces/RobotoBoldItalic.uasset" 347
+"../../../Engine/Content/EngineFonts/Faces/RobotoBold.uasset" 348
+"../../../Engine/Content/EngineFonts/Faces/DroidSansFallback.uasset" 349
+"../../../Engine/Content/EngineFonts/Roboto.uasset" 350
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ClearbackgroundBigger.uasset" 351
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Human__Misc__Finger_Click_SND23076.uasset" 352
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Styles/BorderButtonStyle.uasset" 353
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/clearBackground.uasset" 354
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Settings/SettingsWidgetElement.uasset" 355
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Settings/SettingsWidget.uasset" 356
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/Scavenge/HomeIcon.uasset" 357
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Light_Switch__Flick_11_SND24378.uasset" 358
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Styles/DefaultButtonStyle.uasset" 359
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Scavenge/ScavengeNPCElementWidget.uasset" 360
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Scavenge/ScavengeGroupElement.uasset" 361
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Freesounds/519112__trimono__approving-hm.uasset" 362
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter_PhysicsAsset.uasset" 363
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Shoes.uasset" 364
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Shirt.uasset" 365
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/SharedMaterials/Eyes.uasset" 366
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Legs.uasset" 367
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Hair.uasset" 368
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter_Skeleton.uasset" 369
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter.uasset" 370
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Statuses/StarvingStatus.uasset" 371
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Statuses/DehydrationStatus.uasset" 372
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Statuses/BleedingStatus.uasset" 373
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Statuses/AloneStatus.uasset" 374
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Personalities/Funny.uasset" 375
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Personalities/Extraverted.uasset" 376
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/NPC_Faces/MarkFace.uasset" 377
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/NPCData/MarkData.uasset" 378
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter_metarigAction_002.uasset" 379
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter_metarig_metarigAction_001.uasset" 380
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter_metarig_metarigAction.uasset" 381
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter_metarig_Action.uasset" 382
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/BaseCharacter_Action_001.uasset" 383
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/BaseCharacterAnimBP.uasset" 384
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/AIControllerBP.uasset" 385
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Crew/PlayerBaseEntranceBP.uasset" 386
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Backpack/BackpackMat.uasset" 387
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Backpack/Backpack.uasset" 388
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Shirt3.uasset" 389
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Legs3.uasset" 390
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/AxeIcon.uasset" 391
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/Axe/Iron.uasset" 392
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/Axe/Handle.uasset" 393
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/Axe/Axe.uasset" 394
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/StoneAxeItemBP.uasset" 395
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/StoneAxeItem.uasset" 396
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/AppleIcon.uasset" 397
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/RedApple/AppleBranch.uasset" 398
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/RedApple/AppleBody.uasset" 399
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/RedApple/Apple.uasset" 400
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/Consumable/AppleItemBP.uasset" 401
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/Consumable/AppleItem.uasset" 402
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Dialogs/StartTradeTest.uasset" 403
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Dialogs/EndDialogueEvent.uasset" 404
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Dialogs/TradeDialogueData.uasset" 405
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Dialogs/TradeDialogData.uasset" 406
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/Trader/TraderBP.uasset" 407
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Crew/CharacterExitBP.uasset" 408
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/Trader/TraderBB.uasset" 409
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/Trader/TraderBT.uasset" 410
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/CharacterVariations/MarkCharacter.uasset" 411
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/NPC_Faces/JasonFace.uasset" 412
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Personalities/Introverted.uasset" 413
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/NPCData/JasonData.uasset" 414
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Shirt2.uasset" 415
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/SharedMaterials/SkinDark.uasset" 416
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Legs2.uasset" 417
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Character/BaseCharacter/Materials/Hair2.uasset" 418
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/CharacterVariations/JasonCharacter.uasset" 419
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/NPC_BB.uasset" 420
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/BTTask_Interact.uasset" 421
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/BTTask_GiveRequiredItems.uasset" 422
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/BTDecorator_IsTargetBuildable.uasset" 423
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/BTDecorator_IsInteractionTypeEqual.uasset" 424
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/BTDecorator_BuildableHasRequiredItems.uasset" 425
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/NPC_BT.uasset" 426
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/LostGame.uasset" 427
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Crew/CrewManagerBP.uasset" 428
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/AI/BPAICharacterBase.uasset" 429
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Helpers/SelectorMat.uasset" 430
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Helpers/Selector.uasset" 431
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Selector.uasset" 432
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/BPPlayerControler.uasset" 433
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Scavenge/ScavengePanelWidget.uasset" 434
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Inventory/InventoryTradeWidgetBP.uasset" 435
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Inventory/InventoryitemInfo.uasset" 436
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Inventory/InventoryEquipmentElementWidget.uasset" 437
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Inventory/InventoryEquipmentWidget.uasset" 438
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Inventory/InventoryElementWidgetBP.uasset" 439
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Inventory/InventoryWidgetBP.uasset" 440
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/StickIcon.uasset" 441
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/Stick/StickMat.uasset" 442
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/Stick/Stick.uasset" 443
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/StickItemBP.uasset" 444
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/StickItem.uasset" 445
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Craft/StoneAxeCraft.uasset" 446
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Craft/StickCraft.uasset" 447
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Interaction/WorkTable/ItemToCreateElementWidget.uasset" 448
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/WorkTable/Wood.uasset" 449
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/WorkTable/WorkTable.uasset" 450
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Interaction/WorkTable/WorkTableWorldWidget.uasset" 451
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Built/WorkTableToBuild.uasset" 452
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Interaction/WorkTable/WorkTableWidget.uasset" 453
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Interaction/ItemActor/ItemActorInfoWidget.uasset" 454
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Interaction/InteractionElementWidget.uasset" 455
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Interaction/InteractionWidget.uasset" 456
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Interaction/Destructible/DestructProgressWidget.uasset" 457
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Dialog/DialogElementWidget.uasset" 458
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Dialog/DialogWidget.uasset" 459
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/NPCRelationElementWidget.uasset" 460
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/RelationsPanelWidget.uasset" 461
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/NPCStatusElement.uasset" 462
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/StatusesPanelWidget.uasset" 463
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/NPCPersonalityElement.uasset" 464
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/PersonalityPanelWidget.uasset" 465
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/NPCNeedElement.uasset" 466
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/NeedsPanelWidget.uasset" 467
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/NPCInfo/NPCInfoWidget.uasset" 468
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/CrewElementWidget.uasset" 469
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Crew/CrewWidget.uasset" 470
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/BuildingIcon.uasset" 471
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Bullet__Impact__Metal__Heavy_1_SND6400.uasset" 472
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/BuildingsIcons/WorkTable.uasset" 473
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Materials/BuildPrototypeBaseMat.uasset" 474
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Building/BuildingPrototypeWidgetBP.uasset" 475
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Prototypes/WorkTablePrototypeBP.uasset" 476
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Building/BuildingElementWidget.uasset" 477
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/BuildingsIcons/FenceIcon.uasset" 478
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Fence/FenceMat.uasset" 479
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Fence/Fence.uasset" 480
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Built/FenceToBuild.uasset" 481
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Prototypes/FencePrototypeBP.uasset" 482
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/BuildingsIcons/CampfireIcon.uasset" 483
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Campfire/Wood.uasset" 484
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Campfire/Rock.uasset" 485
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Campfire/Campfire.uasset" 486
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Built/CampfireToBuild.uasset" 487
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Prototypes/CampfirePrototypeBP.uasset" 488
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/BuildingsIcons/BedIcon.uasset" 489
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Bed/BedMat2.uasset" 490
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Dark/Bed/Bed.uasset" 491
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Built/BedToBuildBP.uasset" 492
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Furnitures/Prototypes/BedPrototypeBP.uasset" 493
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/BuildingsIcons/Wall.uasset" 494
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Buildable/Architecture/Wall.uasset" 495
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Materials/BuildPrototypeGoodMat_Inst.uasset" 496
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Buildable/Architecture/WallMat.uasset" 497
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Architecture/Built/WallBP.uasset" 498
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Architecture/Prototypes/WallPrototypeBP.uasset" 499
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/BuildingsIcons/FloorIcon.uasset" 500
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Buildable/Architecture/Floor.uasset" 501
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Buildable/Architecture/FloorMat.uasset" 502
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Architecture/Built/FloorBP.uasset" 503
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/Architecture/Prototypes/FloorPrototypeBP.uasset" 504
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Building/BuildingWidget.uasset" 505
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/LostGameWidget.uasset" 506
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/UIManagerBP.uasset" 507
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/EnergyBarIcon.uasset" 508
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/EnergyBar/EnergyBarSides.uasset" 509
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/EnergyBar/EnergyBarCenter.uasset" 510
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/EnergyBar/EnergyBar.uasset" 511
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/Consumable/EnergyBarItemBP.uasset" 512
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/Consumable/EnergyBarItem.uasset" 513
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/EmptyBottleIcon.uasset" 514
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/WaterBottle/BottleCap.uasset" 515
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/WaterBottle/Bottle.uasset" 516
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/WaterBottle/WaterBottle.uasset" 517
+"../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Items/WaterBottle/BottleEmpty.uasset" 518
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/Consumable/EmptyPlasticBottleBP.uasset" 519
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/EmptyPlasticBottle.uasset" 520
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Textures/UI/ItemIcons/WaterBottleIcon.uasset" 521
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/ItemActors/Consumable/WaterBottleBP.uasset" 522
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Items/Consumable/WaterBottleItem.uasset" 523
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Scavenge/ScavengeManagerBP.uasset" 524
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Bullet__Impact__Wood__Heavy_1_SND6413.uasset" 525
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Materials/BuildPrototypeBadMat_Inst.uasset" 526
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/Trailer_Sub__Thump__Short__Processed_04_SND36003.uasset" 527
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Building/BuildingManagerBP.uasset" 528
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/PlayerGameModeBP.uasset" 529
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Interactable/ChestBP.uasset" 530
+"../../../Engine/Content/BasicShapes/Cube.uasset" 531
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Materials/Road.uasset" 532
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Dialogs/EventTest.uasset" 533
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Dialogs/TestDialogueData.uasset" 534
+"../../../../../../Projekty/Unreal Engine/Survival/Content/DataAssets/Dialogs/TestDialogData.uasset" 535
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Dialogs/TestDialogActor.uasset" 536
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/UI/Scavenge/ScavengePointWidget.uasset" 537
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Scavenge/ScavengePointBP.uasset" 538
 "../../../Engine/Content/EngineSky/T_Sky_Stars.uasset" 539
 "../../../Engine/Content/EngineSky/T_Sky_Clouds_M.uasset" 540
 "../../../Engine/Content/EngineSky/T_Sky_Blue.uasset" 541
@@ -557,15 +557,15 @@
 "../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/MainMenu/MainMenuGameMode.uasset" 556
 "../../../../../../Projekty/Unreal Engine/Survival/Content/Levels/MainMenu.umap" 557
 "../../../../../../Projekty/Unreal Engine/Survival/Content/Audio/Soundly/ForestBackgroundMusic.uasset" 558
-"../../../../../../Projekty/Unreal Engine/Survival/Content/Levels/ForestLevel_BuiltData.uasset" 559
-"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/Physical_Materials/Dirt.uasset" 560
-"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/ExampleContent/Audio/Physical_Materials/Metal.uasset" 561
-"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/ExampleContent/Audio/Physical_Materials/Rubber.uasset" 562
-"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/DemoRoom/Materials/M_DemoWall.uasset" 563
-"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/DemoRoom/Materials/M_DemoWall_Inst.uasset" 564
-"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/DemoRoom/Materials/M_DemoWall_Inst_3.uasset" 565
-"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/DemoRoom/Materials/M_DemoWall_Inst_NamePlate.uasset" 566
-"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/Physical_Materials/M_Dirt_Inst.uasset" 567
+"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/Physical_Materials/Dirt.uasset" 559
+"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/ExampleContent/Audio/Physical_Materials/Metal.uasset" 560
+"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/ExampleContent/Audio/Physical_Materials/Rubber.uasset" 561
+"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/DemoRoom/Materials/M_DemoWall.uasset" 562
+"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/DemoRoom/Materials/M_DemoWall_Inst.uasset" 563
+"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/DemoRoom/Materials/M_DemoWall_Inst_3.uasset" 564
+"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/MapAssets/DemoRoom/Materials/M_DemoWall_Inst_NamePlate.uasset" 565
+"../../../../../../Projekty/Unreal Engine/Survival/Content/GrenadePack/Physical_Materials/M_Dirt_Inst.uasset" 566
+"../../../../../../Projekty/Unreal Engine/Survival/Content/Levels/ForestLevel_BuiltData.uasset" 567
 "../../../../../../Projekty/Unreal Engine/Survival/Content/LowPoly/Trees/TallTrees/TallTree1.uasset" 568
 "../../../../../../Projekty/Unreal Engine/Survival/Content/Blueprints/Interactable/Destructible/TallTreeBP.uasset" 569
 "../../../../../../Projekty/Unreal Engine/Survival/Content/Levels/ForestLevel.umap" 570
